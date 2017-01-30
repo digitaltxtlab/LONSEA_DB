@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "require('gender')\ngender(\"madison\", method = \"demo\", years = 1985)\ngender(\"madison\", method = \"demo\", years = c(1900, 1985))\n",
+    "created" : 1485777256142.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2036203067",
+    "id" : "F91727BA",
+    "lastKnownWriteTime" : 1485777276,
+    "last_content_update" : 1485777276042,
+    "path" : "~/projects/lonsea/predict.gender.R",
+    "project_path" : "predict.gender.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,214 @@
+"","u_id","u_fname","u_fname_code"
+"61",1,"Interpreter",3
+"47",2,"Member of Section",2
+"6",3,"President",0
+"26",4,"Under Secretary General",1
+"20",5,"Deputy Secretary General",1
+"25",6,"Secretary-General",1
+"36",7,"Expert/Specialist",2
+"38",8,"Fellow",2
+"51",9,"Temporary Collaborator",2
+"178",10,"Cleaner",9
+"98",11,"Proof-Reader",5
+"114",12,"Assistant Librarian",6
+"3",13,"Counsellor",0
+"11",14,"Acting Director",1
+"21",15,"Director",1
+"2",16,"Chairman",0
+"35",17,"Expert",2
+"136",18,"Shorthand Typist",6
+"86",19,"Secretary",4
+"80",20,"Correspondent",4
+"5",21,"Head of Department",0
+"88",22,"Accountant",5
+"109",23,"Assistant",6
+"31",24,"Delegate",2
+"66",25,"Personal Assistant",3
+"23",26,"Head of Section",1
+"29",27,"Assistant High Commissioner",2
+"16",28,"Chief of Section",1
+"32",29,"Delegate of a Commission",2
+"42",30,"League of Nations staff",2
+"72",31,"Translator",3
+"144",32,"Clerical Assistant",7
+"75",33,"Assistant Head of Section",4
+"22",34,"Head of Office",1
+"100",35,"Recording Secretary",5
+"67",36,"Pr√©cis Writer",3
+"96",37,"Minute Writer",5
+"24",38,"High Commissioner",1
+"113",39,"Assistant Head of Office",6
+"129",40,"Librarian",6
+"71",41,"Temporary Correspondent",3
+"70",42,"Statistician",3
+"1",43,"Acting Secretary",0
+"116",44,"Assistant Secretary",6
+"140",45,"Stenographer",6
+"63",46,"Interpreter-Translator",3
+"142",47,"Verbatim Reporter",6
+"87",48,"Senior Assistant",4
+"12",49,"Acting Secretary General",1
+"43",50,"Legal Adviser",2
+"8",51,"Secretariat",0
+"28",52,"Assistant Director",2
+"123",53,"Clerk",6
+"48",54,"Official",2
+"85",55,"Research Student",4
+"13",56,"Chef de Cabinet",1
+"170",57,"Lon Duplicator",8
+"9",58,"Unspecified",0
+"135",59,"Secretary-Shorthand-Typist",6
+"165",60,"Copyist",8
+"191",61,"House Staff",9
+"68",62,"Reviser",3
+"184",63,"Driver",9
+"155",64,"Messenger",7
+"194",65,"Liftboy",9
+"172",66,"Office Keeper",8
+"202",67,"Packer",9
+"156",68,"Messenger-Clerk",7
+"186",69,"Electrician",9
+"119",70,"Assistant Translator",6
+"182",71,"Cyclist",9
+"173",72,"Polycopist",8
+"120",73,"Calligrapher",6
+"212",74,"Typewriter Mechanic",9
+"201",75,"Night-watchman",9
+"159",76,"Press-Cutter",7
+"124",77,"Concordeur",6
+"146",78,"Copyholder",7
+"132",79,"Proof Corrector",6
+"157",80,"Multigraph Operator",7
+"133",81,"Secretary Shorthand-Typist",6
+"189",82,"Gardener",9
+"187",83,"Furnaceman",9
+"137",84,"Sorter",6
+"176",85,"Telephonist",8
+"180",86,"Concierge",9
+"95",87,"Guide for visitors",5
+"205",88,"Service staff",9
+"115",89,"Assistant Registrar",6
+"27",90,"Appointed Commissioner-General",2
+"139",91,"Statistical Clerk",6
+"4",92,"General",0
+"84",93,"Registrar General",4
+"206",94,"Shipping Clerk",9
+"117",95,"Assistant Statistician",6
+"82",96,"Private Secretary",4
+"141",97,"Typist",6
+"127",98,"Indexer",6
+"167",99,"Draughtsman",8
+"64",100,"Liaison Officer",3
+"39",101,"Field Epidemiologist",2
+"138",102,"Statistical Assistant",6
+"145",103,"Clerk Assistant",7
+"125",104,"French Pr√©cis Writer",6
+"203",105,"Plumber",9
+"200",106,"Motorcyclist",9
+"46",107,"Member",2
+"150",108,"Junior Assistant",7
+"211",109,"Telephone Operator",9
+"174",110,"Roneo Operator",8
+"134",111,"Secretary Stenographer",6
+"147",112,"Duplicating Operator",7
+"193",113,"Lift Attendant",9
+"60",114,"Internal Control Officer",3
+"148",115,"Duplicator Operator",7
+"198",116,"Mechanic",9
+"108",117,"Acting Verbatim-Reporter",6
+"37",118,"External Legal Adviser",2
+"56",119,"Collaborator",3
+"101",120,"Secretary of Section",5
+"177",121,"Carpenter",9
+"213",122,"Usher",9
+"209",123,"Tea Messenger",9
+"19",124,"Deputy Director",1
+"50",125,"Specialist",2
+"33",126,"Deputy Chief",2
+"53",127," Translator-Reviser",3
+"62",128,"Interpreter Reviser",3
+"91",129,"Bilingual Shorthand-Typist",5
+"111",130,"Assistant Archivist",6
+"97",131,"Press Reader",5
+"107",132,"Acting Office-Keeper",6
+"106",133,"Travelling Auditor",5
+"118",134,"Assistant Superintendant",6
+"163",135,"Clerk Messenger",8
+"152",136,"Junior Clerical Assistant",7
+"196",137,"M√©canicien-Serrurier",9
+"112",138,"Assistant Control Officer",6
+"110",139,"Assistant Accountant",6
+"121",140,"Cataloguer",6
+"164",141,"Clerk Stagiaire ",8
+"93",142,"First Class Assistant",5
+"208",143,"Tea Girl",9
+"40",144,"Financial Officer",2
+"158",145,"Order Clerk",7
+"199",146,"Messenger-Cyclist",9
+"57",147,"English Translating Service",3
+"207",148,"Tapissier",9
+"175",149,"Rotaprint Operator",8
+"204",150,"Relieur",9
+"153",151,"Junior Clerk",7
+"41",152,"Head of Service",2
+"154",153,"Lon Corrector",7
+"18",154,"Chief Translator",1
+"17",155,"Chief of Service",1
+"69",156,"Shorthand Pr√©cis Writer",3
+"181",157,"Cook",9
+"128",158,"Lector",6
+"99",159,"Reader",5
+"81",160,"Inspector-Reviser",4
+"58",161,"French Translator",3
+"131",162,"Officer",6
+"45",163,"Medical Referee",2
+"197",164,"Manutentionnaire",9
+"183",165,"Day Watchman",9
+"55",166,"Assistant Chief",3
+"185",167,"Driver-mecanician",9
+"169",168,"Head Driver",8
+"92",169,"Establishment Clerk",5
+"161",170,"Senior Clerk Assistant",7
+"168",171,"Head Cleaner",8
+"83",172,"Registrar",4
+"14",173,"Chief Librarian",1
+"102",174,"Senior Assistant Indexer",5
+"15",175,"Chief of Office",1
+"79",176,"Controller",4
+"94",177,"Guide ",5
+"76",178,"Chief Accountant",4
+"171",179,"Nurse",8
+"44",180,"Medical Commissioner",2
+"73",181,"Translator-Interpreter",3
+"103",182,"Superintendant",5
+"149",183,"Junior Administrative Assistant",7
+"126",184,"French Press Review",6
+"151",185,"Junior Cataloguer",7
+"166",186,"Corrector",8
+"160",187,"Senior Clerical Assistant",7
+"65",188,"Member of the Intermediate Class",3
+"130",189,"Local Engagement",6
+"77",190,"Consultant",4
+"30",191,"Attaché",2
+"52",192,"Temporary Member",2
+"104",193,"Supervisor",5
+"210",194,"Technician",9
+"105",195,"Temporary Proof-Reader",5
+"54",196,"Appropriation Officer",3
+"195",197,"Ling√®re",9
+"192",198,"Huissier",9
+"78",199,"Contrema√Ætre-m√©canicien",4
+"188",200,"Furniture Remover",9
+"7",201,"President of the Bureau",0
+"10",202,"Vice President",0
+"190",203,"Guard",9
+"179",204,"Cloakroom Attendant",9
+"89",205,"Advisor",5
+"90",206,"Assistant Editor",5
+"34",207,"Deputy Registrar",2
+"162",208,"Cashier",8
+"49",209,"Representative",2
+"59",210,"Honorary Correspondent",3
+"143",211,"Book-keeper",7
+"74",212,"Welfare Officer",3
+"122",213,"Classeur",6

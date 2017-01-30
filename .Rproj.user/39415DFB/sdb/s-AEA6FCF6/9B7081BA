@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#!/usr/bin/Rscript\nrm(list = ls())\n#\"\"\"\n# add coded fnames (classes) to main data frame \n#\"\"\"\nsource(\"data.extract.R\")\nmain.df <- dat2.df; rm(dat2.df)\n\n# import \nclass.df <- read.csv(\"data/fname_u_with_class.csv\", sep = \",\", header = FALSE, stringsAsFactors = FALSE)# changed original category csv due to encoding\n# column names \ncolnames(class.df) = c(\"u_id\", \"u_fname\" , \"u_fname_code\")  \n# code every object in main\ntmp <- rep(NA,nrow(main.df))\nfor(i in 1:nrow(class.df)){\n  idx <- class.df$u_fname[i] == main.df$fname\n  tmp[idx] <- class.df$u_fname_code[i]\n}\n# add column\nmain.df$fname_code <- tmp\n\n### mdl 1: Average Career Path\n## the average career score (fname_code) for each (unique) object (pname)\n\n# number of months in organization\nn_months <- function(y1,y2,m1, m2){\n  y1m1 <- 12 - m1\n  y2y1 <- y2 - y1\n  if(y1 < y2){\n    msum <- msum <- (12 - m1 + m2) + 12 * (y2y1 - 1)}else{\n      msum = m2-m1\n    }\n  if(msum == 0){\n    msum = 1\n  }\n  return(msum)\n}\n# calculate mode\ngetmode <- function(v) {\n  uniqv <- unique(v)\n  uniqv[which.max(tabulate(match(v, uniqv)))]\n}\n\n\nhead(main.df)\npname_u <- unique(main.df$pname)\nnationality_u <- rep(NA,length(pname_u))\n# pre-allocate\npname_mat <- matrix(NA,length(pname_u),6)\n# generate numeric scores\nfor(i in 1:length(pname_u)){\n  \n  \n  idx <- pname_u[i] == main.df$pname\n  df <- main.df[idx,]\n  avg <- mean(df$fname_code)\n  std <- sd(df$fname_code)\n  if(is.na(std)){std = 0}\n  med <- median(df$fname_code)\n  gen <- getmode(df$gender) # gender based on mode of codes\n  # calculate time spend in LoN\n  n = nrow(df) \n  if(n > 1){\n    y <- c(df$begin_on_year[1], df$end_on_year[n])\n    m <- c(df$begin_on_month[1],df$end_on_month[n])\n  }else{\n    y <- c(df$begin_on_year[1], df$end_on_year[1]) \n    m <- c(df$begin_on_month[1], df$end_on_month[1])\n  }\n  # imputation rule: if both years are missing, then NA is upheld, if both months are missing months are assumed identical, if one  year or month is missing the existing value is used\n  if(sum(is.na(m)) == 1){\n    m[is.na(m)] = m[!is.na(m)]\n  }\n  if(sum(is.na(m)) == 2){\n    m = c(1,1)\n  }\n  if(sum(is.na(y)) == 1){\n    y[is.na(y)] = y[!is.na(y)]\n  }\n  if(sum(is.na(y)) == 2){\n    dura = NA\n    }else{\n      dura <- n_months(y[1],y[2],m[1],m[2])\n    }\n  age_entry <- y[1] - mean(df$born_on_year, na.rm = T) \n  # update matrix\n  pname_mat[i,1] <- avg\n  pname_mat[i,2] <- std\n  pname_mat[i,3] <- med\n  pname_mat[i,4] <- dura\n  pname_mat[i,5] <- age_entry\n  pname_mat[i,6] <- gen\n  # string vars\n  nationality_u[i] <- getmode(unique(df$nationality))\n}\n# data frame with numerical variables for rank, duration in IoN, entry age, (most frequent) gender, and (most frequent) nationality\nmain_u.df <- data.frame(pname_u,pname_mat)\ncolnames(main_u.df) = c(\"name\",\"avg_rank\",\"sd_rank\",\"median_rank\",\"duration\",\"entry_age\",\"gender\")\nmain_u.df$nationality <- nationality_u\n\n\n\n\n\n\n",
+    "created" : 1485777359286.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "730496773",
+    "id" : "9B7081BA",
+    "lastKnownWriteTime" : 1485784474,
+    "last_content_update" : 1485784474868,
+    "path" : "~/projects/lonsea/career.dev.R",
+    "project_path" : "career.dev.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
