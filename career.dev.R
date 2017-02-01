@@ -101,6 +101,7 @@ main_u.df <- data.frame(pname_u,pname_mat, stringsAsFactors = F)
 colnames(main_u.df) = c("name","avg_rank","sd_rank","median_rank","duration","entry_age","gender","DoB")
 main_u.df$nationality <- tolower(nationality_u)
 
+
 # imputation of gender
 gen <- pname_mat[,6]
 gen[is.na(gen)] = -1
@@ -149,6 +150,7 @@ mdl3 <- lm(avg_rank ~ gender, data = main_u.df)
 summary(mdl3)
 mdl4 <- lm(avg_rank ~ nationality, data = main_u.df)
 summary(mdl4)
+
 # multi var
 mdl_1_2 <- lm(avg_rank ~ gender * duration, data = main_u.df)
 summary(mdl_1_2)
