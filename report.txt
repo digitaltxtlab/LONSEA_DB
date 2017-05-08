@@ -1,0 +1,2 @@
+'a simple linear regression was calculated to predict average job rank based on gender.
+A significant regression equation was found (F(1,3890)= 383, p<.0001), with an adjusted R² of 0.09. The predicted weight is equal to -1.4 (+/-0.07) with male as reference category. 

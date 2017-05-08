@@ -47,5 +47,5 @@ General Assembly
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 meeting February 1, 2017
 distribution of members pr. year
- -
-do canonical_fname for division for annual distribution of members
+ - do canonical_fname for division for annual distribution of members
+ - viz matters

@@ -6,7 +6,7 @@ rm(list = ls())
 # add naitonality
 #
 #"""
-require("gender")
+require(gender)
 source("data.extract.R")
 main.df <- dat2.df; rm(dat2.df)
 
@@ -51,8 +51,6 @@ nationality_u <- rep(NA,length(pname_u))
 pname_mat <- matrix(NA,length(pname_u),7)
 # generate numeric scores
 for(i in 1:length(pname_u)){
-
-
   idx <- pname_u[i] == main.df$pname
   df <- main.df[idx,]
   avg <- mean(df$fname_code)
@@ -115,7 +113,6 @@ c2[1] <- 'Anastasia'
 pr = c(sum(gen[!idx] == 0)/length(gen[!idx]), sum(gen[!idx] == 1)/length(gen[!idx]))
 c1 = rbinom(length(c1), 1, pr[2])
 # c2
-
 tmp <- rep(NA,length(c2)/2)
 for(i in 1:2){
   c2[i] <- strsplit(c2[i]," ")[[1]][1]
@@ -136,12 +133,11 @@ main_u.df$nationality[main_u.df$nationality == ""] = 'unknown'
 main_u.df$nationality <- as.factor(main_u.df$nationality)
 # imputation of nationary, TODO
 
-# update workspace
+# update workspace and export
 rm(list=setdiff(ls(), "main_u.df"))
-
+# write.csv(main_u.df, file = 'data/lon_data_u.csv')
 ### models for demonstation
 colnames(main_u.df)
-# rank on gender
 mdl1 <- lm(avg_rank ~ duration, data = main_u.df)
 summary(mdl1)
 mdl2 <- lm(avg_rank ~ entry_age, data = main_u.df)
@@ -154,3 +150,9 @@ summary(mdl4)
 # multi var
 mdl_1_2 <- lm(avg_rank ~ gender * duration, data = main_u.df)
 summary(mdl_1_2)
+
+# export data for Seaborn
+write.table(main_u.df, file = "/home/kln/Documents/proj/lonsea/main_u.csv", append = FALSE, sep = ",",
+            eol = "\n", na = "NA", dec = ".", row.names = FALSE,
+            col.names = TRUE, fileEncoding = "utf-8")
+
