@@ -8,7 +8,7 @@ for(i in 1:length(list.of.packages)){
 #"""
 # add coded fnames (classes) to main data frame
 # model individual career path for each member using a mixed liear model in foward model selection
-# 
+#
 #"""
 source("data.extract.R")
 main.df <- dat2.df; rm(dat2.df)
@@ -57,14 +57,15 @@ gender <- as.factor(c[idx])
 df <- data.frame(status,year,gender)
 df$gender <- mapvalues(df$gender, from = c('-1','0','1'),to=c('unknown','male','female'))
 # Scatter plot of x and y variables and color by groups
-fig <- ggplot(df,aes(status, year, color = gender)) + geom_point() + 
-    scale_color_brewer(palette="Greys") + 
-    ggtitle('Status distribution')  + 
+fig <- ggplot(df,aes(status, year, color = gender)) + geom_point() +
+    scale_color_brewer(palette="Greys") +
+    ggtitle('Status distribution')  +
     labs(x="Status",y="Year")
    # Marginal density plot
 fig2 <- ggMarginal(fig)
-ggsave('figures/status_dist.png',fig2, width = 7, height = 6,
-      units = 'in' ,dpi = 600)
+print(fig2)
+#ggsave('figures/status_dist.png',fig2, width = 7, height = 6,
+#      units = 'in' ,dpi = 600)
 
 ### clean main based on 'begin_on_year'
 # remove na
@@ -82,7 +83,7 @@ main.df = main.df[idx12,]
 # predictor 1: begin in year and month for for fname
 x1 <- main.df$begin_on_year
 x2 <- main.df$begin_on_month
-x_1 <- x1 + x2/12# + x3/30 
+x_1 <- x1 + x2/12# + x3/30
 # predictor 2: gender
 x_2 <- main.df$gender
 x_2[is.na(x_2)] = -1
@@ -114,6 +115,6 @@ mdl1 <- lmer(status ~ entry_time + (1|name), data = mdl_df)
 mdl2 <- lmer(status ~ entry_time + gender + (1|name), data = mdl_df)
 mdl3 <- lmer(status ~ entry_time + gender + nation + (1|name), data = mdl_df)
 
-anova(mdl0,mdl1,mdl2,mdl3)
+print(anova(mdl0,mdl1,mdl2,mdl3))
 
-summary(mdl3)
+print(summary(mdl3))
