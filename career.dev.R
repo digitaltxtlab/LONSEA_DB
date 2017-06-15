@@ -1,12 +1,19 @@
 #!/usr/bin/Rscript
-rm(list = ls())
+#!/usr/bin/Rscript
+## dynamically check, install and load libraries
+list.of.packages <- c("gender")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
+for(i in 1:length(list.of.packages)){
+  require(list.of.packages[i], character.only = TRUE)
+}
 #"""
 # add coded fnames (classes) to main data frame
 # build matrix of numerical variables averaged on person (u: unique pname)
 # add naitonality
 #
 #"""
-require(gender)
+rm(list = ls())
 source("data.extract.R")
 main.df <- dat2.df; rm(dat2.df)
 

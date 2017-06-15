@@ -1,12 +1,17 @@
 #!/usr/bin/Rscript
-
+## dynamically check, install and load libraries
+list.of.packages <- c("stringr")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
+for(i in 1:length(list.of.packages)){
+  require(list.of.packages[i], character.only = TRUE)
+}
 #"""
 # import LONSEA projects original data and remove objects that are not LoN and General Assembly 
 # clean nationality and replace empty entries with NA
 #"""
-
 rm(list = ls())
-require(stringr)
+
 
 dat.df <- read.csv("data/sheet1.csv", stringsAsFactors = FALSE)
 # features

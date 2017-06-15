@@ -1,9 +1,14 @@
 #!/usr/bin/Rscript
-rm(list = ls())
+list.of.packages <- c("ggplot2","ggExtra","plyr","lme4")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
+for(i in 1:length(list.of.packages)){
+  require(list.of.packages[i], character.only = TRUE)
+}
 #"""
 # add coded fnames (classes) to main data frame
-# model individual career path for each member
-#
+# model individual career path for each member using a mixed liear model in foward model selection
+# 
 #"""
 source("data.extract.R")
 main.df <- dat2.df; rm(dat2.df)
@@ -36,10 +41,6 @@ careerpath <- function(df){
 }
 
 # plot distribution of status on for each user with multiple instances
-require(ggplot2)
-require(ggExtra)
-require(plyr)
-
 x <- main.df$fname_code
 y <- main.df$end_on_year + main.df$end_on_month/10
 c = main.df$gender
@@ -63,4 +64,56 @@ fig <- ggplot(df,aes(status, year, color = gender)) + geom_point() +
    # Marginal density plot
 fig2 <- ggMarginal(fig)
 ggsave('figures/status_dist.png',fig2, width = 7, height = 6,
-       units = 'in' ,dpi = 600)
+      units = 'in' ,dpi = 600)
+
+### clean main based on 'begin_on_year'
+# remove na
+idx_na_yr = !is.na(main.df['begin_on_year'])
+main.df = main.df[idx_na_yr,]
+idx_na_m =  !is.na(main.df['begin_on_month'])
+main.df = main.df[idx_na_m,]
+# remove errrors
+idx1900 = main.df['begin_on_year'] > 1900
+main.df = main.df[idx1900,]
+idx12 = main.df['begin_on_month'] <= 12
+main.df = main.df[idx12,]
+### model
+## fixed factors
+# predictor 1: begin in year and month for for fname
+x1 <- main.df$begin_on_year
+x2 <- main.df$begin_on_month
+x_1 <- x1 + x2/12# + x3/30 
+# predictor 2: gender
+x_2 <- main.df$gender
+x_2[is.na(x_2)] = -1
+x_2 = as.factor(x_2)
+levels(x_2) = c("NA", "man", "woman")
+
+# predictor 3: nationality
+x_3 <- main.df$nationality
+x_3[!x_3 == "Swiss"] = "international"
+x_3[x_3 == "Swiss"] = "national"
+x_3 <- as.factor(x_3)
+# predictor 4: age
+x_4 <- main.df$born_on_year
+
+## random factors
+# person
+x_r_1 = as.factor(main.df$pname)
+## response
+y_1 = main.df$fname_code
+
+# model data frame
+mdl_df = data.frame(y_1,x_1,x_2,x_3,x_r_1)
+colnames(mdl_df) = c("status","entry_time","gender","nation","name")
+head(mdl_df)
+
+# model selection
+mdl0 <- lmer(status ~ 1 + (1|name), data = mdl_df)
+mdl1 <- lmer(status ~ entry_time + (1|name), data = mdl_df)
+mdl2 <- lmer(status ~ entry_time + gender + (1|name), data = mdl_df)
+mdl3 <- lmer(status ~ entry_time + gender + nation + (1|name), data = mdl_df)
+
+anova(mdl0,mdl1,mdl2,mdl3)
+
+summary(mdl3)

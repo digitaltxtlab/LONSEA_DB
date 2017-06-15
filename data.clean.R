@@ -1,3 +1,11 @@
+#!/usr/bin/Rscript
+## dynamically check, install and load libraries
+list.of.packages <- c("mice","VIM","lattice")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
+for(i in 1:length(list.of.packages)){
+  require(list.of.packages[i], character.only = TRUE)
+}
 source("data.import.R")
 
 # test sample
@@ -14,15 +22,12 @@ num.idx <- dat.class.v == "integer"
 dat.num.df <- dat.df[,num.idx] 
 
 ## missing feature values
-library(mice)
+
 #md.pattern(test.num.df)
 
-
-library(VIM)
 dev.new()
 aggr_plot <- aggr(dat.num.df, col=c('navyblue','red'), numbers=TRUE, sortVars=TRUE, 
                   labels=names(data), cex.axis=.7, gap=3, ylab=c("Histogram of missing data","Pattern"))
-
 
 cat ("Press [enter] to continue")
 line <- readline()
@@ -39,6 +44,3 @@ print(dat.df[idx,])
 
 #require(lattice)
 #densityplot(tmp.dat)
-
-
-
