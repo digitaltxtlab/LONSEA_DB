@@ -1,4 +1,3 @@
-#!/usr/bin/Rscript
 list.of.packages <- c("ggplot2","ggExtra","plyr","lme4")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
@@ -7,7 +6,7 @@ for(i in 1:length(list.of.packages)){
 }
 #"""
 # add coded fnames (classes) to main data frame
-# model individual career path for each member using a mixed liear model in foward model selection
+# model individual career path for each member using a mixed linear model in foward model selection
 #
 #"""
 source("data.extract.R")

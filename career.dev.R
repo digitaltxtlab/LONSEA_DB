@@ -1,5 +1,3 @@
-#!/usr/bin/Rscript
-#!/usr/bin/Rscript
 ## dynamically check, install and load libraries
 list.of.packages <- c("gender")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]

@@ -40,8 +40,3 @@ for(i in 1:ncol(dat.df)){
   cat ("Press [enter] to continue")
   line <- readline()
 }
-
-
-
-
-
