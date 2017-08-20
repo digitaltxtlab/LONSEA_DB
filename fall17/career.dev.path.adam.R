@@ -42,6 +42,9 @@ careerpath <- function(df){
   return(res)
 }
 
+
+
+
 # plot distribution of status on for each user with multiple instances
 x <- main.df$fname_code
 y <- main.df$end_on_year + main.df$end_on_month/10
@@ -68,6 +71,16 @@ fig2 <- ggMarginal(fig) #ggmarginal adds density plots at the margin - neat.
 print(fig2)
 #ggsave('figures/status_dist.png',fig2, width = 7, height = 6,
 #      units = 'in' ,dpi = 600)
+
+#Problem: three subjects have begin_on_year = born_on_year =end_on_year 
+ main.df %>% 
+  filter(born_on_year == begin_on_year & born_on_year == end_on_year)
+  
+
+#they are removed from the further analysis, main.df is not saved with them omitted
+ main.df <- main.df %>% 
+  filter(!(id == 11382| id == 11650 | id == 11712))
+
 
 ### clean main based on 'begin_on_year'
 # remove na
@@ -110,6 +123,10 @@ y_1 = main.df$fname_code
 mdl_df = data.frame(y_1,x_1,x_2,x_3,x_r_1)
 colnames(mdl_df) = c("status","entry_time","gender","nation","name")
 head(mdl_df)
+
+
+
+
 
 # model selection
 mdl0 <- lmer(status ~ 1 + (1|name), data = mdl_df)
@@ -155,8 +172,14 @@ mdl_df %>%
 mdl_df %>% 
   ggplot(aes(gender,status, color = gender))+
   geom_boxplot()
-#Interesting here how little variance there are in woman. They aren't completely in the bottom.Furthermore,
-#there are a couple of outliers
+
+mdl_df %>% 
+  filter(gender == "woman") %>% 
+  group_by(nation) %>% 
+  summarise(count = n())
+
+
+
 mdl_df %>% 
   filter(status < 5 & gender == "woman" & !duplicated(name)) %>% #counting womans per rank, for ranks "better" than 5
   mutate(stauts = as.factor(status)) %>% 
@@ -177,3 +200,12 @@ mdl_df %>%
 anova(baseline,model1, gender_add_model,nation_add_model)
 sum1 <- summary(nation_add_model)
 sum2 <- summary(mdl3)
+ 
+# Jeanne Ritter 11382 in main.df has born_on_year equal to begin_on_year
+
+mdl_df %>% 
+  filter(gender == "man" | gender == "woman" ) %>% 
+  ggplot(aes(nation,status, fill = gender )) +
+  geom_boxplot() +
+  facet_grid( ~ gender)
+
