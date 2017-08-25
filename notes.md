@@ -8,7 +8,7 @@ At the moment, we have 12468 people, 3872 places, 1161 organisations and 21 topi
 - missing data/imputation
 - normalization of *nationality* (rule: select country; select first)  
 - repetition of *pname* based on *canonical_fname* (reflect organization history of individual)
-
+- Three person (15 rows) have identical born years, begin year and end year. In career.path.dev.adam.R they are omitted in the analysis.
 
 fname
 canonical_fname: hierarchical

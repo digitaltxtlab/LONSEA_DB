@@ -1,0 +1,8 @@
+Workflow 25/8:
+
+Formed lon_data into five_nat.df consisting 5 regions: Scandinavia, South American, French, Swiss, British
+In this process, dual double nationalities are united, and spelling mistakes are corrected i.e. "SwissFrench" -> "Swiss, French"
+Problem: begin dates before 1919 -> are removed
+
+Scripts for initial plots made: Bar diagrams of member distribution as well as density/proportion plots.
+
