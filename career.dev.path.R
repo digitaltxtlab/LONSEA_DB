@@ -1,4 +1,4 @@
-list.of.packages <- c("ggplot2","ggExtra","plyr","lme4")
+list.of.packages <- c("ggplot2","ggExtra","plyr","lme4", "nlme","tidyverse")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
 for(i in 1:length(list.of.packages)){
@@ -12,17 +12,20 @@ for(i in 1:length(list.of.packages)){
 source("data.extract.R")
 main.df <- dat2.df; rm(dat2.df)
 
-# import
+# import data frame of rank names to ordinal scale
 class.df <- read.csv("data/fname_u_with_class.csv", sep = ",", header = FALSE, stringsAsFactors = FALSE)# changed original category csv due to encoding
 # column names
 colnames(class.df) = c("u_id", "u_fname" , "u_fname_code")
 # code every object in main
 tmp <- rep(NA,nrow(main.df))
+
 for(i in 1:nrow(class.df)){
+  #for each rank a logical vector indexing subject numbers are created
   idx <- class.df$u_fname[i] == main.df$fname
+  #true index are translated to oridnal rank numbers for each subject
   tmp[idx] <- class.df$u_fname_code[i]
 }
-# add column
+#ordinal rank numbers are added
 main.df$fname_code <- tmp
 
 # list with one matrix pr user with col1: year and col2: fname_code
@@ -60,8 +63,8 @@ fig <- ggplot(df,aes(status, year, color = gender)) + geom_point() +
     scale_color_brewer(palette="Greys") +
     ggtitle('Status distribution')  +
     labs(x="Status",y="Year")
-   # Marginal density plot
-fig2 <- ggMarginal(fig)
+# Marginal density plot
+fig2 <- ggMarginal(fig) #ggmarginal adds density plots at the margin - neat.
 print(fig2)
 #ggsave('figures/status_dist.png',fig2, width = 7, height = 6,
 #      units = 'in' ,dpi = 600)
@@ -117,3 +120,4 @@ mdl3 <- lmer(status ~ entry_time + gender + nation + (1|name), data = mdl_df)
 print(anova(mdl0,mdl1,mdl2,mdl3))
 
 print(summary(mdl3))
+
