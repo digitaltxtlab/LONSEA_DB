@@ -4,8 +4,10 @@ if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
 for(i in 1:length(list.of.packages)){
   require(list.of.packages[i], character.only = TRUE)
 }
+setwd("~/Historie projekt/historie project/LONSEA_DB")
+da <- read.csv("fall17/nation5.wo_temp.w_GA.csv")
 
-da <- read.csv("fall17/five_nationalities_data.csv")
+
 
 da <- da %>% 
   filter(begin_on_year > 1900)
@@ -33,6 +35,8 @@ for(i in 1:nrow(ordinal_ranks)){
 }
 #ordinal rank numbers are added
 da$fname_code <- extract_rank
+
+#write.csv(da, "nation5.wo_temp.W_GA_rank.csv")
 
 mdl_da <- da %>% 
   select(fname_code,pname, entry_time, nationality) %>% 
@@ -68,7 +72,7 @@ add_interaction <- update(nation_add_model, .~. +nationality:entry_time)
 
 anova(baseline, random_intercept, entry_model, nation_add_model, add_interaction)
 
-summary(nation_add_model)
+summary(add_interaction)
 
 mdl_da %>% 
   filter(nationality == "British") %>% 
@@ -79,8 +83,8 @@ mdl_da %>%
   summarise(count = mean(status))
 
 
-#Elaborating on the analysis
-#plotting intercept
+
+#Plotting the graph
 mdl_da %>% 
   ggplot(aes(entry_time,status, color = nationality)) +
   geom_point(alpha = 0.0001)+
@@ -89,21 +93,32 @@ mdl_da %>%
   labs(x = "Year", y ="Status of new entries in LoN", titles ="Status over time for full LoN Secretariat")
   
 
+#dividing data into three division
 
+division_da <- da %>% 
+  select(fname_code,pname, entry_time, nationality,canonical_fname) %>% 
+  filter(!is.na(entry_time)) %>% 
+  filter(!(canonical_fname == "First Division" | canonical_fname == "Second Division" | canonical_fname =="Third Division")) 
+other_canon <- division_da
+other_canon$canonical_fname <- "Other"
 
-mdl_da %>% 
-  filter(entry_time < 1924) %>% 
-  filter(nationality == "South American") %>% 
-  summarise(mean = mean(status))
+division_da <- da %>% 
+  select(fname_code,pname, entry_time, nationality,canonical_fname) %>% 
+  filter(!is.na(entry_time)) %>% 
+  filter((canonical_fname == "First Division" | canonical_fname == "Second Division" | canonical_fname =="Third Division")) 
 
+division_da <- rbind(division_da, other_canon)
+division_da$canonical_fname <- droplevels(division_da$canonical_fname)
+colnames(division_da) <- c("status","name","entry_time","nationality", "division")
 
-mdl_da %>% 
-  filter(entry_time <1934) %>% 
-  #filter(nationality == "French") %>% 
-  summarise(mean = mean(status))
+#plotting results for each division
+division_da %>% 
+  ggplot(aes(entry_time,status, color = nationality)) +
+  geom_point(alpha = 0.0001)+
+  geom_jitter(height = 0.25)+
+  geom_smooth(se = T, method = "lm", linetype = "solid", size = 2) +
+  facet_wrap(~division, scales = "free")
 
-
-  #shows that average status decreases over time: More people at the top over time. 
 
 
 #adding gender as predictiv variable

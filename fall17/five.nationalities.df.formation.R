@@ -1,8 +1,13 @@
 #lon_data.csv updating nations to five regions
-lon.df <- read.csv("C:\\Users\\Adam\\Documents\\Historie projekt\\historie project\\LONSEA_DB\\data\\lon_data.csv", sep = ",", header = T, stringsAsFactors = FALSE, na.strings=c("","NA"))
-#removing NAs
+setwd("~/Historie projekt/historie project/LONSEA_DB/fall17")
+
+
+lon.df <- read.csv("lon_data_w_GA.csv", sep = ",", header = T, stringsAsFactors = FALSE, na.strings=c("","NA"))
+
+#removing NAs and temporary collaborators
 lon.df <- lon.df %>%
   filter(!is.na(nationality)) %>% 
+  filter(!fname == "Temporary Collaborator")
   mutate(nationality = as.factor(nationality))
 
 
@@ -51,4 +56,4 @@ summary(as.factor(five_nat.df$nationality))
 five_nat.df1 <- five_nat.df %>% 
   filter(nationality == "British"|nationality == "South American"| nationality == "Scandinavian"| nationality == "Swiss"| nationality == "French")
 
-#write.csv(five_nat.df1, file = "five_nationalities_data.csv")
+#write.csv(five_nat.df1, file = "nation5.wo_temp.w_GA.csv")
