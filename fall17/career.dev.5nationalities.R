@@ -5,38 +5,9 @@ for(i in 1:length(list.of.packages)){
   require(list.of.packages[i], character.only = TRUE)
 }
 setwd("~/Historie projekt/historie project/LONSEA_DB")
-da <- read.csv("fall17/nation5.wo_temp.w_GA.csv")
+da <- read.csv("fall17/reversedfname_nation5.wo_temp_fcode0.w_GA_rank.csv")
 
 
-
-da <- da %>% 
-  filter(begin_on_year > 1900)
-
-x1 <- da$begin_on_year
-x2 <- da$begin_on_month
-x_1 <- x1 + x2/12# + x3/30
-
-da <- da %>% 
-  mutate(entry_time = x_1)
-
-
-# import data frame of rank names to ordinal scale
-ordinal_ranks <- read.csv("data/fname_u_with_class.csv", sep = ",", header = FALSE, stringsAsFactors = FALSE)# changed original category csv due to encoding
-# column names
-colnames(ordinal_ranks) = c("u_id", "u_fname" , "u_fname_code")
-# code every object in main
-extract_rank <- rep(NA,nrow(da))
-
-for(i in 1:nrow(ordinal_ranks)){
-  #for each rank a logical vector indexing subject numbers are created
-  idx <- ordinal_ranks$u_fname[i] == da$fname
-  #true index are translated to oridnal rank numbers for each subject
-  extract_rank[idx] <- ordinal_ranks$u_fname_code[i]
-}
-#ordinal rank numbers are added
-da$fname_code <- extract_rank
-
-#write.csv(da, "nation5.wo_temp.W_GA_rank.csv")
 
 mdl_da <- da %>% 
   select(fname_code,pname, entry_time, nationality) %>% 
@@ -90,36 +61,38 @@ mdl_da %>%
   geom_point(alpha = 0.0001)+
   geom_jitter(height = 0.25)+
   geom_smooth(se = T, method = "lm", linetype = "solid", size = 2) +
-  labs(x = "Year", y ="Status of new entries in LoN", titles ="Status over time for full LoN Secretariat")
+  labs(x = "Year", y ="Ranks of new entries in LoN", titles ="Ranks over time for full LoN Secretariat")+
+  scale_y_continuous(breaks = round(seq(min(mdl_da$status), max(mdl_da$status), by = 1),1)) 
   
 
 #dividing data into three division
 
-division_da <- da %>% 
-  select(fname_code,pname, entry_time, nationality,canonical_fname) %>% 
-  filter(!is.na(entry_time)) %>% 
-  filter(!(canonical_fname == "First Division" | canonical_fname == "Second Division" | canonical_fname =="Third Division")) 
-other_canon <- division_da
-other_canon$canonical_fname <- "Other"
+#division_da <- da %>% 
+#  select(fname_code,pname, entry_time, nationality,canonical_fname) %>% 
+#  filter(!is.na(entry_time)) %>% 
+#  filter(!(canonical_fname == "First Division" | canonical_fname == "Second Division" | canonical_fname =="Third Division")) 
+#other_canon <- division_da
+#other_canon$canonical_fname <- "Other"
 
 division_da <- da %>% 
   select(fname_code,pname, entry_time, nationality,canonical_fname) %>% 
   filter(!is.na(entry_time)) %>% 
   filter((canonical_fname == "First Division" | canonical_fname == "Second Division" | canonical_fname =="Third Division")) 
-
-division_da <- rbind(division_da, other_canon)
 division_da$canonical_fname <- droplevels(division_da$canonical_fname)
 colnames(division_da) <- c("status","name","entry_time","nationality", "division")
+#division_da <- rbind(division_da, other_canon)
+
+
 
 #plotting results for each division
 division_da %>% 
+  filter(!name == "Raymond Ian Gordon Watt") %>% 
   ggplot(aes(entry_time,status, color = nationality)) +
   geom_point(alpha = 0.0001)+
   geom_jitter(height = 0.25)+
   geom_smooth(se = T, method = "lm", linetype = "solid", size = 2) +
-  facet_wrap(~division, scales = "free")
-
-
+  scale_y_continuous(breaks = round(seq(min(mdl_da$status), max(mdl_da$status), by = 1),1)) +
+  facet_wrap(~division)
 
 #adding gender as predictiv variable
 
