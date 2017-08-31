@@ -1,0 +1,33 @@
+Statiscal analysis:
+
+Rank and nationality analysis on nation5.wo_temp,from career.dev.5nationalities:
+
+> anova(baseline, random_intercept, entry_model, nation_add_model, add_interaction)
+                 Model df      AIC      BIC     logLik   Test  L.Ratio p-value
+baseline             1  2 21313.93 21327.03 -10654.963                        
+random_intercept     2  3 16602.82 16622.47  -8298.412 1 vs 2 4713.103  <.0001
+entry_model          3  4 16603.03 16629.22  -8297.513 2 vs 3    1.799  0.1799
+nation_add_model     4  8 15884.38 15936.78  -7934.192 3 vs 4  726.642  <.0001
+add_interaction      5 12 15862.75 15941.35  -7919.376 4 vs 5   29.632  <.0001
+
+
+There are a significant main effects of entry time on the ranks X^2(1) = 1.8, p = .01799, and the nationality of the employee X^2(4) = 726.6, p<.0001. Furthermore, there are significant interaction effecs between nationality and entry_time P(4) = 29,6 p<.0001, thus effect nationality had on rank varied over time.
+
+
+Fixed effects: status ~ entry_time + nationality + entry_time:nationality 
+                                         Value Std.Error   DF   t-value p-value
+(Intercept)                           35.31139   7.35774 2636  4.799219  0.0000
+entry_time                            -0.01559   0.00382 2636 -4.085585  0.0000
+nationalityFrench                    -25.19078  12.15738 2519 -2.072057  0.0384
+nationalityScandinavian              114.71219  35.78997 2519  3.205149  0.0014
+nationalitySouth American            195.91140  88.31780 2519  2.218255  0.0266
+nationalitySwiss                     -27.21660   9.89132 2519 -2.751565  0.0060
+entry_time:nationalityFrench           0.01319   0.00631 2636  2.092170  0.0365
+entry_time:nationalityScandinavian    -0.06004   0.01856 2636 -3.234353  0.0012
+entry_time:nationalitySouth American  -0.10216   0.04579 2636 -2.231150  0.0258
+entry_time:nationalitySwiss            0.01513   0.00513 2636  2.951435  0.0032
+
+
+Using British personnel as a baseline, we see that all time x nationality interaction effects are more or less significant. It's worth noting that the French and British personnel differs from British personnel in a similiar way, for France b=0.013, t(2636) = 2.09, p = 0.036 and for Switzerland b=0.015, t(2636) = 2.95, p = 0.003.
+Compared to British personnel French and Swiss employees get slightly higher rank over time, however, this is slow growing effect.
+An opposite pattern is seen with regard to Scandinavians and South Americans. Both interaction effects show steeper decreasing slopes. For South Americans b=-0.01, t(2636) = -2.23, p = 0.0258 and for Scandinavians b = 0.06, t(2636) = -3.23, p = 0.0012.

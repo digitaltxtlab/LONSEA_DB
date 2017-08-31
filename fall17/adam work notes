@@ -7,15 +7,43 @@ Problem: begin dates before 1919 -> are removed
 Scripts for initial plots made: Bar diagrams of member distribution as well as density/proportion plots.
 
 
-28:
+28/8:
 Created five_nationalities_wo_tempo : without temporary Collaborators.
 Created script for statisical analysis of 5 nationalities, called five.nationalities.df.formation.R
 Run the analysis
 
-29:
+29/8:
 Created a better data frame: nation5.wo_temp.W_GA_rank.csv
 Elaborate name: data frame of 5 nations, without temporary worker, with general assembly and their fname_code rank added as a column.
 
 Remade the analysis from yesterday with general assembly, i.e done rank/nationality/division analysis on this data set. Script for this is career.dev.5nationalitis.
 
-Made slow code for converting employment intervals into a  employee/work period matrix. The matrix consists of all months from 1919-01-01 to 1948-12-30. A number indicates the rank that the person had this month. A member just need to have been hired for 1 day of the month to be noted. If a member had multiple ranks during the period it’s the latest that is assigned. This is done in employment_interval_df.R 
+Made slow code for converting employment intervals into a  employee/work period matrix. The matrix consists of all months from 1919-01-01 to 1948-12-30. A number indicates the rank that the person had this month. A member just need to have been hired for 1 day of the month to be noted. If a member had multiple ranks during the period it’s the first rank that is assigned (uses a break). This is done in employment_interval_df.R 
+
+30/8: Got faster script for employment_intervals. This data set is well suited for contract lengths and # of employees count. 
+
+31/8:
+Changes to data:
+Explanation: da$pname = “Some Name” indicates the name of the person under change
+da[indx,15] <-“Some Nationality” indicates the changed to nationality 
+
+indx <- da$pname == "Dr. Jur. Thanassis (Athanase) Aghnides"
+da[indx,15] <- "Greek"
+
+indx <- da$pname == "Erik Andreas Colban"
+da[indx,15] <- "Norwegian"
+
+
+indx <- da$pname == "Juan Antonio Buero"
+da[indx,15] <- "Uruguayan"
+
+indx<- da$pname == "Yotaro Sugimura"
+da[indx,15] <- "Japanese"
+
+Name “"Prof. Inazo NitobÃ©" is changed to “Inazo Nitobe” so it matches the other entry with “Inazo Nitobe”, both their nationalities are changed to “Japanese” and their conflicting genders are changed to male = 0. 
+From the function and birthyear of both persons we can infer that they are the same “Inazo Nitobe”-
+
+Based on these data sets, length of contracts are made as well as statistical analysis of the first division. Here it's seen if Scandinavia is significantly different
+
+
+

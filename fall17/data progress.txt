@@ -1,0 +1,23 @@
+﻿Data progress:
+  Initial data processing is done by Kristoffer and the result is in file “lon_data”. First change made by Adam is to leave “General Assembly” people in. This initial version is stored in “lon_data_w_GW”, which also the first file in the lonsea_DB/Fall17 folder. All work done by Adam is located in the fall17 folder. 
+Further modificants of the “lon_data_w_GW” data set are found in sub folders of fall17. The most precise way to get an overview of changes to “lon_data_w_GW” is to look throught df_formation scripts in the folders. A summary of changes is:
+For all data sets:
+  Temporary workers removed
+People with missing years and months removed
+All “begin_on_year” and “end_on_year” below 1918 are removed.
+Missing “begin_on_day” and “end_on_day” are set to 1
+Date columns are unified to ymd date format (Y%-M%-D%)
+Spelling mistakes in nationalities are made.
+Double same nationality entries are flattened, i.e. “French, French” is made into “French.
+Fname_code (ordinal rank scale) is added
+Fname_code is reverted so that 10 represent highest rank in LoN and 1 lowest.
+Fname_code = 0 are filtered out
+
+In region specific data sets:
+  Double nationalities are left out. 
+
+For specific jobs, like First Division analysis, relevant filterings are made. 
+
+At this point, the up to date data set for all nations is:
+  reversedfcode_all.wo_temp_fcode0.w_GA_rank_intervals.csv
+Which means: it has reversed fcode, includes all. It’s without temporaries, fcode = 0. It’s with General Assembly and work intervals.

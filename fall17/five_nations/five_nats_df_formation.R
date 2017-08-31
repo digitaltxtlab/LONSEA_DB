@@ -62,13 +62,13 @@ summary(as.factor(five_nat.df$nationality))
 five_nat.df1 <- five_nat.df %>% 
   filter(nationality == "British"|nationality == "South American"| nationality == "Scandinavian"| nationality == "Swiss"| nationality == "French")
 
+da <- five_nat.df1
+#replacing missing days
+da <- da %>%
+  mutate(begin_on_day = replace(begin_on_day, is.na(begin_on_day), 1),
+         end_on_day = replace(end_on_day, is.na(end_on_day), 1))
 
-da <- read.csv("fall17/lon_data_w_GA.csv", sep = ",", header = T, stringsAsFactors = FALSE, na.strings=c("","NA"))
-
-#Lines used for cleaning data which is now saved
-
-
-
+#adding entry times (Kristoffer left over)
 x1 <- da$begin_on_year
 x2 <- da$begin_on_month
 x_1 <- x1 + x2/12# + x3/30
@@ -96,9 +96,13 @@ da <- da %>%
   filter(begin_on_year > 1900) %>% 
   filter(fname_code != 0)
 
+#adding contract periods
+da$begin_date <- as.Date(with(da, paste(begin_on_year, begin_on_month, begin_on_day,sep="-")), "%Y-%m-%d")
+da$end_date <- as.Date(with(da, paste(end_on_year, end_on_month, end_on_day,sep="-")), "%Y-%m-%d")
+
 #reversing fname_code order
 da1 <- da
 for (i in 1:nrow(da)) {
 da1$fname_code[i] <- 10-da$fname_code[i]}
-#write.csv(da1,"reversedfname_all.wo_temp_fcode0.w_GA_rank.csv")
+#write.csv(da1,"reversedfcode_nation5.wo_temp_fcode0.w_GA_rank_intervals.csv")
 

@@ -5,25 +5,25 @@ for(i in 1:length(list.of.packages)){
   require(list.of.packages[i], character.only = TRUE)
 }
 
+#Analyzing employment and contract length for first division for 5 nationaltiies
 
 
-setwd("~/Historie projekt/historie project/LONSEA_DB/fall17")
-
-da <- read.csv("reversedfname_nation5.wo_temp_fcode0.w_GA_rank.csv")
-
-
+setwd("~/Historie projekt/historie project/LONSEA_DB/fall17/five_nations")
+da <- read.csv("reversedfcode_nation5.wo_temp_fcode0.w_GA_rank_intervals.csv")
+#looking at first division
 da <- da %>% 
-  filter(begin_on_year > 1900 & end_on_year >1900)
-da$begin_date <- as.Date(with(da, paste(begin_on_year, begin_on_month, begin_on_day,sep="-")), "%Y-%m-%d")
-da$end_date <- as.Date(with(da, paste(end_on_year, end_on_month, end_on_day,sep="-")), "%Y-%m-%d")
+  filter(canonical_fname == "First Division")
+
 
 da <- da %>% 
   filter(!is.na(da$begin_date) & !is.na(da$end_date))  
-  
+
 da$pname <- droplevels(da$pname)
 
 mdl_df <- da %>% 
-  select(pname, fname_code,begin_date, end_date)
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
 
 
 
@@ -68,7 +68,7 @@ plot.df %>%
   ggplot(aes(x = date, y = count, color = count)) +
   geom_col()+
   scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
-  labs(x = "Years", y = "Number of employees", title = " month total")
+  labs(x = "Years", y = "Number of employees", title = "First Division: Number of employees")
 
 
 
@@ -84,11 +84,13 @@ for (i in 1:(nrow(contract_length))){
 
 
 names <- as.character(result[,1])
+
 plot.df <- cbind(contract_length,names) %>% 
-  as.data.frame() %>% 
-  mutate(V1 = as.numeric(V1),
+as.data.frame() %>% 
+  mutate(V1 = as.numeric(as.character(V1)),
          names = as.factor(names))
-colnames(plot.df) <- c("Years","Name")
+  
+colnames(plot.df) <- c("Months","Name")
 
 #gettig names and nationalities
 nats <- da %>% 
@@ -102,8 +104,14 @@ plot_nat.df <- merge(nats, plot.df)
 
 
 plot_nat.df %>% 
-  ggplot(aes(x = Years, color = Years))+ 
+  ggplot(aes(x = Months, color = Months))+ 
   geom_density(aes(group = Nationality, color = Nationality)) +
-  labs(x = "Months", y = "Density of contract lengths", title = "Contract Lengths For 5 Regions")
+  labs(x = "Months", y = "Density of contract lengths", title = "First Division: Contract Lengths For 5 Regions")+
+  scale_x_continuous(breaks = seq(0,350, 12))
 
+plot_nat.df %>% 
+  ggplot(aes(x = Months, fill = Nationality,  color = Nationality))+ 
+  geom_bar(width = 1)+
+  labs(x = "Months", y = "Numbber of contract lengths", title = " All divisions: Contract Lengths For 5 Regions")+
+  scale_x_continuous(breaks = seq(0,350, by = 12))
 
