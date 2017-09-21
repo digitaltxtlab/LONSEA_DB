@@ -1,3 +1,6 @@
+
+
+
 list.of.packages <- c("stringr","ggplot2","ggExtra","plyr","lme4", "nlme","tidyverse", "zoo","lubridate", "data.table")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
@@ -11,7 +14,7 @@ setwd("~/Historie projekt/historie project/LONSEA_DB/fall17")
 da <- read.csv("lon_data_w_GA.csv", sep = ",", header = T, stringsAsFactors = FALSE, na.strings=c("","NA"))
 
 directors <- da %>% 
-  filter(!is.na(str_match(da$fname, "Director"))) %>% 
+  filter(str_detect(da$fname, "Director")) %>% 
   select(pname) %>% 
   unique() %>% 
   as.list()
