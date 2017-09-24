@@ -1,18 +1,15 @@
 ---
 title: "R markdown template""
 author: "Adam Finnemann"
-date: "September 21, 2017"
-output: "html"
+date: "September 24, 2017"
 ---
   
 ```{r setup, include=FALSE}
 
-list.of.packages <- c("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
-for(i in 1:length(list.of.packages)){
-  require(list.of.packages[i], character.only = TRUE)
-}
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+
 
 setwd("wd path")
 knitr::opts_knit$set(root.dir = "wd path")

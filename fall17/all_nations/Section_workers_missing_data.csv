@@ -1,27 +1,27 @@
-;pname;fname;begin_on_day;begin_on_month;end_on_day;end_on_month;end_on_year
-1;Solon George Xenakis;Member of Section;21;6;1;NA;NA
-2;Frank Paul Walters;Head of Section;10;1;1;NA;NA
-3;Harold Nicolson;Member of Section;21;10;1;NA;NA
-4;Julian Nogueira;Member of Section;28;1;1;NA;NA
-5;Julian Nogueira;Member of Section;1;NA;14;10;1934
-6;William O'Sullivan-Molony;Member of Section;1;NA;1;NA;1922
-7;Eugène Henri René  Vigier;Member of Section;1;1;1;NA;NA
-8;John Leslie Palmer;Member of Section;10;1;1;NA;1936
-9;John Leslie Palmer;Member of Section;1;NA;24;3;1939
-10;John Leslie Palmer;Member of Section;1;NA;1;NA;NA
-11;Hugh McKinnon Wood;Member of Section;1;11;1;NA;NA
-12;Salvador Madariga;Member of Section;22;8;1;NA;NA
-13;Salvador Madariga;Chief of Section;1;8;1;NA;NA
-14;Âke  Hammarskjöld;Member of Section;19;3;1;NA;1922
-15;Arthur Elliott Felkin;Member of Section;15;1;1;NA;NA
-16;Johan Marie Frans Romein;Member of Section;12;10;1;NA;1932
-17;Orie Benjamin Gerig;Member of Section;1;7;31;21;1938
-18;Evelyne Meylan;Member of Section;1;NA;22;2;1921
-19;F. Geraldine Delf;Member of Section;14;8;1;NA;NA
-20;Thomas Paterson;Head of Section;7;10;1;NA;NA
-21;Elisabeth Delannoy;Member of Section;6;7;1;NA;NA
-22;Manual Juan Arocha;Member of Section;1;10;1;NA;1925
-23;Manual Juan Arocha;Member of Section;1;NA;18;4;1936
-24;Octave Auguste Arsandaux;Chief of Section;1;NA;22;5;1926
-25;John Pawley Bate;Member of Section;1;NA;1;NA;1919
-26;Henry Reginald Cummings;Member of Section;10;1;1;NA;1931
+"","pname","fname","begin_on_day","begin_on_month","end_on_day","end_on_month","end_on_year"
+"1","Solon George Xenakis","Member of Section",21,6,1,NA,NA
+"2","Frank Paul Walters","Head of Section",10,1,1,NA,NA
+"3","Harold Nicolson","Member of Section",21,10,1,NA,NA
+"4","Julian Nogueira","Member of Section",28,1,1,NA,NA
+"5","Julian Nogueira","Member of Section",1,NA,14,10,1934
+"6","William O'Sullivan-Molony","Member of Section",1,NA,1,NA,1922
+"7","Eugène Henri René  Vigier","Member of Section",1,1,1,NA,NA
+"8","John Leslie Palmer","Member of Section",10,1,1,NA,1936
+"9","John Leslie Palmer","Member of Section",1,NA,24,3,1939
+"10","John Leslie Palmer","Member of Section",1,NA,1,NA,NA
+"11","Hugh McKinnon Wood","Member of Section",1,11,1,NA,NA
+"12","Salvador Madariga","Member of Section",22,8,1,NA,NA
+"13","Salvador Madariga","Chief of Section",1,8,1,NA,NA
+"14","Âke  Hammarskjöld","Member of Section",19,3,1,NA,1922
+"15","Arthur Elliott Felkin","Member of Section",15,1,1,NA,NA
+"16","Johan Marie Frans Romein","Member of Section",12,10,1,NA,1932
+"17","Orie Benjamin Gerig","Member of Section",1,7,31,21,1938
+"18","Evelyne Meylan","Member of Section",1,NA,22,2,1921
+"19","F. Geraldine Delf","Member of Section",14,8,1,NA,NA
+"20","Thomas Paterson","Head of Section",7,10,1,NA,NA
+"21","Elisabeth Delannoy","Member of Section",6,7,1,NA,NA
+"22","Manual Juan Arocha","Member of Section",1,10,1,NA,1925
+"23","Manual Juan Arocha","Member of Section",1,NA,18,4,1936
+"24","Octave Auguste Arsandaux","Chief of Section",1,NA,22,5,1926
+"25","John Pawley Bate","Member of Section",1,NA,1,NA,1919
+"26","Henry Reginald Cummings","Member of Section",10,1,1,NA,1931

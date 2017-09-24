@@ -7,7 +7,7 @@ output:
   pdf_document: default
 ---
 Question: 
-How many people were there overall in the section over time. This is answered by extracting all observations were "Section" is part of the fname.
+How many people were there overall in the section over time. This is answered by extracting all observations were "Section" is part of the fname, EXCEPT(!) fname = "Secretary of Section". They are excluded, since they belong to another group
 
 
 ```{r setup, include=FALSE}
@@ -27,12 +27,16 @@ da <- read.csv(list.files(pattern ="rever"))
 
 ```
 
-
 ```{r}
 
+
 section_worker <- da %>% 
-  filter(str_detect(da$fname, "Section"))
+  filter(str_detect(da$fname, "Section")) %>%  
+  filter(fname != "Secretary of Section")
+
+
 ```
+
 
 Calculating how many different people there were in the Section.
 ```{r}
@@ -44,7 +48,7 @@ section_worker %>%
 
   
 
-There are a total 362 observations of "Section" in the fname column. These comes from 266 different people.
+There are a total 356 observations of "Section" in the fname column. These comes from 261 different people.
 
 The distrbution of Section fnames is found (some of these are from the same persons)
 ```{r}
@@ -81,7 +85,7 @@ result <- setDT(mdl_df)[
 
 The above lines creates the time_point/person_contract data_frame. It's visualized below with its three first time points (19-10-01 to 1919-12-01).
 
-It has 250 observations, meaning that 266-250 = 16 people from the section isn't represented.
+It has 245 observations, meaning that 261-245 = 16 people from the section isn't represented.
 
 
 Here is a list of the 16 not included people. This is due to missing data points.
