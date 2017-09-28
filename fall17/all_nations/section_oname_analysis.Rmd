@@ -1,0 +1,310 @@
+---
+title: "R markdown template"
+author: "Adam Finnemann"
+date: "September 24, 2017"
+---
+Aim: get an complete overview of the specific sections (onames) for LoN workers that worked in sections (as fname).
+
+  
+```{r setup, include=FALSE}
+
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/fall17/all_nations")
+
+
+da <- read.csv(list.files(pattern = "reversed"))
+```
+
+
+Section workers is found by searching for "Section" in fname. Workers with fname = "Secretary of Section" are excluded.
+
+```{r}
+section_worker <- da %>% 
+  filter(str_detect(da$fname, "Section")) %>%  
+  filter(fname != "Secretary of Section")
+
+section_worker %>% 
+  filter(!duplicated(id)) %>% 
+  nrow
+
+```
+356 observations from 261 individuals are found
+
+Their specific sections are found
+```{r}
+section_worker<-droplevels(section_worker)
+
+sections <-summary(section_worker$oname)
+
+sections <- sections %>% as.data.frame() 
+sections$oname <- rownames(sections)
+
+sections
+```
+
+Further employment analysis is carried out for the following sections:
+health, disarmament, mandates, legal, communications and transit, information, economic and financial section (which goes together with the economic relations section and the financial & economic intelligence service), intellectual cooperation and international bureaux section, minorities (which go together with Administrative and Minorities), the social questions and opium traffic, and the political section
+
+First, the three economic sections are united under 1
+Same for "Minorities" and "Admin. and Minotories".
+
+```{r}
+
+oname_correct <- section_worker %>% 
+  mutate(oname = str_replace_all(oname, "Financial Section & Economic Intelligence Service","Economic and Financial Section"),
+        oname = str_replace_all(oname, "Economic Relations Section","Economic and Financial Section"),
+        oname = str_replace_all(oname, "Minorities Section", "Administrative and Minorities Section")
+         )
+
+```
+
+Workers belonging to large sections are extracted. "large section" is defined as sections with 10 or more contracts.
+```{r}
+
+
+large_section <- summary(section_worker$oname) %>% 
+  as.data.frame()
+large_section = mutate(large_section,oname = rownames(large_section)) 
+
+large_section <- filter(large_section, . >9)
+
+
+large_section_worker <- section_worker %>% 
+  filter(oname %in% large_section$oname) %>% 
+  droplevels(large_section$oname)
+
+summary(large_section_worker$oname)
+
+```
+293 contracts remain in the 13 largest sections. 
+
+First gender balance for large sections are found as a table and visualized
+```{r}
+large_section_worker$gender <- as.factor(large_section_worker$gender)
+
+large_section_worker <- large_section_worker %>% 
+  mutate(gender = recode(gender,"0" = "male", "1"="female"))
+
+large_section_worker %>% 
+group_by(oname, gender) %>% 
+  tally()
+
+```
+
+
+```{r}
+large_section_worker %>% 
+   ggplot(aes(gender)) + 
+  geom_histogram(stat = "count", aes(fill = gender)) + 
+  scale_color_hue()+
+  labs(x = "Gender", y = "Count")+
+  facet_wrap(~oname)
+```
+
+Nationality distribution for the different sections are found:
+
+```{r}
+large_section_worker %>% 
+group_by(oname, nationality) %>% 
+  tally()
+```
+
+```{r}
+large_section_worker %>% 
+   ggplot(aes(nationality)) + 
+  geom_histogram(stat = "count", aes(fill = nationality)) + 
+  scale_color_hue()+
+  labs(x = "Nationality", y = "Count")+
+  scale_x_discrete(breaks = NULL)+
+  facet_wrap(~oname)
+```
+
+More specific nationality analysis?
+
+```{r}
+
+
+```
+
+Age analysis:
+calculating age at contract start and finding average
+```{r}
+large_section_worker <- large_section_worker %>% 
+  mutate(age_at_contract_start = begin_on_year - born_on_year) 
+sum(is.na(large_section_worker$age_at_contract_start))
+```
+There are 68 missing data points for age
+
+In percentage, how many of the contracts from each section are missing the age of the worker:
+```{r}
+large_section_worker %>% 
+  group_by(oname) %>% 
+  summarise(NAs = sum(is.na(age_at_contract_start)/length(age_at_contract_start)))
+```
+
+What is the average age for of workers at their beggining of their contract:
+```{r}
+large_section_worker %>% 
+  group_by(oname) %>% 
+  summarise(mean_age = mean(age_at_contract_start, na.rm = T))
+
+```
+
+
+```{r}
+large_section_worker %>% 
+   ggplot(aes(age_at_contract_start)) + 
+
+  geom_histogram(breaks = seq(20,60, 1), aes(fill = ..count..)) + 
+  scale_fill_gradient("count", low="orange", high="purple") +
+  labs(x = "Age", y = "Count")+
+  facet_wrap(~oname)
+```
+
+
+Employment graphs will be made. First a dataframe of contracts with missing data points is made.
+
+```{r}
+leftout_contracts <- large_section_worker %>% 
+  filter( is.na(large_section_worker$begin_date) | is.na(large_section_worker$end_date))
+
+length(unique(leftout_contracts$pname))
+
+```
+
+21 contract coming from 17 different people have missing data points and won't be in the following analysis. The contract comes from the following sections.
+```{r}
+summary(droplevels(leftout_contracts$oname))
+
+```
+
+The 21 left out contracts are:
+```{r}
+leftout_contracts %>% select(pname, oname, begin_date, end_date)
+```
+
+
+```{r}
+source("employment_interval_function.R")
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[1])
+
+employment(plot, title1 = levels(large_section_worker$oname)[1])
+
+```
+
+```{r}
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[2])
+
+employment(plot, title1 = levels(large_section_worker$oname)[2])
+
+```
+
+
+```{r}
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[3])
+
+employment(plot, title1 = levels(large_section_worker$oname)[3])
+
+```
+```{r}
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[4])
+
+employment(plot, title1 = levels(large_section_worker$oname)[4])
+
+```
+
+```{r}
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[5])
+
+employment(plot, title1 = levels(large_section_worker$oname)[5])
+
+```
+
+```{r}
+
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[6])
+
+employment(plot, title1 = levels(large_section_worker$oname)[6])
+
+```
+
+```{r}
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[7])
+
+employment(plot, title1 = levels(large_section_worker$oname)[7])
+
+```
+
+
+
+```{r}
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[2])
+
+employment(plot, title1 = levels(large_section_worker$oname)[2])
+
+```
+
+
+```{r}
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[8])
+
+employment(plot, title1 = levels(large_section_worker$oname)[8])
+
+```
+
+
+
+```{r}
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[9])
+
+employment(plot, title1 = levels(large_section_worker$oname)[9])
+
+```
+
+
+```{r}
+
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[10])
+
+employment(plot, title1 = levels(large_section_worker$oname)[10])
+
+```
+
+```{r}
+
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[11])
+
+employment(plot, title1 = levels(large_section_worker$oname)[11])
+
+```
+
+```{r}
+
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[12])
+
+employment(plot, title1 = levels(large_section_worker$oname)[12])
+
+```
+```{r}
+
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[13])
+
+employment(plot, title1 = levels(large_section_worker$oname)[13])
+
+```

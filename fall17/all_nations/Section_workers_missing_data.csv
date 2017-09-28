@@ -1,27 +1,90 @@
-"","pname","fname","begin_on_day","begin_on_month","end_on_day","end_on_month","end_on_year"
-"1","Solon George Xenakis","Member of Section",21,6,1,NA,NA
-"2","Frank Paul Walters","Head of Section",10,1,1,NA,NA
-"3","Harold Nicolson","Member of Section",21,10,1,NA,NA
-"4","Julian Nogueira","Member of Section",28,1,1,NA,NA
-"5","Julian Nogueira","Member of Section",1,NA,14,10,1934
-"6","William O'Sullivan-Molony","Member of Section",1,NA,1,NA,1922
-"7","Eugène Henri René  Vigier","Member of Section",1,1,1,NA,NA
-"8","John Leslie Palmer","Member of Section",10,1,1,NA,1936
-"9","John Leslie Palmer","Member of Section",1,NA,24,3,1939
-"10","John Leslie Palmer","Member of Section",1,NA,1,NA,NA
-"11","Hugh McKinnon Wood","Member of Section",1,11,1,NA,NA
-"12","Salvador Madariga","Member of Section",22,8,1,NA,NA
-"13","Salvador Madariga","Chief of Section",1,8,1,NA,NA
-"14","Âke  Hammarskjöld","Member of Section",19,3,1,NA,1922
-"15","Arthur Elliott Felkin","Member of Section",15,1,1,NA,NA
-"16","Johan Marie Frans Romein","Member of Section",12,10,1,NA,1932
-"17","Orie Benjamin Gerig","Member of Section",1,7,31,21,1938
-"18","Evelyne Meylan","Member of Section",1,NA,22,2,1921
-"19","F. Geraldine Delf","Member of Section",14,8,1,NA,NA
-"20","Thomas Paterson","Head of Section",7,10,1,NA,NA
-"21","Elisabeth Delannoy","Member of Section",6,7,1,NA,NA
-"22","Manual Juan Arocha","Member of Section",1,10,1,NA,1925
-"23","Manual Juan Arocha","Member of Section",1,NA,18,4,1936
-"24","Octave Auguste Arsandaux","Chief of Section",1,NA,22,5,1926
-"25","John Pawley Bate","Member of Section",1,NA,1,NA,1919
-"26","Henry Reginald Cummings","Member of Section",10,1,1,NA,1931
+;pname;fname;begin_on_day;begin_on_month;begin_on_year;end_on_day;end_on_month;end_on_year;born_on_year
+1;Dr. G. G.  Kullmann;Member of Section;30;3;1931;15;12;1938;NA
+2;Dr. Hawkling Yen;Member of Section;1;1;1921;31;5;1922;NA
+3;Eugène Xammar;Member of Section;1;9;1920;15;12;1921;NA
+4;Solon George Xenakis;Member of Section;21;6;1925;1;NA;NA;1884
+5;Sarah Wambaugh;Member of Section;20;7;1920;20;12;1920;NA
+6;Frank Paul Walters;Head of Section;10;1;1920;1;NA;NA;1888
+7;Stanislas Adolphe Neyman;Member of Section;27;4;1920;20;5;1939;NA
+8;Dr. Charles Leslie Park;Member of Section;9;9;1929;13;5;1946;NA
+9;C.H. Wykes;Member of Section;19;8;1919;9;1;1920;NA
+10;Harold Nicolson;Member of Section;21;10;1919;1;NA;NA;NA
+11;Julian Nogueira;Member of Section;28;1;1921;1;NA;NA;NA
+12;Julian Nogueira;Member of Section;1;NA;1922;14;10;1934;NA
+13;Julian Nogueira;Member of Section;15;10;1934;15;6;1939;NA
+14;Marc August Nolda;Member of Section;30;7;1926;31;12;1933;NA
+15;Ragnar Nurkse;Member of Section;1;5;1934;31;7;1946;NA
+16;Bertil Gotthard Ohlin;Member of Section;1;1;1931;15;10;1931;NA
+17;Christian Olsen;Member of Section;1;2;1923;31;7;1924;NA
+18;Georges Oprescu;Member of Section;22;12;1923;31;12;1930;NA
+19;William O'Sullivan-Molony;Member of Section;1;NA;1921;1;NA;1922;NA
+20;William O'Sullivan-Molony;Member of Section;20;6;1925;15;5;1931;NA
+21;Karl Ott;Member of Section;22;6;1926;31;5;1927;NA
+22;Eugène Henri René  Vigier;Member of Section;1;1;1927;1;NA;NA;1886
+23;Pierre Achille Louis Eugène Quesnay;Member of Section;15;11;1923;31;12;1926;NA
+24;John Leslie Palmer;Member of Section;10;1;1919;1;NA;1936;NA
+25;John Leslie Palmer;Member of Section;1;NA;1938;24;3;1939;NA
+26;John Leslie Palmer;Member of Section;1;NA;1931;1;NA;NA;NA
+27;Dr. Erik Knaffl-Lenz;Member of Section;15;3;1923;15;9;1923;NA
+28;Adrianus Pelt;Member of Section;1;4;1920;31;12;1940;NA
+29;Geraldo Horacio de Paula Souza;Member of Section;1;1;1928;31;12;1929;NA
+30;Hugh McKinnon Wood;Member of Section;1;11;1920;1;NA;NA;1884
+31;Salvador Madariga;Member of Section;22;8;1921;1;NA;NA;1886
+32;Salvador Madariga;Chief of Section;1;8;1922;1;NA;NA;1886
+33;Rahmat Atabeki;Member of Section;15;7;1939;14;1;1940;NA
+34;Juan Teixidor y Sanchez;Member of Section;1;6;1920;10;12;1933;NA
+35;Juan Teixidor y Sanchez;Member of Section;22;4;1931;10;12;1933;NA
+36;Reginald Berkeley;Member of Section;1;1;1922;1;11;1922;NA
+37;Fernando Correia Pereira da Silva;Member of Section;3;9;1934;31;10;1941;NA
+38;André Sayous;Member of Section;24;4;1920;31;12;1920;NA
+39;Manuel Perez-Guerrero;Member of Section;18;10;1937;30;6;1940;NA
+40;Luca Pietromarchi;Member of Section;19;12;1923;18;12;1930;NA
+41;Purushottama Padmanabha Pillai;Member of Section;25;2;1924;17;10;1927;NA
+42;Konstanty Symonolewicz;Member of Section;9;9;1937;30;9;1937;NA
+43;José Pla;Member of Section;1;8;1922;21;12;1939;NA
+44;Georges Djura Popovitch;Member of Section;9;1;1922;15;1;1932;NA
+45;José H. Porto;Member of Section;11;11;1926;10;11;1928;NA
+46;Georg F. Preihs;Member of Section;19;12;1930;31;12;1938;NA
+47;Alexander Przychowsky;Member of Section;30;9;1929;19;10;1929;NA
+48;Renato Prunas;Member of Section;1;11;1934;28;11;1936;NA
+49;Viktorias Kamantanskas;Member of Section;9;9;1937;30;9;1937;NA
+50;Chester Purves;Member of Section;1;1;1937;24;7;1940;NA
+51;Ernest W. H. Jackman;Member of Section;1;8;1920;10;11;1923;NA
+52;Arthur Bullard;Member of Section;1;2;1926;1;2;1927;NA
+53;Âke  Hammarskjöld;Member of Section;19;3;1920;1;NA;1922;1893
+54;Elemér de Radisics;Member of Section;22;6;1931;17;5;1940;NA
+55;Gabrielle Jeanne Anne Marie Radziwill;Member of Section;1;1;1927;6;4;1931;NA
+56;Gabrielle Jeanne Anne Marie Radziwill;Member of Section;7;4;1931;30;11;1934;NA
+57;Gabrielle Jeanne Anne Marie Radziwill;Member of Section;1;12;1934;14;12;1938;NA
+58;Bertil Arne Renborg;Chief of Section;1;11;1939;31;8;1946;NA
+59;Cecil von Renthe-Fink;Member of Section;8;1;1927;31;10;1933;NA
+60;Karel Frolik;Member of Section;25;2;1926;31;8;1926;NA
+61;Arthur Elliott Felkin;Member of Section;15;1;1923;1;NA;NA;NA
+62;Arthur Elliott Felkin;Member of Section;1;7;1938;31;8;1946;NA
+63;Noel Haviland Field;Member of Section;1;5;1936;13;10;1940;NA
+64;John Marcus Fleming;Member of Section;29;11;1935;30;6;1937;NA
+65;Henri Ernest Reymond;Member of Section;1;1;1930;31;3;1931;NA
+66;Giuseppe Rocca;Member of Section;5;11;1923;6;6;1927;NA
+67;Marcello Roddolo;Member of Section;27;8;1923;30;9;1934;NA
+68;Cristobal Rodriguez;Member of Section;16;1;1923;30;6;1938;NA
+69;Johan Marie Frans Romein;Member of Section;12;10;1920;1;NA;1932;NA
+70;Edwige Sophie Thérèse Adèle de Romer;Member of Section;25;7;1927;31;5;1940;NA
+71;Johan Ansgar Esaias Rosenborg;Member of Section;20;7;1921;31;7;1946;NA
+72;Helmer Rostgaard Gommesen Rosting;Member of Section;16;5;1920;15;1;1936;NA
+73;Jaques Léon Rueff;Member of Section;28;2;1927;31;5;1930;NA
+74;Orie Benjamin Gerig;Member of Section;1;7;1937;31;21;1938;1894
+75;Maurice Grivel;Chief of Section;17;9;1935;30;4;1938;NA
+76;Evelyne Meylan;Member of Section;1;NA;1921;22;2;1921;NA
+77;F. Geraldine Delf;Member of Section;14;8;1920;1;NA;NA;NA
+78;Thomas Paterson;Head of Section;7;10;1937;1;NA;NA;1877
+79;Elisabeth Delannoy;Member of Section;6;7;1931;1;NA;NA;1890
+80;Mehemed Djevad;Member of Section;2;3;1921;20;4;1921;NA
+81;Dr. Otto Olsen;Member of Section;1;10;1925;31;1;1940;NA
+82;Massimo Pantaleoni;Member of Section;1;3;1925;31;12;1933;NA
+83;Manual Juan Arocha;Member of Section;1;10;1924;1;NA;1925;1892
+84;Manual Juan Arocha;Member of Section;1;NA;1925;18;4;1936;1892
+85;Octave Auguste Arsandaux;Chief of Section;1;NA;1920;22;5;1926;1866
+86;John Pawley Bate;Member of Section;1;NA;1919;1;NA;1919;NA
+87;T. Lodge;Member of Section;1;9;1920;1;3;1922;NA
+88;Dr. Otto Eichel;Chief of Section;6;3;1924;31;12;1924;NA
+89;Henry Reginald Cummings;Member of Section;10;1;1920;1;NA;1931;1886
