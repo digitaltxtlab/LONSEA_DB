@@ -1,0 +1,262 @@
+---
+title: "R sectio nationality analsysi"
+author: "Adam Finnemann"
+date: "September 24, 2017"
+---
+
+```{r setup, include=FALSE}
+
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/fall17/all_nations")
+
+```
+
+
+
+Question: How many nationas are there in the League over time:
+
+Reading in list of nationations in the League. Data from wikipedia
+```{r}
+members <- read.csv("membership_overview.csv", sep = ";", na.strings = c("NA", "")) 
+
+```
+
+creating dataframe of number of members per year
+```{r}
+per_year <- sapply(members, function(x) sum(!is.na(x))) 
+
+year <- str_replace_all(names(per_year), "X","")
+
+per_year <- data.frame(per_year, year) %>% 
+  mutate(year = as.Date(paste0(year, '-01-01')))
+
+
+per_year
+```
+
+
+plotting number of nations
+```{r}
+
+per_year %>% 
+  ggplot(aes(year, per_year, color = per_year)) +
+  geom_point() +
+  geom_line() +
+  labs(x = "Year", y = "Nations per year", title = "Nations in the League")
+
+```
+
+Question: How many nations have at lease one person in the Section over time:
+
+
+```{r}
+da <- read.csv(list.files(pattern = "reve"))
+
+section_worker <- da %>% 
+  filter(str_detect(da$fname, "Section")) %>%  
+  filter(fname != "Secretary of Section")
+
+
+```
+
+Creating employment df
+
+```{r}
+source("employment_interval_function.R")
+
+nat_df <- section_worker %>% 
+  mutate(pname = nationality)
+
+
+mdl_df <- nat_df %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+setDT(mdl_df)[
+  # right join with sequence of monthly intervals
+  .(mseq = seq(as.Date("1944-01-01"), length.out = 4L, by = "1 month")), 
+  # using non-equi join conditions
+  on = .(begin_date <= mseq, end_date >= mseq)][
+    # reshape from wide to long format,
+    # show rank (concatenate in case of multiple ranks)
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = "1 month")), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+
+removed <- result[,-1]
+
+time_section <- matrix(nrow = (ncol(removed)), ncol = 1)
+
+for (i in 1:(nrow(time_section))){
+  time_section[i] = sum(removed[,i, with = F] != "")
+}
+
+
+dates <- as.character(colnames(removed))
+
+plot.df <- cbind(time_section,dates) %>% 
+  as.data.frame() %>% 
+  mutate(dates = as.Date(dates),
+         V1 = as.numeric(as.character(V1))) %>% 
+  rename(Section_Workers = V1)
+
+plot <- plot.df %>% 
+  ggplot(aes(dates, Section_Workers, color = Section_Workers )) +
+  geom_col()+
+  labs(x = "Year", y ="Nr of countries", titles = "Countries with at least 1 worker")+
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y")
+
+
+plot
+
+
+```
+
+Plot with nr. of nations in League and nations with Workers in section.
+Assumptions:
+Nations are represented as being part of the League from januar 1. of the year they joined.
+Period visualized is 1920-01-01 to 1947-10-01
+Number of workers in section is calculated for each Month
+```{r}
+per_month = per_year[rep(seq_len(nrow(per_year)), each=12),] 
+
+
+plot.df <- plot.df[-c(1:6),]
+per_month = per_month[1:334,]
+plot.df$Nations_in_League <- per_month$per_year 
+
+colnames(plot.df) <- c("Nations_with_worker","Years","Nations_in_league")
+
+long_plot <- gather(plot.df, key, value, Nations_in_league,Nations_with_worker)
+
+
+
+long_plot %>% 
+  ggplot(aes(x = Years, y = value, color = key)) +
+ # geom_point() +
+  geom_line() +
+  labs(x = "Year", y = "Nations and workers in Section per year", title = "Nations and Workers in Section")+
+  scale_x_date(date_labels = "%Y", date_breaks = "3 years")
+
+
+```
+
+```{r}
+
+
+mdl_df <- section_worker %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+setDT(mdl_df)[
+  # right join with sequence of monthly intervals
+  .(mseq = seq(as.Date("1944-01-01"), length.out = 4L, by = "1 month")), 
+  # using non-equi join conditions
+  on = .(begin_date <= mseq, end_date >= mseq)][
+    # reshape from wide to long format,
+    # show rank (concatenate in case of multiple ranks)
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = "1 month")), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+result_nats <- merge(result, section_worker[,c(8,20)], by = "pname")
+
+result_nats <- result_nats[,-1]
+ 
+
+#A MIRACLE!!!
+nation_workers <- result_nats %>% 
+  group_by(nationality) %>% 
+  summarise_all(function(x) sum(x != ""))
+
+long_df <- gather(nation_workers, key, value, `1919-07-01`:`1947-10-01`) %>% 
+  mutate(key = as.Date(key)) 
+  
+
+
+
+
+ long_df %>% 
+  filter(value > 8) %>% 
+  ggplot(aes(x = key, y = value, fill = nationality)) +
+  geom_col() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  labs(x = "Year", y ="Workers", titles = "Nations with +10 Workers in Section")
+  
+
+```
+
+Running same analysis for Section workers with oname = Information Section.
+In the final plot only data points for each country with more than 1 person in the Information Section is kept. 
+
+```{r}
+plot <- filter(section_worker,oname == "Information Section")
+
+
+mdl_df <- plot %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+setDT(mdl_df)[
+  # right join with sequence of monthly intervals
+  .(mseq = seq(as.Date("1944-01-01"), length.out = 4L, by = "1 month")), 
+  # using non-equi join conditions
+  on = .(begin_date <= mseq, end_date >= mseq)][
+    # reshape from wide to long format,
+    # show rank (concatenate in case of multiple ranks)
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = "1 month")), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+result_nats <- merge(result, section_worker[,c(8,20)], by = "pname")
+
+result_nats <- result_nats[,-1]
+ 
+
+#A MIRACLE!!!
+nation_workers <- result_nats %>% 
+  group_by(nationality) %>% 
+  summarise_all(function(x) sum(x != ""))
+
+long_df <- gather(nation_workers, key, value, `1919-09-01`:`1942-12-01`) %>% 
+  mutate(key = as.Date(key)) 
+  
+
+
+
+
+ long_df %>% 
+  filter(value > 1) %>% 
+  ggplot(aes(x = key, y = value, fill = nationality)) +
+  geom_col() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  labs(x = "Year", y ="Workers", titles = "Nations with +10 Workers in Section")
+  
+
+employment(plot, title1 = levels(large_section_worker$oname)[1])
+
+```
+

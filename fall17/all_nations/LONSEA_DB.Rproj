@@ -1,0 +1,84 @@
+---
+title: "Section nationality analysis"
+author: "Adam Finnemann"
+date: "1 october, 2017"
+---
+  
+```{r setup, include=FALSE}
+
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/fall17/all_nations")
+
+knitr::opts_knit$set(root.dir = "wd path")
+
+da <- read.csv(list.files(pattern = "reve"))
+```
+
+subsetting section wokers
+```{r}
+section_worker <- da %>% 
+  filter(str_detect(da$fname, "Section")) %>%  
+  filter(fname != "Secretary of Section")
+
+
+```
+
+
+Member countries in the league. Source Wiki 30/10/16
+```{r}
+members <- read.csv("membership_overview.csv", header = T, sep = ";", na.strings=c("NA","NaN", "") )
+library(anytime)
+members_per_year <- members %>% 
+  rowwise() %>% 
+  summarise(members_per_year = colSums(!is.na(members))) %>% 
+  mutate(year = colnames(members)) 
+
+members_per_year$year <- str_replace_all(members_per_year$year, pattern = "X", replacement = "")
+
+
+
+members_per_year$year <- as.numeric(members_per_year$year)
+members_per_year$year <- anytime::anydate(members_per_year$year)
+
+
+
+ggplot(members_per_year, aes(x = year, y = members_per_year, color = members_per_year)) +
+  geom_point() +
+  scale_x_date(date_breaks = "3 years",)
+
+
+
+
+```
+
+```{r}
+
+```
+
+
+mdl_df <- large_section_worker %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+setDT(mdl_df)[
+  # right join with sequence of monthly intervals
+  .(mseq = seq(as.Date("1944-01-01"), length.out = 4L, by = interval)), 
+  # using non-equi join conditions
+  on = .(begin_date <= mseq, end_date >= mseq)][
+    # reshape from wide to long format,
+    # show rank (concatenate in case of multiple ranks)
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+
+

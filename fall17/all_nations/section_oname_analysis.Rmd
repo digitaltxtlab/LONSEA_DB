@@ -121,12 +121,13 @@ large_section_worker %>%
   facet_wrap(~oname)
 ```
 
-More specific nationality analysis?
+nationality analysis
 
 ```{r}
-
+source("employment_interval_function.R")
 
 ```
+
 
 Age analysis:
 calculating age at contract start and finding average
@@ -149,6 +150,9 @@ What is the average age for of workers at their beggining of their contract:
 large_section_worker %>% 
   group_by(oname) %>% 
   summarise(mean_age = mean(age_at_contract_start, na.rm = T))
+
+
+
 
 ```
 

@@ -146,11 +146,12 @@ plot.df %>%
 
 Lastly I'll make a list of the section workers that didn't make it into the analysis due to missing dates. 
 ```{r}
-NAs <- filter(section_worker, is.na(section_worker$end_date) | is.na(section_worker$begin_date)) %>% select(pname, fname, begin_on_day, begin_on_month,begin_on_day, end_on_day,end_on_month, end_on_year )
+NAs <- filter(section_worker, is.na(section_worker$end_date) | is.na(section_worker$begin_date) | is.na(section_worker$born_on_year)) %>% select(pname, fname, begin_on_day, begin_on_month,begin_on_year, end_on_day,end_on_month, end_on_year, born_on_year )
 
-
+test <- filter(section_worker, is.na(section_worker$begin_on_year))
 
 #write.csv(NAs, "Section_workers_missing_data.csv")
 NAs
+
 ```
 

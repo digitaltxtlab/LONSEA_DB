@@ -3,7 +3,7 @@
 author: "Adam Finnemann"
 date: "September 24, 2017"
 ---
-  
+
 ```{r setup, include=FALSE}
 
 library(pacman)
@@ -55,9 +55,11 @@ da$nationality <- str_replace_all(da$nationality,", Swiss", "Swiss")
 da$nationality <- str_replace_all(da$nationality,"BritishSwiss", "British, Swiss")
 da$nationality <- str_replace_all(da$nationality,"English, Dane English,", "English, Dane")
 da$nationality <- str_replace_all(da$nationality,"Fench  French,", "French")
+da$nationality <- str_replace_all(da$nationality,"French,French", "French")
 da$nationality <- str_replace_all(da$nationality,"LatvianSwiss", "Latvian, Swiss")
 da$nationality <- str_replace_all(da$nationality,"AlbanianSwiss", "Albanian, Swiss")
 da$nationality <- str_replace_all(da$nationality,"Dane, Dane", "Dane")
+da$nationality <- str_replace_all(da$nationality,"Dane,Dane", "Dane")
 da$nationality <- str_replace_all(da$nationality,"French, BritishSwiss", "French, British, Swiss")
 da$nationality <- str_replace_all(da$nationality,"SwissSwiss", "Swiss")
 da$nationality <- str_replace_all(da$nationality,"British, British", "British")
@@ -68,10 +70,14 @@ da$nationality <- str_replace_all(da$nationality,"RussianSwiss", "Russian, Swiss
 da$nationality <- str_replace_all(da$nationality,"Italian, Italian", "Italian")
 da$nationality <- str_replace_all(da$nationality,"DutchSwiss", "Dutch, Swiss")
 da$nationality <- str_replace_all(da$nationality,"SwissSwiss", "Swiss")
+da$nationality <- str_replace_all(da$nationality,"Swiss,Swiss", "Swiss")
 da$nationality <- str_replace_all(da$nationality,"FrenchSwiss", "French, Swiss")
+
+
 da <- da %>% 
-  mutate(nationality = as.factor(nationality))
+mutate(nationality = as.factor(nationality))
 
 
 
 #write.csv(da, "lon_data_w_GA.csv")
+```
