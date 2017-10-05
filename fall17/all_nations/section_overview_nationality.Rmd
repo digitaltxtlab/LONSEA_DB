@@ -9,8 +9,6 @@ date: "September 24, 2017"
 library(pacman)
 p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
 
-
-
 setwd("~/Historie projekt/historie project/LONSEA_DB/fall17/all_nations")
 
 ```
@@ -175,15 +173,6 @@ mdl_df <- section_worker %>%
 
 
 
-setDT(mdl_df)[
-  # right join with sequence of monthly intervals
-  .(mseq = seq(as.Date("1944-01-01"), length.out = 4L, by = "1 month")), 
-  # using non-equi join conditions
-  on = .(begin_date <= mseq, end_date >= mseq)][
-    # reshape from wide to long format,
-    # show rank (concatenate in case of multiple ranks)
-    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
-
 result <- setDT(mdl_df)[
   .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = "1 month")), 
   on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
@@ -207,14 +196,29 @@ long_df <- gather(nation_workers, key, value, `1919-07-01`:`1947-10-01`) %>%
 
 
  long_df %>% 
-  filter(value > 8) %>% 
-  ggplot(aes(x = key, y = value, fill = nationality)) +
+  filter(value > 10) %>% 
+  ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
   geom_col() +
   scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
   labs(x = "Year", y ="Workers", titles = "Nations with +10 Workers in Section")
   
 
 ```
+
+
+for 8 workers:
+
+
+```{r}
+long_df %>% 
+  filter(value > 8) %>% 
+  ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+  geom_col() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  labs(x = "Year", y ="Workers", titles = "Nations with +8 Workers in Section")
+  
+```
+
 
 Next:
 Running same analysis for Section workers with oname = Information Section.
@@ -255,6 +259,7 @@ nation_workers <- result_nats %>%
   group_by(nationality) %>% 
   summarise_all(function(x) sum(x != ""))
 
+
 long_df <- gather(nation_workers, key, value, `1919-09-01`:`1942-12-01`) %>% 
   mutate(key = as.Date(key)) 
   
@@ -273,4 +278,204 @@ long_df <- gather(nation_workers, key, value, `1919-09-01`:`1942-12-01`) %>%
 
 
 ```
+Employment/nationality plot for larger section, data points > 10 kept:
+
+```{r}
+long_df %>% 
+  filter(value > 10) %>% 
+  ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+  geom_col() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  labs(x = "Year", y ="Workers", titles = "Nations with +10 Workers in Information Section")
+ 
+```
+
+
+Investigating middle period: 1927-1939.
+
+A person belong to a year, if he or she has been there at least at some point during that year
+
+```{r}
+library(anytime)
+
+#equating contracts during year with a contract at 01-01-year
+standard_date <- section_worker %>% 
+  mutate(begin_date = as.Date(paste(begin_on_year,"-01-01", sep = "")),
+         end_date = as.Date(paste(end_on_year, "-01-01", sep = "")))
+
+
+mdl_df <- nat_df %>% 
+  select(nationality, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1927-01-01"), as.Date("1940-01-01"), by = "1 year")), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), nationality ~ end_date, toString, value.var = "fname_code")]
+
+
+removed <- result[,-1]
+
+time_section <- matrix(nrow = (ncol(removed)), ncol = 1)
+
+for (i in 1:(nrow(time_section))){
+  time_section[i] = sum(removed[,i, with = F] != "")
+}
+
+
+dates <- as.character(colnames(removed))
+
+plot.df <- cbind(time_section,dates) %>% 
+  as.data.frame() %>% 
+  mutate(dates = as.Date(dates),
+         V1 = as.numeric(as.character(V1))) %>% 
+  rename(Section_Workers = V1)
+
+plot <- plot.df %>% 
+  ggplot(aes(dates, Section_Workers, fill = Section_Workers )) +
+  geom_col()+
+  labs(x = "Year", y ="Nr of countries", titles = "Countries with at least 1 person in Section")+
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y")
+
+
+plot
+
+```
+
+calculating number of countries constantly represented
+
+```{r}
+
+result <- result %>% 
+  mutate(constant = apply(result,1, function(x) sum(x == "")==0)) %>% #true if country have a no missing
+  select(constant, everything())
+
+sum(result$constant)
+
+```
+
+which contries aren't and are constantly present
+
+```{r}
+
+lacking_presence <- result %>% 
+  filter(constant == F)
+
+constant_presence <- result %>% 
+  filter(constant == T)
+
+#write.csv(constant_presence, "constant_presence.csv")
+
+```
+
+
+Same analysis, including directors
+
+```{r}
+directors <- da %>% 
+  filter(str_detect(da$fname, "Director")) %>% 
+  select(pname) %>% 
+  unique() %>% 
+  as.list()
+
+  
+directors <- da %>% 
+filter(da$pname %in% directors$pname) %>% 
+  mutate(nationality = as.factor(nationality))
+
+
+direc_and_sec <- rbind(directors, section_worker) 
+
+direc_and_sec <- direc_and_sec %>%   
+mutate(nationality = recode(nationality, "Italian,Italian" = "Italian"))
+ 
+```
+
+
+
+```{r}
+nat_df <- direc_and_sec %>% 
+  mutate(pname = nationality,
+         begin_date <- as.Date(begin_date),
+         end_date <- as.Date(end_date),
+         #equating contracts during year with a contract at 01-01-year
+         begin_date = as.Date(paste(begin_on_year,"-01-01", sep = "")),
+         end_date = as.Date(paste(end_on_year, "-01-01", sep = "")))
+
+
+mdl_df <- nat_df %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1927-01-01"), as.Date("1940-01-01"), by = "6 month")), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+
+removed <- result[,-1]
+
+time_section <- matrix(nrow = (ncol(removed)), ncol = 1)
+
+for (i in 1:(nrow(time_section))){
+  time_section[i] = sum(removed[,i, with = F] != "")
+}
+
+
+dates <- as.character(colnames(removed))
+
+plot.df <- cbind(time_section,dates) %>% 
+  as.data.frame() %>% 
+  mutate(dates = as.Date(dates),
+         V1 = as.numeric(as.character(V1))) %>% 
+  rename(Section_Workers = V1)
+
+plot <- plot.df %>% 
+  ggplot(aes(dates, Section_Workers, fill = Section_Workers )) +
+  geom_col()+
+  labs(x = "Year", y ="Nr of countries", titles = "Countries with at least 1 person in Section")+
+  scale_x_date(date_breaks = "2 year", date_labels = "%Y")
+
+
+plot
+
+```
+```{r}
+result <- result %>% 
+  mutate(constant = apply(result,1, function(x) sum(x == "")==0)) %>% #true if country have a no missing
+  select(constant, everything())
+
+sum(result$constant)
+
+```
+
+which contries aren't constantly present
+
+```{r}
+
+lacking_presence <- result %>% 
+  filter(constant == F)
+
+constant_presence <- result %>% 
+  filter(constant == T)
+
+write.csv(lacking_presence, "lacking_presence_w_director.csv")
+```
+
+
+Some participants are missing. Only people who have been present at the 01-01 or 07-01 of a year is counted. 
+Secondly, the following data points have missing data points
+```{r}
+leftout_contracts <- standard_date %>% 
+  filter( is.na(begin_date) | is.na(end_date))
+
+length(unique(leftout_contracts$pname))
+
+```
+
+
 
