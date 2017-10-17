@@ -1,0 +1,129 @@
+---
+title: "Entrance and duration of contracts"
+author: "Adam Finnemann"
+date: "September 24, 2017"
+---
+  
+```{r setup, include=FALSE}
+
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/fall17/yearly_length_contract_karen")
+
+da <- read.csv(list.files(pattern = "contract_"))
+```
+
+Question: For each year, how long does a person stay in the section?
+
+
+First calculation: Subtracting end year of contract from beginning year. Take the average of this measure for each year and plot it per year.
+Here it's assumed that all contracts start and end on the first 1. januar. In other words, only information about year differences is used.
+```{r}
+
+#why mutate no work??
+da$begin_date <- as.Date(as.character(da$begin_date))         
+da$end_date <- as.Date(as.character(da$end_date))         
+
+
+da <-da  %>% 
+  mutate(duration = end_date - begin_date)
+
+da$begin_date <- as.factor(da$begin_date)
+da$duration <- as.numeric(da$duration)
+contract_length_per_year <- da %>% 
+  group_by(begin_date) %>% 
+  summarise(mean_length = mean(duration))
+
+
+contract_length_per_year$begin_date <- as.Date(contract_length_per_year$begin_date)
+
+contract_length_per_year %>% 
+  ggplot(aes(begin_date,mean_length, color = mean_length)) +
+  geom_point() +
+  geom_smooth(se = F) +
+  labs(x = "Year", y ="Days of contract", titles = "Average length of contract in years")+
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y")+
+  scale_y_continuous(breaks = c(365, 365*2, 365*3, 365*4, 365*5, 365*6),labels = c("1 year", "2 years","3 years","4 years","5 years","6 years") )
+
+
+```
+
+```{r}
+#employment interval function
+employment <- function(df, interval = "1 year"){
+  
+mdl_df <- df %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+}
+
+res <-employment(da) 
+```
+
+
+For each person, two measures are made: Number of years before they were employed, and the number of consecutive years their first employment period lasted. If a new contract starts the same year as the old one expires it's counted as consecutive. In other words, the second contract has to start in a different year than the first one expires. This means that up to 11 month long breaks can be counted as consecutive periods. 
+
+Finally, for each year the average employment period of first time workers is calculated and visualized.
+
+```{r}
+
+wo_pname = res[,-1]
+results <- matrix(NA, nrow = nrow(wo_pname), 2)
+
+for (i in 1:nrow(wo_pname)) {
+  count = 1
+  blank = 0
+  non_blank = 0
+  new_blank = 0
+  #while cells are blank add 1 to blank and counter
+  while(wo_pname[i,count, with =F] =="") {
+      blank = blank + 1
+      count = count + 1
+  }
+    #if no new blanks and the current cell isn't empty
+    while(wo_pname[i,count, with = F] != ""){
+      non_blank = non_blank + 1
+      count = count + 1
+    }
+  results[i,] <- c(blank, non_blank)
+  }
+
+```
+
+```{r}
+colnames(results) <- c("blanks","non_blank")
+
+df <- results %>% 
+  as.data.frame() %>% 
+  mutate(pname = res$pname,
+         begin_year = blanks + 1919,
+         end_year = 1919 + blanks + non_blank,
+         duration = end_year - begin_year) 
+
+avg_len <- df %>% 
+  group_by(begin_year) %>% 
+  summarise(mean_len = mean(duration))
+ 
+avg_len %>% 
+  ggplot(aes(begin_year, mean_len, color = mean_len)) +
+  geom_point()+
+  geom_line()+
+  labs(x = "Year", y ="Years of contract", titles = "Average length of first employment interval")+
+  scale_x_continuous(breaks = seq(1919,1948,3))
+
+
+
+```
+
+```
+
+

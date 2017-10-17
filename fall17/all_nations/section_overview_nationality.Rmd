@@ -1,5 +1,5 @@
 ---
-title: "R sectio nationality analsysi"
+title: "R section nationality analysis"
 author: "Adam Finnemann"
 date: "September 24, 2017"
 ---

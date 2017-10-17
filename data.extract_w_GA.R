@@ -16,7 +16,7 @@ setwd("~/Historie projekt/historie project/LONSEA_DB")
 dat.df <- read.csv("data/sheet1.csv", stringsAsFactors = FALSE)
 # features
 varnames <- colnames(dat.df)
-# reduce data set to LoN minus General Assembly
+
 i <- 1:nrow(dat.df)# numerical index for generation of final data set
 # LoN ids
 lon_idx <- !is.na(str_match(dat.df$oname,'LoN'))

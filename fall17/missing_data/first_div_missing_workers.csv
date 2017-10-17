@@ -1,0 +1,140 @@
+"","X","id","pname","gender","fname","canonical_fname","oname","born_on_year","begin_on_year","begin_on_month","begin_on_day","end_on_year","end_on_month","end_on_day","nationality","fname_code"
+"1",545,381,"Dr. Edmond Privat",0,"Interpreter","First Division","Transit Conference",1889,1921,3,10,NA,NA,NA,"Swiss",7
+"2",6124,4865,"Solon George Xenakis",0,"Member of Section","First Division","Economic and Financial Section",1884,1925,6,21,NA,NA,NA,"Greek",8
+"3",6128,4866,"Alejandro Aguilar Machado",0,"Temporary Collaborator","First Division","Information Section",NA,1931,5,13,NA,NA,NA,"Costa_Rican",8
+"4",6150,4880,"Frank Paul Walters",0,"Head of Section","First Division","Secretary-General's Office",1888,1920,1,10,NA,NA,NA,"English",9
+"5",6180,4899,"K'iuan Wou",0,"Temporary Collaborator","First Division","Information Section",1910,1937,10,11,1038,5,10,"Chinese",8
+"6",6190,4906,"Harold Nicolson",0,"Member of Section","First Division","Political Section",NA,1919,10,21,NA,NA,NA,"English",8
+"7",6206,4915,"Julian Nogueira",0,"Member of Section","First Division","Mandates Section",NA,1921,1,28,NA,NA,NA,"Uruguayan",8
+"8",6249,4941,"Louis Variez",0,"Director","First Division","Labour Section",NA,NA,NA,NA,1920,3,NA,"",9
+"9",6262,4948,"Eugène Henri René  Vigier",0,"Member of Section","First Division","Political Section",1886,1927,1,1,NA,NA,NA,"French",8
+"10",6281,4951,"Arturo Uslar-Pietri",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"Venezuelan",8
+"11",6287,4955,"John Leslie Palmer",0,"Member of Section","First Division","Information Section",NA,1931,NA,NA,NA,NA,NA,"English",8
+"12",6288,4955,"John Leslie Palmer",0,"Member of Section","First Division","Disarmament Section",NA,NA,NA,NA,NA,NA,NA,"English",8
+"13",6294,4961,"Prof. P.K. Pariaja",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"",8
+"14",6296,4963,"Humbert Denis Parodi",0,"Translator","First Division","Translation",NA,NA,NA,NA,NA,NA,NA,"Swiss",7
+"15",6300,4967,"Giacomo Paulucci di Calboli Barone",0,"Under Secretary General","First Division","Under Secretary-Generals' in charge of Internal Administration Office",NA,NA,NA,NA,NA,NA,NA,"Italian",9
+"16",6359,5010,"Hugh McKinnon Wood",0,"Member of Section","First Division","Legal Section",1884,1920,11,1,NA,NA,NA,"English",8
+"17",6365,5013,"Salvador Madariga",0,"Member of Section","First Division","Information Section",1886,1921,8,22,NA,NA,NA,"Spanish",8
+"18",6366,5013,"Salvador Madariga",0,"Chief of Section","First Division","Disarmament Section",1886,1922,8,1,NA,NA,NA,"Spanish",9
+"19",6395,5037,"Enrique Bernstein",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"",8
+"20",6415,5054,"L. Bhagi-Rathi",1,"Temporary Collaborator","First Division","Information Section",NA,1935,9,5,1035,9,24,"Indian",8
+"21",6432,5070,"Frédéric Blondeel",0,"Member of Section","First Division","Information Section",1890,NA,NA,NA,NA,NA,NA,"",8
+"22",6442,5074,"Adolf Bochenski",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"Polish",8
+"23",6448,5080,"Artur Tupits",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"Estonian",8
+"24",6464,5092,"Prof. Bernardo B. Attolico",0,"Director","First Division","Economic Bureau",1880,NA,NA,NA,NA,NA,NA,"Italian",9
+"25",6466,5093,"Candido Sahini",0,"Secretary","First Division","Under-Secretary-General's Office",1870,1924,8,24,NA,NA,NA,"Italian",6
+"26",6487,5108,"Henriette Charlotte Schlesser",1,"Secretary","First Division","Deputy Secretary-General's Office",1877,1920,9,1,NA,NA,NA,"French",6
+"27",6501,5116,"Massimo Pilotti",0,"Under Secretary General","First Division","Under Secretary-Generals' in charge International Bureaux and Intellectual-Co-operation Section Office",NA,NA,NA,NA,NA,NA,NA,"Italian",9
+"28",6514,5118,"Charles Schonberger",0,"Member of Section","First Division","Economic and Financial Section",1886,NA,NA,NA,NA,NA,NA,"Austrian",8
+"29",6606,5188,"Dr. Andrija Stampar",0,"Expert/Specialist","First Division","League of Nations",1888,NA,NA,NA,1936,10,15,"Yugoslav",8
+"30",6628,5202,"Herman Stolpe",0,"Temporary Collaborator","First Division","Information Section",NA,1937,7,2,23,7,1937,"Swedish",8
+"31",6663,5218,"Diana Cohen",1,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"",8
+"32",6673,5228,"W. Layton",0,"Director","First Division","Economic and Financial Section",NA,1920,4,1,NA,NA,NA,"English",9
+"33",6701,5244,"Luis Agustin Podesta Costa",0,"Legal Adviser","First Division","Legal Section",NA,NA,NA,NA,NA,NA,NA,"Argentinian",8
+"34",6715,5253,"Gerasimos Lynchos",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"Greek",8
+"35",6813,5320,"Prof. A. Brusewitz",0,"Temporary Collaborator","First Division","Information Section",NA,1927,6,NA,NA,NA,NA,"Swedish",8
+"36",6822,5327,"J.R.M. Butler",0,"Temporary Collaborator","First Division","Political Section",NA,1921,9,11,NA,NA,NA,"",8
+"37",6924,5404,"Muhyi el Din el Mumayiz",0,"Temporary Collaborator","First Division","Legal Section",1910,NA,NA,NA,NA,NA,NA,"Iraqi",8
+"38",7120,5527,"Arthur Elliott Felkin",0,"Member of Section","First Division","Economic and Financial Section",NA,1923,1,15,NA,NA,NA,"English",8
+"39",7126,5532,"Raymond B. Fosdick",0,"Under Secretary General","First Division","Under-Secretary-General's Office",NA,1919,7,17,NA,NA,NA,"US-American",9
+"40",7137,5539,"Georges Fleury",0,"Member of Section","First Division","Information Section",NA,1920,7,15,NA,NA,NA,"",8
+"41",7149,5556,"H.R. Rodwell",0,"Temporary Collaborator","First Division","Information Section",NA,1934,9,7,NA,NA,NA,"English",8
+"42",8323,6629,"Prof. G. Scelle",-1,"Précis Writer","First Division","General Assemblies Staff",NA,1922,9,2,NA,NA,NA,"",7
+"43",10137,8425,"Edgard F. G. Abraham",0,"Interpreter","First Division","Washington Labour Conference",1884,NA,NA,NA,NA,NA,NA,"British,English",7
+"44",10239,11553,"Ethel Hopgood",1,"Assistant Translator","First Division","Pool",NA,NA,NA,NA,1921,NA,NA,"British",4
+"45",10330,8552,"Robert Fatio",0,"Translator","First Division","Translation",1893,1919,10,6,NA,NA,NA,"Swiss",7
+"46",10382,8583,"Lionel  Fielden",0,"Translator","First Division","Translation",1896,1921,8,25,NA,NA,NA,"English",7
+"47",10384,8583,"Lionel  Fielden",0,"Translator","First Division","Translation",1896,1922,8,28,NA,NA,NA,"English",7
+"48",10387,12446,"Hugh Mortimer Gann",0,"Translator","First Division","General Assemblies Staff",NA,1922,9,2,NA,NA,NA,"British",7
+"49",10399,8592,"Eugène  Filotti",0,"Temporary Collaborator","First Division","Information Section",NA,1927,9,3,NA,NA,NA,"Romanian",8
+"50",10424,8609,"Théo Fleischmann",0,"Temporary Collaborator","First Division","Information Section",NA,1930,9,9,NA,NA,NA,"",8
+"51",10425,8609,"Théo Fleischmann",0,"Temporary Collaborator","First Division","Information Section",NA,1931,9,7,NA,NA,NA,"",8
+"52",10577,8710,"E. Georg",0,"Interpreter","First Division","Translation",NA,1920,9,24,NA,NA,NA,"Swiss",7
+"53",10741,8792,"Marcelle Gouin",1,"Translator","First Division","Labour Conference At Washington",NA,1919,10,9,NA,NA,NA,"",7
+"54",10787,8826,"Dr. Louis Gray",0,"Personal Assistant","First Division","Mandates Section",NA,NA,NA,NA,NA,NA,NA,"US-American",7
+"55",10788,8827,"Gray",1,"Secretary","First Division","Information Section",NA,1923,2,1,1023,9,10,"English",6
+"56",10877,8765,"A. J. Goldberry",0,"Translator","First Division","General Assemblies Staff",NA,NA,NA,NA,NA,NA,NA,"English",7
+"57",10881,8879,"Jorge Guillen",0,"Translator","First Division","Translation",NA,1920,11,22,NA,NA,NA,"",7
+"58",11010,8948,"Magnus",0,"Member of Section","First Division","Information Section",NA,1919,10,NA,NA,NA,NA,"",8
+"59",11260,9112,"Mr. Warrar Irvin",0,"Temporary Correspondent","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"US-American",7
+"60",11266,9116,"Georges Silvain François Charles Kaeckenbeeck",0,"Member of Section","First Division","Legal Section",1892,NA,NA,NA,NA,NA,NA,"",8
+"61",11282,9127,"H. de Régny Irving",0,"Translator","First Division","Transit Conference at Barcelona",NA,1921,3,10,NA,NA,NA,"English",7
+"62",11596,10031,"Ernest  Satchwell ",0,"Translator","First Division","General Assemblies Staff",1876,1922,9,2,NA,NA,NA,"English",7
+"63",11775,9860,"F. Geraldine Delf",1,"Member of Section","First Division","Pool",NA,1920,8,14,NA,NA,NA,"English",8
+"64",11832,9400,"George Anthony Mostyn",0,"Translator","First Division","General Assemblies Staff",1898,1925,8,31,NA,NA,NA,"English",7
+"65",11859,9433,"Rollo Mugli Myers",0,"Translator","First Division","International Financial Conference",1892,1920,10,1,NA,NA,NA,"English",7
+"66",11936,9471,"John Benjamin Nevill",0,"Précis Writer","First Division","Précis-Writing Department",1895,1925,5,15,1825,7,26,"English",7
+"67",12061,9528,"Gerard O'Rooney",0,"Translator","First Division","Translation",1889,125,8,24,1925,9,29,"English",7
+"68",12215,9601,"Thomas Paterson",0,"Head of Section","First Division","Translation",1877,1937,10,7,NA,NA,NA,"English",9
+"69",12243,9614,"Tatiana de Peganow",1,"Senior Assistant","First Division","Registry",1900,1927,1,4,129,8,31,"Lithuanian",6
+"70",12285,9471,"John Benjamin Nevill",0,"Translator","First Division","General Assemblies Staff",1895,1925,7,27,NA,NA,NA,"English",7
+"71",12379,9670,"Captain Walter Peirce",0,"Interpreter","First Division","Labour Conference At Washington",NA,1919,10,1,NA,NA,NA,"US-American",7
+"72",12416,9705,"Leonard Tom Hamblen",0,"Secretary","First Division","Health Section",1883,1925,6,20,8,31,NA,"English",6
+"73",12473,11468,"Margaret Ida Robertson",1,"English Translating Service","First Division","Pool",1878,1924,9,1,NA,NA,NA,"English",7
+"74",12538,10236,"Mary Faulkner Sharps",1,"Translator","First Division","General Assemblies Staff",1881,1925,8,31,NA,NA,NA,"English",7
+"75",12720,9850,"Elisabeth Delannoy",1,"Member of Section","First Division","Economic and Financial Section",1890,1931,7,6,NA,NA,NA,"French",8
+"76",12752,9872,"Georges Léon César Demolon",0,"Translator","First Division","Translation",1886,NA,NA,NA,1946,4,17,"French",7
+"77",12756,9876,"Geoffrey Pomeroy  Dennis",0,"Chief Translator","First Division","Translation",1892,1920,4,15,131,10,15,"English",9
+"78",12792,9898,"Alphonse Descombes",0,"Translator","First Division","Economic Conference",1883,1927,5,2,NA,NA,NA,"English",7
+"79",12802,9622,"Raoul Perdreau",0,"Translator","First Division","General Assemblies Staff",1885,1922,2,28,NA,NA,NA,"English",7
+"80",12878,9942,"Felicita Donzelli",1,"Translator","First Division","Economic Conference",1879,1927,4,4,NA,NA,NA,"Italian",7
+"81",12950,9978,"Jean Duhamel",0,"Translator","First Division","International Financial Conference",NA,1920,9,23,NA,NA,NA,"French",7
+"82",13006,10007,"Candido Sabini",0,"Secretary","First Division","Under Secretary-Generals' in charge of Internal Administration Office",1870,1924,8,24,NA,NA,NA,"Italian",6
+"83",13017,10012,"Raymond Sadoine",0,"Translator","First Division","International Financial Conference",NA,NA,NA,NA,NA,NA,NA,"",7
+"84",13075,9894,"Auguste  Desclos",0,"Translator","First Division","General Assemblies Staff",1876,1921,8,22,NA,NA,NA,"French",7
+"85",13079,9894,"Auguste  Desclos",0,"Translator","First Division","General Assemblies Staff",1876,1924,8,28,NA,NA,NA,"French",7
+"86",13259,10140,"Pierre Sauvageot",0,"Précis Writer","First Division","Economic and Financial Section",1894,1924,10,20,NA,NA,NA,"French",7
+"87",13288,9797,"Emile Albert Pons",0,"Précis Writer","First Division","General Assemblies Staff",1885,1924,8,27,NA,NA,NA,"French",7
+"88",13291,9797,"Emile Albert Pons",0,"Précis Writer","First Division","General Assemblies Staff",1885,1925,8,31,NA,NA,NA,"French",7
+"89",13343,10187,"Schroeder",1,"Member of Section","First Division","Distribution of Documents",NA,NA,NA,NA,1921,2,22,"",8
+"90",13434,9191,"Georges Kaminker",0,"Interpreter","First Division","Pool",NA,1946,4,5,NA,NA,NA,"French",7
+"91",13509,8886,"Jacques André William Guilloux",0,"Interpreter","First Division","General Assemblies Staff",1893,1930,9,15,NA,NA,NA,"French",7
+"92",13564,10315,"Ida Spellman",1,"Member of Section","First Division","Economic and Financial Section",NA,1919,9,8,NA,NA,NA,"",8
+"93",13566,10317,"Catherine  Spetter née Kossmann",1,"Translator","First Division","Translation",1887,1921,7,16,NA,NA,NA,"Russian",7
+"94",13780,10781,"Lucien Wolff",0,"Translator","First Division","General Assemblies Staff",1880,1922,8,24,NA,NA,NA,"French",7
+"95",13781,10781,"Lucien Wolff",0,"Translator","First Division","General Assemblies Staff",1880,1923,8,20,NA,NA,NA,"French",7
+"96",13788,10781,"Lucien Wolff",0,"Translator","First Division","General Assemblies Staff",1880,1924,8,21,NA,NA,NA,"French",7
+"97",13789,10781,"Lucien Wolff",0,"Translator","First Division","General Assemblies Staff",1880,1925,8,25,NA,NA,NA,"French",7
+"98",13791,10781,"Lucien Wolff",0,"Translator","First Division","General Assemblies Staff",1880,1926,8,31,NA,NA,NA,"French",7
+"99",13820,10478,"Edouard Thommen",0,"Translator","First Division","Labour Conference At Washington",1880,1919,10,6,NA,NA,NA,"Swiss",7
+"100",13821,10479,"Janet Peace Thompson",1,"Senior Assistant","First Division","Registry",1900,1925,3,23,1827,12,31,"English",6
+"101",13829,10484,"Maurice Ch. A.  Thudichum",0,"Interpreter","First Division","Labour Conference At Washington",1890,1919,10,8,NA,NA,NA,"Swiss",7
+"102",13954,10549,"Georges  Vattier",0,"Précis Writer","First Division","Mandates Section",1888,1929,11,11,NA,NA,NA,"French",7
+"103",13995,10563,"Antoine Vellemann",0,"Interpreter-Translator","First Division","International Financial Conference",1875,1920,9,23,NA,NA,NA,"Swiss",7
+"104",14063,9913,"Paul Devinat",0,"Translator","First Division","General Assemblies Staff",1890,1920,11,10,NA,NA,NA,"French",7
+"105",14283,10721,"Marjorie I. Wilenski née Harland",1,"Translator","First Division","Barcelona Conference",1893,1921,3,10,NA,NA,NA,"English",7
+"106",14411,11548,"Olivia Rossetti-Agresti",1,"Interpreter","First Division","Pool",1875,1922,9,1,NA,NA,NA,"Italian",7
+"107",14414,11548,"Olivia Rossetti-Agresti",1,"Interpreter","First Division","Pool",1875,1924,9,1,NA,NA,NA,"Italian",7
+"108",14502,10830,"Raymond W. Anderson",0,"Précis Writer","First Division","The Hague Conference",NA,NA,NA,NA,NA,NA,NA,"English",7
+"109",14503,10830,"Raymond W. Anderson",0,"Translator","First Division","Brussels Conference",NA,1920,9,NA,NA,NA,NA,"English",7
+"110",14646,10924,"William Astor",0,"Temporary Member","First Division","Far East Commission of Enquiry (Manchurian Commission)",NA,1932,2,NA,NA,NA,NA,"English",8
+"111",14683,10563,"Antoine Vellemann",0,"Interpreter","First Division","General Assemblies Staff",1875,1921,9,2,NA,NA,NA,"Swiss",7
+"112",14684,10563,"Antoine Vellemann",0,"Interpreter","First Division","General Assemblies Staff",1875,1922,8,31,NA,NA,NA,"Swiss",7
+"113",14685,10563,"Antoine Vellemann",0,"Interpreter","First Division","General Assemblies Staff",1875,1924,9,1,NA,NA,NA,"Swiss",7
+"114",14686,10563,"Antoine Vellemann",0,"Interpreter","First Division","General Assemblies Staff",1875,1926,3,8,NA,NA,NA,"Swiss",7
+"115",14774,11001,"Jean Emile Royer",0,"Interpreter","First Division","Translation",1900,1928,9,3,NA,NA,NA,"French",7
+"116",15138,11200,"Joseph Belleau",0,"Interpreter","First Division","Washington Labour Conference",1884,1919,10,25,NA,NA,NA,"Canadian",7
+"117",15195,11237,"Benoît Leon-Dufour",0,"Member of Section","First Division","Economic and Financial Section",1881,NA,NA,NA,NA,NA,NA,"French",8
+"118",15307,11302,"Gerasimos Lychnos",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"Greek",8
+"119",15531,11420,"M.  Hautrive",0,"Translator","First Division","Brussels Conference",NA,1920,9,NA,NA,NA,NA,"French",7
+"120",15715,9694,"Mrs. Lucie Hakanaver",1,"Senior Assistant","First Division","Health Section",1893,1922,5,15,31,1,1940,"Swiss",6
+"121",15794,11542,"C.A. Ronzevalle",0,"Interpreter","First Division","Labour Conference At Washington",NA,1919,10,8,NA,NA,NA,"English",7
+"122",15806,11548,"Olivia Rossetti-Agresti",1,"Interpreter","First Division","Economic Conference",1875,1927,5,4,NA,NA,NA,"Italian",7
+"123",15847,11569,"Randolph Hughes",0,"Translator","First Division","Translation Section",NA,NA,NA,NA,1921,NA,NA,"Australian",7
+"124",15903,11595,"Suzanne Hélène Georgette Balasko",1,"Translator","First Division","Translation",1903,NA,NA,NA,NA,NA,NA,"French",7
+"125",15913,11598,"Prof. K.R. Brotherus",0,"Temporary Collaborator","First Division","Information Section",NA,1926,5,17,NA,NA,NA,"Finish",8
+"126",15932,11610,"Maurice Boyer",0,"Member of Section","First Division","Economic and Financial Section",NA,NA,NA,NA,NA,NA,NA,"French",8
+"127",15981,11632," René Samuel Cassin",0,"Personal Assistant","First Division","Secretary-General's Office",1887,NA,NA,NA,NA,NA,NA,"",7
+"128",16096,5392,"Dr. Walter Fortunat Muehlon",0,"Member of Section","First Division","Health Section",1914,194,5,1,1945,6,11,"Swiss",8
+"129",16103,11700,"Jaques Bonnoront",0,"Translator","First Division","Translation",1883,1835,NA,NA,1938,NA,NA,"French",7
+"130",16138,5171,"Dr. Frank Boudreau",0,"Temporary Collaborator","First Division","Health Section",1886,NA,NA,NA,NA,NA,NA,"US-American",8
+"131",16208,11742,"José Garza y de Garate",0,"Temporary Collaborator","First Division","Information Section",1910,1932,9,19,NA,NA,NA,"",8
+"132",16584,11923,"Chaulin-Servinière",1,"Secretary","First Division","Washington Labour Conference",NA,1919,10,NA,NA,NA,NA,"French",6
+"133",16733,9939,"Dondynaz",1,"Secretary","First Division","General Assemblies Staff",NA,1921,9,1,NA,NA,NA,"",6
+"134",16751,5506,"Dr. Hoops",0,"Deputy Director","First Division","Health Section",NA,NA,NA,NA,NA,NA,NA,"",9
+"135",16757,4929,"Dr. Tsune Ouchi",0,"Deputy Director","First Division","Health Section",NA,NA,NA,NA,NA,NA,NA,"",9
+"136",16788,10890,"Fehler Fehler",1,"Translator","First Division","Pool",1890,NA,NA,NA,NA,NA,NA,"",7
+"137",16791,12020,"A.  Combaud",1,"French Translator","First Division","Labour Conference At Washington",NA,1919,10,9,NA,NA,NA,"French",7
+"138",17131,8635,"Mildred Fox",1,"Translator","First Division","Pool",NA,1921,4,7,NA,NA,NA,"",7
+"139",20375,13405,"André  de Gall",0,"Temporary Collaborator","First Division","Information Section",NA,1935,9,5,NA,NA,NA,"Hungarian",8

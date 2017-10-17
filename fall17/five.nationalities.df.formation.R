@@ -76,29 +76,5 @@ da <- da %>%
   mutate(entry_time = x_1)
 
 
-# import data frame of rank names to ordinal scale
-setwd("~/Historie projekt/historie project/LONSEA_DB")
-ordinal_ranks <- read.csv("data/fname_u_with_class.csv", sep = ",", header = FALSE, stringsAsFactors = FALSE)# changed original category csv due to encoding
-# column names
-colnames(ordinal_ranks) = c("u_id", "u_fname" , "u_fname_code")
-# code every object in main
-extract_rank <- rep(NA,nrow(da))
-
-for(i in 1:nrow(ordinal_ranks)){
-  #for each rank a logical vector indexing subject numbers are created
-  idx <- ordinal_ranks$u_fname[i] == da$fname
-  #true index are translated to oridnal rank numbers for each subject
-  extract_rank[idx] <- ordinal_ranks$u_fname_code[i]
-}
-#ordinal rank numbers are added
-da$fname_code <- extract_rank
-da <- da %>%
-  filter(begin_on_year > 1900) %>% 
-  filter(fname_code != 0)
-
-#reversing fname_code order
-da1 <- da
-for (i in 1:nrow(da)) {
-da1$fname_code[i] <- 10-da$fname_code[i]}
 #write.csv(da1,"reversedfname_all.wo_temp_fcode0.w_GA_rank.csv")
 

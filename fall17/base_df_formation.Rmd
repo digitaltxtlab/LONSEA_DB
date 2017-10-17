@@ -10,9 +10,8 @@ library(pacman)
 p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
 
 
-
-setwd("~/Historie projekt/historie project/LONSEA_DB/fall17")
-
+setwd("~/Historie projekt/historie project/LONSEA_DB/data")
+#setwd("~/Historie projekt/historie project/LONSEA_DB")
 da <- read.csv("lon_data_w_GA.csv")
 
 ```
@@ -44,7 +43,7 @@ da[indx,4] <- 0
 da[indx,15] <- "Japanese"
 indx <- da$pname == "Inazo Nitobe"
 da[indx,15] <- "Japanese"
-
+da[indx,8] <- 1862
 ```
 
 
@@ -72,12 +71,61 @@ da$nationality <- str_replace_all(da$nationality,"DutchSwiss", "Dutch, Swiss")
 da$nationality <- str_replace_all(da$nationality,"SwissSwiss", "Swiss")
 da$nationality <- str_replace_all(da$nationality,"Swiss,Swiss", "Swiss")
 da$nationality <- str_replace_all(da$nationality,"FrenchSwiss", "French, Swiss")
+da$nationality <- str_replace_all(da$nationality,",Swiss", "Swiss")
+da$nationality <- str_replace_all(da$nationality,"British,British", "British")
+da$nationality <- str_replace_all(da$nationality,"Italian,Italian", "Italian")
+da$nationality <- str_replace_all(da$nationality,"Austrian,Austrian", "Austrian")
 
 
 da <- da %>% 
 mutate(nationality = as.factor(nationality))
 
+summary(da$nationality)
+```
 
 
-#write.csv(da, "lon_data_w_GA.csv")
+Adding ordinal fnames scale
+```{r}
+# import data frame of rank names to ordinal scale
+setwd("~/Historie projekt/historie project/LONSEA_DB")
+ordinal_ranks <- read.csv("data/fname_u_with_class.csv", sep = ",", header = FALSE, stringsAsFactors = FALSE)# changed original category csv due to encoding
+# column names
+colnames(ordinal_ranks) = c("u_id", "u_fname" , "u_fname_code")
+# code every object in main
+extract_rank <- rep(NA,nrow(da))
+
+
+for(i in 1:nrow(ordinal_ranks)){
+  #for each rank a logical vector indexing subject numbers are created
+  idx <- ordinal_ranks$u_fname[i] == da$fname
+  #true index are translated to oridnal rank numbers for each subject
+  extract_rank[idx] <- ordinal_ranks$u_fname_code[i]
+}
+#ordinal rank numbers are added and code is reversed, so that 9 = highest (directors etc) rank, and 1 = lowest (cleaners etc)
+
+da <- da %>% 
+  mutate(fname_code = extract_rank,
+         fname_code = 10 - fname_code)
+
+
+
+```
+
+
+Filtering out based on missing data
+
+```{r}
+subset <- da %>%
+  filter(begin_on_year > 1900 & end_on_year > 1915)
+
+missing <- da %>%
+  filter(begin_on_year < 1900 | is.na(begin_on_year) | is.na(end_on_year) | end_on_year < 1915)
+
+
+```
+
+
+```{r}
+write.csv(subset, "lon_data_w_GA.csv", row.names = F)
+write.csv(missing, "missing_begin_on_year.csv", row.names = F)
 ```

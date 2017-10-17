@@ -1,0 +1,33 @@
+---
+  title: "R markdown template""
+author: "Adam Finnemann"
+date: "September 24, 2017"
+---
+
+```{r setup, include=FALSE}
+
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+
+
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/fall17")
+da <- read.csv("lon_data_w_GA.csv")
+```
+
+
+```{r}
+da <- da %>%
+  filter(!is.na(end_on_year)) %>% 
+  mutate(begin_date = as.Date(paste(begin_on_year,"-01-01", sep = "")),
+         end_date = as.Date(paste(end_on_year,"-01-01", sep = "")))
+
+```
+
+```{r}
+setwd("~/Historie projekt/historie project/LONSEA_DB/fall17/yearly_length_contract_karen")
+write.csv(da, "contract_length_w_begin_year.csv")
+```
+
+

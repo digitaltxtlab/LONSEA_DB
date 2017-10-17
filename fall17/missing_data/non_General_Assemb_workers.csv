@@ -1,0 +1,816 @@
+"","X","id","pname","gender","fname","canonical_fname","oname","born_on_year","begin_on_year","begin_on_month","begin_on_day","end_on_year","end_on_month","end_on_day","nationality","fname_code"
+"1",545,381,"Dr. Edmond Privat",0,"Interpreter","First Division","Transit Conference",1889,1921,3,10,NA,NA,NA,"Swiss",7
+"2",674,449,"Gabriel Hanotaux",0,"President","President","Advisory and Technical Committee for Communications and Transit of the League of Nations",1853,1921,3,10,NA,NA,NA,"French",10
+"3",6124,4865,"Solon George Xenakis",0,"Member of Section","First Division","Economic and Financial Section",1884,1925,6,21,NA,NA,NA,"Greek",8
+"4",6128,4866,"Alejandro Aguilar Machado",0,"Temporary Collaborator","First Division","Information Section",NA,1931,5,13,NA,NA,NA,"Costa_Rican",8
+"5",6137,4871,"Francisco Walker-Linares",0,"Delegate","Delegate","League of Nations",1894,NA,NA,NA,NA,NA,NA,"Chilean",8
+"6",6150,4880,"Frank Paul Walters",0,"Head of Section","First Division","Secretary-General's Office",1888,1920,1,10,NA,NA,NA,"English",9
+"7",6180,4899,"K'iuan Wou",0,"Temporary Collaborator","First Division","Information Section",1910,1937,10,11,1038,5,10,"Chinese",8
+"8",6190,4906,"Harold Nicolson",0,"Member of Section","First Division","Political Section",NA,1919,10,21,NA,NA,NA,"English",8
+"9",6206,4915,"Julian Nogueira",0,"Member of Section","First Division","Mandates Section",NA,1921,1,28,NA,NA,NA,"Uruguayan",8
+"10",6234,4936,"Guillaume Théodore Conrad Zwerner",0,"Delegate of a Commission","League of Nations staff","High Commission for Refugees",1883,NA,NA,NA,1924,8,NA,"Swiss",8
+"11",6249,4941,"Louis Variez",0,"Director","First Division","Labour Section",NA,NA,NA,NA,1920,3,NA,"",9
+"12",6262,4948,"Eugène Henri René  Vigier",0,"Member of Section","First Division","Political Section",1886,1927,1,1,NA,NA,NA,"French",8
+"13",6263,4948,"Eugène Henri René  Vigier",0,"Counsellor","Second Division","Political Section",1886,1931,4,2,NA,NA,NA,"French",10
+"14",6281,4951,"Arturo Uslar-Pietri",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"Venezuelan",8
+"15",6287,4955,"John Leslie Palmer",0,"Member of Section","First Division","Information Section",NA,1931,NA,NA,NA,NA,NA,"English",8
+"16",6288,4955,"John Leslie Palmer",0,"Member of Section","First Division","Disarmament Section",NA,NA,NA,NA,NA,NA,NA,"English",8
+"17",6294,4961,"Prof. P.K. Pariaja",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"",8
+"18",6296,4963,"Humbert Denis Parodi",0,"Translator","First Division","Translation",NA,NA,NA,NA,NA,NA,NA,"Swiss",7
+"19",6300,4967,"Giacomo Paulucci di Calboli Barone",0,"Under Secretary General","First Division","Under Secretary-Generals' in charge of Internal Administration Office",NA,NA,NA,NA,NA,NA,NA,"Italian",9
+"20",6329,8752,"Olga Glogau",1,"Shorthand Typist","Second Division","General Assemblies Staff",1893,1924,7,28,NA,NA,NA,"Austrian",4
+"21",6359,5010,"Hugh McKinnon Wood",0,"Member of Section","First Division","Legal Section",1884,1920,11,1,NA,NA,NA,"English",8
+"22",6360,5010,"Hugh McKinnon Wood",0,"Counsellor","Second Division","Legal Section",1884,1931,1,1,NA,NA,NA,"English",10
+"23",6365,5013,"Salvador Madariga",0,"Member of Section","First Division","Information Section",1886,1921,8,22,NA,NA,NA,"Spanish",8
+"24",6366,5013,"Salvador Madariga",0,"Chief of Section","First Division","Disarmament Section",1886,1922,8,1,NA,NA,NA,"Spanish",9
+"25",6395,5037,"Enrique Bernstein",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"",8
+"26",6415,5054,"L. Bhagi-Rathi",1,"Temporary Collaborator","First Division","Information Section",NA,1935,9,5,1035,9,24,"Indian",8
+"27",6420,9729,"Adelaide Hannah King",1,"Shorthand Typist","Second Division","Pool",1898,1922,9,1,NA,NA,NA,"British",4
+"28",6425,9729,"Adelaide Hannah King",1,"Shorthand Typist","Second Division","Pool",1898,1930,11,6,NA,NA,NA,"British",4
+"29",6432,5070,"Frédéric Blondeel",0,"Member of Section","First Division","Information Section",1890,NA,NA,NA,NA,NA,NA,"",8
+"30",6442,5074,"Adolf Bochenski",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"Polish",8
+"31",6448,5080,"Artur Tupits",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"Estonian",8
+"32",6464,5092,"Prof. Bernardo B. Attolico",0,"Director","First Division","Economic Bureau",1880,NA,NA,NA,NA,NA,NA,"Italian",9
+"33",6466,5093,"Candido Sahini",0,"Secretary","First Division","Under-Secretary-General's Office",1870,1924,8,24,NA,NA,NA,"Italian",6
+"34",6487,5108,"Henriette Charlotte Schlesser",1,"Secretary","First Division","Deputy Secretary-General's Office",1877,1920,9,1,NA,NA,NA,"French",6
+"35",6501,5116,"Massimo Pilotti",0,"Under Secretary General","First Division","Under Secretary-Generals' in charge International Bureaux and Intellectual-Co-operation Section Office",NA,NA,NA,NA,NA,NA,NA,"Italian",9
+"36",6514,5118,"Charles Schonberger",0,"Member of Section","First Division","Economic and Financial Section",1886,NA,NA,NA,NA,NA,NA,"Austrian",8
+"37",6557,5150,"Brij Mohan Sharma",0,"Assistant","Second Division","League of Nations",1900,NA,NA,NA,1933,NA,NA,"Indian",4
+"38",6606,5188,"Dr. Andrija Stampar",0,"Expert/Specialist","First Division","League of Nations",1888,NA,NA,NA,1936,10,15,"Yugoslav",8
+"39",6607,11292,"Becky Lubich",1,"Stenographer","Second Division","Pool",1892,1927,5,4,NA,NA,NA,"British",4
+"40",6628,5202,"Herman Stolpe",0,"Temporary Collaborator","First Division","Information Section",NA,1937,7,2,23,7,1937,"Swedish",8
+"41",6634,9711,"Catherine Barbara Kent",1,"Stenographer","Second Division","Pool",1897,1926,9,6,NA,NA,NA,"British",4
+"42",6663,5218,"Diana Cohen",1,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"",8
+"43",6673,5228,"W. Layton",0,"Director","First Division","Economic and Financial Section",NA,1920,4,1,NA,NA,NA,"English",9
+"44",6701,5244,"Luis Agustin Podesta Costa",0,"Legal Adviser","First Division","Legal Section",NA,NA,NA,NA,NA,NA,NA,"Argentinian",8
+"45",6715,5253,"Gerasimos Lynchos",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"Greek",8
+"46",6742,5275,"Clovis Kernisan",0,"Delegate","League of Nations staff","League of Nations",1885,NA,NA,NA,1930,12,1,"Haitian",8
+"47",6813,5320,"Prof. A. Brusewitz",0,"Temporary Collaborator","First Division","Information Section",NA,1927,6,NA,NA,NA,NA,"Swedish",8
+"48",6822,5327,"J.R.M. Butler",0,"Temporary Collaborator","First Division","Political Section",NA,1921,9,11,NA,NA,NA,"",8
+"49",6836,5335,"Robert  Haas",0,"Secretariat","Secretariat","Advisory and Technical Committee for Communications and Transit of the League of Nations",1891,1921,NA,NA,NA,NA,NA,"French",10
+"50",6901,5386,"John Hamilton",0,"League of Nations staff","League of Nations staff","League of Nations",NA,1920,9,NA,NA,NA,NA,"English",8
+"51",6924,5404,"Muhyi el Din el Mumayiz",0,"Temporary Collaborator","First Division","Legal Section",1910,NA,NA,NA,NA,NA,NA,"Iraqi",8
+"52",6949,5421,"T.S. Ramanujam",0,"Correspondent","Second Division","Bombay Office",NA,1932,9,1,NA,NA,NA,"Indian",6
+"53",7120,5527,"Arthur Elliott Felkin",0,"Member of Section","First Division","Economic and Financial Section",NA,1923,1,15,NA,NA,NA,"English",8
+"54",7126,5532,"Raymond B. Fosdick",0,"Under Secretary General","First Division","Under-Secretary-General's Office",NA,1919,7,17,NA,NA,NA,"US-American",9
+"55",7137,5539,"Georges Fleury",0,"Member of Section","First Division","Information Section",NA,1920,7,15,NA,NA,NA,"",8
+"56",7149,5556,"H.R. Rodwell",0,"Temporary Collaborator","First Division","Information Section",NA,1934,9,7,NA,NA,NA,"English",8
+"57",8323,6629,"Prof. G. Scelle",-1,"Précis Writer","First Division","General Assemblies Staff",NA,1922,9,2,NA,NA,NA,"",7
+"58",10137,8425,"Edgard F. G. Abraham",0,"Interpreter","First Division","Washington Labour Conference",1884,NA,NA,NA,NA,NA,NA,"British,English",7
+"59",10197,8485,"Alfred  Adams",0,"House Staff","Third Division","Auxiliary Staff",NA,NA,NA,NA,NA,NA,NA,"",1
+"60",10199,9949,"Ella Amelia Doyle",1,"Shorthand Typist","Second Division","Financial Section & Economic Intelligence Service",1886,NA,NA,NA,NA,NA,NA,"Australian",4
+"61",10239,11553,"Ethel Hopgood",1,"Assistant Translator","First Division","Pool",NA,NA,NA,NA,1921,NA,NA,"British",4
+"62",10271,8518,"J.  Falconnat",0,"Driver","Third Division","Auxiliary Staff",NA,1923,9,3,NA,NA,NA,"",1
+"63",10274,8520,"L. Falquet",0,"Messenger","Second Division","Duplicating & Multigraph Service",NA,1922,8,28,NA,NA,NA,"",3
+"64",10275,9732,"G. H. King",0,"Verbatim Reporter","Second Division","General Assemblies Staff",NA,1921,9,3,NA,NA,NA,"British",4
+"65",10280,9732,"G. H. King",0,"Verbatim Reporter","Second Division","General Assemblies Staff",NA,1922,9,2,NA,NA,NA,"British",4
+"66",10294,11509,"Hissett",1,"Shorthand Typist","Second Division","Pool",NA,1920,9,15,NA,NA,NA,"British",4
+"67",10325,8551,"Robert Fath",0,"Messenger","Second Division","Distribution of Documents",1904,1924,9,1,NA,NA,NA,"Swiss",3
+"68",10326,8551,"Robert Fath",0,"Messenger","Second Division","Distribution of Documents",1904,1925,8,22,NA,NA,NA,"Swiss",3
+"69",10330,8552,"Robert Fatio",0,"Translator","First Division","Translation",1893,1919,10,6,NA,NA,NA,"Swiss",7
+"70",10331,11577,"Horace Vernon Humphreys",0,"Verbatim Reporter","Second Division","Pool",1898,1927,3,15,NA,NA,NA,"British",4
+"71",10336,11508,"Horace Walter Hiscoke",0,"Verbatim Reporter","Second Division","Pool",1890,1925,11,1,NA,NA,NA,"British",4
+"72",10340,8558,"Simone Favre",1,"Messenger","Second Division","Duplicating & Multigraph Service",1909,1924,9,1,NA,NA,NA,"French",3
+"73",10341,8558,"Simone Favre",1,"Lon Duplicator","Second Division","Duplicating & Multigraph Service",1909,1925,8,25,NA,NA,NA,"French",2
+"74",10342,8558,"Simone Favre",1,"Lon Duplicator","Second Division","Duplicating & Multigraph Service",1909,1926,3,8,NA,NA,NA,"French",2
+"75",10380,8582,"Kate Field",1,"Messenger","Second Division","London Office",NA,NA,NA,NA,1921,1,22,"",3
+"76",10382,8583,"Lionel  Fielden",0,"Translator","First Division","Translation",1896,1921,8,25,NA,NA,NA,"English",7
+"77",10384,8583,"Lionel  Fielden",0,"Translator","First Division","Translation",1896,1922,8,28,NA,NA,NA,"English",7
+"78",10387,12446,"Hugh Mortimer Gann",0,"Translator","First Division","General Assemblies Staff",NA,1922,9,2,NA,NA,NA,"British",7
+"79",10399,8592,"Eugène  Filotti",0,"Temporary Collaborator","First Division","Information Section",NA,1927,9,3,NA,NA,NA,"Romanian",8
+"80",10413,8602,"Georges Francois  Fissore",0,"Clerk","Second Division","Distribution of Documents",1897,1920,11,12,NA,NA,NA,"Italian",4
+"81",10414,8602,"Georges Francois  Fissore",0,"Clerk","Second Division","Economic and Financial Section",1897,1920,11,NA,NA,NA,NA,"Italian",4
+"82",10415,8602,"Georges Francois  Fissore",0,"Clerk","Second Division","Treasury",1897,NA,NA,NA,1922,11,18,"Italian",4
+"83",10424,8609,"Théo Fleischmann",0,"Temporary Collaborator","First Division","Information Section",NA,1930,9,9,NA,NA,NA,"",8
+"84",10425,8609,"Théo Fleischmann",0,"Temporary Collaborator","First Division","Information Section",NA,1931,9,7,NA,NA,NA,"",8
+"85",10436,8612,"Henry Emile Fleury",0,"Verbatim Reporter","Second Division","Council Conference",1901,1930,5,8,NA,NA,NA,"French",4
+"86",10445,8619,"Emile  Fontaine",0,"Driver","Third Division","Auxiliary Staff",1907,1946,7,15,194,7,31,"Swiss",1
+"87",10446,8621,"Jeanne Fontana",1,"Messenger","Second Division","Duplicating & Multigraph Service",1906,1926,9,2,NA,NA,NA,"Swiss",3
+"88",10452,8624,"Léon Rodolphe Marius Foresti",0,"Cleaner","Third Division","Auxiliary Staff",1899,1927,1,1,NA,NA,NA,"Swiss",1
+"89",10473,8641,"G. E.  Franey",0,"Verbatim Reporter","Second Division","International Financial Conference",NA,1920,9,21,NA,1920,10,"English",4
+"90",10512,8668,"Guillaume  Fatio",0,"Service staff","Third Division","Auxiliary Staff",NA,NA,NA,NA,NA,NA,NA,"Swiss",1
+"91",10533,8680,"Laure  Gendre",1,"Messenger","Second Division","Auxiliary Staff",1893,1924,8,28,NA,NA,NA,"Swiss",3
+"92",10555,8702,"Francis Genet",0,"Cyclist","Third Division","Auxiliary Staff",NA,1921,8,24,NA,NA,NA,"Swiss",1
+"93",10558,8705,"Rose  Genier",1,"Assistant","Second Division","Library",NA,1921,1,26,NA,NA,NA,"Swiss",4
+"94",10575,8708,"Louis  Gentil",0,"Messenger","Second Division","Distribution of Documents",1898,1927,8,22,NA,NA,NA,"Swiss",3
+"95",10577,8710,"E. Georg",0,"Interpreter","First Division","Translation",NA,1920,9,24,NA,NA,NA,"Swiss",7
+"96",10578,11552,"Lilian Hooper",1,"Stenographer","Second Division","Pool",NA,1920,2,12,NA,NA,NA,"British",4
+"97",10633,8738,"Mariette Girod-Poncioni",1,"Messenger","Second Division","Duplicating & Multigraph Service",1897,1922,5,31,NA,NA,NA,"French",3
+"98",10634,8738,"Mariette Girod-Poncioni",1,"Messenger","Second Division","Duplicating & Multigraph Service",1897,1923,6,29,NA,NA,NA,"French",3
+"99",10636,8739,"Louise Gisiger née Gaste",1,"Copyist","Second Division","Central Opium Board",1893,1929,11,11,NA,1934,9,"Swiss",2
+"100",10642,8743,"Blanche  Glaser",1,"Messenger","Second Division","Duplicating & Multigraph Service",1909,1925,9,7,NA,NA,NA,"Austrian",3
+"101",10741,8792,"Marcelle Gouin",1,"Translator","First Division","Labour Conference At Washington",NA,1919,10,9,NA,NA,NA,"",7
+"102",10762,8804,"Georges Graf",0,"Messenger","Second Division","Economic Conference",1876,1927,4,29,NA,NA,NA,"Swiss",3
+"103",10773,9194,"Winifred Davies",1,"Shorthand Typist","Second Division","Pool",NA,1921,3,5,NA,NA,NA,"British",4
+"104",10787,8826,"Dr. Louis Gray",0,"Personal Assistant","First Division","Mandates Section",NA,NA,NA,NA,NA,NA,NA,"US-American",7
+"105",10788,8827,"Gray",1,"Secretary","First Division","Information Section",NA,1923,2,1,1023,9,10,"English",6
+"106",10789,8828,"Rhoda Green",1,"Clerk Assistant","Second Division","Library",NA,NA,NA,NA,NA,NA,NA,"",3
+"107",10796,10624,"Ann E. Walbridge",1,"Stenographer","Second Division","Pool",1886,1925,9,7,NA,NA,NA,"Canadian",4
+"108",10805,10401,"Norah M. Eyre",1,"Shorthand Typist","Second Division","Pool",NA,1921,9,4,NA,NA,NA,"Canadian",4
+"109",10837,10400,"Zdena Jelinkova",1,"Shorthand Typist","Second Division","Pool",NA,NA,NA,NA,NA,NA,NA,"Czech",4
+"110",10844,8865,"Theophile Gschwind",0,"Cleaner","Third Division","Auxiliary Staff",NA,1920,11,1,NA,NA,NA,"Swiss",1
+"111",10847,8867,"Paul Guerie",0,"Verbatim Reporter","Second Division","Counsel",1883,1922,7,1,NA,NA,NA,"French",4
+"112",10851,8868,"Georges Guerin",0,"Verbatim Reporter","Second Division","Précis-Writing Department",1873,1922,5,11,NA,NA,NA,"French",4
+"113",10853,8868,"Georges Guerin",0,"Verbatim Reporter","Second Division","Précis-Writing Department",1873,1923,9,16,NA,NA,NA,"French",4
+"114",10854,8868,"Georges Guerin",0,"Verbatim Reporter","Second Division","Précis-Writing Department",1873,1924,9,13,NA,NA,NA,"French",4
+"115",10855,8868,"Georges Guerin",0,"Verbatim Reporter","Second Division","Précis-Writing Department",1873,1925,9,19,NA,NA,NA,"French",4
+"116",10856,8868,"Georges Guerin",0,"Verbatim Reporter","Second Division","Précis-Writing Department",1873,1926,3,8,NA,NA,NA,"French",4
+"117",10866,8871,"Germaine  Guibentif-Privat",1,"Assistant","Second Division","Précis-Writing Department",1895,1921,9,3,NA,NA,NA,"Swiss",4
+"118",10867,8871,"Germaine  Guibentif-Privat",1,"Assistant","Second Division","Précis-Writing Department",1895,1922,9,1,NA,NA,NA,"Swiss",4
+"119",10869,8871,"Germaine  Guibentif-Privat",1,"Assistant","Second Division","Précis-Writing Department",1895,1924,9,1,NA,NA,NA,"Swiss",4
+"120",10876,10596,"Netty de Vink",1,"Shorthand Typist","Second Division","Pool",NA,1921,9,5,NA,NA,NA,"Dutch",4
+"121",10877,8765,"A. J. Goldberry",0,"Translator","First Division","General Assemblies Staff",NA,NA,NA,NA,NA,NA,NA,"English",7
+"122",10881,8879,"Jorge Guillen",0,"Translator","First Division","Translation",NA,1920,11,22,NA,NA,NA,"",7
+"123",10911,8888,"Jean William Guiton",0,"Clerk","Second Division","Information Section",1906,1925,9,1,NA,NA,NA,"French",4
+"124",10920,9398,"Airlie Margaret Isabel Moss",1,"Stenographer","Second Division","Pool",1890,1926,9,6,NA,NA,NA,"English",4
+"125",10950,8914,"Mackinder",1,"Duplicating Operator","Second Division","Duplicating & Multigraph Service",NA,1920,10,20,NA,NA,NA,"English",3
+"126",10952,10599,"Alice Mary Vinter",1,"Shorthand Typist","Second Division","Pool",1889,1926,8,2,NA,NA,NA,"English",4
+"127",10974,10607,"Angela Viveash",1,"Copyist","Second Division","Pool",NA,1919,7,9,NA,NA,NA,"English",2
+"128",10977,8932,"Maisie Mckay",1,"Roneo Operator","Second Division","Duplicating & Multigraph Service",NA,1919,6,24,NA,NA,NA,"English",2
+"129",10987,8938,"Elisa Mader",1,"Messenger","Second Division","Duplicating & Multigraph Service",1908,1925,9,7,NA,NA,NA,"Swiss",3
+"130",10988,8938,"Elisa Mader",1,"Messenger","Second Division","Duplicating & Multigraph Service",1908,1926,3,8,NA,NA,NA,"Swiss",3
+"131",11010,8948,"Magnus",0,"Member of Section","First Division","Information Section",NA,1919,10,NA,NA,NA,NA,"",8
+"132",11023,11524,"D.  Hollins",1,"Shorthand Typist","Second Division","Unspecified",NA,NA,NA,NA,NA,NA,NA,"British",4
+"133",11024,8832,"Barbara Greves",1,"Shorthand Typist","Second Division","General Assemblies Staff",NA,1921,8,20,NA,NA,NA,"English",4
+"134",11026,8957,"Mallinson",1,"Duplicating Operator","Second Division","Duplicating & Multigraph Service",NA,1920,10,13,NA,NA,NA,"English",3
+"135",11027,8832,"Barbara Greves",1,"Shorthand Typist","Second Division","General Assemblies Staff",NA,1922,8,25,NA,NA,NA,"English",4
+"136",11032,8832,"Barbara Greves",1,"Shorthand Typist","Second Division","General Assemblies Staff",NA,1924,9,6,NA,NA,NA,"English",4
+"137",11093,10525,"Catherine  McMahon Trowell",1,"Copyist","Second Division","Pool",NA,1923,9,3,NA,NA,NA,"English",2
+"138",11106,9126,"Cecily Graham Babington",1,"Shorthand Typist","Second Division","Pool",1899,1922,8,29,NA,NA,NA,"English",4
+"139",11113,9014,"Renée  Marti",1,"Cleaner","Third Division","Auxiliary Staff",1898,1930,9,2,103,9,13,"Swiss",1
+"140",11139,9126,"Cecily Graham Babington",1,"Shorthand Typist","Second Division","Pool",1899,NA,NA,NA,1935,30,4,"English",4
+"141",11152,9036,"Marius Mattei",0,"Clerk","Second Division","Distribution of Documents",1871,1924,8,29,NA,NA,NA,"Swiss",4
+"142",11169,9047,"Sergeant Frank Victor Maynard",0,"Office Keeper","Third Division","Internal Administration",NA,1920,3,5,NA,NA,NA,"English",2
+"143",11190,10791,"Colin Tremaine Wright",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1887,1922,9,2,NA,NA,NA,"English",4
+"144",11191,9058,"Cornelia Anna van der Meer",1,"Messenger","Second Division","Conference for the Codification of International Law",1909,1930,3,13,NA,NA,NA,"Dutch",3
+"145",11194,9061,"Juliette Mehlin",1,"Duplicator Operator","Second Division","Duplicating & Multigraph Service",1896,1925,9,1,NA,NA,NA,"Swiss",3
+"146",11211,9068,"Georges Meisterlein",0,"Messenger","Second Division","Distribution of Documents",NA,1922,8,21,NA,NA,NA,"Swiss",3
+"147",11237,10791,"Colin Tremaine Wright",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1887,1925,5,21,NA,NA,NA,"English",4
+"148",11241,10316,"Constance Sylvia Spencer",1,"Stenographer","Second Division","Pool",1906,1926,9,6,NA,NA,NA,"English",4
+"149",11242,11579,"D. M.  Hunt",1,"Stenographer","Second Division","Pool",NA,NA,NA,NA,1921,NA,NA,"English",4
+"150",11252,9105,"Paul Meisterlein",0,"Messenger","Second Division","Distribution of Documents",1910,932,11,21,1932,11,29,"Swiss",3
+"151",11260,9112,"Mr. Warrar Irvin",0,"Temporary Correspondent","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"US-American",7
+"152",11266,9116,"Georges Silvain François Charles Kaeckenbeeck",0,"Member of Section","First Division","Legal Section",1892,NA,NA,NA,NA,NA,NA,"",8
+"153",11282,9127,"H. de Régny Irving",0,"Translator","First Division","Transit Conference at Barcelona",NA,1921,3,10,NA,NA,NA,"English",7
+"154",11295,9141,"T. Meras",1,"Assistant Secretary","Second Division","Political Section",NA,1919,10,NA,NA,NA,NA,"French",4
+"155",11299,9146,"Maud Dauphin",1,"Typist","Second Division","London Office",NA,1919,7,21,NA,NA,NA,"French",4
+"156",11308,9151,"Louis Egger",0,"Driver","Third Division","Auxiliary Staff",1893,1925,9,7,NA,NA,NA,"Swiss",1
+"157",11310,9151,"Louis Egger",0,"Driver","Third Division","Auxiliary Staff",1893,1926,3,8,NA,NA,NA,"Swiss",1
+"158",11311,9151,"Louis Egger",0,"Driver","Third Division","Auxiliary Staff",1893,1926,9,1,NA,NA,NA,"Swiss",1
+"159",11316,9151,"Louis Egger",0,"Driver","Third Division","Economic Conference",1893,1927,5,4,NA,NA,NA,"Swiss",1
+"160",11318,9153,"Marguerite Mercier",1,"Messenger","Second Division","Duplicating & Multigraph Service",1908,1924,9,1,NA,NA,NA,"Swiss",3
+"161",11319,10429,"Doreen Swallow",1,"Shorthand Typist","Second Division","Pool",NA,1921,9,3,NA,NA,NA,"English",4
+"162",11333,9163,"Ruth Bache-Wiig",0,"Indexer","Second Division","Library",1891,1920,9,15,NA,NA,NA,"US-American",4
+"163",11354,9179,"Marthe Merkli",1,"Messenger","Second Division","Duplicating & Multigraph Service",1897,1925,9,7,NA,NA,NA,"Swiss",3
+"164",11395,9191,"Georges Kaminker",0,"Interpreter","Interpreter","United Nations",NA,NA,NA,NA,1946,NA,NA,"French",7
+"165",11396,9191,"Georges Kaminker",0,"Interpreter","Interpreter","United Nations",NA,1946,NA,NA,NA,NA,NA,"French",7
+"166",11398,9193,"Mrs. Yvonne Isch",1,"Messenger","Second Division","Duplicating & Multigraph Service",1901,1930,4,29,NA,NA,NA,"Swiss",3
+"167",11399,9814,"Dorothy  Pratt née Trowell",1,"Copyist","Second Division","Pool",NA,1922,8,28,NA,NA,NA,"English",2
+"168",11401,9196,"Robert Iseli",0,"Cyclist","Third Division","Auxiliary Staff",NA,1922,9,5,NA,NA,NA,"",1
+"169",11405,9814,"Dorothy  Pratt née Trowell",1,"Copyist","Second Division","Pool",NA,1923,9,3,NA,NA,NA,"English",2
+"170",11420,9212,"Renée Marguerite Cambassedes",1,"Copyist","Second Division","Disarmement Conference",1909,1930,11,6,NA,NA,NA,"Swiss",2
+"171",11461,9233,"Charles Watson Dawson",0,"Verbatim Reporter","Second Division","Conference for the Codification of International Law",1892,1930,2,17,NA,NA,NA,"British",4
+"172",11483,9399,"Edith Moss",1,"Copyist","Second Division","Pool",NA,1922,8,28,NA,NA,NA,"English",2
+"173",11484,11118,"Edna Maud Rengert",1,"Stenographer","Second Division","Pool",1898,1925,9,7,NA,NA,NA,"English",4
+"174",11490,10786,"Eileen H. L.  Woods",1,"Shorthand Typist","Second Division","General Assemblies Staff",NA,1921,8,30,NA,NA,NA,"English",4
+"175",11504,9247,"Hilde Metzger",1,"Polycopist","Second Division","Duplicating & Multigraph Service",1916,1935,7,31,NA,NA,NA,"German",2
+"176",11516,10712,"Elizabeth H. Whitehouse",1,"Stenographer","Second Division","Pool",NA,1922,8,28,NA,NA,NA,"English",4
+"177",11517,10756,"Elizabeth Johnston",1,"Shorthand Typist","Second Division","General Assemblies Staff",NA,1921,8,15,NA,NA,NA,"English",4
+"178",11543,9945,"Elsie Dougherty",1,"Stenographer","Second Division","Pool",NA,1921,8,20,NA,NA,NA,"English",4
+"179",11558,10280,"Elsie Marjory Smith",1,"Typist","Second Division","Pool",1899,1920,5,10,NA,NA,NA,"English",4
+"180",11596,10031,"Ernest  Satchwell ",0,"Translator","First Division","General Assemblies Staff",1876,1922,9,2,NA,NA,NA,"English",7
+"181",11597,10764,"Ernest Augustus  Wilson",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1868,1921,9,3,NA,NA,NA,"English",4
+"182",11602,10764,"Ernest Augustus  Wilson",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1868,1922,9,2,NA,NA,NA,"English",4
+"183",11612,10764,"Ernest Augustus  Wilson",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1868,1923,9,2,NA,NA,NA,"English",4
+"184",11613,10764,"Ernest Augustus  Wilson",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1868,1924,8,31,NA,NA,NA,"English",4
+"185",11620,10764,"Ernest Augustus  Wilson",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1868,1925,1,11,NA,NA,NA,"English",4
+"186",11621,9241,"Esther Ivers",1,"Shorthand Typist","Second Division","Pool",1893,1921,3,1,NA,NA,NA,"English",4
+"187",11653,9340,"Ethel  Milburn",1,"Stenographer","Second Division","General Assemblies Staff",1887,1924,9,1,NA,NA,NA,"English",4
+"188",11655,9341,"F. Milburn",1,"Shorthand Typist","Second Division","Duplicating & Multigraph Service",NA,1921,9,1,NA,NA,NA,"English",4
+"189",11659,9342,"Dragolyoub Miletitch",0,"Press Reader","Second Division","Information Section",1879,1923,9,3,NA,NA,NA,"Yugoslav",5
+"190",11660,9342,"Dragolyoub Miletitch",0,"Press Reader","Second Division","Information Section",1879,1924,9,1,NA,NA,NA,"Yugoslav",5
+"191",11679,9352,"Emma Mino",1,"Messenger","Second Division","Duplicating & Multigraph Service",1910,1926,8,30,NA,NA,NA,"Italian",3
+"192",11681,8958,"Ethel Mallinson",1,"Shorthand Typist","Second Division","Pool",NA,1920,11,20,NA,NA,NA,"English",4
+"193",11693,10287,"Eva Elizabeth Snell",1,"Stenographer","Second Division","Pool",1892,1925,9,7,NA,NA,NA,"English",4
+"194",11709,9362,"Emile Molino",0,"Motorcyclist","Third Division","Economic Conference",1902,1927,5,4,NA,NA,NA,"Italian",1
+"195",11723,9366,"Lydia Monnet",1,"Cleaner","Third Division","Auxiliary Staff",1908,NA,NA,NA,NA,NA,NA,"Swiss",1
+"196",11734,9370,"Montandon",1,"House Staff","Third Division","Auxiliary Staff",NA,NA,NA,NA,NA,NA,NA,"",1
+"197",11750,9376,"Abel Constant Jules Georges Moreau",0,"Verbatim Reporter","Second Division","Commercial Conventions Conference",1883,1930,11,17,NA,NA,NA,"French",4
+"198",11757,9379,"M. Morel",0,"Messenger","Second Division","Duplicating & Multigraph Service",NA,1923,9,1,NA,NA,NA,"",3
+"199",11758,11322,"F. Buckland",1,"Shorthand Typist","Second Division","Pool",NA,1919,7,21,NA,NA,NA,"English",4
+"200",11765,9384,"Maggie Morfey",1,"Shorthand Typist","Second Division","Duplicating & Multigraph Service",NA,1919,9,29,NA,NA,NA,"English",4
+"201",11767,9386,"Louise Morin",1,"Secretary Shorthand-Typist","Second Division","Washington Labour Conference",NA,1919,10,6,NA,NA,NA,"French",4
+"202",11774,9390,"Lionel de Morpurgo",0,"Assistant","Second Division","Internal Administration",NA,1922,8,21,NA,NA,NA,"Italian",4
+"203",11775,9860,"F. Geraldine Delf",1,"Member of Section","First Division","Pool",NA,1920,8,14,NA,NA,NA,"English",8
+"204",11783,9396,"Louis Mosiman",0,"Driver","Third Division","Auxiliary Staff",1892,1922,9,1,NA,NA,NA,"Swiss",1
+"205",11784,9396,"Louis Mosiman",0,"Driver","Third Division","Auxiliary Staff",1892,1923,9,3,NA,NA,NA,"Swiss",1
+"206",11788,8645,"Faith Mary Freeman",1,"Shorthand Typist","Second Division","Pool",1888,1920,8,23,NA,NA,NA,"English",4
+"207",11790,8569,"Flora Gerald Fermor",1,"Copyist","Second Division","Pool",NA,1922,8,28,NA,NA,NA,"English",2
+"208",11791,10627,"Flora Helen Norris Walter",1,"Stenographer","Second Division","Pool",1887,1926,7,21,NA,NA,NA,"English",4
+"209",11824,9238,"Frances Lilian Kaye",1,"Stenographer","Second Division","Pool",1900,1924,9,NA,NA,NA,NA,"English",4
+"210",11825,9417,"Victor Edward Mulvany",0,"Assistant","Second Division","Distribution of Documents",1899,1922,9,1,NA,NA,NA,"Argentinian",4
+"211",11826,9462,"Margaret Stoddart Nelson née Brown",1,"Shorthand Typist","Second Division","Social Questions and Opium Traffic Section",1905,NA,NA,NA,1932,2,29,"English",4
+"212",11827,9238,"Frances Lilian Kaye",1,"Stenographer","Second Division","Pool",1900,1926,NA,NA,NA,NA,NA,"English",4
+"213",11828,9238,"Frances Lilian Kaye",1,"Stenographer","Second Division","Pool",1900,1927,NA,NA,NA,NA,NA,"English",4
+"214",11832,9400,"George Anthony Mostyn",0,"Translator","First Division","General Assemblies Staff",1898,1925,8,31,NA,NA,NA,"English",7
+"215",11857,9431,"P.  Musy",1,"Secretary Shorthand-Typist","Second Division","Washington Labour Conference",NA,1919,10,6,NA,NA,NA,"French",4
+"216",11859,9433,"Rollo Mugli Myers",0,"Translator","First Division","International Financial Conference",1892,1920,10,1,NA,NA,NA,"English",7
+"217",11914,8638,"Geraldine  Francis",1,"Shorthand Typist","Second Division","Pool",NA,1923,7,30,NA,NA,NA,"English",4
+"218",11928,9466,"Pierre Neri",0,"Messenger","Second Division","Opium Conference",1890,1924,11,17,NA,NA,NA,"Swiss",3
+"219",11936,9471,"John Benjamin Nevill",0,"Précis Writer","First Division","Précis-Writing Department",1895,1925,5,15,1825,7,26,"English",7
+"220",11937,8648,"Gertrude Freidman",1,"Stenographer","Second Division","Pool",1888,1921,10,6,NA,NA,NA,"English",4
+"221",11944,8648,"Gertrude Freidman",1,"Stenographer","Second Division","General Assemblies Staff",1888,1921,9,1,NA,NA,NA,"English",4
+"222",11945,8648,"Gertrude Freidman",1,"Stenographer","Second Division","General Assemblies Staff",1888,1922,9,1,NA,NA,NA,"English",4
+"223",11946,8648,"Gertrude Freidman",1,"Stenographer","Second Division","General Assemblies Staff",1888,1923,9,10,NA,NA,NA,"English",4
+"224",11947,8648,"Gertrude Freidman",1,"Shorthand Typist","Second Division","Pool",1888,1920,11,16,NA,NA,NA,"English",4
+"225",11955,10751,"Gladys Johnson",1,"Shorthand Typist","Second Division","Pool",1887,1921,9,1,NA,NA,NA,"English",4
+"226",11958,9481,"Laure Nicolet",1,"Messenger","Second Division","Distribution of Documents",NA,1926,9,4,NA,NA,NA,"",3
+"227",11984,9496,"Giula Nuvoloni",1,"Assistant","Second Division","Library",1889,NA,NA,NA,NA,NA,NA,"Italian",4
+"228",12005,9504,"Louise Oberle",1,"Messenger","Second Division","Information Section",1903,1923,8,30,NA,NA,NA,"French",3
+"229",12006,9504,"Louise Oberle",1,"Messenger","Second Division","Information Section",1903,1923,11,15,NA,NA,NA,"French",3
+"230",12007,9504,"Louise Oberle",1,"Messenger","Second Division","Duplicating & Multigraph Service",1903,1923,12,10,NA,NA,NA,"French",3
+"231",12021,9511,"Léon Camille Odier",0,"Clerk","Second Division","Distribution of Documents",1903,1925,4,30,NA,NA,NA,"Swiss",4
+"232",12022,9511,"Léon Camille Odier",0,"Clerk","Second Division","Distribution of Documents",1903,1925,9,5,NA,NA,NA,"Swiss",4
+"233",12027,12099,"Helene Biller",1,"Shorthand Typist","Second Division","General Assemblies Staff",1898,1927,9,5,NA,NA,NA,"English",4
+"234",12034,9521,"Marcelle Olivier",1,"Polycopist","Second Division","Duplicating & Multigraph Service",1894,1925,8,24,NA,NA,NA,"Swiss",2
+"235",12061,9528,"Gerard O'Rooney",0,"Translator","First Division","Translation",1889,125,8,24,1925,9,29,"English",7
+"236",12069,9931,"Henry Dobell",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1875,1920,11,12,NA,NA,NA,"English",4
+"237",12070,9931,"Henry Dobell",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1875,1921,8,20,NA,NA,NA,"English",4
+"238",12076,9931,"Henry Dobell",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1875,1922,9,2,NA,NA,NA,"English",4
+"239",12078,9931,"Henry Dobell",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1875,1923,8,31,NA,NA,NA,"English",4
+"240",12079,9931,"Henry Dobell",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1875,1924,8,31,NA,NA,NA,"English",4
+"241",12081,9931,"Henry Dobell",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1875,1926,3,7,NA,NA,NA,"English",4
+"242",12082,9931,"Henry Dobell",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1875,1925,9,6,NA,NA,NA,"English",4
+"243",12085,9536,"Suzanne Otten",1,"Stenographer","Second Division","London Office",NA,1919,12,8,NA,NA,NA,"",4
+"244",12086,9537,"M. C.  Owen",1,"Typist","Second Division","Duplicating & Multigraph Service",NA,1920,10,19,NA,NA,NA,"English",4
+"245",12090,9539,"Marguerite Jaccoud",1,"Messenger-Clerk","Second Division","Duplicating & Multigraph Service",NA,1923,9,1,NA,NA,NA,"",3
+"246",12170,9835,"Irene Florence Redmore  Dealler née Stallard",1,"Stenographer","Second Division","General Assemblies Staff",1895,1925,9,7,NA,NA,NA,"English",4
+"247",12171,10646,"Irene May Watson",1,"Shorthand Typist","Second Division","Pool",1892,1926,9,6,NA,NA,NA,"English",4
+"248",12181,9639,"Isambard Carlyle  Perrott",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1896,1922,9,2,NA,NA,NA,"English",4
+"249",12186,9595,"André Pasche",0,"Messenger","Second Division","Distribution of Documents",NA,1923,8,29,NA,NA,NA,"",3
+"250",12187,9639,"Isambard Carlyle  Perrott",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1896,1923,8,30,NA,NA,NA,"English",4
+"251",12199,9639,"Isambard Carlyle  Perrott",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1896,1925,9,6,NA,NA,NA,"English",4
+"252",12200,9639,"Isambard Carlyle  Perrott",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1896,1926,3,7,NA,NA,NA,"English",4
+"253",12215,9601,"Thomas Paterson",0,"Head of Section","First Division","Translation",1877,1937,10,7,NA,NA,NA,"English",9
+"254",12228,9608,"Samuel Peclard",0,"Clerk","Second Division","Distribution of Documents",NA,1922,9,1,NA,NA,NA,"French",4
+"255",12229,9609,"Thérèse Peclard",1,"Clerk","Second Division","Distribution of Documents",NA,1922,9,1,NA,NA,NA,"French",4
+"256",12240,10505,"Ivy Townsend",1,"Duplicating Operator","Second Division","General Assemblies Staff",1903,1924,8,18,NA,NA,NA,"English",3
+"257",12243,9614,"Tatiana de Peganow",1,"Senior Assistant","First Division","Registry",1900,1927,1,4,129,8,31,"Lithuanian",6
+"258",12251,9616,"Giuseppe Pellati",0,"Messenger","Second Division","Distribution of Documents",NA,1923,9,1,NA,NA,NA,"",3
+"259",12259,9621,"G. Pennell",1,"Typist","Second Division","Duplicating & Multigraph Service",NA,1920,10,19,NA,NA,NA,"English",4
+"260",12268,10283,"Jean Smith",1,"Stenographer","Second Division","Pool",NA,1922,8,25,NA,NA,NA,"English",4
+"261",12276,9470,"Joan Neville",1,"Shorthand Typist","Second Division","General Assemblies Staff",1892,1922,8,7,NA,NA,NA,"English",4
+"262",12277,9634,"Julia Perrier",1,"Telephonist","Third Division","Economic Conference",1900,1927,5,4,NA,NA,NA,"Swiss",2
+"263",12279,10789,"Jocelyn May Woollcombe",1,"Stenographer","Second Division","Pool",1898,1925,9,7,NA,NA,NA,"English",4
+"264",12285,9471,"John Benjamin Nevill",0,"Translator","First Division","General Assemblies Staff",1895,1925,7,27,NA,NA,NA,"English",7
+"265",12286,9639,"Isambard Carlyle  Perrott",0,"Verbatim Reporter","Second Division","International Financial Conference",1896,1920,9,21,NA,NA,NA,"English",4
+"266",12287,9639,"Isambard Carlyle  Perrott",0,"Verbatim Reporter","Second Division","Council",1896,1921,10,8,NA,NA,NA,"English",4
+"267",12290,9639,"Isambard Carlyle  Perrott",0,"Verbatim Reporter","Second Division","Military, Naval & Air Commission Assembly",1896,1924,8,28,NA,NA,NA,"English",4
+"268",12291,9639,"Isambard Carlyle  Perrott",0,"Verbatim Reporter","Second Division","Commission of the Enquiry into Traffic of Women & Children in the East",1896,1924,10,4,NA,NA,NA,"English",4
+"269",12292,9639,"Isambard Carlyle  Perrott",0,"Verbatim Reporter","Second Division","Opium Conference",1896,1924,11,2,NA,NA,NA,"English",4
+"270",12293,9639,"Isambard Carlyle  Perrott",0,"Verbatim Reporter","Second Division","Opium Conference",1896,1925,11,1,NA,NA,NA,"English",4
+"271",12295,11483,"Josephine M. T. Rodgers née Regan",1,"Stenographer","Second Division","Pool",1897,1922,8,28,NA,NA,NA,"English",4
+"272",12298,9639,"Isambard Carlyle  Perrott",0,"Verbatim Reporter","Second Division","Disarmement Conference",1896,1926,6,25,NA,NA,NA,"English",4
+"273",12299,9639,"Isambard Carlyle  Perrott",0,"Verbatim Reporter","Second Division","Economic Conference",1896,1927,5,3,NA,NA,NA,"English",4
+"274",12333,9643,"Constance  Pesson",1,"Telephone Operator","Third Division","International Labour Organisation Conference ",1890,1939,6,8,NA,NA,NA,"Swiss",1
+"275",12334,9657,"Kathleen A. Phelan",1,"Shorthand Typist","Second Division","Pool",NA,1922,8,15,NA,NA,NA,"English",4
+"276",12335,9657,"Kathleen A. Phelan",1,"Shorthand Typist","Second Division","Pool",NA,1923,8,13,NA,NA,NA,"English",4
+"277",12338,12199,"Kathleen Mary Barhan",1,"Shorthand Typist","Second Division","General Assemblies Staff",1907,1930,9,10,NA,NA,NA,"English",4
+"278",12345,11386,"Kathleen Mary Rix",1,"Stenographer","Second Division","Pool",1887,1924,9,6,NA,NA,NA,"English",4
+"279",12350,11386,"Kathleen Mary Rix",1,"Stenographer","Second Division","Pool",1887,1926,4,26,NA,NA,NA,"English",4
+"280",12362,9660,"Georges  Philippin",0,"Messenger-Cyclist","Third Division","Auxiliary Staff",1903,925,11,22,1925,12,31,"Swiss",1
+"281",12365,9345,"Kathleen Millard",1,"Copyist","Second Division","Pool",NA,1922,8,15,NA,NA,NA,"English",2
+"282",12375,9832,"Kathleen Violet Dawson",1,"Copyist","Second Division","General Assemblies Staff",1895,1928,9,3,NA,NA,NA,"English",2
+"283",12379,9670,"Captain Walter Peirce",0,"Interpreter","First Division","Labour Conference At Washington",NA,1919,10,1,NA,NA,NA,"US-American",7
+"284",12416,9705,"Leonard Tom Hamblen",0,"Secretary","First Division","Health Section",1883,1925,6,20,8,31,NA,"English",6
+"285",12447,9720,"Hilda Mary Kershaw née Ruegg",1,"Secretary-Shorthand-Typist","Second Division","Distribution of Documents",1895,1920,11,1,NA,NA,NA,"Australian",4
+"286",12456,9726,"Constantin Kilcher",0,"Messenger","Second Division","Distribution of Documents",1901,1925,8,31,NA,NA,NA,"Swiss",3
+"287",12459,8553,"Lucy Faulkner",1,"Stenographer","Second Division","Pool",1906,1925,9,7,NA,NA,NA,"English",4
+"288",12460,8936,"Lucy Mclewin",1,"Stenographer","Second Division","Pool",NA,1921,9,4,NA,NA,NA,"English",4
+"289",12464,11223,"Mabel Rhodes",1,"Shorthand Typist","Second Division","Pool",NA,1919,8,11,NA,NA,NA,"English",4
+"290",12473,11468,"Margaret Ida Robertson",1,"English Translating Service","First Division","Pool",1878,1924,9,1,NA,NA,NA,"English",7
+"291",12485,9462,"Margaret Stoddart Nelson née Brown",1,"Shorthand Typist","Second Division","Pool",1905,1931,1,1,NA,NA,NA,"English",4
+"292",12493,9323,"Marguerite Michell",1,"Stenographer","Second Division","Pool",1894,1924,8,31,NA,NA,NA,"English",4
+"293",12501,9938,"Marian Edith Doidge",1,"Shorthand Typist","Second Division","Pool",1892,1920,10,11,NA,NA,NA,"English",4
+"294",12514,10427,"Marianne Sutherland",1,"Stenographer","Second Division","Pool",1898,1926,8,2,NA,NA,NA,"English",4
+"295",12518,9764,"Ida Pittet",1,"Messenger","Second Division","Duplicating & Multigraph Service",1907,1926,9,1,NA,NA,NA,"Swiss",3
+"296",12519,9915,"Marjorie Kate Forsyth Dickson",1,"Stenographer","Second Division","General Assemblies Staff",1899,1926,9,6,NA,NA,NA,"English",4
+"297",12529,9772,"Rachel Plantaz",1,"Messenger","Second Division","Duplicating & Multigraph Service",NA,1923,9,10,NA,NA,NA,"",3
+"298",12535,9671,"Mary Diana Pigott",1,"Typist","Second Division","General Assemblies Staff",NA,1922,8,28,NA,NA,NA,"English",4
+"299",12538,10236,"Mary Faulkner Sharps",1,"Translator","First Division","General Assemblies Staff",1881,1925,8,31,NA,NA,NA,"English",7
+"300",12542,10135,"Mary Irvine Saunders-Wilks",1,"Stenographer","Second Division","Pool",1892,1925,9,7,NA,NA,NA,"English",4
+"301",12553,13807,"May Brawn",1,"Shorthand Typist","Second Division","Pool",1889,1924,9,1,NA,NA,NA,"English",4
+"302",12554,9932,"May Dobell",1,"Shorthand Typist","Second Division","General Assemblies Staff",1890,1926,3,8,NA,NA,NA,"English",4
+"303",12586,9795,"Madeleine Poncioni",1,"Messenger","Second Division","Duplicating & Multigraph Service",1904,1924,8,18,NA,NA,NA,"Swiss",3
+"304",12603,9801,"Elwin Clifford  Pope",0,"Verbatim Reporter","Second Division","Economic Conference",1885,1927,5,3,NA,NA,NA,"English",4
+"305",12607,9801,"Elwin Clifford  Pope",0,"Verbatim Reporter","Second Division","Conference on Counterfeiting Currency",1885,1929,4,15,NA,NA,NA,"English",4
+"306",12609,9801,"Elwin Clifford  Pope",0,"Verbatim Reporter","Second Division","Conference for the Codification of International Law",1885,1930,3,13,NA,NA,NA,"English",4
+"307",12631,9812,"Anita Pozzi",1,"Messenger","Second Division","Duplicating & Multigraph Service",1903,1923,9,3,NA,NA,NA,"Italian",3
+"308",12643,8712,"Muriel Beatrice George",1,"Stenographer","Second Division","General Assemblies Staff",1897,1924,4,20,NA,NA,NA,"English",4
+"309",12655,9824,"Ernest  Pronier",0,"Clerk","Second Division","Distribution of Documents",1890,1925,9,5,NA,NA,NA,"Swiss",4
+"310",12669,9832,"Kathleen Violet Dawson",1,"Copyist","Second Division","Economic Conference",1895,1927,4,6,NA,NA,NA,"English",2
+"311",12688,9838,"Léon Debaud",0,"Messenger","Second Division","Auxiliary Staff",1902,1930,1,13,193,1,16,"French",3
+"312",12704,9843,"Jean Claudius Degiorgis",0,"Messenger","Second Division","European Conference on Road Traffic",1908,131,3,16,1931,3,3,"Swiss",3
+"313",12705,9844,"Laure Dehanne née Robert",1,"Duplicator Operator","Second Division","Duplicating & Multigraph Service",1899,1920,11,11,NA,NA,NA,"Swiss",3
+"314",12717,9849,"Marie Delabays",1,"Cleaner","Third Division","Auxiliary Staff",1890,1921,4,5,NA,NA,NA,"Swiss",1
+"315",12719,9850,"Elisabeth Delannoy",1,"Duplicating Operator","Second Division","Paris Office",1890,1931,2,23,NA,NA,NA,"French",3
+"316",12720,9850,"Elisabeth Delannoy",1,"Member of Section","First Division","Economic and Financial Section",1890,1931,7,6,NA,NA,NA,"French",8
+"317",12721,10507,"Norah Stuart Traill",1,"Shorthand Typist","Second Division","Pool",1892,1920,10,27,NA,NA,NA,"English",4
+"318",12722,9852,"Geneviève Delaune-Laverrière",1,"Secretary Shorthand-Typist","Second Division","Washington Labour Conference",NA,1919,10,NA,NA,NA,NA,"French",4
+"319",12727,10507,"Norah Stuart Traill",1,"Shorthand Typist","Second Division","Pool",1892,1921,9,3,NA,NA,NA,"English",4
+"320",12729,9856,"Dido Cecilia Agatha Delbeek",1,"Messenger","Second Division","Conference for the Codification of International Law",1896,1930,3,18,NA,NA,NA,"Dutch",3
+"321",12730,10507,"Norah Stuart Traill",1,"Shorthand Typist","Second Division","Pool",1892,1922,8,28,NA,NA,NA,"English",4
+"322",12738,9862,"Lucien Delieutraz",0,"Lon Corrector","Second Division","Printing & Publishing Department",1871,125,5,29,1925,6,9,"Swiss",3
+"323",12742,10718,"Norah Wightman",1,"Shorthand Typist","Second Division","Pool",1897,1923,8,13,NA,NA,NA,"English",4
+"324",12752,9872,"Georges Léon César Demolon",0,"Translator","First Division","Translation",1886,NA,NA,NA,1946,4,17,"French",7
+"325",12756,9876,"Geoffrey Pomeroy  Dennis",0,"Chief Translator","First Division","Translation",1892,1920,4,15,131,10,15,"English",9
+"326",12767,9880,"Lucien Derabours",0,"Messenger","Second Division","Economic Conference",NA,1927,5,9,NA,NA,NA,"",3
+"327",12772,9883,"J. Kohler",0,"Driver","Third Division","Auxiliary Staff",1902,1925,9,7,NA,NA,NA,"Swiss",1
+"328",12778,9888,"Oda Kordon",1,"Stenographer","Second Division","Social Questions and Opium Traffic Section",1900,1922,3,20,NA,NA,NA,"Yugoslav",4
+"329",12792,9898,"Alphonse Descombes",0,"Translator","First Division","Economic Conference",1883,1927,5,2,NA,NA,NA,"English",7
+"330",12802,9622,"Raoul Perdreau",0,"Translator","First Division","General Assemblies Staff",1885,1922,2,28,NA,NA,NA,"English",7
+"331",12803,9906,"Georges Detot",0,"Shorthand Précis Writer","Second Division","Council",1879,1921,10,6,NA,NA,NA,"French",7
+"332",12804,9906,"Georges Detot",0,"Shorthand Précis Writer","Second Division","Council",1879,1922,5,11,NA,NA,NA,"French",7
+"333",12806,11389,"Roberds",1,"Stenographer","Second Division","Pool",NA,NA,NA,NA,NA,NA,NA,"English",4
+"334",12813,9909,"Augusta Deurin",1,"Cleaner","Third Division","Auxiliary Staff",1889,1921,5,12,NA,NA,NA,"Swiss",1
+"335",12815,11063,"Susie Reader",1,"Stenographer","Second Division","Pool",1880,1925,9,7,NA,NA,NA,"English",4
+"336",12832,10476,"Una Gauntlett Thomas",1,"Shorthand Typist","Second Division","Pool",1885,1920,10,27,NA,NA,NA,"English",4
+"337",12833,9917,"M. Didelot",1,"Secretary Shorthand-Typist","Second Division","London Office",NA,1919,7,24,NA,NA,NA,"French",4
+"338",12842,10476,"Una Gauntlett Thomas",1,"Shorthand Typist","Second Division","Pool",1885,1922,7,10,NA,NA,NA,"English",4
+"339",12843,9926,"E. Divorne",1,"Messenger","Second Division","Duplicating & Multigraph Service",NA,1923,9,3,NA,NA,NA,"",3
+"340",12855,9931,"Henry Dobell",0,"Verbatim Reporter","Second Division","Opium Conference",1875,1924,12,7,NA,NA,NA,"English",4
+"341",12856,9931,"Henry Dobell",0,"Verbatim Reporter","Second Division","Opium Conference",1875,1925,2,8,NA,NA,NA,"English",4
+"342",12857,9931,"Henry Dobell",0,"Verbatim Reporter","Second Division","Conference on the Control of the International Trade in Arms, Munitions & Implements of War",1875,1925,3,10,NA,NA,NA,"English",4
+"343",12860,9931,"Henry Dobell",0,"Verbatim Reporter","Second Division","Economic Conference",1875,1927,5,8,NA,NA,NA,"English",4
+"344",12868,9936,"Liny Doebeli",1,"Cook","Third Division","Auxiliary Staff",1891,1921,1,16,NA,NA,NA,"Swiss",1
+"345",12871,8570,"Violet Gladys Fernley",1,"Stenographer","Second Division","Pool",1894,1924,9,1,NA,NA,NA,"English",4
+"346",12878,9942,"Felicita Donzelli",1,"Translator","First Division","Economic Conference",1879,1927,4,4,NA,NA,NA,"Italian",7
+"347",12886,9944,"Yvonne Dottrens",1,"Lector","Second Division","Publications Service",1898,NA,NA,NA,1926,3,7,"Swiss",4
+"348",12888,9944,"Yvonne Dottrens",1,"Copyist","Second Division","International Passport Conference",1898,1926,5,12,NA,NA,NA,"Swiss",2
+"349",12889,9944,"Yvonne Dottrens",1,"Copyist","Second Division","Disarmement Conference",1898,1926,5,19,NA,NA,NA,"Swiss",2
+"350",12890,9944,"Yvonne Dottrens",1,"Copyist","Second Division","Disarmement Conference",1898,1926,6,22,NA,NA,NA,"Swiss",2
+"351",12902,9951,"Rodolphe Drexler",0,"Roneo Operator","Second Division","Information Section",1890,1924,9,2,NA,NA,NA,"Swiss",2
+"352",12921,9967,"Héléne Marie Ducret-Dépraz",1,"Messenger","Second Division","Duplicating & Multigraph Service",1908,1926,9,6,NA,NA,NA,"Swiss",3
+"353",12933,11473,"Winifred R. Robinson",1,"Shorthand Typist","Second Division","Pool",NA,1919,12,23,NA,NA,NA,"English",4
+"354",12950,9978,"Jean Duhamel",0,"Translator","First Division","International Financial Conference",NA,1920,9,23,NA,NA,NA,"French",7
+"355",12955,10554,"Adrien Paul Vaudequin",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1890,1923,8,30,NA,NA,NA,"French",4
+"356",12961,10554,"Adrien Paul Vaudequin",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1890,1926,8,29,NA,NA,NA,"French",4
+"357",12962,10554,"Adrien Paul Vaudequin",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1890,1924,4,17,NA,NA,NA,"French",4
+"358",12968,9239,"Alice Camus",1,"Shorthand Typist","Second Division","General Assemblies Staff",1895,1926,3,8,NA,NA,NA,"French",4
+"359",12975,10568,"Alice Vergnangeal",1,"Shorthand Typist","Second Division","Pool",NA,1921,9,2,NA,NA,NA,"French",4
+"360",12995,10001,"B. Durel",1,"Lon Duplicator","Second Division","Duplicating & Multigraph Service",NA,1923,9,1,NA,NA,NA,"",2
+"361",13002,8842,"Andrée Emilie Grimpez",1,"Shorthand Typist","Second Division","General Assemblies Staff",1902,1926,3,8,NA,NA,NA,"French",4
+"362",13004,10628,"Andrée Hélène Walters née Charlot",1,"Shorthand Typist","Second Division","Pool",1894,1926,9,6,NA,NA,NA,"French",4
+"363",13006,10007,"Candido Sabini",0,"Secretary","First Division","Under Secretary-Generals' in charge of Internal Administration Office",1870,1924,8,24,NA,NA,NA,"Italian",6
+"364",13010,8632,"Andrée Jeanne Fournier",1,"Typewriter Mechanic","Second Division","Pool",NA,1922,8,28,NA,NA,NA,"French",1
+"365",13016,10011,"Michael Sadler",0,"Assistant","Second Division","Economic and Financial Section",NA,1920,11,10,NA,NA,NA,"English",4
+"366",13017,10012,"Raymond Sadoine",0,"Translator","First Division","International Financial Conference",NA,NA,NA,NA,NA,NA,NA,"",7
+"367",13027,10017,"Louis Marino Salafa",0,"Verbatim Reporter","Second Division","Conference for the Codification of International Law",1882,1930,3,12,NA,NA,NA,"French",4
+"368",13075,9894,"Auguste  Desclos",0,"Translator","First Division","General Assemblies Staff",1876,1921,8,22,NA,NA,NA,"French",7
+"369",13079,9894,"Auguste  Desclos",0,"Translator","First Division","General Assemblies Staff",1876,1924,8,28,NA,NA,NA,"French",7
+"370",13109,10065,"Marcelle Germaine Elie",1,"Duplicator Operator","Second Division","Auxiliary Staff",1902,1920,11,15,NA,NA,NA,"French",3
+"371",13135,10080,"G. R. Jaeger",0,"Member","Member","London Office",1903,NA,NA,NA,NA,NA,NA,"English",8
+"372",13143,10083,"Fernande Elisabeth Anne Janssens",1,"Stenographer","Second Division","Political Section",1886,1921,1,1,NA,NA,NA,"",4
+"373",13149,9375,"Charles de la Morandiere",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1887,1922,9,18,NA,NA,NA,"French",4
+"374",13150,9375,"Charles de la Morandiere",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1887,1923,9,16,NA,NA,NA,"French",4
+"375",13152,9375,"Charles de la Morandiere",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1887,1924,9,14,NA,NA,NA,"French",4
+"376",13156,9375,"Charles de la Morandiere",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1887,1925,9,20,NA,NA,NA,"French",4
+"377",13157,10092,"Muriel Sordes Ellis",1,"Copyist","Second Division","Personnel Office",1900,27,2,14,1928,12,31,"English",2
+"378",13177,10102,"L. Kuhn",0,"Motorcyclist","Third Division","Auxiliary Staff",NA,1923,9,3,NA,NA,NA,"",1
+"379",13217,9892,"Desbouts",1,"Shorthand Typist","Second Division","General Assemblies Staff",NA,1920,10,27,NA,NA,NA,"French",4
+"380",13220,10123,"Oswald Kuratle",0,"Messenger","Second Division","Auxiliary Staff",1900,1925,6,8,NA,NA,NA,"Swiss",3
+"381",13231,11083,"E. Redde",0,"Verbatim Reporter","Second Division","Pool",NA,1922,9,24,NA,NA,NA,"French",4
+"382",13232,11083,"E. Redde",0,"Verbatim Reporter","Second Division","Pool",NA,1925,6,8,NA,NA,NA,"French",4
+"383",13259,10140,"Pierre Sauvageot",0,"Précis Writer","First Division","Economic and Financial Section",1894,1924,10,20,NA,NA,NA,"French",7
+"384",13266,10147,"Auguste Savoja",0,"Messenger","Second Division","Distribution of Documents",1900,1926,9,8,NA,NA,NA,"Swiss",3
+"385",13269,10149,"Miralda Savoy",1,"Messenger","Second Division","Duplicating & Multigraph Service",1908,1925,9,7,NA,NA,NA,"Swiss",3
+"386",13270,10149,"Miralda Savoy",1,"Messenger","Second Division","Duplicating & Multigraph Service",1908,1926,3,8,NA,NA,NA,"Swiss",3
+"387",13274,10151,"R. L.  Sayer",1,"Typist","Second Division","Duplicating & Multigraph Service",NA,1920,10,15,NA,NA,NA,"",4
+"388",13286,11746,"Dorothy Bolwell",1,"Shorthand Typist","Second Division","Duplicating & Multigraph Service",NA,1920,1,15,NA,NA,NA,"English",4
+"389",13288,9797,"Emile Albert Pons",0,"Précis Writer","First Division","General Assemblies Staff",1885,1924,8,27,NA,NA,NA,"French",7
+"390",13291,9797,"Emile Albert Pons",0,"Précis Writer","First Division","General Assemblies Staff",1885,1925,8,31,NA,NA,NA,"French",7
+"391",13298,10162,"Gottlieb Schlappi",0,"Messenger","Second Division","Auxiliary Staff",1884,1928,8,27,9,29,NA,"Swiss",3
+"392",13304,10167,"Henriette Schlienger",1,"Copyist","Second Division","Duplicating & Multigraph Service",NA,1922,8,28,NA,NA,NA,"",2
+"393",13331,10183,"Fred Emile Jean Schondelmayer",0,"Copyist","Second Division","Duplicating & Multigraph Service",1897,1922,8,28,NA,NA,NA,"Swiss",2
+"394",13332,10183,"Fred Emile Jean Schondelmayer",0,"Copyist","Second Division","Duplicating & Multigraph Service",1897,1923,8,27,NA,NA,NA,"Swiss",2
+"395",13333,10183,"Fred Emile Jean Schondelmayer",0,"Copyist","Second Division","Duplicating & Multigraph Service",1897,1924,8,25,NA,NA,NA,"Swiss",2
+"396",13337,8988,"Fernande Edmée Marquet",1,"Messenger","Second Division","General Assemblies Staff",1907,1925,9,2,NA,NA,NA,"French",3
+"397",13343,10187,"Schroeder",1,"Member of Section","First Division","Distribution of Documents",NA,NA,NA,NA,1921,2,22,"",8
+"398",13345,10188,"Kossia Schroeder",0,"Messenger","Second Division","Distribution of Documents",1907,1925,1,12,NA,NA,NA,"Finish",3
+"399",13349,10192,"Johanna Jacoba Theodora Schuurmans",1,"Messenger","Second Division","Conference for the Codification of International Law",1910,1930,3,17,NA,NA,NA,"Dutch",3
+"400",13380,9380,"G. Morell",1,"Typist","Second Division","Pool",NA,1921,9,3,NA,NA,NA,"French",4
+"401",13397,10218,"Jane Seiler",1,"Roneo Operator","Second Division","Duplicating & Multigraph Service",NA,1923,7,2,NA,NA,NA,"",2
+"402",13407,10546,"Gabrielle Vareillas",1,"Shorthand Typist","Second Division","Pool",NA,1926,3,8,NA,NA,NA,"French",4
+"403",13416,9786,"Geneviève Marie Poirier",1,"Shorthand Typist","Second Division","Pool",1901,1925,9,7,NA,NA,NA,"French",4
+"404",13425,9906,"Georges Detot",0,"Shorthand Précis Writer","Second Division","General Assemblies Staff",1879,1921,9,4,NA,NA,NA,"French",7
+"405",13426,10241,"Daphne Elisabeth Shelmerdine",1,"Stenographer","Second Division","Economic Conference",1900,1927,5,4,NA,NA,NA,"English",4
+"406",13429,9906,"Georges Detot",0,"Shorthand Précis Writer","Second Division","General Assemblies Staff",1879,1922,9,3,NA,NA,NA,"French",7
+"407",13430,9906,"Georges Detot",0,"Shorthand Précis Writer","Second Division","General Assemblies Staff",1879,1923,9,3,NA,NA,NA,"French",7
+"408",13432,9906,"Georges Detot",0,"Shorthand Précis Writer","Second Division","General Assemblies Staff",1879,1924,9,14,NA,NA,NA,"French",7
+"409",13433,9906,"Georges Detot",0,"Shorthand Précis Writer","Second Division","General Assemblies Staff",1879,1925,9,6,NA,NA,NA,"French",7
+"410",13434,9191,"Georges Kaminker",0,"Interpreter","First Division","Pool",NA,1946,4,5,NA,NA,NA,"French",7
+"411",13439,10247,"Fernande Sicilia",1,"Messenger","Second Division","Duplicating & Multigraph Service",1912,1926,8,30,NA,NA,NA,"Swiss",3
+"412",13446,9999,"Georgette Duqueux",1,"Messenger","Second Division","General Assemblies Staff",1909,1924,9,1,NA,NA,NA,"French",3
+"413",13450,10253,"Raissa Silberstein",0,"Clerk","Second Division","Distribution of Documents",1901,1925,8,31,NA,NA,NA,"Swiss",4
+"414",13465,10265,"L. Singy",1,"Messenger","Second Division","Duplicating & Multigraph Service",NA,1922,9,6,NA,NA,NA,"",3
+"415",13480,10270,"Cornelia Johannes Slager",0,"Messenger","Second Division","Conference for the Codification of International Law",1908,1930,3,13,NA,NA,NA,"Dutch",3
+"416",13497,9969,"Héléne Ducrot",1,"Shorthand Typist","Second Division","Pool",1891,1922,9,1,NA,NA,NA,"French",4
+"417",13499,9969,"Héléne Ducrot",1,"Shorthand Typist","Second Division","Pool",1891,NA,2,9,NA,NA,NA,"French",4
+"418",13500,10275,"Elisabeth Abigael Slot",1,"Messenger","Second Division","Conference for the Codification of International Law",1907,1930,3,17,NA,NA,NA,"Dutch",3
+"419",13501,9969,"Héléne Ducrot",1,"Shorthand Typist","Second Division","Pool",1891,1925,6,7,NA,NA,NA,"French",4
+"420",13505,9847,"Henriette Lucie  Delbarre",1,"Shorthand Typist","Second Division","Pool",1875,1924,9,1,NA,NA,NA,"French",4
+"421",13509,8886,"Jacques André William Guilloux",0,"Interpreter","First Division","General Assemblies Staff",1893,1930,9,15,NA,NA,NA,"French",7
+"422",13522,10290,"Charlotte  Soffray",1,"Assistant Head of Office","Second Division","London Office",1896,1919,7,21,NA,NA,NA,"French",4
+"423",13541,9785,"Jeanne  Pointeau",1,"Stenographer","Second Division","General Assemblies Staff",NA,1922,8,28,NA,NA,NA,"French",4
+"424",13548,10303,"Doris Winifred  Southcombe",1,"Clerk","Second Division","Distribution of Documents",1896,1924,8,15,NA,NA,NA,"English",4
+"425",13558,10308,"Raymond Soyer",0,"Clerk Messenger","Third Division","Distribution of Documents",1886,1925,8,31,NA,NA,NA,"French",2
+"426",13563,10314,"Petrouella Johanna Spek",1,"Messenger","Second Division","Duplicating & Multigraph Service",1905,1930,3,13,NA,NA,NA,"Dutch",3
+"427",13564,10315,"Ida Spellman",1,"Member of Section","First Division","Economic and Financial Section",NA,1919,9,8,NA,NA,NA,"",8
+"428",13566,10317,"Catherine  Spetter née Kossmann",1,"Translator","First Division","Translation",1887,1921,7,16,NA,NA,NA,"Russian",7
+"429",13568,8626,"Jeanne Fornero-Chappaz",1,"Shorthand Typist","Second Division","General Assemblies Staff",1894,1925,9,7,NA,NA,NA,"French",4
+"430",13571,10321,"Cecile Spillmann",1,"Messenger","Second Division","Duplicating & Multigraph Service",1908,1926,3,8,NA,NA,NA,"Swiss",3
+"431",13574,10324,"Spurr",1,"Typist","Second Division","Duplicating & Multigraph Service",NA,1920,10,4,NA,NA,NA,"English",4
+"432",13584,9213,"Miss Suzanne Isoupet",1,"Shorthand Typist","Second Division","Economic Conference",1900,1927,5,4,NA,NA,NA,"French",4
+"433",13588,8962,"Jeanne Mamet",1,"Typist","Second Division","Pool",NA,1922,9,3,NA,NA,NA,"French",4
+"434",13635,10246,"Juliette Sibert",1,"Stenographer","Second Division","Pool",1889,1921,9,2,NA,NA,NA,"French",4
+"435",13636,10246,"Juliette Sibert",1,"Stenographer","Second Division","Pool",1889,1922,8,28,NA,NA,NA,"French",4
+"436",13639,10246,"Juliette Sibert",1,"Stenographer","Second Division","Pool",1889,1923,9,5,NA,NA,NA,"French",4
+"437",13640,10365,"Constance Etienne",1,"Messenger","Second Division","Duplicating & Multigraph Service",1909,1925,9,7,NA,NA,NA,"Swiss",3
+"438",13646,10372,"Georges Etter",0,"Driver","Third Division","Auxiliary Staff",1903,1928,8,31,1828,9,28,"Swiss",1
+"439",13647,10246,"Juliette Sibert",1,"Shorthand Typist","Second Division","Pool",1889,1925,6,7,NA,NA,NA,"French",4
+"440",13657,10381,"Paul Maurice Excoffier",0,"Messenger","Second Division","Auxiliary Staff",1907,1926,9,6,NA,NA,NA,"French",3
+"441",13678,10246,"Juliette Sibert",1,"Shorthand Typist","Second Division","Pool",1889,1925,9,7,NA,NA,NA,"French",4
+"442",13689,10396,"Yvonne Excoffier",1,"Messenger","Second Division","Duplicating & Multigraph Service",1902,1924,9,1,NA,NA,NA,"French",3
+"443",13695,8809,"L.  Graham-Seatoun",1,"Shorthand Typist","Second Division","Pool",NA,1921,8,24,NA,NA,NA,"French",4
+"444",13708,8809,"L.  Graham-Seatoun",1,"Shorthand Typist","Second Division","Pool",NA,1924,9,1,NA,NA,NA,"French",4
+"445",13716,10415,"René-Louis Stoller",0,"Messenger","Second Division","Auxiliary Staff",1917,1936,2,3,NA,NA,NA,"Swiss",3
+"446",13719,10418,"René  Stordiau",0,"Draughtsman","Third Division","Draughting Section",1897,1927,3,15,1828,6,22,"",2
+"447",13723,11463,"Léon Eugène Robert",0,"Verbatim Reporter","Second Division","Pool",1872,1925,9,20,NA,NA,NA,"French",4
+"448",13736,9877,"Loetitia Denoel",1,"Shorthand Typist","Second Division","Pool",NA,1922,9,1,NA,NA,NA,"French",4
+"449",13742,9348,"Louis Joseph Millet",0,"Cyclist","Third Division","General Assemblies Staff",1903,1921,9,1,NA,NA,NA,"French",1
+"450",13758,11014,"Lucie Constance Fanny Rousseau",1,"Shorthand Typist","Second Division","Pool",1904,1926,9,6,NA,NA,NA,"French",4
+"451",13773,11014,"Lucie Constance Fanny Rousseau",1,"Shorthand Typist","Second Division","Pool",1904,NA,NA,NA,NA,NA,NA,"French",4
+"452",13780,10781,"Lucien Wolff",0,"Translator","First Division","General Assemblies Staff",1880,1922,8,24,NA,NA,NA,"French",7
+"453",13781,10781,"Lucien Wolff",0,"Translator","First Division","General Assemblies Staff",1880,1923,8,20,NA,NA,NA,"French",7
+"454",13788,10781,"Lucien Wolff",0,"Translator","First Division","General Assemblies Staff",1880,1924,8,21,NA,NA,NA,"French",7
+"455",13789,10781,"Lucien Wolff",0,"Translator","First Division","General Assemblies Staff",1880,1925,8,25,NA,NA,NA,"French",7
+"456",13791,10781,"Lucien Wolff",0,"Translator","First Division","General Assemblies Staff",1880,1926,8,31,NA,NA,NA,"French",7
+"457",13816,12176,"Madeleine Bassard",1,"Typist","Second Division","General Assemblies Staff",1891,NA,NA,NA,NA,NA,NA,"French",4
+"458",13820,10478,"Edouard Thommen",0,"Translator","First Division","Labour Conference At Washington",1880,1919,10,6,NA,NA,NA,"Swiss",7
+"459",13821,10479,"Janet Peace Thompson",1,"Senior Assistant","First Division","Registry",1900,1925,3,23,1827,12,31,"English",6
+"460",13829,10484,"Maurice Ch. A.  Thudichum",0,"Interpreter","First Division","Labour Conference At Washington",1890,1919,10,8,NA,NA,NA,"Swiss",7
+"461",13835,10487,"A. Tinguely",0,"Driver","Third Division","Economic Conference",NA,1927,5,4,NA,NA,NA,"Swiss",1
+"462",13842,11261,"Marcelle l'Huillier",1,"Duplicating Operator","Second Division","Pool",1907,1932,3,3,NA,NA,NA,"French",3
+"463",13843,10537,"Marcelle Valiquet",1,"Shorthand Typist","Second Division","Pool",NA,1921,9,3,NA,NA,NA,"French",4
+"464",13847,10553,"Marcelle Vaudequin",1,"Shorthand Typist","Second Division","Pool",1891,1921,8,29,NA,NA,NA,"French",4
+"465",13848,10553,"Marcelle Vaudequin",1,"Shorthand Typist","Second Division","Pool",1891,1922,8,28,NA,NA,NA,"French",4
+"466",13854,10553,"Marcelle Vaudequin",1,"Shorthand Typist","Second Division","Pool",1891,1923,8,31,NA,NA,NA,"French",4
+"467",13855,10553,"Marcelle Vaudequin",1,"Shorthand Typist","Second Division","Pool",1891,1924,9,1,NA,NA,NA,"French",4
+"468",13863,10502,"Maurice Tourneux",0,"Duplicating Operator","Second Division","Paris Office",1909,1931,3,24,NA,NA,NA,"French",3
+"469",13864,10553,"Marcelle Vaudequin",1,"Shorthand Typist","Second Division","Pool",1891,1925,9,7,NA,NA,NA,"French",4
+"470",13869,10553,"Marcelle Vaudequin",1,"Shorthand Typist","Second Division","Pool",1891,1926,8,30,NA,NA,NA,"French",4
+"471",13873,10508,"Jean Charles Tranchet",0,"Clerk","Second Division","Internal Control",1915,1938,6,15,1840,12,15,"Swiss",4
+"472",13878,10510,"Alice Trechsel ",1,"Messenger","Second Division","Duplicating & Multigraph Service",1905,1925,6,8,NA,NA,NA,"Swiss",3
+"473",13883,10511,"Berthe Trechsel",1,"Messenger","Second Division","Duplicating & Multigraph Service",1907,1925,1,19,NA,NA,NA,"Swiss",3
+"474",13891,10516,"Jean Troesch",0,"Clerk","Second Division","Opium Conference",1902,1924,8,25,NA,NA,NA,"Swiss",4
+"475",13908,11587,"Marguerite Marie Baillot",1,"Stenographer","Second Division","Pool",1888,1922,6,11,NA,NA,NA,"French",4
+"476",13925,10558,"Marie Antoinette Veillas",1,"Shorthand Typist","Second Division","Pool",NA,1921,8,20,NA,NA,NA,"French",4
+"477",13954,10549,"Georges  Vattier",0,"Précis Writer","First Division","Mandates Section",1888,1929,11,11,NA,NA,NA,"French",7
+"478",13983,9881,"Marie Louise Deche née Mabs",1,"Shorthand Typist","Second Division","General Assemblies Staff",1901,1926,9,6,NA,NA,NA,"French",4
+"479",13987,9881,"Marie Louise Deche née Mabs",1,"Shorthand Typist","Second Division","Pool",1901,1929,3,1,NA,NA,NA,"French",4
+"480",13992,10164,"Marie-Louise Cécile Schlesser",1,"Shorthand Typist","Second Division","Pool",1904,1925,9,2,NA,NA,NA,"French",4
+"481",13995,10563,"Antoine Vellemann",0,"Interpreter-Translator","First Division","International Financial Conference",1875,1920,9,23,NA,NA,NA,"Swiss",7
+"482",14032,10579,"Simone Veyenet",1,"Messenger","Second Division","Duplicating & Multigraph Service",1904,1922,8,27,NA,NA,NA,"Swiss",3
+"483",14063,9913,"Paul Devinat",0,"Translator","First Division","General Assemblies Staff",1890,1920,11,10,NA,NA,NA,"French",7
+"484",14064,8867,"Paul Guerie",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1883,1924,9,14,NA,NA,NA,"French",4
+"485",14081,12116,"Paulette Besson",1,"Shorthand Typist","Second Division","General Assemblies Staff",1902,1931,NA,NA,NA,NA,NA,"French",4
+"486",14090,9514,"Pierre Oger",0,"Copyist","Second Division","Pool",NA,1922,9,10,NA,NA,NA,"French",2
+"487",14091,10623,"Paul Louis Wagniere",0,"Roneo Operator","Second Division","Information Section",1884,1924,8,25,NA,NA,NA,"Swiss",2
+"488",14094,11506,"René Hingre",0,"Verbatim Reporter","Second Division","Pool",1878,1922,1,10,NA,NA,NA,"French",4
+"489",14103,10633,"René Walzer",0,"Messenger","Second Division","Distribution of Documents",NA,1924,9,1,NA,NA,NA,"Swiss",3
+"490",14112,10639,"G. Ward",0,"Proof-Reader","Second Division","International Financial Conference",NA,1920,9,18,NA,NA,NA,"English",5
+"491",14114,11506,"René Hingre",0,"Verbatim Reporter","Second Division","Pool",1878,1926,9,29,NA,NA,NA,"French",4
+"492",14120,10642,"Hilda Warren",1,"Telephone Operator","Third Division","Auxiliary Staff",NA,1919,7,14,NA,NA,NA,"English",1
+"493",14121,10643,"Charles Warro",0,"Messenger","Second Division","Council",1900,1925,6,8,NA,NA,NA,"Swiss",3
+"494",14143,10655,"L.  Webber",1,"Polycopist","Second Division","Duplicating & Multigraph Service",NA,1923,9,3,NA,NA,NA,"",2
+"495",14152,10300,"Renée Pauline Soufflet-Delabarre",1,"Shorthand Typist","Second Division","Pool",1900,1925,9,7,NA,NA,NA,"French",4
+"496",14153,10300,"Renée Pauline Soufflet-Delabarre",1,"Shorthand Typist","Second Division","Pool",1900,1926,9,6,NA,NA,NA,"French",4
+"497",14160,9460,"Simone Neel",1,"Shorthand Typist","Second Division","General Assemblies Staff",NA,NA,NA,NA,NA,NA,NA,"French",4
+"498",14167,9290,"Suzanne Aurélie Marie Meunier",1,"Shorthand Typist","Second Division","Pool",1902,1926,9,6,NA,NA,NA,"French",4
+"499",14192,10682,"Edmond Weyeneth",0,"Polycopist","Second Division","Duplicating & Multigraph Service",NA,1922,9,4,NA,NA,NA,"",2
+"500",14193,10682,"Edmond Weyeneth",0,"Roneo Operator","Second Division","Duplicating & Multigraph Service",NA,1923,8,27,NA,NA,NA,"",2
+"501",14194,10597,"Vinot",1,"Shorthand Typist","Second Division","Pool",NA,1921,9,5,NA,NA,NA,"French",4
+"502",14196,9587,"Yvonne Julia Paris",1,"Shorthand Typist","Second Division","General Assemblies Staff",1905,1925,9,7,NA,NA,NA,"French",4
+"503",14200,11044,"Yvonne Lamouroux",1,"Stenographer","Second Division","Pool",NA,1920,4,20,NA,NA,NA,"French",4
+"504",14206,10577,"Yvonne Vetzel",1,"Stenographer","Second Division","Pool",NA,1921,9,3,NA,NA,NA,"French",4
+"505",14208,9294,"Georges Meyer",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1885,1922,9,24,NA,NA,NA,"French",4
+"506",14209,9294,"Georges Meyer",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1885,1923,9,16,NA,NA,NA,"French",4
+"507",14215,9294,"Georges Meyer",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1885,1924,9,14,NA,NA,NA,"French",4
+"508",14216,9294,"Georges Meyer",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1885,1925,9,20,NA,NA,NA,"French",4
+"509",14242,10704,"Catherine Zani",1,"Secretary-Shorthand-Typist","Second Division","Under Secretary-Generals' in charge of Internal Administration Office",1898,NA,NA,NA,NA,NA,NA,"Italian",4
+"510",14259,10713,"Arthur  Whiteley",0,"Office Keeper","Third Division","Internal Administration",1874,1920,3,22,NA,NA,NA,"English",2
+"511",14274,10545,"Cesar Vandini",0,"Cyclist","Third Division","General Assemblies Staff",1905,1924,9,1,NA,NA,NA,"Italian",1
+"512",14275,10545,"Cesar Vandini",0,"Cyclist","Third Division","General Assemblies Staff",1905,1925,9,7,NA,NA,NA,"Italian",1
+"513",14277,11505,"Marie Hingre",1,"Shorthand Typist","Second Division","Council",1879,1931,11,16,NA,NA,NA,"French",4
+"514",14281,10720,"Violet B.   Wilder",1,"Assistant Secretary","Second Division","Mandates Section",1893,1919,10,15,NA,NA,NA,"US-American",4
+"515",14283,10721,"Marjorie I. Wilenski née Harland",1,"Translator","First Division","Barcelona Conference",1893,1921,3,10,NA,NA,NA,"English",7
+"516",14286,10723,"Edy Jensen",0,"Messenger","Second Division","Information Section",1905,1924,9,4,NA,NA,NA,"Dane",3
+"517",14294,9362,"Emile Molino",0,"Motorcyclist","Third Division","General Assemblies Staff",1902,1926,3,8,NA,NA,NA,"Italian",1
+"518",14296,10730,"Alice Zbinden",1,"Telephone Operator","Third Division","Auxiliary Staff",NA,1920,11,1,NA,NA,NA,"",1
+"519",14312,9362,"Emile Molino",0,"Motorcyclist","Third Division","General Assemblies Staff",1902,1926,9,6,NA,NA,NA,"Italian",1
+"520",14314,9942,"Felicita Donzelli",1,"Copyist","Second Division","General Assemblies Staff",1879,1927,10,5,NA,NA,NA,"Italian",2
+"521",14336,11923,"Chaulin-Servinière",1,"Shorthand Typist","Second Division","Washington Labour Conference",NA,1919,10,NA,NA,NA,NA,"French",4
+"522",14377,10766,"Maria Magdalena Wilson",1,"Messenger","Second Division","Duplicating & Multigraph Service",1911,1930,3,13,NA,NA,NA,"English",3
+"523",14385,10769,"Juliette Winkler",1,"Cleaner","Third Division","Auxiliary Staff",1909,1938,6,1,NA,NA,NA,"Swiss",1
+"524",14393,10774,"J. de Wisniewsky",1,"Messenger","Second Division","Duplicating & Multigraph Service",NA,1922,8,28,NA,NA,NA,"",3
+"525",14409,10783,"Margaret  Wood",1,"Stenographer","Second Division","Economic Conference",1894,1927,5,4,NA,NA,NA,"English",4
+"526",14411,11548,"Olivia Rossetti-Agresti",1,"Interpreter","First Division","Pool",1875,1922,9,1,NA,NA,NA,"Italian",7
+"527",14414,11548,"Olivia Rossetti-Agresti",1,"Interpreter","First Division","Pool",1875,1924,9,1,NA,NA,NA,"Italian",7
+"528",14480,12104,"Janine Bielska",1,"Shorthand Typist","Second Division","General Assemblies Staff",1892,1924,9,1,NA,NA,NA,"Polish",4
+"529",14488,13407,"Marie Josephine Galibert",1,"Shorthand Typist","Second Division","Economic Conference",1894,1927,5,4,NA,NA,NA,"French",4
+"530",14490,8890,"Gertrud Guttmann",1,"Shorthand Typist","Second Division","Information Section",1898,1926,9,6,NA,NA,NA,"German",4
+"531",14492,9910,"Marthe Héléne Deutschman",1,"Shorthand Typist","Second Division","General Assemblies Staff",1897,1925,9,2,NA,NA,NA,"Polish",4
+"532",14494,9910,"Marthe Héléne Deutschman",1,"Shorthand Typist","Second Division","General Assemblies Staff",1897,1926,3,8,NA,NA,NA,"Polish",4
+"533",14502,10830,"Raymond W. Anderson",0,"Précis Writer","First Division","The Hague Conference",NA,NA,NA,NA,NA,NA,NA,"English",7
+"534",14503,10830,"Raymond W. Anderson",0,"Translator","First Division","Brussels Conference",NA,1920,9,NA,NA,NA,NA,"English",7
+"535",14507,9780,"Sophie Podgorska",1,"Shorthand Typist","Second Division","Pool",1898,1924,9,1,NA,NA,NA,"Polish",4
+"536",14508,9780,"Sophie Podgorska",1,"Shorthand Typist","Second Division","Pool",1898,1924,11,24,NA,NA,NA,"Polish",4
+"537",14509,9780,"Sophie Podgorska",1,"Shorthand Typist","Second Division","Pool",1898,1925,1,19,NA,NA,NA,"Polish",4
+"538",14515,9780,"Sophie Podgorska",1,"Shorthand Typist","Second Division","Pool",1898,1925,5,1,NA,NA,NA,"Polish",4
+"539",14517,9780,"Sophie Podgorska",1,"Shorthand Typist","Second Division","Pool",1898,1925,6,18,NA,NA,NA,"Polish",4
+"540",14523,8921,"Wanda Mcalpine",1,"Stenographer","Second Division","Pool",1888,1924,7,7,NA,NA,NA,"Polish",4
+"541",14524,8921,"Wanda Mcalpine",1,"Stenographer","Second Division","Pool",1888,1925,5,6,NA,NA,NA,"Polish",4
+"542",14532,11544,"Lisa Louise Wilhelmine Elisabeth Rose",1,"Shorthand Typist","Second Division","Information Section",1894,1926,3,6,NA,NA,NA,"German",4
+"543",14536,9651,"Maria Petkiewicz",1,"Messenger","Second Division","General Assemblies Staff",1907,1926,3,8,NA,NA,NA,"Russian",3
+"544",14554,10860,"A. Joucla-Pelous",0,"Interpreter","Interpreter","Labour Conference At Washington",NA,1919,10,18,NA,NA,NA,"French",7
+"545",14558,10269,"Ruth Emelie Viktoria Slagbrand",1,"Stenographer","Second Division","Pool",1900,1925,9,7,NA,NA,NA,"Swedish",4
+"546",14559,10487,"A. Tinguely",0,"Driver","Third Division","General Assemblies Staff",NA,1925,9,7,NA,NA,NA,"Swiss",1
+"547",14560,10487,"A. Tinguely",0,"Driver","Third Division","General Assemblies Staff",NA,1926,9,1,NA,NA,NA,"Swiss",1
+"548",14561,8706,"Adèle  Genoud",1,"House Staff","Third Division","General Assemblies Staff",1880,1923,9,3,NA,NA,NA,"Swiss",1
+"549",14562,8706,"Adèle  Genoud",1,"House Staff","Third Division","General Assemblies Staff",1880,1924,9,1,NA,NA,NA,"Swiss",1
+"550",14563,8706,"Adèle  Genoud",1,"House Staff","Third Division","General Assemblies Staff",1880,1925,9,7,NA,NA,NA,"Swiss",1
+"551",14569,8706,"Adèle  Genoud",1,"House Staff","Third Division","General Assemblies Staff",1880,1926,3,8,NA,NA,NA,"Swiss",1
+"552",14570,8706,"Adèle  Genoud",1,"House Staff","Third Division","General Assemblies Staff",1880,1926,9,6,NA,NA,NA,"Swiss",1
+"553",14577,8706,"Adèle  Genoud",1,"House Staff","Third Division","General Assemblies Staff",1880,1927,5,4,NA,NA,NA,"Swiss",1
+"554",14591,8786,"Alfred Gorgerat",0,"Liftboy","Third Division","General Assemblies Staff",NA,1922,8,30,NA,NA,NA,"Swiss",1
+"555",14592,8786,"Alfred Gorgerat",0,"Liftboy","Third Division","General Assemblies Staff",NA,1923,9,3,NA,NA,NA,"Swiss",1
+"556",14601,10887,"Mr Germain Paul Augustin d'Hangest",0,"Consultant","Consultant","Information Section",1883,NA,NA,NA,NA,NA,NA,"French",6
+"557",14604,10889,"Mr Percy William Holder",0,"Proof-Reader","Second Division","Russian Refugees Section
+
+",1892,NA,NA,NA,NA,NA,NA,"English",5
+"558",14623,11074,"Amélie Baud",1,"Cleaner","Third Division","Pool",1871,NA,NA,NA,NA,NA,NA,"Swiss",1
+"559",14624,10910,"Carlos Arcos",0,"League of Nations staff","League of Nations staff","Council",NA,NA,NA,NA,NA,NA,NA,"Spanish",8
+"560",14626,9317,"André Michard",0,"Messenger","Second Division","General Assemblies Staff",1905,1921,9,2,NA,NA,NA,"Swiss",3
+"561",14627,9317,"André Michard",0,"Messenger","Second Division","General Assemblies Staff",1905,1925,9,5,NA,NA,NA,"Swiss",3
+"562",14643,10921,"Armand Pierre Arrerat",0,"Cyclist","Third Division","Paris Office",1890,1931,1,23,NA,NA,NA,"French",1
+"563",14646,10924,"William Astor",0,"Temporary Member","First Division","Far East Commission of Enquiry (Manchurian Commission)",NA,1932,2,NA,NA,NA,NA,"English",8
+"564",14656,10295,"Angeline  Sormani",1,"Messenger","Second Division","General Assemblies Staff",1900,1921,9,5,NA,NA,NA,"Swiss",3
+"565",14678,9432,"Antoine Mutti",0,"Messenger","Second Division","General Assemblies Staff",1895,1926,3,8,NA,NA,NA,"Swiss",3
+"566",14683,10563,"Antoine Vellemann",0,"Interpreter","First Division","General Assemblies Staff",1875,1921,9,2,NA,NA,NA,"Swiss",7
+"567",14684,10563,"Antoine Vellemann",0,"Interpreter","First Division","General Assemblies Staff",1875,1922,8,31,NA,NA,NA,"Swiss",7
+"568",14685,10563,"Antoine Vellemann",0,"Interpreter","First Division","General Assemblies Staff",1875,1924,9,1,NA,NA,NA,"Swiss",7
+"569",14686,10563,"Antoine Vellemann",0,"Interpreter","First Division","General Assemblies Staff",1875,1926,3,8,NA,NA,NA,"Swiss",7
+"570",14707,10970,"Labonne",0,"Verbatim Reporter","Second Division","Council",NA,1925,6,8,NA,NA,NA,"French",4
+"571",14723,10977,"Edmond Georges Ruff",0,"Clerk","Second Division","Department II",1905,NA,NA,NA,NA,NA,NA,"Swiss",4
+"572",14736,10982,"Hélène Rufer née Nabholz",1,"Messenger","Second Division","Duplicating & Multigraph Service",1897,1924,9,1,NA,NA,NA,"Swiss",3
+"573",14737,10982,"Hélène Rufer née Nabholz",1,"Messenger","Second Division","Duplicating & Multigraph Service",1897,1925,9,4,NA,NA,NA,"Swiss",3
+"574",14744,10986,"Frederic Edward Ruegg",0,"Clerk","Second Division","Distribution of Documents",1900,1924,8,15,NA,NA,NA,"English",4
+"575",14747,10988,"Christine Ruegg",1,"Clerk","Second Division","Distribution of Documents",NA,1921,8,29,NA,NA,NA,"English",4
+"576",14748,10988,"Christine Ruegg",1,"Clerk","Second Division","Distribution of Documents",NA,1922,9,2,NA,NA,NA,"English",4
+"577",14774,11001,"Jean Emile Royer",0,"Interpreter","First Division","Translation",1900,1928,9,3,NA,NA,NA,"French",7
+"578",14796,11011,"Albert Rousselle",0,"Cyclist","Third Division","Auxiliary Staff",1890,NA,NA,NA,NA,NA,NA,"French",1
+"579",14800,11013,"F.W. Byford",0,"Unspecified","Clerk","Unspecified",NA,NA,NA,NA,NA,NA,NA,"British",10
+"580",14818,8966,"Charles Mange",0,"Messenger","Second Division","General Assemblies Staff",1878,1924,9,1,NA,NA,NA,"Swiss",3
+"581",14823,8966,"Charles Mange",0,"Messenger","Second Division","General Assemblies Staff",1878,1925,8,31,NA,NA,NA,"Swiss",3
+"582",14824,9420,"Charles Munsch",0,"Motorcyclist","Third Division","General Assemblies Staff",1903,1923,9,3,NA,NA,NA,"Swiss",1
+"583",14826,9420,"Charles Munsch",0,"Motorcyclist","Third Division","General Assemblies Staff",1903,1924,9,1,NA,NA,NA,"Swiss",1
+"584",14828,10704,"Catherine Zani",1,"Shorthand Typist","Second Division","Under Secretary-Generals' in charge of Internal Administration Office",1898,NA,NA,NA,NA,NA,NA,"Italian",4
+"585",14829,9420,"Charles Munsch",0,"Motorcyclist","Third Division","General Assemblies Staff",1903,1925,9,5,NA,NA,NA,"Swiss",1
+"586",14855,9643,"Constance  Pesson",1,"Telephone Operator","Third Division","General Assemblies Staff",1890,1921,9,6,NA,NA,NA,"Swiss",1
+"587",14892,9568,"Edgar Pagan",0,"Messenger","Second Division","General Assemblies Staff",1904,1924,9,1,NA,NA,NA,"Swiss",3
+"588",14899,11072,"Fernand Reck",0,"Messenger-Cyclist","Third Division","Distribution of Documents",1911,NA,NA,NA,NA,NA,NA,"Swiss",1
+"589",14941,11094,"Auguste Regamey",0,"Messenger","Second Division","Auxiliary Staff",1897,NA,NA,NA,NA,NA,NA,"Swiss",3
+"590",14945,11096,"Renéx de Latour",0,"Cyclist","Third Division","Paris Office",1906,1925,NA,NA,NA,NA,NA,"French",1
+"591",14967,9584,"Elysa Emilienne Caroline Paris",1,"Copyist","Second Division","Pool",1899,1923,8,13,123,10,23,"Swiss",2
+"592",15003,11131,"A. Robert Reuhi",0,"Messenger","Second Division","Auxiliary Staff",NA,1922,9,1,NA,NA,NA,"Swiss",3
+"593",15010,11138,"van Eysinga",0,"President of the Bureau","President","Advisory and Technical Committee for Communications and Transit of the League of Nations",NA,1921,NA,NA,NA,NA,NA,"Dutch",10
+"594",15016,11141,"Baldwin",0,"Vice President","Vice President","Advisory and Technical Committee for Communications and Transit of the League of Nations",NA,1921,NA,NA,NA,NA,NA,"English",10
+"595",15019,11143,"Fernandez y Medina",0,"Vice President","Vice President","Advisory and Technical Committee for Communications and Transit of the League of Nations",NA,1921,NA,NA,NA,NA,NA,"Uruguayan",10
+"596",15049,11247,"Emile Auguste Leonnard",0,"Messenger","Second Division","Pool",1888,1927,4,29,NA,NA,NA,"Swiss",3
+"597",15051,8987,"Emile Mariot",0,"Messenger","Second Division","General Assemblies Staff",1902,1925,9,7,NA,NA,NA,"Swiss",3
+"598",15064,11175,"Germaine Lefevre",1,"Secretary Shorthand-Typist","Second Division","Budapest Office",1899,1924,4,8,NA,NA,NA,"French",4
+"599",15065,11176,"Rosine Lefevre",1,"Secretary-Shorthand-Typist","Second Division","Budapest Office",1898,1924,4,1,NA,NA,NA,"French",4
+"600",15070,8846,"Eugène Grisel",0,"Messenger","Second Division","General Assemblies Staff",1868,1924,9,1,NA,NA,NA,"Swiss",3
+"601",15071,8846,"Eugène Grisel",0,"Messenger","Second Division","General Assemblies Staff",1868,1925,9,7,NA,NA,NA,"Swiss",3
+"602",15111,10185,"Gaston Schorderet",0,"Cyclist","Third Division","General Assemblies Staff",1905,1924,9,1,NA,NA,NA,"Swiss",1
+"603",15112,10541,"Gaston Vallotton",0,"Cyclist","Third Division","General Assemblies Staff",1906,1924,9,1,NA,NA,NA,"Swiss",1
+"604",15113,8804,"Georges Graf",0,"Messenger","Second Division","General Assemblies Staff",1876,1921,9,1,NA,NA,NA,"Swiss",3
+"605",15138,11200,"Joseph Belleau",0,"Interpreter","First Division","Washington Labour Conference",1884,1919,10,25,NA,NA,NA,"Canadian",7
+"606",15153,8804,"Georges Graf",0,"Messenger","Second Division","General Assemblies Staff",1876,1922,9,4,NA,NA,NA,"Swiss",3
+"607",15158,11216,"Frederic Alphonse Reymond",0,"Clerical Assistant","Second Division","Distribution of Documents",1887,1923,8,29,NA,NA,NA,"Swiss",3
+"608",15167,8804,"Georges Graf",0,"Messenger","Second Division","General Assemblies Staff",1876,1924,8,21,NA,NA,NA,"Swiss",3
+"609",15169,8804,"Georges Graf",0,"Messenger","Second Division","General Assemblies Staff",1876,1925,8,31,NA,NA,NA,"Swiss",3
+"610",15179,11228,"Renaud Emile Louis Richez",0,"Statistical Assistant","Second Division","Economic and Financial Section",1889,NA,NA,NA,NA,NA,NA,"",4
+"611",15189,11233,"Beda Rieder",0,"Messenger","Second Division","Auxiliary Staff",1884,1924,8,21,NA,NA,NA,"Swiss",3
+"612",15195,11237,"Benoît Leon-Dufour",0,"Member of Section","First Division","Economic and Financial Section",1881,NA,NA,NA,NA,NA,NA,"French",8
+"613",15213,10148,"Germaine Savoy",1,"Copyist","Second Division","Pool",1898,1922,8,15,NA,NA,NA,"Swiss",2
+"614",15222,9421,"Gustave  Munsch",0,"Driver","Third Division","General Assemblies Staff",1898,1925,9,7,NA,NA,NA,"Swiss",1
+"615",15225,9421,"Gustave  Munsch",0,"Driver","Third Division","General Assemblies Staff",1898,1926,3,8,NA,NA,NA,"Swiss",1
+"616",15227,9421,"Gustave  Munsch",0,"Driver","Third Division","General Assemblies Staff",1898,1926,9,1,NA,NA,NA,"Swiss",1
+"617",15231,8872,"Gustave Guignard",0,"Messenger","Second Division","General Assemblies Staff",1870,1924,9,1,NA,NA,NA,"Swiss",3
+"618",15232,11935,"H. E.  Chavannes",0,"Clerk","Second Division","General Assemblies Staff",NA,1922,9,4,NA,NA,NA,"Swiss",4
+"619",15233,10817,"Hedwige Allenbach",1,"Cloakroom Attendant","Third Division","Pool",1896,1927,8,24,NA,NA,NA,"Swiss",1
+"620",15297,11293,"Renée de Lucy-Fossarieu",1,"Secretary Shorthand-Typist","Second Division","Intellectual Cooperation and International Bureaux Section",1891,NA,NA,NA,NA,NA,NA,"French",4
+"621",15307,11302,"Gerasimos Lychnos",0,"Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"Greek",8
+"622",15327,9627,"Henri Perret",0,"Messenger","Second Division","General Assemblies Staff",1896,1936,9,17,NA,NA,NA,"Swiss",3
+"623",15340,10676,"Hermance-Jeanne Werner-Bastion",1,"Copyist","Second Division","Pool",1885,1925,4,1,NA,NA,NA,"Swiss",2
+"624",15357,8590,"Jane Fillion",1,"Shorthand Typist","Second Division","General Assemblies Staff",1898,1924,8,27,NA,NA,NA,"Swiss",4
+"625",15360,9223,"Jean Dawint",0,"Roneo Operator","Second Division","General Assemblies Staff",NA,1924,8,25,NA,NA,NA,"Swiss",2
+"626",15366,9242,"Jean Metry",1,"Messenger","Second Division","General Assemblies Staff",1906,1926,3,8,NA,NA,NA,"Swiss",3
+"627",15378,11340,"Lela Brown",1,"Assistant","Second Division","Library",NA,1921,9,8,NA,NA,NA,"Canadian",4
+"628",15391,11350,"Charlotte van den Broecke",1,"Stenographer","Second Division","Labour Section",NA,1919,7,28,NA,NA,NA,"",4
+"629",15432,11379,"Fernand Paul Riols",0,"Roneo Operator","Second Division","Duplicating & Multigraph Service",1899,1922,8,28,NA,NA,NA,"French",2
+"630",15433,11379,"Fernand Paul Riols",0,"Roneo Operator","Second Division","Duplicating & Multigraph Service",1899,1923,8,27,NA,NA,NA,"French",2
+"631",15434,11379,"Fernand Paul Riols",0,"Roneo Operator","Second Division","Duplicating & Multigraph Service",1899,1924,8,25,NA,NA,NA,"French",2
+"632",15449,12122,"John Henri Berthoud",0,"Clerk","Second Division","General Assemblies Staff",1894,1921,NA,NA,NA,NA,NA,"Swiss",4
+"633",15450,12185,"Julia Barres",1,"Stenographer","Second Division","Pool",1899,1926,8,2,NA,NA,NA,"Swiss",4
+"634",15451,9634,"Julia Perrier",1,"Telephonist","Third Division","General Assemblies Staff",1900,1926,9,13,NA,NA,NA,"Swiss",2
+"635",15458,12200,"Juliette Barge",1,"Copyist","Second Division","General Assemblies Staff",1906,1925,8,24,NA,NA,NA,"Swiss",2
+"636",15473,10006,"Lilette Duvoisin",1,"Shorthand Typist","Second Division","General Assemblies Staff",1904,1926,8,2,NA,NA,NA,"Swiss",4
+"637",15488,9893,"Louis Deschamps",0,"Driver","Third Division","General Assemblies Staff",1887,1926,9,6,NA,NA,NA,"Swiss",1
+"638",15502,8753,"Louis Gobbi",0,"Messenger","Second Division","General Assemblies Staff",NA,1923,8,21,NA,NA,NA,"Swiss",3
+"639",15506,8858,"Louis Gros",0,"Driver","Third Division","General Assemblies Staff",1888,1923,8,30,NA,NA,NA,"Swiss",1
+"640",15507,8858,"Louis Gros",0,"Driver","Third Division","General Assemblies Staff",1888,1924,7,11,NA,NA,NA,"Swiss",1
+"641",15512,9396,"Louis Mosiman",0,"Driver","Third Division","General Assemblies Staff",1892,1924,9,1,NA,NA,NA,"Swiss",1
+"642",15513,10257,"Louis Simon",0,"Messenger","Second Division","General Assemblies Staff",1894,1925,8,31,NA,NA,NA,"Swiss",3
+"643",15523,9897,"Louise Descoeudres",1,"Messenger","Second Division","General Assemblies Staff",1895,1924,8,29,NA,NA,NA,"Swiss",3
+"644",15531,11420,"M.  Hautrive",0,"Translator","First Division","Brussels Conference",NA,1920,9,NA,NA,NA,NA,"French",7
+"645",15535,11423,"A.  Hayes",1,"Unspecified","League of Nations staff","Duplicating & Multigraph Service",NA,1922,8,31,NA,NA,NA,"",10
+"646",15543,9585,"Lucien Paris",0,"Messenger","Second Division","General Assemblies Staff",1910,1924,8,25,NA,NA,NA,"Swiss",3
+"647",15544,11921,"Lydia Binet",1,"Telephonist","Third Division","General Assemblies Staff",1891,1925,9,7,NA,NA,NA,"Swiss",2
+"648",15546,9960,"Camille Dubois",0,"Shorthand Typist","Second Division","Security Conference",1884,1928,7,3,NA,NA,NA,"Swiss",4
+"649",15547,9855,"Lydie Delay",1,"Shorthand Typist","Second Division","Pool",1893,1923,9,3,NA,NA,NA,"Swiss",4
+"650",15567,10683,"Marcel Weyeneth",0,"Roneo Operator","Second Division","General Assemblies Staff",1893,1921,9,1,NA,NA,NA,"Swiss",2
+"651",15572,10683,"Marcel Weyeneth",0,"Roneo Operator","Second Division","General Assemblies Staff",1893,1922,9,4,NA,NA,NA,"Swiss",2
+"652",15575,10683,"Marcel Weyeneth",0,"Roneo Operator","Second Division","General Assemblies Staff",1893,1923,8,27,NA,NA,NA,"Swiss",2
+"653",15576,10683,"Marcel Weyeneth",0,"Roneo Operator","Second Division","General Assemblies Staff",1893,1924,8,28,NA,NA,NA,"Swiss",2
+"654",15598,11455,"Johannes Hertz",0,"Messenger","Second Division","The Hague Conference",1909,1930,3,12,NA,NA,NA,"Dutch",3
+"655",15611,12111,"Marguerite Beyeler",1,"Copyist","Second Division","General Assemblies Staff",1895,1922,9,1,NA,NA,NA,"Swiss",2
+"656",15612,9851,"Marguerite Delapraz",1,"Shorthand Typist","Second Division","Pool",1898,1927,5,4,NA,NA,NA,"Swiss",4
+"657",15627,10705,"Marguerite Ramelet",1,"Telephonist","Third Division","Pool",1886,1925,1,2,NA,NA,NA,"Swiss",2
+"658",15631,11475,"Edouard Rochat",0,"Driver","Third Division","Auxiliary Staff",1894,1923,9,3,NA,NA,NA,"Swiss",1
+"659",15634,11476,"Emile Rochat",0,"Messenger","Second Division","Auxiliary Staff",1893,1921,9,8,NA,NA,NA,"Swiss",3
+"660",15635,11476,"Emile Rochat",0,"Driver","Third Division","Auxiliary Staff",1893,1922,9,1,NA,NA,NA,"Swiss",1
+"661",15636,11476,"Emile Rochat",0,"Driver","Third Division","Auxiliary Staff",1893,1924,9,1,NA,NA,NA,"Swiss",1
+"662",15637,11476,"Emile Rochat",0,"Driver","Third Division","Auxiliary Staff",1893,1925,9,1,NA,NA,NA,"Swiss",1
+"663",15657,10267,"Marguerite Sinner",1,"Copyist","Second Division","Pool",1895,1926,3,9,NA,NA,NA,"Swiss",2
+"664",15677,11500,"Roger Heymann",0,"Verbatim Reporter","Second Division","Council Conference",1924,1924,12,8,NA,NA,NA,"",4
+"665",15708,9722,"Max Kettel",0,"Messenger","Second Division","General Assemblies Staff",1902,1923,8,10,NA,NA,NA,"Swiss",3
+"666",15715,9694,"Mrs. Lucie Hakanaver",1,"Senior Assistant","First Division","Health Section",1893,1922,5,15,31,1,1940,"Swiss",6
+"667",15730,12238,"Peter René Oscar Bally",0,"Unspecified","League of Nations staff","General Assemblies Staff",1895,NA,NA,NA,NA,NA,NA,"Swiss",10
+"668",15732,9466,"Pierre Neri",0,"Messenger","Second Division","General Assemblies Staff",1890,1924,8,21,NA,NA,NA,"Swiss",3
+"669",15757,11519,"Francis Hodel",0,"Clerk","Second Division","Distribution of Documents",NA,1922,9,4,NA,NA,NA,"Swiss",4
+"670",15758,8861,"R. Grosjean",1,"Cleaner","Third Division","General Assemblies Staff",NA,1946,4,1,NA,NA,NA,"Swiss",1
+"671",15759,11873,"Raymond Chassot",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1881,1921,9,5,NA,NA,NA,"Swiss",4
+"672",15760,11873,"Raymond Chassot",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1881,1922,2,10,NA,NA,NA,"Swiss",4
+"673",15761,11873,"Raymond Chassot",0,"Stenographer","Second Division","General Assemblies Staff",1881,1924,9,3,NA,NA,NA,"Swiss",4
+"674",15768,11873,"Raymond Chassot",0,"Stenographer","Second Division","General Assemblies Staff",1881,1925,9,6,NA,NA,NA,"Swiss",4
+"675",15772,11873,"Raymond Chassot",0,"Stenographer","Second Division","General Assemblies Staff",1881,1926,3,8,NA,NA,NA,"Swiss",4
+"676",15774,11873,"Raymond Chassot",0,"Stenographer","Second Division","General Assemblies Staff",1881,1926,8,29,NA,NA,NA,"Swiss",4
+"677",15776,11873,"Raymond Chassot",0,"Stenographer","Second Division","General Assemblies Staff",1881,1927,5,16,NA,NA,NA,"Swiss",4
+"678",15792,11690,"Renée Bopp",1,"Shorthand Typist","Second Division","Pool",1895,1925,5,12,NA,NA,NA,"Swiss",4
+"679",15794,11542,"C.A. Ronzevalle",0,"Interpreter","First Division","Labour Conference At Washington",NA,1919,10,8,NA,NA,NA,"English",7
+"680",15806,11548,"Olivia Rossetti-Agresti",1,"Interpreter","First Division","Economic Conference",1875,1927,5,4,NA,NA,NA,"Italian",7
+"681",15816,9465,"Robert Nerbollier",0,"Driver","Third Division","General Assemblies Staff",NA,1934,9,10,NA,NA,NA,"Swiss",1
+"682",15834,8789,"Rosine Gottraux",1,"Duplicator Operator","Second Division","General Assemblies Staff",1898,1923,8,16,NA,NA,NA,"Swiss",3
+"683",15842,8789,"Rosine Gottraux",1,"Duplicator Operator","Second Division","General Assemblies Staff",1898,1924,8,16,NA,NA,NA,"Swiss",3
+"684",15847,11569,"Randolph Hughes",0,"Translator","First Division","Translation Section",NA,NA,NA,NA,1921,NA,NA,"Australian",7
+"685",15854,9644,"Ruth Liliane Peter",1,"Shorthand Typist","Second Division","Pool",1903,1926,3,9,NA,NA,NA,"Swiss",4
+"686",15863,9633,"Samuel Perret",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1894,1921,9,5,NA,NA,NA,"Swiss",4
+"687",15864,9633,"Samuel Perret",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1894,1922,9,4,NA,NA,NA,"Swiss",4
+"688",15880,9303,"Victoria Mezger-Debaud",1,"Shorthand Typist","Second Division","Pool",1893,1927,4,25,NA,NA,NA,"Swiss",4
+"689",15903,11595,"Suzanne Hélène Georgette Balasko",1,"Translator","First Division","Translation",1903,NA,NA,NA,NA,NA,NA,"French",7
+"690",15913,11598,"Prof. K.R. Brotherus",0,"Temporary Collaborator","First Division","Information Section",NA,1926,5,17,NA,NA,NA,"Finish",8
+"691",15931,11609,"George Bozon",0,"Messenger","Second Division","Distribution of Documents",NA,1922,9,2,NA,NA,NA,"",3
+"692",15932,11610,"Maurice Boyer",0,"Member of Section","First Division","Economic and Financial Section",NA,NA,NA,NA,NA,NA,NA,"French",8
+"693",15949,11618,"Alfred Bowen",0,"Proof-Reader","Second Division","Publications Service",1898,1926,9,13,NA,NA,NA,"English",5
+"694",15968,9688,"William Baer",0,"Messenger-Clerk","Second Division","General Assemblies Staff",1926,NA,NA,NA,NA,NA,NA,"Swiss",3
+"695",15978,11630,"B.  Cassidy",1,"Typist","Second Division","Duplicating & Multigraph Service",NA,1920,9,6,NA,NA,NA,"British",4
+"696",15979,11630,"B.  Cassidy",1,"Duplicating Operator","Second Division","Duplicating & Multigraph Service",NA,1920,9,6,NA,NA,NA,"British",3
+"697",15981,11632," René Samuel Cassin",0,"Personal Assistant","First Division","Secretary-General's Office",1887,NA,NA,NA,NA,NA,NA,"",7
+"698",16001,11635,"Charles Castaldi",0,"Messenger","Second Division","Auxiliary Staff",1911,1938,1,26,NA,NA,NA,"Italian",3
+"699",16006,9944,"Yvonne Dottrens",1,"Stenographer","Second Division","Pool",1898,1925,9,2,NA,NA,NA,"Swiss",4
+"700",16009,10297,"Yvonne Fortunée  Sottaz",1,"Messenger","Second Division","General Assemblies Staff",1905,1924,8,28,NA,NA,NA,"Swiss",3
+"701",16028,11655,"Marie Gavairon",1,"Cleaner","Third Division","Auxiliary Staff",NA,NA,NA,NA,NA,NA,NA,"",1
+"702",16036,11658,"E.G. Borrowman",1,"Typist","Second Division","Duplicating & Multigraph Service",NA,1920,5,10,NA,NA,NA,"English",4
+"703",16039,11661,"Charles Borner",0,"Messenger","Second Division","Distribution of Documents",NA,1923,8,31,NA,NA,NA,"",3
+"704",16071,11684,"Laura Chalmers",1,"Assistant Secretary","Second Division","Economic and Financial Section",NA,1921,7,25,NA,NA,NA,"British",4
+"705",16072,11684,"Laura Chalmers",1,"Stenographer","Second Division","Economic and Financial Section",NA,1921,7,25,NA,NA,NA,"British",4
+"706",16093,11693,"Gerardina van den Boom",1,"Messenger","Second Division","Auxiliary Staff",1914,1930,3,13,NA,NA,NA,"Dutch",3
+"707",16096,5392,"Dr. Walter Fortunat Muehlon",0,"Member of Section","First Division","Health Section",1914,194,5,1,1945,6,11,"Swiss",8
+"708",16103,11700,"Jaques Bonnoront",0,"Translator","First Division","Translation",1883,1835,NA,NA,1938,NA,NA,"French",7
+"709",16138,5171,"Dr. Frank Boudreau",0,"Temporary Collaborator","First Division","Health Section",1886,NA,NA,NA,NA,NA,NA,"US-American",8
+"710",16198,11738,"A. Gastelu",-1,"Honorary Correspondent","Honorary Correspondent","Information Section",NA,1927,9,25,NA,NA,NA,"Ecuadorian",7
+"711",16208,11742,"José Garza y de Garate",0,"Temporary Collaborator","First Division","Information Section",1910,1932,9,19,NA,NA,NA,"",8
+"712",16348,9163,"Ruth Bache-Wiig",0,"Assistant","Second Division","Pool",1891,NA,NA,NA,1924,2,8,"US-American",4
+"713",16480,11861,"Ch. Blattler",0,"Driver","Third Division","Auxiliary Staff",NA,1927,5,4,NA,NA,NA,"",1
+"714",16484,11865,"D.  Charriere",0,"Messenger","Second Division","Auxiliary Staff",NA,1922,8,28,NA,NA,NA,"",3
+"715",16498,9256,"A. Metzker",0,"Duplicator Operator","Second Division","General Assemblies Staff",NA,1920,11,11,NA,NA,NA,"",3
+"716",16499,11390,"A. Robert",1,"Shorthand Typist","Second Division","Pool",NA,NA,NA,NA,NA,NA,NA,"",4
+"717",16500,10491,"Adrien Tissot ",0,"Messenger","Second Division","General Assemblies Staff",NA,1922,9,1,NA,NA,NA,"",3
+"718",16544,11899,"Raoul André Chatelain",0,"Clerk","Second Division","Internal Control",1907,1931,3,9,191,9,8,"Swiss",4
+"719",16551,10550,"Alfred Vaucher",0,"Driver","Third Division","General Assemblies Staff",NA,1925,9,7,NA,NA,NA,"",1
+"720",16561,9227,"Alice Metral",1,"Telephonist","Third Division","General Assemblies Staff",NA,1922,9,4,NA,NA,NA,"",2
+"721",16574,11917,"Louis François Chatenoud",0,"Cleaner","Third Division","Auxiliary Staff",1861,1921,5,1,NA,NA,NA,"Swiss",1
+"722",16575,11917,"Louis François Chatenoud",0,"Cleaner","Third Division","Auxiliary Staff",1861,1927,1,1,NA,NA,NA,"Swiss",1
+"723",16584,11923,"Chaulin-Servinière",1,"Secretary","First Division","Washington Labour Conference",NA,1919,10,NA,NA,NA,NA,"French",6
+"724",16614,10226,"André Semon",0,"Cyclist","Third Division","General Assemblies Staff",NA,1922,9,1,NA,NA,NA,"",1
+"725",16623,10028,"Antonia Sartorio",1,"Messenger","Second Division","General Assemblies Staff",NA,1926,8,30,NA,NA,NA,"",3
+"726",16624,12135,"Arthur Bernardin",0,"Driver","Third Division","General Assemblies Staff",NA,1922,NA,NA,NA,NA,NA,"",1
+"727",16653,11328,"Bryant",1,"Shorthand Typist","Second Division","Pool",NA,NA,NA,NA,NA,NA,NA,"",4
+"728",16668,11145,"Butterworth",1,"Shorthand Typist","Second Division","Pool",NA,1946,4,3,NA,NA,NA,"",4
+"729",16700,8744,"Cécile Glauser",1,"House Staff","Third Division","General Assemblies Staff",NA,1921,9,5,NA,NA,NA,"",1
+"730",16716,8744,"Cécile Glauser",1,"House Staff","Third Division","General Assemblies Staff",NA,1922,9,4,NA,NA,NA,"",1
+"731",16718,8813,"Charles Grandjean",0,"Roneo Operator","Second Division","General Assemblies Staff",NA,1922,9,6,NA,NA,NA,"",2
+"732",16720,11982,"Etienne Chiorino",0,"Driver","Third Division","Opium Conference",1903,1924,11,19,NA,NA,NA,"Swiss",1
+"733",16723,12138,"Cicely Berkeley",1,"Shorthand Typist","Second Division","General Assemblies Staff",NA,1936,NA,NA,NA,NA,NA,"",4
+"734",16733,9939,"Dondynaz",1,"Secretary","First Division","General Assemblies Staff",NA,1921,9,1,NA,NA,NA,"",6
+"735",16744,10962,"Hilda Blanchard née Goldspink",1,"Shorthand Typist","Second Division","Stenographic Services",1899,NA,NA,NA,NA,NA,NA,"Swiss,British",4
+"736",16748,10962,"Hilda Blanchard née Goldspink",1,"Shorthand Typist","Second Division","Duplicating & Multigraph Service",1899,NA,NA,NA,NA,NA,NA,"Swiss,British",4
+"737",16751,5506,"Dr. Hoops",0,"Deputy Director","First Division","Health Section",NA,NA,NA,NA,NA,NA,NA,"",9
+"738",16757,4929,"Dr. Tsune Ouchi",0,"Deputy Director","First Division","Health Section",NA,NA,NA,NA,NA,NA,NA,"",9
+"739",16758,9973,"Dufour",0,"Lon Duplicator","Second Division","General Assemblies Staff",NA,1920,11,10,NA,NA,NA,"",2
+"740",16762,12004,"René André Clermont",0,"Clerk","Second Division","Distribution of Documents",1896,1896,6,12,1924,8,16,"French",4
+"741",16764,12137,"Edmond Berlie",0,"Driver","Third Division","General Assemblies Staff",NA,1923,NA,NA,NA,NA,NA,"",1
+"742",16788,10890,"Fehler Fehler",1,"Translator","First Division","Pool",1890,NA,NA,NA,NA,NA,NA,"",7
+"743",16791,12020,"A.  Combaud",1,"French Translator","First Division","Labour Conference At Washington",NA,1919,10,9,NA,NA,NA,"French",7
+"744",16822,12035,"Rose Cooper",1,"Typist","Second Division","Duplicating & Multigraph Service",NA,1920,8,31,NA,NA,NA,"English",4
+"745",16823,12035,"Rose Cooper",1,"Duplicating Operator","Second Division","Duplicating & Multigraph Service",NA,1920,8,31,NA,NA,NA,"English",3
+"746",16834,10726,"Fred Wilhelm",0,"Motorcyclist","Third Division","General Assemblies Staff",NA,1922,9,1,NA,NA,NA,"",1
+"747",16838,12042,"Cornelius",0,"Verbatim Reporter","Second Division","Information Section",NA,1923,9,2,NA,NA,NA,"",4
+"748",16841,11393,"Germaine Robert",1,"Shorthand Typist","Second Division","Pool",NA,1920,10,27,NA,NA,NA,"",4
+"749",16872,12051,"Henriette Cottet",1,"Nurse","Third Division","Auxiliary Staff",1891,1946,4,24,NA,NA,NA,"Swiss",2
+"750",16881,8819,"Grasso",0,"Cyclist","Third Division","General Assemblies Staff",NA,1922,9,4,NA,NA,NA,"",1
+"751",16892,12191,"Helene Barnecutt",1,"Copyist","Second Division","General Assemblies Staff",NA,NA,NA,NA,NA,NA,NA,"",2
+"752",16893,10492,"Hélène Tissot",1,"Messenger","Second Division","General Assemblies Staff",NA,1922,8,28,NA,NA,NA,"",3
+"753",16894,8877,"Henri Guilland",0,"Messenger","Second Division","General Assemblies Staff",NA,1922,9,1,NA,NA,NA,"",3
+"754",16896,9979,"Dujour",1,"Shorthand Typist","Second Division","Secreteriat Registry",NA,1920,12,1,NA,NA,NA,"",4
+"755",16912,8755,"Hortense Godet",1,"Stenographer","Second Division","General Assemblies Staff",1879,1919,NA,NA,NA,NA,NA,"",4
+"756",16913,8755,"Hortense Godet",1,"Stenographer","Second Division","General Assemblies Staff",1879,1922,8,28,NA,NA,NA,"",4
+"757",16914,8755,"Hortense Godet",1,"Stenographer","Second Division","General Assemblies Staff",1879,1923,9,3,NA,NA,NA,"",4
+"758",16917,8755,"Hortense Godet",1,"Stenographer","Second Division","General Assemblies Staff",1879,1924,8,18,NA,NA,NA,"",4
+"759",16930,10200,"Isaac Schwartz",0,"Proof-Reader","Second Division","Pool",NA,1946,4,NA,NA,NA,NA,"",5
+"760",16933,12075,"Nancy Croset",1,"Messenger","Second Division","Duplicating & Multigraph Service",1909,1925,9,7,NA,NA,NA,"Swiss",3
+"761",16934,12075,"Nancy Croset",1,"Messenger","Second Division","Duplicating & Multigraph Service",1909,1926,3,8,NA,NA,NA,"Swiss",3
+"762",16935,12075,"Nancy Croset",1,"Messenger","Second Division","Duplicating & Multigraph Service",1909,1926,8,30,NA,NA,NA,"Swiss",3
+"763",16956,12078,"Marthe Olga Crottaz née Berdoz",1,"Cleaner","Third Division","Auxiliary Staff",1924,1945,6,1,194,5,1,"Swiss",1
+"764",16959,8925,"Jean Kerr McDonald",1,"Stenographer","Second Division","Pool",NA,1922,8,28,NA,NA,NA,"",4
+"765",16967,12450,"José Gallostra",0,"Assistant","Second Division","General Assemblies Staff",NA,1920,12,7,NA,NA,NA,"",4
+"766",16969,12086,"Emile Cuioz",0,"Messenger","Second Division","Auxiliary Staff",1890,1921,3,1,NA,NA,NA,"Swiss",3
+"767",16972,12087,"Jean  Cuioz",0,"Motorcyclist","Third Division","Auxiliary Staff",1887,1922,9,1,NA,NA,NA,"Swiss",1
+"768",16973,12087,"Jean  Cuioz",0,"Motorcyclist","Third Division","Auxiliary Staff",1887,1924,9,1,NA,NA,NA,"Swiss",1
+"769",16974,12087,"Jean  Cuioz",0,"Motorcyclist","Third Division","Auxiliary Staff",1887,1925,9,7,NA,NA,NA,"Swiss",1
+"770",16980,10620,"Joseph Vuylsteke",0,"Verbatim Reporter","Second Division","General Assemblies Staff",1874,1921,9,3,NA,NA,NA,"",4
+"771",16987,10177,"L. Schneider",1,"Shorthand Typist","Second Division","Pool",NA,1922,8,28,NA,NA,NA,"",4
+"772",16989,12095,"Alois Curtet",0,"Messenger","Second Division","Auxiliary Staff",NA,1921,9,12,NA,NA,NA,"Swiss",3
+"773",16995,12097,"Gaston Curton",0,"Driver","Third Division","Auxiliary Staff",1900,1935,10,14,NA,NA,NA,"",1
+"774",17004,8770,"Lily Gombert née Fuchs",1,"Shorthand Typist","Second Division","General Assemblies Staff",1895,1926,8,2,NA,NA,NA,"",4
+"775",17014,9611,"Lucien Pedraita",0,"Cyclist","Third Division","General Assemblies Staff",NA,1921,9,1,NA,NA,NA,"",1
+"776",17015,12114,"Alice Beutler",1,"Unspecified","League of Nations staff","Auxiliary Staff",NA,1922,9,4,NA,NA,NA,"",10
+"777",17016,12114,"Alice Beutler",1,"Unspecified","League of Nations staff","Auxiliary Staff",NA,1930,9,11,NA,NA,NA,"",10
+"778",17022,12119,"Mireille Besançon",1,"Typist","Second Division","Council",1896,NA,NA,NA,NA,NA,NA,"French",4
+"779",17025,12175,"M. Bassetti",0,"Messenger","Second Division","General Assemblies Staff",NA,1923,NA,NA,NA,NA,NA,"",3
+"780",17026,11214,"M. Reyjal",1,"Stenographer","Second Division","Pool",NA,1921,8,20,NA,NA,NA,"",4
+"781",17039,13808,"Madeleine Fusy",1,"Shorthand Typist","Second Division","General Assemblies Staff",1891,1926,8,1,0,0,0,"",4
+"782",17040,8949,"Mahl",1,"Shorthand Typist","Second Division","Pool",NA,1920,12,1,NA,NA,NA,"",4
+"783",17041,9606,"Marcel Payot",0,"Cyclist","Third Division","General Assemblies Staff",NA,1922,9,4,NA,NA,NA,"",1
+"784",17044,11121,"Marcelle Laurent",1,"Shorthand Typist","Second Division","General Assemblies Staff",NA,NA,NA,NA,NA,NA,NA,"",4
+"785",17046,9649,"Marcelle Marie Petit-Gilkinet",1,"Typist","Second Division","Pool",1885,1924,9,1,NA,NA,NA,"",4
+"786",17049,9649,"Marcelle Marie Petit-Gilkinet",1,"Typist","Second Division","Pool",1885,1925,9,7,NA,NA,NA,"",4
+"787",17051,9649,"Marcelle Marie Petit-Gilkinet",1,"Typist","Second Division","Pool",1885,1926,9,6,NA,NA,NA,"",4
+"788",17128,10000,"Maria Durant-Verly",1,"Shorthand Typist","Second Division","General Assemblies Staff",1894,1924,8,25,NA,NA,NA,"",4
+"789",17131,8635,"Mildred Fox",1,"Translator","First Division","Pool",NA,1921,4,7,NA,NA,NA,"",7
+"790",17133,9683,"N.  Piola",0,"Messenger","Second Division","General Assemblies Staff",NA,1922,9,4,NA,NA,NA,"",3
+"791",17139,9454,"N. Naly",1,"Stenographer","Second Division","Pool",NA,1920,11,17,NA,NA,NA,"",4
+"792",17140,12146,"Olga Berekovitch",1,"Shorthand Typist","Second Division","General Assemblies Staff",NA,1922,NA,NA,NA,NA,NA,"",4
+"793",17148,12198,"Manlio Barilli",0,"Unspecified","League of Nations staff","League of Nations",NA,NA,NA,NA,NA,NA,NA,"Italian",10
+"794",17149,10227,"P. Senn",1,"Messenger","Second Division","General Assemblies Staff",NA,1922,8,28,NA,NA,NA,"",3
+"795",17198,9817,"Pierrepont  Prentice",0,"Assistant","Second Division","General Assemblies Staff",NA,1920,11,2,NA,NA,NA,"",4
+"796",17224,9768,"Raoul Pittet",0,"Cyclist","Third Division","General Assemblies Staff",NA,1923,9,3,NA,NA,NA,"",1
+"797",17229,10989,"Reginald Rudolph",0,"Unspecified","League of Nations staff","Pool",1904,1919,NA,NA,NA,NA,NA,"",10
+"798",17780,12448,"Dina Gardy",1,"Duplicating Operator","Second Division","Duplicating & Multigraph Service",1907,NA,NA,NA,NA,NA,NA,"",3
+"799",17781,10155,"René Schaller",0,"Messenger","Second Division","General Assemblies Staff",NA,1923,9,4,NA,NA,NA,"",3
+"800",17788,12457,"Jean Gardet",0,"Unspecified","League of Nations staff","League of Nations",1880,1922,1,4,0,0,0,"Swiss",10
+"801",17790,12457,"Jean Gardet",0,"Driver","Third Division","Auxiliary Staff",1880,1924,10,4,0,0,0,"Swiss",1
+"802",17791,8981,"S.  Marchon",1,"Cleaner","Third Division","General Assemblies Staff",NA,1946,4,1,NA,NA,NA,"",1
+"803",20371,10619,"Serge Vuille",0,"Messenger","Second Division","General Assemblies Staff",NA,1923,8,30,NA,NA,NA,"",3
+"804",20375,13405,"André  de Gall",0,"Temporary Collaborator","First Division","Information Section",NA,1935,9,5,NA,NA,NA,"Hungarian",8
+"805",20377,11642,"Bouchu",1,"Shorthand Typist","Second Division","Stenographic Services",NA,1920,4,26,NA,NA,NA,"",4
+"806",20378,10277,"Smith",1,"Shorthand Typist","Second Division","Pool",NA,1920,11,16,NA,NA,NA,"",4
+"807",20383,10601,"T.  Vinzia",0,"Messenger","Second Division","General Assemblies Staff",NA,1922,8,21,NA,NA,NA,"",3
+"808",20998,10527,"Truog",1,"Shorthand Typist","Second Division","Pool",NA,1920,11,11,NA,NA,NA,"",4
+"809",20999,10556,"Vaugnat",1,"Shorthand Typist","Second Division","Pool",NA,1920,11,13,NA,NA,NA,"",4
+"810",21000,10963,"Violet M. Russell",1,"Stenographer","Second Division","Pool",NA,NA,NA,NA,NA,NA,NA,"",4
+"811",21001,10136,"W. M.  Saunders",1,"Multigraph Operator","Second Division","General Assemblies Staff",NA,1922,8,31,NA,NA,NA,"",3
+"812",21002,10780,"Woirhaye",1,"Shorthand Typist","Second Division","Pool",NA,1920,10,27,NA,NA,NA,"",4
+"813",21003,13808,"Madeleine Fusy",1,"Shorthand Typist","Second Division","Economic Conference",1891,1927,5,9,0,0,0,"",4
