@@ -1,0 +1,56 @@
+---
+title: "Exploring missing data"
+author: "Adam Finnemann"
+date: "September 24, 2017"
+---
+  
+```{r setup, include=FALSE}
+
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/fall17")
+da_mis <- read.csv("missing_begin_on_year.csv")
+
+```
+There are a total of 5198 contract with missing beginning year of contract
+
+```{r}
+da_mis %>% group_by(nationality) %>% tally()
+
+
+```
+4816 of the contract are missing nationality as well
+```{r}
+da_mis %>% group_by(oname) %>% tally()
+
+```
+
+
+```{r}
+GA_worker <- da_mis %>% 
+  filter(str_detect(da_mis$fname, "General Assembly"))
+
+#write.csv(GA_worker, "missing_data/General_Assemb_workers.csv")
+
+non_GA_worker <- da_mis %>% 
+  filter(!str_detect(da_mis$fname, "General Assembly"))
+write.csv(non_GA_worker, "missing_data/non_General_Assemb_workers.csv")
+
+```
+5098 of the missing contracts are from the General Assembly.
+Table of these are found in General_Assemb_worker.csv
+
+813 contract are not from the General assembly
+Table of these are found in non_General_Assemb_worker.csv
+
+List of "important" missing contracts i.e. contracts from first division are in the folder first_div_missing_workers. Tis amounts to 139 contracts including directors, head of sections, deputy chiefs.
+```{r}
+missing_first_div <- filter(non_GA_worker, canonical_fname == "First Division")
+
+write.csv(missing_first_div, "missing_data/first_div_missing_workers.csv")
+
+```
+

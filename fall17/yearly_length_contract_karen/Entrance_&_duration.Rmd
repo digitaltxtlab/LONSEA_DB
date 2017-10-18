@@ -124,6 +124,249 @@ avg_len %>%
 
 ```
 
+
+
+Subsetting scandinavian people and repeating plot
+
+```{r}
+summary(da$nationality)
+scandi <- da %>% 
+  filter(nationality %in% c("Dane","Swedish","Norwegian"))
+
 ```
 
+105 contract belonging to Scandinavians are found
+```{r}
+scandi_res <- employment(scandi)
+wo_pname_scandi = scandi_res[,-1]
+scandi_results <- matrix(NA, nrow = nrow(wo_pname_scandi), 2)
+
+for (i in 1:nrow(wo_pname_scandi)) {
+  count = 1
+  blank = 0
+  non_blank = 0
+  new_blank = 0
+  #while cells are blank add 1 to blank and counter
+  while(wo_pname_scandi[i,count, with =F] =="") {
+      blank = blank + 1
+      count = count + 1
+      
+  }
+    #if no new blanks and the current cell isn't empty
+    while((wo_pname_scandi[i,count, with = F] != "") & count < ncol(wo_pname_scandi)-1){
+      non_blank = non_blank + 1
+      count = count + 1
+        }
+  
+  scandi_results[i,] <- c(blank, non_blank)
+}
+
+```
+
+```{r}
+colnames(scandi_results) <- c("blanks","non_blank")
+
+df <- scandi_results %>% 
+  as.data.frame() %>% 
+  mutate(pname = scandi_res$pname,
+         begin_year = blanks + 1919,
+         end_year = 1919 + blanks + non_blank,
+         duration = end_year - begin_year) 
+
+avg_len <- df %>% 
+  group_by(begin_year) %>% 
+  summarise(mean_len = mean(duration))
+ 
+avg_len %>% 
+  ggplot(aes(begin_year, mean_len, color = mean_len)) +
+  geom_point()+
+  geom_line()+
+  labs(x = "Year", y ="Years of contract", titles = "Average length of first employment interval")+
+  scale_x_continuous(breaks = seq(1919,1948,3))+
+  scale_y_continuous(breaks = seq(1,12,2))
+  
+```
+
+Visualizing number of first time contracts per year for Scandinavians
+```{r}
+df %>% 
+  group_by(begin_year) %>% 
+  tally() %>% 
+  ggplot(aes(begin_year, n, fill = n)) +
+  geom_col() +
+  labs(x = "Year", y ="Nr. of contract", titles = "Number of first time contracts per year for Scandinavians")+
+  scale_x_continuous(breaks = seq(1919,1948,3))+
+  scale_y_continuous(breaks = seq(1,12,2))
+
+
+
+```
+
+Further subset, including only Scandinavians in Section and director
+
+```{r}
+
+top_scandi <- scandi %>% 
+  filter(str_detect(scandi$fname, "Section") | str_detect(scandi$fname, "Director"),
+         fname != "Secretary of Section")
+unique(droplevels(top_scandi$pname))
+```
+
+
+
+This includes 24 contracts from 19 different people
+
+```{r}
+
+scandi_res <- employment(top_scandi)
+```
+
+
+```{r}
+p <- top_scandi[which(!top_scandi$pname %in% scandi_res$pname),]
+p
+```
+
+One person is removed in the analysis: apparent reason, his begin_on_year is later than his end_on_year.
+
+
+
+```{r}
+wo_pname_scandi = scandi_res[,-1]
+scandi_results <- matrix(NA, nrow = nrow(wo_pname_scandi), 2)
+
+for (i in 1:nrow(wo_pname_scandi)) {
+  count = 1
+  blank = 0
+  non_blank = 0
+  new_blank = 0
+  #while cells are blank add 1 to blank and counter
+  while(wo_pname_scandi[i,count, with =F] =="") {
+      blank = blank + 1
+      count = count + 1
+      
+  }
+    #if no new blanks and the current cell isn't empty
+    while((wo_pname_scandi[i,count, with = F] != "") & count < ncol(wo_pname_scandi)-1){
+      non_blank = non_blank + 1
+      count = count + 1
+        }
+  
+  scandi_results[i,] <- c(blank, non_blank)
+}
+colnames(scandi_results) <- c("blanks","non_blank")
+
+df <- scandi_results %>% 
+  as.data.frame() %>% 
+  mutate(pname = scandi_res$pname,
+         begin_year = blanks + 1919,
+         end_year = 1919 + blanks + non_blank,
+         duration = end_year - begin_year) 
+
+avg_len <- df %>% 
+  group_by(begin_year) %>% 
+  summarise(mean_len = mean(duration))
+ 
+avg_len %>% 
+  ggplot(aes(begin_year, mean_len, fill = mean_len)) +
+  geom_col() +
+  labs(x = "Year", y ="Years of contract", titles = "Average length of first employment interval Scandis in First Division+Director")+
+  scale_x_continuous(breaks = seq(1919,1948,3))+
+  scale_y_continuous(breaks = seq(1,15,2))
+
+
+```
+
+Visualization number of contracts per year
+```{r}
+df %>% 
+  group_by(begin_year) %>% 
+  tally() %>% 
+  ggplot(aes(begin_year, n, fill = n)) +
+  geom_col() +
+  labs(x = "Year", y ="Nr. of contract", titles = "Number of first time contracts per year for Scandinavians")+
+  scale_x_continuous(breaks = seq(1919,1948,3))+
+  scale_y_continuous(breaks = seq(1,12,2))
+
+
+```
+
+
+New question: How many Scandinavians were there in section/directors over time:
+
+```{r}
+
+
+mdl_df <- top_scandi %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = "1 year")), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+scandi_workers <- result%>% 
+  summarise_all(function(x) sum(x != ""))
+
+long_df <- gather(nation_workers, key, value, `1919-01-01`:`1946-01-01`) %>% 
+  mutate(key = as.Date(key)) 
+  
+
+str(long_df)
+
+
+ long_df %>% 
+  ggplot(aes(x = key, y = value, fill = value)) +
+  geom_col() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  scale_y_continuous(breaks = seq(0,12,2))+
+  labs(x = "Year", y ="Scandinavuans", titles = "Distribution of Scandinavians in section/directors")
+  
+```
+
+Years with more than 7 Scandinavians in Section/director
+```{r}
+long_df %>% 
+  filter(value > 7) %>% 
+  ggplot(aes(x = key, y = value, fill = value)) +
+  geom_col() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  scale_y_continuous(breaks = seq(0,12,2))+
+  labs(x = "Year", y ="Scandinavuans", titles = "Distribution of Scandinavians in section/directors")
+```
+
+
+## New question: What is the average years of employment (in total) per worker.
+Could be considered repeating analysis for monthly interval.
+
+```{r}
+result <- employment(da)
+
+contract_length <- matrix(nrow = (nrow(result)), ncol = 1)
+
+result <- as.data.frame(result)
+
+names <- as.character(result[,1])
+
+#removing pname column 
+contracts<- sapply(result[,-1],function(x) x != "") %>% 
+  rowSums() %>% 
+  as.data.frame() %>% 
+  rename(contract_length = ".") %>% 
+  mutate(names = as.factor(names))
+
+
+contracts %>% 
+  ggplot(aes(contract_length, color = contract_length)) +
+  geom_histogram( aes(fill = ..count..)) +
+  scale_fill_gradient("count", low="orange", high="purple") +
+  labs(x = "Work periods in years", y = "Number of people", title = "Distribution of work periods in LoN") +
+  scale_x_continuous(breaks = seq(0,30,5))+
+  scale_y_continuous(breaks = seq(0,2000, 250))
+
+```
 
