@@ -1,0 +1,621 @@
+---
+title: "Entrance, duration of contracts, accumulated experience"
+author: "Adam Finnemann"
+date: "October 19, 2017"
+---
+  
+```{r setup, include=FALSE}
+
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/fall17/yearly_length_contract_karen")
+
+da <- read.csv(list.files(pattern = "contract_"))
+```
+
+## Question: For each year, how long does a person stay in the section?
+
+
+First calculation: Subtracting end year of contract from beginning year. Take the average of this measure for each year and plot it per year.
+Here it's assumed that all contracts start and end on the first 1. januar. In other words, only information about year differences is used.
+```{r}
+
+#why mutate no work??
+da$begin_date <- as.Date(as.character(da$begin_date))         
+da$end_date <- as.Date(as.character(da$end_date))         
+
+
+da <-da  %>% 
+  mutate(duration = end_date - begin_date)
+
+da$begin_date <- as.factor(da$begin_date)
+da$duration <- as.numeric(da$duration)
+contract_length_per_year <- da %>% 
+  group_by(begin_date) %>% 
+  summarise(mean_length = mean(duration))
+
+
+contract_length_per_year$begin_date <- as.Date(contract_length_per_year$begin_date)
+
+contract_length_per_year %>% 
+  ggplot(aes(begin_date,mean_length, color = mean_length)) +
+  geom_point() +
+  geom_smooth(se = F) +
+  labs(x = "Year", y ="Days of contract", titles = "Average length of contract in years")+
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y")+
+  scale_y_continuous(breaks = c(365, 365*2, 365*3, 365*4, 365*5, 365*6),labels = c("1 year", "2 years","3 years","4 years","5 years","6 years") )
+
+
+```
+
+```{r}
+#employment interval function
+employment <- function(df, interval = "1 year"){
+  
+mdl_df <- df %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+}
+
+res <-employment(da) 
+```
+
+
+For each person, two measures are made: Number of years before they were employed, and the number of consecutive years their first employment period lasted. If a new contract starts the same year as the old one expires it's counted as consecutive. In other words, the second contract has to start in a different year than the first one expires. This means that up to 11 month long breaks can be counted as consecutive periods. 
+
+Finally, for each year the average employment period of first time workers is calculated and visualized.
+
+```{r}
+
+wo_pname = res[,-1]
+results <- matrix(NA, nrow = nrow(wo_pname), 2)
+
+for (i in 1:nrow(wo_pname)) {
+  count = 1
+  blank = 0
+  non_blank = 0
+  new_blank = 0
+  #while cells are blank add 1 to blank and counter
+  while(wo_pname[i,count, with =F] =="") {
+      blank = blank + 1
+      count = count + 1
+  }
+    #if no new blanks and the current cell isn't empty
+    while(wo_pname[i,count, with = F] != ""){
+      non_blank = non_blank + 1
+      count = count + 1
+    }
+  results[i,] <- c(blank, non_blank)
+  }
+
+```
+
+```{r}
+colnames(results) <- c("blanks","non_blank")
+
+df <- results %>% 
+  as.data.frame() %>% 
+  mutate(pname = res$pname,
+         begin_year = blanks + 1919,
+         end_year = 1919 + blanks + non_blank,
+         duration = end_year - begin_year) 
+
+avg_len <- df %>% 
+  group_by(begin_year) %>% 
+  summarise(mean_len = mean(duration))
+ 
+avg_len %>% 
+  ggplot(aes(begin_year, mean_len, color = mean_len)) +
+  geom_point()+
+  geom_line()+
+  labs(x = "Year", y ="Years of contract", titles = "Average length of first employment interval")+
+  scale_x_continuous(breaks = seq(1919,1948,3))
+
+
+
+```
+
+
+
+Subsetting scandinavian people and repeating plot
+
+```{r}
+summary(da$nationality)
+scandi <- da %>% 
+  filter(nationality %in% c("Dane","Swedish","Norwegian"))
+
+```
+
+105 contract belonging to Scandinavians are found
+```{r}
+scandi_res <- employment(scandi)
+wo_pname_scandi = scandi_res[,-1]
+scandi_results <- matrix(NA, nrow = nrow(wo_pname_scandi), 2)
+
+for (i in 1:nrow(wo_pname_scandi)) {
+  count = 1
+  blank = 0
+  non_blank = 0
+  new_blank = 0
+  #while cells are blank add 1 to blank and counter
+  while(wo_pname_scandi[i,count, with =F] =="") {
+      blank = blank + 1
+      count = count + 1
+      
+  }
+    #if no new blanks and the current cell isn't empty
+    while((wo_pname_scandi[i,count, with = F] != "") & count < ncol(wo_pname_scandi)-1){
+      non_blank = non_blank + 1
+      count = count + 1
+        }
+  
+  scandi_results[i,] <- c(blank, non_blank)
+}
+
+```
+
+```{r}
+colnames(scandi_results) <- c("blanks","non_blank")
+
+df <- scandi_results %>% 
+  as.data.frame() %>% 
+  mutate(pname = scandi_res$pname,
+         begin_year = blanks + 1919,
+         end_year = 1919 + blanks + non_blank,
+         duration = end_year - begin_year) 
+
+avg_len <- df %>% 
+  group_by(begin_year) %>% 
+  summarise(mean_len = mean(duration))
+ 
+avg_len %>% 
+  ggplot(aes(begin_year, mean_len, color = mean_len)) +
+  geom_point()+
+  geom_line()+
+  labs(x = "Year", y ="Years of contract", titles = "Average length of first employment interval")+
+  scale_x_continuous(breaks = seq(1919,1948,3))+
+  scale_y_continuous(breaks = seq(1,12,2))
+  
+```
+
+Visualizing number of first time contracts per year for Scandinavians
+```{r}
+df %>% 
+  group_by(begin_year) %>% 
+  tally() %>% 
+  ggplot(aes(begin_year, n, fill = n)) +
+  geom_col() +
+  labs(x = "Year", y ="Nr. of contract", titles = "Number of first time contracts per year for Scandinavians")+
+  scale_x_continuous(breaks = seq(1919,1948,3))+
+  scale_y_continuous(breaks = seq(1,12,2))
+
+
+
+```
+
+Further subset, including only Scandinavians in Section and director
+
+```{r}
+
+top_scandi <- scandi %>% 
+  filter(str_detect(scandi$fname, "Section") | str_detect(scandi$fname, "Director"),
+         fname != "Secretary of Section")
+unique(droplevels(top_scandi$pname))
+```
+
+
+
+This includes 24 contracts from 19 different people
+
+```{r}
+
+scandi_res <- employment(top_scandi)
+```
+
+
+```{r}
+p <- top_scandi[which(!top_scandi$pname %in% scandi_res$pname),]
+p
+```
+
+One contract is removed in the analysis: reason: begin_on_year is later than his end_on_year.
+
+
+
+```{r}
+wo_pname_scandi = scandi_res[,-1]
+scandi_results <- matrix(NA, nrow = nrow(wo_pname_scandi), 2)
+
+for (i in 1:nrow(wo_pname_scandi)) {
+  count = 1
+  blank = 0
+  non_blank = 0
+  new_blank = 0
+  #while cells are blank add 1 to blank and counter
+  while(wo_pname_scandi[i,count, with =F] =="") {
+      blank = blank + 1
+      count = count + 1
+      
+  }
+    #if no new blanks and the current cell isn't empty
+    while((wo_pname_scandi[i,count, with = F] != "") & count < ncol(wo_pname_scandi)-1){
+      non_blank = non_blank + 1
+      count = count + 1
+        }
+  
+  scandi_results[i,] <- c(blank, non_blank)
+}
+colnames(scandi_results) <- c("blanks","non_blank")
+
+df <- scandi_results %>% 
+  as.data.frame() %>% 
+  mutate(pname = scandi_res$pname,
+         begin_year = blanks + 1919,
+         end_year = 1919 + blanks + non_blank,
+         duration = end_year - begin_year) 
+
+avg_len <- df %>% 
+  group_by(begin_year) %>% 
+  summarise(mean_len = mean(duration))
+ 
+avg_len %>% 
+  ggplot(aes(begin_year, mean_len, fill = mean_len)) +
+  geom_col() +
+  labs(x = "Year", y ="Years of contract", titles = "Average length of first employment interval Scandis in First Division+Director")+
+  scale_x_continuous(breaks = seq(1919,1948,3))+
+  scale_y_continuous(breaks = seq(1,15,2))
+
+
+```
+
+Visualization number of contracts per year
+```{r}
+df %>% 
+  group_by(begin_year) %>% 
+  tally() %>% 
+  ggplot(aes(begin_year, n, fill = n)) +
+  geom_col() +
+  labs(x = "Year", y ="Nr. of contract", titles = "Number of first time contracts per year for Scandinavians")+
+  scale_x_continuous(breaks = seq(1919,1948,3))+
+  scale_y_continuous(breaks = seq(1,12,2))
+
+
+```
+
+
+# New question: How many Scandinavians were there in section/directors over time:
+
+
+
+```{r}
+
+
+mdl_df <- top_scandi %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = "1 year")), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+scandi_workers <- result%>% 
+  summarise_all(function(x) sum(x != ""))
+
+long_df <- gather(scandi_workers, key, value, `1919-01-01`:`1946-01-01`) %>% 
+  mutate(key = as.Date(key)) 
+  
+
+str(long_df)
+
+
+ long_df %>% 
+  ggplot(aes(x = key, y = value, fill = value)) +
+  geom_col() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  scale_y_continuous(breaks = seq(0,12,2))+
+  labs(x = "Year", y ="Scandinavuans", titles = "Distribution of Scandinavians in section/directors")
+  
+```
+
+Years with more than 7 Scandinavians in Section/director
+```{r}
+long_df %>% 
+  filter(value > 7) %>% 
+  ggplot(aes(x = key, y = value, fill = value)) +
+  geom_col() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  scale_y_continuous(breaks = seq(0,12,2))+
+  labs(x = "Year", y ="Scandinavuans", titles = "Distribution of Scandinavians in section/directors")
+```
+
+
+## New question: What is the average years of employment (in total) per worker.
+Decisions made: all years where a worked was present in LoN is counted (across breaks). Years are counted inclusively, so an employment period from 21 to 46 will give a total of 26 years on LoN.
+
+
+defining function:
+
+```{r}
+employment_distribution <- function(df, xseq = seq(0,30,5),yseq = seq(0,2000, 250), group = "people"){ 
+result <- employment(df)
+
+contract_length <- matrix(nrow = (nrow(result)), ncol = 1)
+
+result <- as.data.frame(result)
+
+names <- as.character(result[,1])
+
+#removing pname column 
+contracts<- sapply(result[,-1],function(x) x != "") %>% 
+  rowSums() %>% 
+  as.data.frame() %>% 
+  rename(contract_length = ".") %>% 
+  mutate(names = as.factor(names))
+
+
+contracts %>% 
+  ggplot(aes(contract_length, color = contract_length)) +
+  geom_histogram(binwidth = 1, aes(fill = ..count..)) +
+  scale_fill_gradient("count", low="orange", high="purple") +
+  labs(x = "Work periods in years", y = "Number of people", title = paste("Distribution of work periods in LoN for",group)) +
+  scale_x_continuous(breaks = xseq)+
+  scale_y_continuous(breaks = yseq)
+}
+```
+
+
+```{r}
+
+employment_distribution(da, group = "everyone")
+
+```
+
+repeating analysis for all scandinavians
+
+```{r}
+employment_distribution(scandi,xseq = seq(0,30,1), yseq = seq(0,1500,10), group ="Scandinavians")
+```
+
+Repeating analysis for scandinavians in First division
+
+```{r}
+employment_distribution(top_scandi, yseq = seq(0,3,1), group = "Scandinavians in First Division")
+
+```
+
+Same analysis for full section and each section + directors:
+
+```{r}
+section_da <- da%>%
+filter(str_detect(da$fname, "Section") | str_detect(da$fname, "Director"),
+         fname != "Secretary of Section")
+
+employment_distribution(section_da, yseq = seq(0,100,5), group = "Section and directors")
+
+```
+
+Further analysis of each section is carried out on section with more than 10 total contracts. These are roughly:
+health, disarmament, mandates, legal, communications and transit, information, economic and financial section (which goes together with the economic relations section and the financial & economic intelligence service), intellectual cooperation and international bureaux section, minorities (which go together with Administrative and Minorities), the social questions and opium traffic, and the political section
+
+First the three economic sections are united to 1. Same for "Minorities" and "Admin. and Minotories".
+
+```{r}
+
+oname_correct <- section_da %>% 
+  mutate(oname = str_replace_all(oname, "Financial Section & Economic Intelligence Service","Economic and Financial Section"),
+        oname = str_replace_all(oname, "Economic Relations Section","Economic and Financial Section")
+         ) %>% 
+  mutate(oname = as.factor(oname),
+         oname = recode(oname, "Minorities Section" = "Administrative and Minorities Section"))
+
+
+
+
+
+large_sections <- oname_correct %>% 
+  group_by(oname) %>% 
+  filter(n() >10) %>% 
+  ungroup() %>% 
+  mutate(oname = droplevels(oname))
+summary(large_sections$oname)
+```
+Keeping only large sections reduces number of contracts in analysis from 422 to 354.
+
+```{r}
+
+
+employment_distribution(filter(large_sections, oname == levels(oname)[1]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[1])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[2]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[2])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[3]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[3])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[4]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[4])
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[5]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[5])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[6]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[6])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[7]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[7])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[8]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[8])
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[9]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[9])
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[10]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[10])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[11]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[11])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[12]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[12])
+
+```
+
+
+Continuing analysis for regions: Scandinavia, South Americans, France, Swiss, Britain.
+(Afterwards a seperate analysis is made for european countries)
+```{r}
+five_nat.df <- da
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Dane", "Scandinavian")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Swedish", "Scandinavian")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Norwegian", "Scandinavian")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Brazilian\t", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Uruguayan", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Peruvian", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Argentinian", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Chilean", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Venezuelan\t", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Paraguayan", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Ecuadorian", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Bolivian", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"English", "British")         
+
+
+five_nats <- five_nat.df %>% 
+  filter(nationality == "British"|nationality == "South American"| nationality == "Scandinavian"| nationality == "Swiss"| nationality == "French") %>% 
+  mutate(nationality = as.factor(nationality))
+
+
+```
+
+
+For all 5 nationalities
+```{r}
+employment_distribution(five_nats,xseq = seq(0,30,1), yseq = seq(0,1500,100), group = levels(large_sections$oname)[12])
+
+
+```
+```{r}
+
+employment_distribution(filter(five_nats, nationality == levels(nationality)[1]),xseq = seq(0,30,1), yseq = seq(0,1500,50), group = levels(five_nats$nationality)[1])
+
+```
+```{r}
+employment_distribution(filter(five_nats, nationality == levels(nationality)[2]),xseq = seq(0,30,1), yseq = seq(0,1500,50), group = levels(five_nats$nationality)[2])
+```
+
+```{r}
+employment_distribution(filter(five_nats, nationality == levels(nationality)[3]),xseq = seq(0,30,1), yseq = seq(0,1500,10), group = levels(five_nats$nationality)[3])
+```
+```{r}
+employment_distribution(filter(five_nats, nationality == levels(nationality)[4]),xseq = seq(0,30,1), yseq = seq(0,1500,1), group = levels(five_nats$nationality)[4])
+```
+
+```{r}
+employment_distribution(filter(five_nats, nationality == levels(nationality)[5]),xseq = seq(0,30,1), yseq = seq(0,1500,50), group = levels(five_nats$nationality)[5])
+```
+
+
+##New analysis: accumulated experience over time
+Experience is interpret as the accumulated number of previous years workers have been in the league. 
+This is plottet against the number of workers per year (this can ofc be changed).
+
+
+```{r}
+#turn into function for later use
+#employment_distribution <- function(df, yseq = seq(0,2000, 250), group = "people"){ 
+
+  result <- employment(da)
+  
+  contract_length <- matrix(nrow = (nrow(result)), ncol = 1)
+  
+  result <- as.data.frame(result)
+  
+  names <- as.character(result[,1])
+
+  wo_pname <- result[,-1]
+  
+  
+  
+  #starting a second year
+  accumulated_experience <- matrix(NA, nrow = ncol(wo_pname))
+  
+  for (i in 2:ncol(wo_pname)){
+    current_workers <- which(wo_pname[,i] != "")
+    
+    years_of_experience <- wo_pname[current_workers,1:(i-1)]%>% 
+      as.data.frame() %>% 
+  summarise_all(function(x) sum(x != "")) %>% sum
+    
+    accumulated_experience[i] = years_of_experience
+    
+  }
+    
+  worker <- wo_pname%>% 
+  summarise_all(function(x) sum(x != "")) %>%
+    t %>% 
+    as.data.frame()
+                  
+  
+  accumulated_experience <- accumulated_experience %>% 
+    as.data.frame() %>% 
+    mutate(year = colnames(wo_pname),
+           year = as.Date(year),
+           nr_worker = worker$V1)
+  accumulated_experience[1,1] = 0
+          
+accumulated_experience$nr_worker <- as.numeric(accumulated_experience$nr_worker)  
+  
+accumulated_experience %>% 
+    ggplot(aes(x=year)) +
+    geom_line(aes(y = V1), color = "blue")+
+    geom_line(aes(y = nr_worker), color = "red") +
+    scale_x_date(date_breaks = "2 years", date_labels = "%Y")+
+    labs(x = "Workers and accum. exp.", y = "Year", title = "Number of workers (red) and accumulated experience (blue)")
+
+```
+
+
