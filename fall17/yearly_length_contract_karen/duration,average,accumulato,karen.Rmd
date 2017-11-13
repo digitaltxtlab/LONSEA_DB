@@ -422,9 +422,6 @@ oname_correct <- section_da %>%
          oname = recode(oname, "Minorities Section" = "Administrative and Minorities Section"))
 
 
-
-
-
 large_sections <- oname_correct %>% 
   group_by(oname) %>% 
   filter(n() >10) %>% 

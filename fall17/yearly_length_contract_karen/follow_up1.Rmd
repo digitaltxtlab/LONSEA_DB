@@ -1,0 +1,261 @@
+---
+title: "Follow up on acerage, duration and accumulation"
+author: "Adam Finnemann"
+date: "October 19, 2017"
+---
+  
+```{r setup, include=FALSE}
+
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/fall17/yearly_length_contract_karen")
+
+da <- read.csv(list.files(pattern = "contract_"))
+```
+Defining function
+Defining functions
+```{r}
+employment <- function(df, interval = "1 year"){
+  
+mdl_df <- df %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+}
+
+
+accumulated_experience <- function(df, group = "group") {
+  result <- employment(df)
+  
+  contract_length <- matrix(nrow = (nrow(result)), ncol = 1)
+  
+  result <- as.data.frame(result)
+  
+  names <- as.character(result[,1])
+
+  wo_pname <- result[,-1]
+  
+  
+  
+  #starting a second year
+  accumulated_experience <- matrix(NA, nrow = ncol(wo_pname))
+  
+  for (i in 2:ncol(wo_pname)){
+    current_workers <- which(wo_pname[,i] != "")
+    
+    years_of_experience <- wo_pname[current_workers,1:(i-1)]%>% 
+      as.data.frame() %>% 
+  summarise_all(function(x) sum(x != "")) %>% sum
+    
+    accumulated_experience[i] = years_of_experience
+    
+  }
+    
+  worker <- wo_pname%>% 
+  summarise_all(function(x) sum(x != "")) %>%
+    t %>% 
+    as.data.frame()
+                  
+  
+  accumulated_experience <- accumulated_experience %>% 
+    as.data.frame() %>% 
+    mutate(year = colnames(wo_pname),
+           year = as.Date(year),
+           nr_worker = worker$V1)
+  accumulated_experience[1,1] = 0
+          
+accumulated_experience$nr_worker <- as.numeric(accumulated_experience$nr_worker)  
+  
+accumulated_experience %>% 
+    ggplot(aes(x=year)) +
+    geom_line(aes(y = V1), color = "blue")+
+    geom_line(aes(y = nr_worker), color = "red") +
+    scale_x_date(date_breaks = "2 years", date_labels = "%Y")+
+    labs(x = "Workers and accumulated experience", y = "Year", title = paste("Accumulated experience and nr. of workers:",group))
+
+}
+```
+
+
+
+1) The breakdown of distribution of work periods pr. different sections that you have made, covers all employees, as far as I understand it. Would it be possible to make the exact same breakdown, but only counting Directors and Members of Sections?
+
+Answer: The previous plots of work period ditributions for sections are already only including people from section and directors.
+The exact fname distribution of the contracts that the plots were made from is:
+
+ summary(droplevels(large_sections$fname))
+ 
+          Acting Director        Assistant Director Assistant Head of Section          Chief of Section 
+                        3                         1                         5                        12 
+          Deputy Director                  Director           Head of Section         Member of Section 
+                        1                        29                         4                       299
+                        
+                        
+
+
+
+2) The last graph you produced - Number of workers (red) and accumulated experience (blue) - is highly interesting. Karen and I wondered whether you would be able to break that graph down into:
+
+
+
+
+- Number of workers (red) and accumulated experience (blue) per Section.
+
+Subsetting workers from sections with more than 10 contracts.
+```{r}
+
+section_da <- da%>%
+filter(str_detect(da$fname, "Section") | str_detect(da$fname, "Director"),
+         fname != "Secretary of Section")
+
+
+#Making correction to names of section based on Torsten's notes
+oname_correct <- section_da %>% 
+  mutate(oname = str_replace_all(oname, "Financial Section & Economic Intelligence Service","Economic and Financial Section"),
+        oname = str_replace_all(oname, "Economic Relations Section","Economic and Financial Section")
+         ) %>% 
+  mutate(oname = as.factor(oname),
+         oname = recode(oname, "Minorities Section" = "Administrative and Minorities Section"))
+
+
+large_sections <- oname_correct %>% 
+  group_by(oname) %>% 
+  filter(n() >10) %>% 
+  ungroup() %>% 
+  mutate(oname = droplevels(oname))
+
+```
+
+
+```{r}
+
+
+
+accumulated_experience(filter(large_sections, oname == levels(oname)[1]), group = levels(large_sections$oname)[1])
+
+
+```
+
+```{r}
+accumulated_experience(filter(large_sections, oname == levels(oname)[2]), group = levels(large_sections$oname)[2])
+
+
+```
+
+```{r}
+accumulated_experience(filter(large_sections, oname == levels(oname)[3]), group = levels(large_sections$oname)[3])
+
+
+```
+
+```{r}
+accumulated_experience(filter(large_sections, oname == levels(oname)[4]), group = levels(large_sections$oname)[4])
+
+```
+
+```{r}
+accumulated_experience(filter(large_sections, oname == levels(oname)[5]), group = levels(large_sections$oname)[5])
+
+
+```
+
+```{r}
+accumulated_experience(filter(large_sections, oname == levels(oname)[6]), group = levels(large_sections$oname)[6])
+
+
+```
+
+```{r}
+accumulated_experience(filter(large_sections, oname == levels(oname)[7]), group = levels(large_sections$oname)[7])
+
+
+```
+
+```{r}
+accumulated_experience(filter(large_sections, oname == levels(oname)[8]), group = levels(large_sections$oname)[8])
+
+```
+
+```{r}
+accumulated_experience(filter(large_sections, oname == levels(oname)[9]), group = levels(large_sections$oname)[9])
+
+```
+
+```{r}
+accumulated_experience(filter(large_sections, oname == levels(oname)[10]), group = levels(large_sections$oname)[10])
+
+
+```
+
+```{r}
+accumulated_experience(filter(large_sections, oname == levels(oname)[11]), group = levels(large_sections$oname)[11])
+
+
+```
+
+```{r}
+accumulated_experience(filter(large_sections, oname == levels(oname)[12]), group = levels(large_sections$oname)[12])
+```
+
+  
+- Number of workers (red) and accumulated experience (blue) per Division.
+
+For first division
+```{r}
+accumulated_experience(filter(da, canonical_fname == "First Division"), group = "First Division")
+
+```
+
+```{r}
+accumulated_experience(filter(da, canonical_fname == "Second Division"), group = "Second Division")
+
+```
+
+```{r}
+accumulated_experience(filter(da, canonical_fname == "Third Division"), group = "Third Division")
+
+```
+
+
+
+
+- Number of workers (red) and accumulated experience (blue) Groupings of Sections.
+
+
+Group 1: Social Questions and Opium Traffic Section; Health Section; Communications and Transit Section; Economic and Financial Section; Intellectual Cooperation and International Bureaux Section.
+```{r}
+filter(da, oname %in% c("Social Questions and Opium Traffic Section", "Health Section", "Communications and Transit Section", "Economic and Financial Section", "Intellectual Cooperation and International Bureaux Section")) %>% 
+  accumulated_experience(group = "Group 1")
+```
+
+
+
+
+Group 2: Internal Administration
+```{r}
+filter(da, oname == "Internal Administration") %>% 
+  accumulated_experience(group = "Internation Administration")
+```
+
+Group 3: Political Section; Information Section; Legal Section; Disarmament Section.  
+```{r}
+filter(da, oname %in% c("Political Section", "Information Section", "Legal Section", "Disarmament Section" )) %>% 
+accumulated_experience(group = "Group 3")
+```
+
+Group 4: Mandates Section; Administrative Comm. and Minorities Question Section. 
+The last section "Administrative Comm. and Minorities Question Section" has been interpreted as
+"Administrative and Minorities Section".
+```{r}
+filter(da, oname %in% c("Mandates Section", "Administrative and Minorities Section")) %>% 
+accumulated_experience(group = "Group 4")
+```
+
