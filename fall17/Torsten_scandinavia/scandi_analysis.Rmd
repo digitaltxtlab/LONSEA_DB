@@ -1,0 +1,233 @@
+---
+title: "Analysis of Scandinavians for Torsten"
+author: "Adam Finnemann"
+date: "Nom, 2017"
+---
+  
+
+```{r setup, include=FALSE}
+
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/fall17/yearly_length_contract_karen")
+
+da <- read.csv(list.files(pattern = "contract_"))
+```
+
+Subsetting scandinavians and section workers + directors. The file missing_scandinavians contains the cotracts not included in this analysis. This is total of 4 people, 3 of them are Temporary Collaborators from the Information Section.
+Scandinavia is defined as Danes, Swedes and Norwegians.
+```{r}
+
+top_scandi <- da %>% 
+  filter(nationality %in% c("Dane","Swedish","Norwegian"),
+         str_detect(da$fname, "Section") | str_detect(da$fname, "Director"),
+         id != "5042", #begin data is before start date.
+         fname != "Secretary of Section") %>% 
+  droplevels()
+
+```
+Distribution of fnames for 23 contracts are:
+```{r}
+summary(top_scandi$fname)
+```
+```{r}
+unique(top_scandi$pname)
+```
+There are 18 different people represented.
+
+
+#1. question: Distribution of work periods.
+Defining function and calculating
+```{r}
+#Function for year/worker employment matrix
+employment <- function(df, interval = "1 year"){
+  
+mdl_df <- df %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+}
+
+#function for calcualting employment distributions
+employment_distribution <- function(df, xseq = seq(0,30,5),yseq = seq(0,2000, 250), group = "people"){ 
+result <- employment(df)
+
+contract_length <- matrix(nrow = (nrow(result)), ncol = 1)
+
+result <- as.data.frame(result)
+
+names <- as.character(result[,1])
+
+#removing pname column 
+contracts<- sapply(result[,-1],function(x) x != "") %>% 
+  rowSums() %>% 
+  as.data.frame() %>% 
+  dplyr::rename(contract_length = ".") %>% 
+  mutate(names = as.factor(names))
+
+
+contracts %>% 
+  ggplot(aes(contract_length, color = contract_length)) +
+  geom_histogram(binwidth = 1, aes(fill = ..count..)) +
+  scale_fill_gradient("count", low="orange", high="purple") +
+  labs(x = "Work periods in years", y = "Number of people", title = paste("Distribution of work periods in LoN for",group)) +
+  scale_x_continuous(breaks = xseq)+
+  scale_y_continuous(breaks = yseq)
+}
+```
+
+For each scandinavian, how many years in LoN:
+```{r}
+employment_distribution(top_scandi, group = "Scandinavians", yseq = seq(0,5,1))
+```
+Work periods are calcualted inclusively. The 25 year work period is from 1921 to 1946.
+
+
+Repeating analysis, only including the first contract for each person
+```{r}
+top_scandi %>% 
+  filter(!duplicated(pname)) %>% 
+  employment_distribution( group = "Scandinavians", yseq = seq(0,5,1))
+```
+
+
+
+#Second measure of "lenght of contract"
+
+For each year, how long does contracts from that year last - including all contracts
+```{r}
+top_scandi <-top_scandi  %>% 
+  mutate(end_date = as.Date(end_date),
+         begin_date = as.Date(begin_date),
+         duration = end_date - begin_date, 
+         duration = as.numeric(duration))
+
+contract_length_per_year <- top_scandi %>% 
+  mutate(begin_date = as.factor(begin_date)) %>% 
+  group_by(begin_date) %>% 
+  dplyr::summarise(mean = mean(duration))
+
+
+
+contract_length_per_year %>% 
+  mutate(begin_date = as.Date(begin_date),
+         mean = as.numeric(mean)) %>% 
+  ggplot(aes(begin_date,mean, color = mean)) +
+  geom_point() +
+  geom_smooth(se = F) +
+  labs(x = "Year", y ="Days of contract", titles = "Average length of contract in years for top Scandinavians")+
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y")+
+  scale_y_continuous(breaks =seq(0, 30*365, 365),labels = paste(1:length(seq(0, 30*365, 365)), "years"))
+
+
+```
+The line summarising the trend can be change to a straight line if that's better.
+The plots includes all top Scandinavian contracts (not just each person's first contract).
+
+
+#2. Distribution of work periods for Scandinavians in first division
+
+
+Subsetting scandinavians in first division
+```{r}
+firstd_scandi <- da %>% 
+  filter(nationality %in% c("Dane","Swedish","Norwegian"),
+         canonical_fname == "First Division",
+         id != "5042") %>%  #begin data is before start date.
+  droplevels()
+```
+There are 66 contracts in first division from Scandinavians
+
+
+```{r}
+unique(firstd_scandi$pname)
+```
+There are 57 different Scandinavians represented in the first division
+
+Calculating employment intervals
+```{r}
+employment_distribution(firstd_scandi,xseq = seq(0,30,1), yseq = seq(0,5,1), group = levels(top_scandi$oname)[5])
+```
+
+
+
+#Political vs techincals section analysis
+
+Group 1: Social Questions and Opium Traffic Section; Health Section; Communications and Transit Section; Economic and Financial Section; Intellectual Cooperation and International Bureaux Section.
+
+
+```{r}
+filter(top_scandi, oname %in% c("Social Questions and Opium Traffic Section", "Health Section", "Communications and Transit Section", "Economic and Financial Section", "Intellectual Cooperation and International Bureaux Section")) %>% 
+  select(-X.1, -X,-id)
+
+```
+There are 7 people represented
+
+Visualizing length of contracts
+```{r}
+filter(top_scandi, oname %in% c("Social Questions and Opium Traffic Section", "Health Section", "Communications and Transit Section", "Economic and Financial Section", "Intellectual Cooperation and International Bureaux Section")) %>% 
+  employment_distribution(xseq = seq(0,30,1), yseq = seq(0,5,1), group = levels(top_scandi$oname)[5])
+
+```
+
+Group 3: Political Section; Information Section; Legal Section; Disarmament Section.  
+```{r}
+filter(top_scandi, oname %in% c("Political Section", "Information Section", "Legal Section", "Disarmament Section" )) %>% 
+  select(-X.1, X, -gender)
+
+```
+4 People are represented in the second group
+
+calculating distribution of length of contracts
+
+```{r}
+filter(top_scandi, oname %in% c("Political Section", "Information Section", "Legal Section", "Disarmament Section" )) %>% 
+employment_distribution(xseq = seq(0,30,1), yseq = seq(0,5,1), group = levels(top_scandi$oname)[5])
+```
+
+
+#Breaking down graphs into sections
+
+```{r}
+summary(top_scandi$oname)
+```
+
+Calculating mean length of each contract for each section. This is shown in a table, since I think it's easier to compare than lots of graphs with few bars
+
+```{r}
+knitr::opts_chunk$set(rows.print=40)
+
+top_scandi %>% 
+   mutate(end_date = as.Date(end_date),
+          being_date = as.Date(begin_date),
+          duration = difftime(end_date, begin_date, units = "days")) %>% 
+  select(pname, oname, duration) 
+
+
+
+```
+
+
+
+
+Plotting the distribution of work periods for the sections with more than 2 contracts.
+```{r}
+employment_distribution(filter(top_scandi, oname == levels(oname)[1]),xseq = seq(0,30,1), yseq = seq(0,5,1), group = levels(top_scandi$oname)[1])
+```
+```{r}
+employment_distribution(filter(top_scandi, oname == levels(oname)[5]),xseq = seq(0,30,1), yseq = seq(0,5,1), group = levels(top_scandi$oname)[5])
+```
+
+
+
+
+
+
