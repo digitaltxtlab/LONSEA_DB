@@ -29,7 +29,7 @@ there are 98 contracts from first division missing nationality. In my opinion no
 ```{r}
 important_w_missing_nat = da %>% 
   filter(nationality == "" & canonical_fname == "First Division")
-important_w_missing_nat
+important_w_missing_nat$pname
 ```
 
 Subsetting scandinavians: defined as Danes, Swedes and Norwegians. 
@@ -50,7 +50,7 @@ Further subset, including only Scandinavians with fname of Section, Chiefs, expe
 top_scandi <- scandi %>% 
   filter(str_detect(scandi$fname, "Section") | str_detect(scandi$fname, "Director") | str_detect(scandi$fname, "Chief") | str_detect(scandi$fname, "Expert"),
          fname != "Secretary of Section")
-unique(droplevels(top_scandi$pname))
+#unique(droplevels(top_scandi$pname))
 ```
 
 
