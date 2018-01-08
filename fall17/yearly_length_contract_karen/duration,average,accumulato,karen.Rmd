@@ -4,10 +4,10 @@ author: "Adam Finnemann"
 date: "October 19, 2017"
 ---
   
-```{r setup, include=FALSE}
+```{r setup}
 
 library(pacman)
-p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+p_load("strmingr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
 
 setwd("~/Historie projekt/historie project/LONSEA_DB/fall17/yearly_length_contract_karen")
 

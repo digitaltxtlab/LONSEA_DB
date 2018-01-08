@@ -43,7 +43,7 @@ summary(lon.df$nationality)
 
 five_nat.df <- lon.df
 
-five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Dane", "Scandinavian")
+
 five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Dane", "Scandinavian")
 five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Swedish", "Scandinavian")
 five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Norwegian", "Scandinavian")

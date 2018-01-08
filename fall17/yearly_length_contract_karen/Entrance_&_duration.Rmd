@@ -227,7 +227,7 @@ p <- top_scandi[which(!top_scandi$pname %in% scandi_res$pname),]
 p
 ```
 
-One person is removed in the analysis: apparent reason, his begin_on_year is later than his end_on_year.
+One contract is removed in the analysis: reason: begin_on_year is later than his end_on_year.
 
 
 
@@ -294,6 +294,8 @@ df %>%
 
 New question: How many Scandinavians were there in section/directors over time:
 
+
+
 ```{r}
 
 
@@ -312,7 +314,7 @@ result <- setDT(mdl_df)[
 scandi_workers <- result%>% 
   summarise_all(function(x) sum(x != ""))
 
-long_df <- gather(nation_workers, key, value, `1919-01-01`:`1946-01-01`) %>% 
+long_df <- gather(scandi_workers, key, value, `1919-01-01`:`1946-01-01`) %>% 
   mutate(key = as.Date(key)) 
   
 
@@ -341,10 +343,14 @@ long_df %>%
 
 
 ## New question: What is the average years of employment (in total) per worker.
-Could be considered repeating analysis for monthly interval.
+Decisions made: all years where a worked was present in LoN is counted (across breaks). Years are counted inclusively, so an employment period from 21 to 46 will give a total of 26 years on LoN.
+
+
+defining function:
 
 ```{r}
-result <- employment(da)
+employment_distribution <- function(df, xseq = seq(0,30,5),yseq = seq(0,2000, 250), group = "people"){ 
+result <- employment(df)
 
 contract_length <- matrix(nrow = (nrow(result)), ncol = 1)
 
@@ -362,11 +368,254 @@ contracts<- sapply(result[,-1],function(x) x != "") %>%
 
 contracts %>% 
   ggplot(aes(contract_length, color = contract_length)) +
-  geom_histogram( aes(fill = ..count..)) +
+  geom_histogram(binwidth = 1, aes(fill = ..count..)) +
   scale_fill_gradient("count", low="orange", high="purple") +
-  labs(x = "Work periods in years", y = "Number of people", title = "Distribution of work periods in LoN") +
-  scale_x_continuous(breaks = seq(0,30,5))+
-  scale_y_continuous(breaks = seq(0,2000, 250))
+  labs(x = "Work periods in years", y = "Number of people", title = paste("Distribution of work periods in LoN for",group)) +
+  scale_x_continuous(breaks = xseq)+
+  scale_y_continuous(breaks = yseq)
+}
+```
+
+
+```{r}
+
+employment_distribution(da, group = "everyone")
 
 ```
+
+repeating analysis for all scandinavians
+
+```{r}
+employment_distribution(scandi,xseq = seq(0,30,1), yseq = seq(0,1500,10), group ="Scandinavians")
+```
+
+Repeating analysis for scandinavians in First division
+
+```{r}
+employment_distribution(top_scandi, yseq = seq(0,3,1), group = "Scandinavians in First Division")
+
+```
+
+Same analysis for full section and each section + directors:
+
+```{r}
+section_da <- da%>%
+filter(str_detect(da$fname, "Section") | str_detect(da$fname, "Director"),
+         fname != "Secretary of Section")
+
+employment_distribution(section_da, yseq = seq(0,100,10), group = "Scandinavians in First Division")
+
+```
+
+Further analysis of each section is carried out on section with more than 10 total contracts. These are roughly:
+health, disarmament, mandates, legal, communications and transit, information, economic and financial section (which goes together with the economic relations section and the financial & economic intelligence service), intellectual cooperation and international bureaux section, minorities (which go together with Administrative and Minorities), the social questions and opium traffic, and the political section
+
+First the three economic sections are united to 1. Same for "Minorities" and "Admin. and Minotories".
+
+```{r}
+
+oname_correct <- section_da %>% 
+  mutate(oname = str_replace_all(oname, "Financial Section & Economic Intelligence Service","Economic and Financial Section"),
+        oname = str_replace_all(oname, "Economic Relations Section","Economic and Financial Section")
+         ) %>% 
+  mutate(oname = as.factor(oname),
+         oname = recode(oname, "Minorities Section" = "Administrative and Minorities Section"))
+
+
+
+
+
+large_sections <- oname_correct %>% 
+  group_by(oname) %>% 
+  filter(n() >10) %>% 
+  ungroup() %>% 
+  mutate(oname = droplevels(oname))
+summary(large_sections$oname)
+```
+Keeping only large sections reduces number of contracts in analysis from 422 to 354.
+
+```{r}
+
+
+employment_distribution(filter(large_sections, oname == levels(oname)[1]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[1])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[2]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[2])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[3]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[3])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[4]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[4])
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[5]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[5])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[6]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[6])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[7]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[7])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[8]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[8])
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[9]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[9])
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[10]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[10])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[11]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[11])
+
+
+```
+
+```{r}
+employment_distribution(filter(large_sections, oname == levels(oname)[12]),xseq = seq(0,30,1), yseq = seq(0,100,1), group = levels(large_sections$oname)[12])
+
+```
+
+
+Continuing analysis for regions: Scandinavia, South Americans, France, Swiss, Britain.
+(Afterwards a seperate analysis is made for european countries)
+```{r}
+five_nat.df <- da
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Dane", "Scandinavian")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Swedish", "Scandinavian")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Norwegian", "Scandinavian")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Brazilian\t", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Uruguayan", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Peruvian", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Argentinian", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Chilean", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Venezuelan\t", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Paraguayan", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Ecuadorian", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"Bolivian", "South American")
+five_nat.df$nationality <-str_replace_all(five_nat.df$nationality,"English", "British")         
+
+
+five_nats <- five_nat.df %>% 
+  filter(nationality == "British"|nationality == "South American"| nationality == "Scandinavian"| nationality == "Swiss"| nationality == "French") %>% 
+  mutate(nationality = as.factor(nationality))
+
+
+```
+
+
+For all 5 nationalities
+```{r}
+employment_distribution(five_nats,xseq = seq(0,30,1), yseq = seq(0,1500,100), group = levels(large_sections$oname)[12])
+
+
+```
+```{r}
+
+employment_distribution(filter(five_nats, nationality == levels(nationality)[1]),xseq = seq(0,30,1), yseq = seq(0,1500,50), group = levels(five_nats$nationality)[1])
+
+```
+```{r}
+employment_distribution(filter(five_nats, nationality == levels(nationality)[2]),xseq = seq(0,30,1), yseq = seq(0,1500,50), group = levels(five_nats$nationality)[2])
+```
+
+```{r}
+employment_distribution(filter(five_nats, nationality == levels(nationality)[3]),xseq = seq(0,30,1), yseq = seq(0,1500,10), group = levels(five_nats$nationality)[3])
+```
+```{r}
+employment_distribution(filter(five_nats, nationality == levels(nationality)[4]),xseq = seq(0,30,1), yseq = seq(0,1500,1), group = levels(five_nats$nationality)[4])
+```
+
+```{r}
+employment_distribution(filter(five_nats, nationality == levels(nationality)[5]),xseq = seq(0,30,1), yseq = seq(0,1500,50), group = levels(five_nats$nationality)[5])
+```
+
+
+##New analysis: accumulated experience per year
+Experience is interpret as the number of years already in the league. For each year the sum of years, that current workers have already been there is calculated (not counting the current year, this means no value for first year).
+This is plottet agaisnt the number of workers per year (this can ofc be changed).
+
+
+```{r}
+#turn into function for later use
+#employment_distribution <- function(df, yseq = seq(0,2000, 250), group = "people"){ 
+
+  result <- employment(da)
+  
+  contract_length <- matrix(nrow = (nrow(result)), ncol = 1)
+  
+  result <- as.data.frame(result)
+  
+  names <- as.character(result[,1])
+
+  wo_pname <- result[,-1]
+  
+  
+  
+  #starting a second year
+  accumulated_experience <- matrix(NA, nrow = ncol(wo_pname))
+  
+  for (i in 2:ncol(wo_pname)){
+    current_workers <- which(wo_pname[,i] != "")
+    
+    years_of_experience <- wo_pname[current_workers,1:(i-1)]%>% 
+      as.data.frame() %>% 
+  summarise_all(function(x) sum(x != "")) %>% sum
+    
+    accumulated_experience[i] = years_of_experience
+    
+  }
+    
+  worker <- wo_pname%>% 
+  summarise_all(function(x) sum(x != "")) %>%
+    t %>% 
+    as.data.frame()
+                  
+  
+  accumulated_experience <- accumulated_experience %>% 
+    as.data.frame() %>% 
+    mutate(year = colnames(wo_pname),
+           year = as.Date(year),
+           nr_worker = worker$V1)
+  accumulated_experience[1,1] = 0
+          
+accumulated_experience$nr_worker <- as.numeric(accumulated_experience$nr_worker)  
+  
+accumulated_experience %>% 
+    ggplot(aes(x=year)) +
+    geom_line(aes(y = V1), color = "blue")+
+    geom_line(aes(y = nr_worker), color = "red") +
+    scale_x_date(date_breaks = "2 years", date_labels = "%Y")+
+    labs(x = "Workers and accum. exp.", y = "Year", title = "Number of workers (red) and accumulated experience (blue)")
+
+```
+
 

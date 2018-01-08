@@ -44,6 +44,11 @@ da[indx,15] <- "Japanese"
 indx <- da$pname == "Inazo Nitobe"
 da[indx,15] <- "Japanese"
 da[indx,8] <- 1862
+
+indx <- da$pname == "Hans Christian Berg"
+da[indx,15] <- "Norwegian"
+
+
 ```
 
 
@@ -126,6 +131,7 @@ missing <- da %>%
 
 
 ```{r}
-write.csv(subset, "lon_data_w_GA.csv", row.names = F)
-write.csv(missing, "missing_begin_on_year.csv", row.names = F)
+#write.csv(subset, "lon_data_w_GA.csv", row.names = F)
+#write.csv(missing, "missing_begin_on_year.csv", row.names = F)
 ```
+

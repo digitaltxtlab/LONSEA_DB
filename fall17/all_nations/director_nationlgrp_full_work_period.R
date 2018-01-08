@@ -31,8 +31,9 @@ direc$end_year <- as.Date(with(direc, paste(end_on_year,sep="-")), "%Y")
 
 
 mdl_df <- direc %>% 
-  select(pname, fname_code,begin_year, end_year) %>% 
-  filter(!is.na(mdl_df$begin_year) & !is.na(mdl_df$end_year))
+  select(pname, fname_code,begin_year, end_year)
+  
+filter(!is.na(mdl_df$begin_year) & !is.na(mdl_df$end_year))
 
 setDT(mdl_df)[
   # right join with sequence of monthly intervals

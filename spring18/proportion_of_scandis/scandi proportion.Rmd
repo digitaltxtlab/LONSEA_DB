@@ -1,0 +1,205 @@
+---
+title: "Entrance, duration of contracts, accumulated experience"
+author: "Adam Finnemann"
+date: "October 19, 2017"
+---
+  
+```{r setup}
+
+library(pacman)
+p_load("strmingr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table", "ggthemes")
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/spring18/proportion_of_scandis")
+
+da <- read.csv(list.files(pattern = "contract_"))
+```
+
+## Question: Relative proportion of Scandinavians in section
+Question from Torsten: The first one is about the relative representation of the Scandinavian members of section (including directors, chiefs and experts/specialists).We want to know in per centage, which proportion of the Secretariat staff the Scandinavians made up, year by year, over time. It is basically this graph, where you counted, how many members were in the Secretariat at a certain point of time.
+
+
+
+
+Overview of nationalities. 344 contracts are missing nationalities
+```{r}
+summary(da$nationality)
+
+```
+there are 98 contracts from first division missing nationality. In my opinion none of the names looked very scandinavian beside a secretary called "Dagny Gran"
+```{r}
+important_w_missing_nat = da %>% 
+  filter(nationality == "" & canonical_fname == "First Division")
+important_w_missing_nat
+```
+
+Subsetting scandinavians: defined as Danes, Swedes and Norwegians. 
+
+```{r}
+scandi = da %>% 
+  filter(nationality %in% c("Dane", "Swedish","Norwegian"))
+```
+107 contract belonging to Scandinavians are found
+
+
+
+
+Further subset, including only Scandinavians with fname of Section, Chiefs, experts and directors.Secretary of section is excluded.
+
+```{r}
+
+top_scandi <- scandi %>% 
+  filter(str_detect(scandi$fname, "Section") | str_detect(scandi$fname, "Director") | str_detect(scandi$fname, "Chief") | str_detect(scandi$fname, "Expert"),
+         fname != "Secretary of Section")
+unique(droplevels(top_scandi$pname))
+```
+
+
+
+27 contracts from 21 different people are found
+```{r}
+#employment interval function
+employment <- function(df, interval = "1 year"){
+  
+mdl_df <- df %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1949-12-30"), by = interval)), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+}
+
+
+```
+
+```{r}
+
+scandi_res <- employment(top_scandi)
+```
+
+
+```{r}
+p <- top_scandi[which(!top_scandi$pname %in% scandi_res$pname),]
+p
+```
+
+One contract beloning to Oscar Uno Konrad Thorsing is removed during the analysis since begin_on_year is later than his end_on_year.
+
+calculating number of scandinavians in section per year
+
+```{r}
+top_scandi <- scandi_res%>% 
+  summarise_all(function(x) sum(x != ""))
+
+long_scandi <- gather(top_scandi, key, value, `1919-01-01`:`1946-01-01`) %>% 
+  mutate(key = as.Date(key)) 
+
+names(long_scandi) = c("strange","Year", "number_of_scandis")  
+
+long_scandi = long_scandi %>% 
+  select(Year, number_of_scandis)
+
+#write.csv(long_scandi, "scandis_in_section_table.csv")
+
+long_scandi
+```
+
+
+
+
+Calculating total number of wokres in section, directors, experts and chiefs.
+
+```{r}
+top_people <- da %>% 
+  filter(str_detect(scandi$fname, "Section") | str_detect(scandi$fname, "Director") | str_detect(scandi$fname, "Chief") | str_detect(scandi$fname, "Expert"),
+         fname != "Secretary of Section")
+
+length(unique(droplevels(top_people$pname)))
+
+```
+1618 contracts from 1211 different individuals are found
+
+
+
+```{r}
+
+result = employment(top_people)
+```
+
+4 people are removed during the analysis since their begin_on_year is later than their end_on_year.
+```{r}
+p <- top_people[which(!top_people$pname %in% result$pname),]
+p
+
+```
+
+I run the analysis in period 1919 to 1946. This is the period with scandinavians. However, in 1947 there are still 9 non-scandinavians left in the sections, 
+```{r}
+top_workers <- result%>% 
+  summarise_all(function(x) sum(x != ""))
+
+long_work <- gather(top_workers, key, value, `1919-01-01`:`1946-01-01`) %>% 
+  mutate(key = as.Date(key)) 
+
+names(long_work) = c("strange1","strange2", "Year", "number_of_workers")
+long_work = long_work %>% 
+  select(Year, number_of_workers)
+
+#write.csv(long_work, "total_workers_in_section_table.csv")
+
+long_work
+```
+
+
+
+```{r}
+
+plot_df = merge(long_work, long_scandi, by = "Year") 
+
+long_plot_df = plot_df %>%   
+gather(group, number,number_of_scandis, number_of_workers)
+  
+
+long_plot_df %>% 
+  ggplot(aes(x = Year, y = number, color = group)) +
+  geom_point() +
+  geom_line() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  scale_y_continuous(breaks = seq(0,300,50))+
+  labs(x = "Year", y ="Number of People", titles = "Scandinavians in Sections Compared to Total Number of Workers")+
+  theme_calc()
+  
+```
+
+calculating proportion of scandinavians per year
+```{r}
+plot_df = plot_df %>% 
+  mutate(proportion = number_of_scandis / number_of_workers)
+
+plot_df$proportion
+
+```
+
+generally scandinavians make up 3-8 % of the section. The development is visualized
+```{r}
+
+plot_df %>% 
+  ggplot(aes(Year, proportion, fill = proportion)) +
+  geom_col() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  theme_calc() +
+  theme(legend.position="none")+
+  labs(x = "Year", y ="Proportion of Scandianvians", titles = "Proportional Distribution of Scandinavians in Sections")
+  
+
+```
+
+saving table with numbers
+```{r}
+#write.csv(plot_df, "scandi_comparison.csv")
+```
+
