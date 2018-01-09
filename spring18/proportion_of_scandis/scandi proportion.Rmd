@@ -1,7 +1,7 @@
 ---
-title: "Entrance, duration of contracts, accumulated experience"
+title: "Proportion of Scandinavians in Section"
 author: "Adam Finnemann"
-date: "October 19, 2017"
+date: "8. feb, 2017"
 ---
   
 ```{r setup}
@@ -19,6 +19,22 @@ Question from Torsten: The first one is about the relative representation of the
 
 
 
+```{r}
+employment <- function(df, interval = "1 year"){
+  
+mdl_df <- df %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+}
+```
 
 Overview of nationalities. 344 contracts are missing nationalities
 ```{r}
@@ -56,30 +72,11 @@ top_scandi <- scandi %>%
 
 
 27 contracts from 21 different people are found
-```{r}
-#employment interval function
-employment <- function(df, interval = "1 year"){
-  
-mdl_df <- df %>% 
-  select(pname, fname_code,begin_date, end_date) %>% 
-  mutate(begin_date = as.Date(begin_date),
-         end_date = as.Date(end_date))
-
-
-
-result <- setDT(mdl_df)[
-  .(mseq = seq(as.Date("1919-01-01"), as.Date("1949-12-30"), by = interval)), 
-  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
-    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
-}
-
-
-```
 
 ```{r}
-
-scandi_res <- employment(top_scandi)
+scandi_res = employment(top_scandi)
 ```
+
 
 
 ```{r}
@@ -103,7 +100,7 @@ names(long_scandi) = c("strange","Year", "number_of_scandis")
 long_scandi = long_scandi %>% 
   select(Year, number_of_scandis)
 
-#write.csv(long_scandi, "scandis_in_section_table.csv")
+
 
 long_scandi
 ```
@@ -115,13 +112,13 @@ Calculating total number of wokres in section, directors, experts and chiefs.
 
 ```{r}
 top_people <- da %>% 
-  filter(str_detect(scandi$fname, "Section") | str_detect(scandi$fname, "Director") | str_detect(scandi$fname, "Chief") | str_detect(scandi$fname, "Expert"),
+  filter(str_detect(da$fname, "Section") | str_detect(da$fname, "Director") | str_detect(da$fname, "Chief") | str_detect(da$fname, "Expert"),
          fname != "Secretary of Section")
 
 length(unique(droplevels(top_people$pname)))
 
 ```
-1618 contracts from 1211 different individuals are found
+492 contracts from 368 people are included
 
 
 
@@ -130,7 +127,7 @@ length(unique(droplevels(top_people$pname)))
 result = employment(top_people)
 ```
 
-4 people are removed during the analysis since their begin_on_year is later than their end_on_year.
+2 people are removed during the analysis since their begin_on_year is later than their end_on_year.
 ```{r}
 p <- top_people[which(!top_people$pname %in% result$pname),]
 p
@@ -200,6 +197,6 @@ plot_df %>%
 
 saving table with numbers
 ```{r}
-#write.csv(plot_df, "scandi_comparison.csv")
+write.csv(plot_df, "scandi_comparison.csv")
 ```
 

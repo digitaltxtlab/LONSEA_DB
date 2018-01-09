@@ -1,29 +1,309 @@
-;Year;number_of_workers;number_of_scandis;proportion
-1;01-01-1919;29;1;0.034482759
-2;01-01-1920;110;4;0.036363636
-3;01-01-1921;157;7;0.044585987
-4;01-01-1922;175;7;0.04
-5;01-01-1923;177;8;0.04519774
-6;01-01-1924;187;9;0.048128342
-7;01-01-1925;193;8;0.041450777
-8;01-01-1926;217;8;0.036866359
-9;01-01-1927;230;8;0.034782609
-10;01-01-1928;256;8;0.03125
-11;01-01-1929;265;7;0.026415094
-12;01-01-1930;311;7;0.022508039
-13;01-01-1931;310;9;0.029032258
-14;01-01-1932;290;8;0.027586207
-15;01-01-1933;252;8;0.031746032
-16;01-01-1934;232;7;0.030172414
-17;01-01-1935;234;7;0.02991453
-18;01-01-1936;277;8;0.028880866
-19;01-01-1937;301;8;0.026578073
-20;01-01-1938;284;9;0.031690141
-21;01-01-1939;219;10;0.0456621
-22;01-01-1940;160;5;0.03125
-23;01-01-1941;55;4;0.072727273
-24;01-01-1942;49;4;0.081632653
-25;01-01-1943;47;3;0.063829787
-26;01-01-1944;48;3;0.0625
-27;01-01-1945;48;4;0.083333333
-28;01-01-1946;98;4;0.040816327
+;year;section;count_everyone;count_scandinavians;proportion_scandinavians
+1;01-01-1919;Communications and Transit Section;1;0;0
+2;01-01-1919;Department I (Department of General Affairs);0;0;NA
+3;01-01-1919;Disarmament Section;0;0;NA
+4;01-01-1919;Economic and Financial Section;4;0;0
+5;01-01-1919;Health Section;1;0;0
+6;01-01-1919;Information Section;7;0;0
+7;01-01-1919;Legal Section;4;0;0
+8;01-01-1919;Mandates Section;1;0;0
+9;01-01-1919;Minorities Section;2;1;0.5
+10;01-01-1919;Political Section;0;0;NA
+11;01-01-1919;Social Questions and Opium Traffic Section;0;0;NA
+12;01-01-1920;Communications and Transit Section;4;0;0
+13;01-01-1920;Department I (Department of General Affairs);0;0;NA
+14;01-01-1920;Disarmament Section;1;0;0
+15;01-01-1920;Economic and Financial Section;9;1;0.111111111
+16;01-01-1920;Health Section;2;0;0
+17;01-01-1920;Information Section;17;0;0
+18;01-01-1920;Legal Section;7;1;0.142857143
+19;01-01-1920;Mandates Section;2;0;0
+20;01-01-1920;Minorities Section;5;2;0.4
+21;01-01-1920;Political Section;7;0;0
+22;01-01-1920;Social Questions and Opium Traffic Section;0;0;NA
+23;01-01-1921;Communications and Transit Section;3;0;0
+24;01-01-1921;Department I (Department of General Affairs);0;0;NA
+25;01-01-1921;Disarmament Section;1;0;0
+26;01-01-1921;Economic and Financial Section;13;2;0.153846154
+27;01-01-1921;Health Section;6;1;0.166666667
+28;01-01-1921;Information Section;17;1;0.058823529
+29;01-01-1921;Legal Section;8;1;0.125
+30;01-01-1921;Mandates Section;3;0;0
+31;01-01-1921;Minorities Section;4;2;0.5
+32;01-01-1921;Political Section;7;0;0
+33;01-01-1921;Social Questions and Opium Traffic Section;1;0;0
+34;01-01-1922;Communications and Transit Section;3;0;0
+35;01-01-1922;Department I (Department of General Affairs);0;0;NA
+36;01-01-1922;Disarmament Section;4;0;0
+37;01-01-1922;Economic and Financial Section;14;2;0.142857143
+38;01-01-1922;Health Section;7;1;0.142857143
+39;01-01-1922;Information Section;20;1;0.05
+40;01-01-1922;Legal Section;9;1;0.111111111
+41;01-01-1922;Mandates Section;3;0;0
+42;01-01-1922;Minorities Section;5;2;0.4
+43;01-01-1922;Political Section;7;0;0
+44;01-01-1922;Social Questions and Opium Traffic Section;3;0;0
+45;01-01-1923;Communications and Transit Section;3;0;0
+46;01-01-1923;Department I (Department of General Affairs);0;0;NA
+47;01-01-1923;Disarmament Section;3;0;0
+48;01-01-1923;Economic and Financial Section;18;3;0.166666667
+49;01-01-1923;Health Section;13;1;0.076923077
+50;01-01-1923;Information Section;19;1;0.052631579
+51;01-01-1923;Legal Section;6;0;0
+52;01-01-1923;Mandates Section;3;1;0.333333333
+53;01-01-1923;Minorities Section;7;2;0.285714286
+54;01-01-1923;Political Section;9;0;0
+55;01-01-1923;Social Questions and Opium Traffic Section;3;0;0
+56;01-01-1924;Communications and Transit Section;3;0;0
+57;01-01-1924;Department I (Department of General Affairs);0;0;NA
+58;01-01-1924;Disarmament Section;3;0;0
+59;01-01-1924;Economic and Financial Section;19;3;0.157894737
+60;01-01-1924;Health Section;14;1;0.071428571
+61;01-01-1924;Information Section;18;1;0.055555556
+62;01-01-1924;Legal Section;6;0;0
+63;01-01-1924;Mandates Section;3;1;0.333333333
+64;01-01-1924;Minorities Section;6;2;0.333333333
+65;01-01-1924;Political Section;8;0;0
+66;01-01-1924;Social Questions and Opium Traffic Section;3;0;0
+67;01-01-1925;Communications and Transit Section;3;0;0
+68;01-01-1925;Department I (Department of General Affairs);0;0;NA
+69;01-01-1925;Disarmament Section;4;0;0
+70;01-01-1925;Economic and Financial Section;16;2;0.125
+71;01-01-1925;Health Section;14;1;0.071428571
+72;01-01-1925;Information Section;18;1;0.055555556
+73;01-01-1925;Legal Section;6;0;0
+74;01-01-1925;Mandates Section;3;1;0.333333333
+75;01-01-1925;Minorities Section;9;2;0.222222222
+76;01-01-1925;Political Section;8;0;0
+77;01-01-1925;Social Questions and Opium Traffic Section;3;0;0
+78;01-01-1926;Communications and Transit Section;3;0;0
+79;01-01-1926;Department I (Department of General Affairs);0;0;NA
+80;01-01-1926;Disarmament Section;4;0;0
+81;01-01-1926;Economic and Financial Section;23;2;0.086956522
+82;01-01-1926;Health Section;15;1;0.066666667
+83;01-01-1926;Information Section;20;1;0.05
+84;01-01-1926;Legal Section;7;0;0
+85;01-01-1926;Mandates Section;3;1;0.333333333
+86;01-01-1926;Minorities Section;9;2;0.222222222
+87;01-01-1926;Political Section;9;0;0
+88;01-01-1926;Social Questions and Opium Traffic Section;4;0;0
+89;01-01-1927;Communications and Transit Section;4;0;0
+90;01-01-1927;Department I (Department of General Affairs);0;0;NA
+91;01-01-1927;Disarmament Section;5;0;0
+92;01-01-1927;Economic and Financial Section;22;2;0.090909091
+93;01-01-1927;Health Section;16;1;0.0625
+94;01-01-1927;Information Section;23;1;0.043478261
+95;01-01-1927;Legal Section;8;0;0
+96;01-01-1927;Mandates Section;3;1;0.333333333
+97;01-01-1927;Minorities Section;8;1;0.125
+98;01-01-1927;Political Section;11;0;0
+99;01-01-1927;Social Questions and Opium Traffic Section;6;0;0
+100;01-01-1928;Communications and Transit Section;4;0;0
+101;01-01-1928;Department I (Department of General Affairs);0;0;NA
+102;01-01-1928;Disarmament Section;5;1;0.2
+103;01-01-1928;Economic and Financial Section;18;2;0.111111111
+104;01-01-1928;Health Section;17;1;0.058823529
+105;01-01-1928;Information Section;23;1;0.043478261
+106;01-01-1928;Legal Section;10;0;0
+107;01-01-1928;Mandates Section;4;1;0.25
+108;01-01-1928;Minorities Section;8;1;0.125
+109;01-01-1928;Political Section;11;0;0
+110;01-01-1928;Social Questions and Opium Traffic Section;6;0;0
+111;01-01-1929;Communications and Transit Section;5;0;0
+112;01-01-1929;Department I (Department of General Affairs);0;0;NA
+113;01-01-1929;Disarmament Section;4;1;0.25
+114;01-01-1929;Economic and Financial Section;19;1;0.052631579
+115;01-01-1929;Health Section;22;1;0.045454545
+116;01-01-1929;Information Section;25;1;0.04
+117;01-01-1929;Legal Section;9;0;0
+118;01-01-1929;Mandates Section;4;1;0.25
+119;01-01-1929;Minorities Section;8;1;0.125
+120;01-01-1929;Political Section;10;0;0
+121;01-01-1929;Social Questions and Opium Traffic Section;6;0;0
+122;01-01-1930;Communications and Transit Section;5;0;0
+123;01-01-1930;Department I (Department of General Affairs);0;0;NA
+124;01-01-1930;Disarmament Section;4;1;0.25
+125;01-01-1930;Economic and Financial Section;22;1;0.045454545
+126;01-01-1930;Health Section;22;1;0.045454545
+127;01-01-1930;Information Section;27;1;0.037037037
+128;01-01-1930;Legal Section;9;0;0
+129;01-01-1930;Mandates Section;4;0;0
+130;01-01-1930;Minorities Section;7;1;0.142857143
+131;01-01-1930;Political Section;10;0;0
+132;01-01-1930;Social Questions and Opium Traffic Section;7;0;0
+133;01-01-1931;Communications and Transit Section;7;1;0.142857143
+134;01-01-1931;Department I (Department of General Affairs);0;0;NA
+135;01-01-1931;Disarmament Section;7;1;0.142857143
+136;01-01-1931;Economic and Financial Section;26;2;0.076923077
+137;01-01-1931;Health Section;23;0;0
+138;01-01-1931;Information Section;26;0;0
+139;01-01-1931;Legal Section;10;0;0
+140;01-01-1931;Mandates Section;4;1;0.25
+141;01-01-1931;Minorities Section;8;1;0.125
+142;01-01-1931;Political Section;9;0;0
+143;01-01-1931;Social Questions and Opium Traffic Section;8;1;0.125
+144;01-01-1932;Communications and Transit Section;7;1;0.142857143
+145;01-01-1932;Department I (Department of General Affairs);0;0;NA
+146;01-01-1932;Disarmament Section;6;1;0.166666667
+147;01-01-1932;Economic and Financial Section;25;1;0.04
+148;01-01-1932;Health Section;24;0;0
+149;01-01-1932;Information Section;25;0;0
+150;01-01-1932;Legal Section;10;0;0
+151;01-01-1932;Mandates Section;4;1;0.25
+152;01-01-1932;Minorities Section;8;2;0.25
+153;01-01-1932;Political Section;9;0;0
+154;01-01-1932;Social Questions and Opium Traffic Section;8;1;0.125
+155;01-01-1933;Communications and Transit Section;6;1;0.166666667
+156;01-01-1933;Department I (Department of General Affairs);0;0;NA
+157;01-01-1933;Disarmament Section;8;1;0.125
+158;01-01-1933;Economic and Financial Section;24;1;0.041666667
+159;01-01-1933;Health Section;23;0;0
+160;01-01-1933;Information Section;20;0;0
+161;01-01-1933;Legal Section;9;0;0
+162;01-01-1933;Mandates Section;4;1;0.25
+163;01-01-1933;Minorities Section;7;2;0.285714286
+164;01-01-1933;Political Section;8;0;0
+165;01-01-1933;Social Questions and Opium Traffic Section;8;1;0.125
+166;01-01-1934;Communications and Transit Section;6;1;0.166666667
+167;01-01-1934;Department I (Department of General Affairs);0;0;NA
+168;01-01-1934;Disarmament Section;5;1;0.2
+169;01-01-1934;Economic and Financial Section;23;1;0.043478261
+170;01-01-1934;Health Section;19;0;0
+171;01-01-1934;Information Section;16;0;0
+172;01-01-1934;Legal Section;7;0;0
+173;01-01-1934;Mandates Section;5;1;0.2
+174;01-01-1934;Minorities Section;5;1;0.2
+175;01-01-1934;Political Section;8;0;0
+176;01-01-1934;Social Questions and Opium Traffic Section;6;1;0.166666667
+177;01-01-1935;Communications and Transit Section;6;1;0.166666667
+178;01-01-1935;Department I (Department of General Affairs);0;0;NA
+179;01-01-1935;Disarmament Section;4;1;0.25
+180;01-01-1935;Economic and Financial Section;24;1;0.041666667
+181;01-01-1935;Health Section;15;0;0
+182;01-01-1935;Information Section;17;0;0
+183;01-01-1935;Legal Section;6;0;0
+184;01-01-1935;Mandates Section;4;1;0.25
+185;01-01-1935;Minorities Section;6;1;0.166666667
+186;01-01-1935;Political Section;10;1;0.1
+187;01-01-1935;Social Questions and Opium Traffic Section;8;1;0.125
+188;01-01-1936;Communications and Transit Section;5;1;0.2
+189;01-01-1936;Department I (Department of General Affairs);0;0;NA
+190;01-01-1936;Disarmament Section;5;1;0.2
+191;01-01-1936;Economic and Financial Section;26;1;0.038461538
+192;01-01-1936;Health Section;14;0;0
+193;01-01-1936;Information Section;17;0;0
+194;01-01-1936;Legal Section;4;0;0
+195;01-01-1936;Mandates Section;4;1;0.25
+196;01-01-1936;Minorities Section;7;2;0.285714286
+197;01-01-1936;Political Section;10;1;0.1
+198;01-01-1936;Social Questions and Opium Traffic Section;9;1;0.111111111
+199;01-01-1937;Communications and Transit Section;7;1;0.142857143
+200;01-01-1937;Department I (Department of General Affairs);0;0;NA
+201;01-01-1937;Disarmament Section;6;1;0.166666667
+202;01-01-1937;Economic and Financial Section;29;2;0.068965517
+203;01-01-1937;Health Section;16;0;0
+204;01-01-1937;Information Section;20;0;0
+205;01-01-1937;Legal Section;4;0;0
+206;01-01-1937;Mandates Section;4;1;0.25
+207;01-01-1937;Minorities Section;6;1;0.166666667
+208;01-01-1937;Political Section;9;1;0.111111111
+209;01-01-1937;Social Questions and Opium Traffic Section;7;1;0.142857143
+210;01-01-1938;Communications and Transit Section;6;1;0.166666667
+211;01-01-1938;Department I (Department of General Affairs);0;0;NA
+212;01-01-1938;Disarmament Section;5;1;0.2
+213;01-01-1938;Economic and Financial Section;28;3;0.107142857
+214;01-01-1938;Health Section;13;0;0
+215;01-01-1938;Information Section;18;0;0
+216;01-01-1938;Legal Section;6;0;0
+217;01-01-1938;Mandates Section;3;1;0.333333333
+218;01-01-1938;Minorities Section;6;1;0.166666667
+219;01-01-1938;Political Section;8;1;0.125
+220;01-01-1938;Social Questions and Opium Traffic Section;12;1;0.083333333
+221;01-01-1939;Communications and Transit Section;5;1;0.2
+222;01-01-1939;Department I (Department of General Affairs);0;0;NA
+223;01-01-1939;Disarmament Section;5;1;0.2
+224;01-01-1939;Economic and Financial Section;24;3;0.125
+225;01-01-1939;Health Section;10;0;0
+226;01-01-1939;Information Section;17;0;0
+227;01-01-1939;Legal Section;7;0;0
+228;01-01-1939;Mandates Section;2;0;0
+229;01-01-1939;Minorities Section;6;1;0.166666667
+230;01-01-1939;Political Section;7;1;0.142857143
+231;01-01-1939;Social Questions and Opium Traffic Section;14;2;0.142857143
+232;01-01-1940;Communications and Transit Section;1;0;0
+233;01-01-1940;Department I (Department of General Affairs);2;1;0.5
+234;01-01-1940;Disarmament Section;4;1;0.25
+235;01-01-1940;Economic and Financial Section;16;1;0.0625
+236;01-01-1940;Health Section;8;0;0
+237;01-01-1940;Information Section;11;0;0
+238;01-01-1940;Legal Section;5;0;0
+239;01-01-1940;Mandates Section;2;0;0
+240;01-01-1940;Minorities Section;5;1;0.2
+241;01-01-1940;Political Section;4;0;0
+242;01-01-1940;Social Questions and Opium Traffic Section;11;1;0.090909091
+243;01-01-1941;Communications and Transit Section;1;0;0
+244;01-01-1941;Department I (Department of General Affairs);2;1;0.5
+245;01-01-1941;Disarmament Section;0;0;NA
+246;01-01-1941;Economic and Financial Section;9;1;0.111111111
+247;01-01-1941;Health Section;3;0;0
+248;01-01-1941;Information Section;0;0;NA
+249;01-01-1941;Legal Section;0;0;NA
+250;01-01-1941;Mandates Section;1;0;0
+251;01-01-1941;Minorities Section;2;1;0.5
+252;01-01-1941;Political Section;3;0;0
+253;01-01-1941;Social Questions and Opium Traffic Section;5;1;0.2
+254;01-01-1942;Communications and Transit Section;1;0;0
+255;01-01-1942;Department I (Department of General Affairs);2;1;0.5
+256;01-01-1942;Disarmament Section;0;0;NA
+257;01-01-1942;Economic and Financial Section;8;1;0.125
+258;01-01-1942;Health Section;2;0;0
+259;01-01-1942;Information Section;0;0;NA
+260;01-01-1942;Legal Section;0;0;NA
+261;01-01-1942;Mandates Section;0;0;NA
+262;01-01-1942;Minorities Section;1;1;1
+263;01-01-1942;Political Section;3;0;0
+264;01-01-1942;Social Questions and Opium Traffic Section;4;1;0.25
+265;01-01-1943;Communications and Transit Section;1;0;0
+266;01-01-1943;Department I (Department of General Affairs);2;1;0.5
+267;01-01-1943;Disarmament Section;0;0;NA
+268;01-01-1943;Economic and Financial Section;7;1;0.142857143
+269;01-01-1943;Health Section;2;0;0
+270;01-01-1943;Information Section;0;0;NA
+271;01-01-1943;Legal Section;0;0;NA
+272;01-01-1943;Mandates Section;0;0;NA
+273;01-01-1943;Minorities Section;0;0;NA
+274;01-01-1943;Political Section;3;0;0
+275;01-01-1943;Social Questions and Opium Traffic Section;4;1;0.25
+276;01-01-1944;Communications and Transit Section;1;0;0
+277;01-01-1944;Department I (Department of General Affairs);2;1;0.5
+278;01-01-1944;Disarmament Section;0;0;NA
+279;01-01-1944;Economic and Financial Section;5;1;0.2
+280;01-01-1944;Health Section;4;0;0
+281;01-01-1944;Information Section;0;0;NA
+282;01-01-1944;Legal Section;0;0;NA
+283;01-01-1944;Mandates Section;0;0;NA
+284;01-01-1944;Minorities Section;0;0;NA
+285;01-01-1944;Political Section;3;0;0
+286;01-01-1944;Social Questions and Opium Traffic Section;4;1;0.25
+287;01-01-1945;Communications and Transit Section;1;0;0
+288;01-01-1945;Department I (Department of General Affairs);2;1;0.5
+289;01-01-1945;Disarmament Section;0;0;NA
+290;01-01-1945;Economic and Financial Section;5;1;0.2
+291;01-01-1945;Health Section;4;0;0
+292;01-01-1945;Information Section;0;0;NA
+293;01-01-1945;Legal Section;0;0;NA
+294;01-01-1945;Mandates Section;0;0;NA
+295;01-01-1945;Minorities Section;0;0;NA
+296;01-01-1945;Political Section;3;0;0
+297;01-01-1945;Social Questions and Opium Traffic Section;4;1;0.25
+298;01-01-1946;Communications and Transit Section;1;0;0
+299;01-01-1946;Department I (Department of General Affairs);2;1;0.5
+300;01-01-1946;Disarmament Section;0;0;NA
+301;01-01-1946;Economic and Financial Section;5;1;0.2
+302;01-01-1946;Health Section;3;0;0
+303;01-01-1946;Information Section;0;0;NA
+304;01-01-1946;Legal Section;0;0;NA
+305;01-01-1946;Mandates Section;0;0;NA
+306;01-01-1946;Minorities Section;0;0;NA
+307;01-01-1946;Political Section;2;0;0
+308;01-01-1946;Social Questions and Opium Traffic Section;4;1;0.25

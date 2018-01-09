@@ -1,0 +1,240 @@
+```{r setup}
+
+library(pacman)
+p_load("strmingr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table", "ggthemes")
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/spring18/proportion_of_scandis")
+
+da <- read.csv(list.files(pattern = "contract_"))
+```
+
+
+Subsetting scandinavians with section, director, chief, expert in fname (excluding sectretary of sections).
+
+```{r}
+top_scandi = da %>% 
+  filter(nationality %in% c("Dane", "Swedish","Norwegian"),str_detect(da$fname, "Section") | str_detect(da$fname, "Director") | str_detect(da$fname, "Chief") | str_detect(da$fname, "Expert"), fname != "Secretary of Section")
+
+length(unique(droplevels(top_scandi$pname)))
+```
+
+27 contracts from 21 scandinavians are found.
+
+Further employment analysis is carried out for the following sections:
+health, disarmament, mandates, legal, communications and transit, information, economic and financial section (which is united with "the economic relations section" and "the financial & economic intelligence service"), intellectual cooperation and international bureaux section, minorities (which is united with "Administrative and Minorities"), the social questions and opium traffic, and the political section
+
+Contracts from treasury are removed (this amounts to 1).
+
+First, the three economic sections are united under 1
+Same for "Minorities" and "Admin. and Minotories".
+
+
+```{r}
+
+oname_correct <- top_scandi %>% 
+  dplyr::mutate(oname = str_replace_all(oname, "Financial Section & Economic Intelligence Service","Economic and Financial Section"),
+        oname = str_replace_all(oname, "Economic Relations Section","Economic and Financial Section"),
+        oname = str_replace_all(oname, "Administrative and Minorities Section","Minorities Section"),
+        oname = as.factor(oname)) %>% 
+  filter(oname != "Treasury") %>% 
+  droplevels
+
+
+
+summary(oname_correct$oname)
+```
+Distribution of scandinavians between sections
+
+
+```{r}
+employment_oname <- function(df, interval = "1 year"){
+  
+mdl_df <- df %>% 
+  select(pname, oname,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "oname")]
+}
+```
+
+
+```{r}
+library(plyr)
+scandi_res <- employment_oname(oname_correct)
+
+scandi_res = droplevels(scandi_res)
+
+scandi = scandi_res[,-1]
+
+
+df = matrix(NA,nrow = nlevels(oname_correct$oname) * ncol(scandi),ncol =3)
+
+count = 1
+for (n in 1:ncol(scandi)){
+  for (level in levels(oname_correct$oname)) {
+    level_sum = sum(scandi[,n,with = F] == level)
+    df[count,] = c(colnames(scandi)[n], level_sum, level)
+    count = count + 1
+    
+  }
+}
+
+df = as.data.frame(df)
+names(df) = c("year","count","section")
+
+plot_df=df %>%
+  mutate(count = as.numeric(as.character(count)),
+         year = as.Date(year))
+
+plot_df %>% 
+  ggplot(aes(year, count, color = section)) +
+  geom_line() +
+  theme_classic() +
+  theme(legend.position="none")+
+  geom_point() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  labs(x = "Year", y ="Number of Scandianvians", titles = "Distribution of Scandinavians among Sections")
+  
+
+```
+Not the best graph.In the graph below is an explanation of the colors.
+
+```{r}
+plot_df %>% 
+  ggplot(aes(year, count, color = section)) +
+  geom_line() +
+  theme_classic() +
+  theme(legend.position="right")+
+  geom_jitter(height = 0.01) +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y")
+```
+
+Calculating the proportion of sections that scandinavians make up
+
+subsetting all contract froms section, directors, experts and omitting directors of section. Omitting Secretary of section 
+```{r}
+top_people <- da %>% 
+  filter(str_detect(da$fname, "Section") | str_detect(da$fname, "Director") | str_detect(da$fname, "Chief") | str_detect(da$fname, "Expert"),
+         fname != "Secretary of Section")
+
+length(unique(droplevels(top_people$pname)))
+```
+492 contracts from 368 different individuals are found
+
+Uniting minorities and economics sections as well as removing treasury + library.
+
+```{r}
+correct_top <- top_people %>% 
+  dplyr::mutate(oname = str_replace_all(oname, "Financial Section & Economic Intelligence Service","Economic and Financial Section"),
+        oname = str_replace_all(oname, "Economic Relations Section","Economic and Financial Section"),
+        oname = str_replace_all(oname, "Administrative and Minorities Section","Minorities Section"),
+        oname = as.factor(oname)) %>% 
+  filter(oname != "Treasury", oname != "Library") %>% 
+  droplevels
+
+summary(correct_top$oname) 
+
+```
+
+
+Only looking at section with scandinavians in them. 
+```{r}
+
+library(plyr)
+top_res <- employment_oname(correct_top)
+
+scandi_res = droplevels(top_res)
+
+top = top_res[,-1]
+
+
+top_df = matrix(NA,nrow = nlevels(oname_correct$oname) * ncol(top),ncol =3)
+
+count = 1
+for (n in 1:ncol(top)){
+  for (level in levels(oname_correct$oname)) {
+    level_sum = sum(top[,n,with = F] == level)
+    top_df[count,] = c(colnames(top)[n], level_sum, level)
+    count = count + 1
+    
+  }
+}
+
+top_df = as.data.frame(top_df)
+names(top_df) = c("year","count","section")
+
+top_plot_df=top_df %>%
+  mutate(count = as.numeric(as.character(count)),
+         year = as.Date(year))
+
+full_plot_df = merge(top_plot_df, plot_df, by = c("year","section"))
+names(full_plot_df) = c("year","section","count_everyone","count_scandinavians")
+
+full_plot_df = full_plot_df %>% 
+  mutate(proportion_scandinavians = count_scandinavians / count_everyone)
+
+#full_plot_df$proportion_scandinavians[is.nan(full_plot_df$proportion_scandinavians)] <- 0
+
+full_plot_df %>%  
+  filter(count_scandinavians > 0 ) %>% 
+  ggplot(aes(year, proportion_scandinavians, color = section)) +
+  geom_line() +
+  theme_classic() +
+  theme(legend.position="none")+
+  geom_point() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  labs(x = "Year", y ="Number of Scandianvians", titles = "Distribution of Scandinavians among Sections")
+  
+
+
+```
+Data points with zero scandinavians are omitted to give a bit of clarity. Below is the same plot including color explanation.
+```{r}
+full_plot_df %>%  
+  filter(count_scandinavians > 0 ) %>% 
+  ggplot(aes(year, proportion_scandinavians, color = section)) +
+  geom_line() +
+  theme_classic() +
+  theme(legend.position="right")+
+  geom_point() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  labs(x = "Year", y ="Number of Scandianvians", titles = "Distribution of Scandinavians among Sections")
+  
+```
+
+Most sections only have 1 Scandinavian. Below is a plot showing the data points where more than one Scandinavians were present in a section.
+
+```{r}
+full_plot_df %>% 
+  filter(count_scandinavians >1) %>% 
+  ggplot(aes(year, proportion_scandinavians, color = section)) +
+  geom_line() +
+  theme_classic() +
+  theme(legend.position="right")+
+  geom_point() +
+  scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
+  labs(x = "Year", y ="Number of Scandianvians", titles = "Distribution of Scandinavians among Sections")
+```
+
+saving table with numbers
+```{r}
+#write.csv(full_plot_df, "scandi_comparison.csv")
+```
+
+
+
+Finally, A list of onames of people with section,director, chief, expert in the fname but who aren't Scandinavian. 
+```{r}
+correct_top = droplevels(correct_top)
+oname_correct = droplevels(oname_correct)
+
+levels(correct_top$oname)[!levels(correct_top$oname) %in% levels(oname_correct$oname)]
+
+```
+
