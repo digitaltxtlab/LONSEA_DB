@@ -195,6 +195,12 @@ plot_df %>%
 
 ```
 
+```{r}
+  
+```
+
+
+
 saving table with numbers
 ```{r}
 write.csv(plot_df, "scandi_comparison.csv")

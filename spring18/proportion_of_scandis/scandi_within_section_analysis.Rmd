@@ -189,7 +189,7 @@ full_plot_df %>%
   theme(legend.position="none")+
   geom_point() +
   scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
-  labs(x = "Year", y ="Number of Scandianvians", titles = "Distribution of Scandinavians among Sections")
+  labs(x = "Year", y ="Proportion of Scandianvians", titles = "Distribution of Scandinavians among Sections")
   
 
 
@@ -204,7 +204,7 @@ full_plot_df %>%
   theme(legend.position="right")+
   geom_point() +
   scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
-  labs(x = "Year", y ="Number of Scandianvians", titles = "Distribution of Scandinavians among Sections")
+  labs(x = "Year", y ="Proportion of Scandianvians", titles = "Distribution of Scandinavians among Sections")
   
 ```
 
@@ -219,7 +219,7 @@ full_plot_df %>%
   theme(legend.position="right")+
   geom_point() +
   scale_x_date(date_breaks = "3 year", date_labels = "%Y") +
-  labs(x = "Year", y ="Number of Scandianvians", titles = "Distribution of Scandinavians among Sections")
+  labs(x = "Year", y ="Proportion of Scandianvians", titles = "Distribution of Scandinavians among Sections")
 ```
 
 saving table with numbers
@@ -237,4 +237,94 @@ oname_correct = droplevels(oname_correct)
 levels(correct_top$oname)[!levels(correct_top$oname) %in% levels(oname_correct$oname)]
 
 ```
+
+#Extra graphs:
+Adding higher resolution.
+Date breaks of 1 year
+
+```{r}
+tiff('scandis_w_verticallines.tiff', units="in", width=12, height=5, res=500)
+
+
+plot_df %>% 
+  ggplot(aes(year, count, color = section)) +
+  geom_jitter(height = 0.2, width = 0, size = 2) + 
+  theme_classic() +
+  theme(legend.position="right")+
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_vline(xintercept=as.numeric(plot_df$year),linetype="dotted") +
+  labs(x = "Year", y ="Number of Scandianvians", titles = "# of Scandinavians per Section")
+
+dev.off()
+
+
+tiff('number_of_scandis_w_zeros.tiff', units="in", width=12, height=5, res=500)
+
+
+plot_df %>% 
+  ggplot(aes(year, count, color = section)) +
+  geom_jitter(height = 0.2, width = 0, size = 2) + 
+  theme_classic() +
+  theme(legend.position="right")+
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(x = "Year", y ="Number of Scandianvians", titles = "# of Scandinavians per Section")
+  
+
+dev.off()
+
+tiff('number_of_scandis_wo_zeros.tiff', units="in", width=12, height=5, res=500)
+
+
+plot_df %>% 
+  filter(count > 0) %>% 
+  ggplot(aes(year, count, color = section)) +
+  geom_jitter(height = 0.2, width = 0, size = 2) + 
+  theme_classic() +
+  theme(legend.position="right")+
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(x = "Year", y ="Number of Scandianvians", titles = "# of Scandinavians per Section")
+  
+
+dev.off()
+
+tiff('proportion_scandis.tiff', units="in", width=12, height=5, res=500)
+full_plot_df %>%  
+  filter(count_scandinavians > 0 ) %>% 
+  ggplot(aes(year, proportion_scandinavians, color = section)) +
+  geom_line() +
+  theme_classic() +
+  theme(legend.position="right")+
+  geom_point() +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_vline(xintercept=as.numeric(full_plot_df$year),linetype="dotted") +
+  labs(x = "Year", y ="Proportion of Scandianvians", titles = "Distribution of Scandinavians among Sections")
+  
+dev.off()
+
+
+tiff('proportion_scandis_w_labels.tiff', units="in", width=12, height=5, res=500)
+full_plot_df %>%  
+  filter(count_scandinavians > 0 ) %>% 
+  ggplot(aes(year, proportion_scandinavians, color = section, label = proportion_scandinavians)) +
+  geom_text(aes(label=round(proportion_scandinavians,2)),hjust=0, vjust=0, size = 3, angle = 45) +
+  geom_line() +
+  theme_classic() +
+  theme(legend.position="right")+
+  geom_point() +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_vline(xintercept=as.numeric(full_plot_df$year),linetype="dotted") +
+  labs(x = "Year", y ="Proportion of Scandianvians", titles = "Distribution of Scandinavians among Sections")
+  
+dev.off()
+
+
+
+```
+
+
 
