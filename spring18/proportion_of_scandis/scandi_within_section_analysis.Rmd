@@ -12,6 +12,10 @@ da <- read.csv(list.files(pattern = "contract_"))
 Subsetting scandinavians with section, director, chief, expert in fname (excluding sectretary of sections).
 
 ```{r}
+da$end_date = as.Date(da$end_date)
+
+da$end_date = da$end_date - 1
+
 top_scandi = da %>% 
   filter(nationality %in% c("Dane", "Swedish","Norwegian"),str_detect(da$fname, "Section") | str_detect(da$fname, "Director") | str_detect(da$fname, "Chief") | str_detect(da$fname, "Expert"), fname != "Secretary of Section")
 
@@ -243,74 +247,16 @@ Adding higher resolution.
 Date breaks of 1 year
 
 ```{r}
-tiff('scandis_w_verticallines.tiff', units="in", width=12, height=5, res=500)
 
 
-plot_df %>% 
-  ggplot(aes(year, count, color = section)) +
-  geom_jitter(height = 0.2, width = 0, size = 2) + 
-  theme_classic() +
-  theme(legend.position="right")+
-  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  geom_vline(xintercept=as.numeric(plot_df$year),linetype="dotted") +
-  labs(x = "Year", y ="Number of Scandianvians", titles = "# of Scandinavians per Section")
 
-dev.off()
-
-
-tiff('number_of_scandis_w_zeros.tiff', units="in", width=12, height=5, res=500)
-
-
-plot_df %>% 
-  ggplot(aes(year, count, color = section)) +
-  geom_jitter(height = 0.2, width = 0, size = 2) + 
-  theme_classic() +
-  theme(legend.position="right")+
-  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(x = "Year", y ="Number of Scandianvians", titles = "# of Scandinavians per Section")
-  
-
-dev.off()
-
-tiff('number_of_scandis_wo_zeros.tiff', units="in", width=12, height=5, res=500)
-
-
-plot_df %>% 
-  filter(count > 0) %>% 
-  ggplot(aes(year, count, color = section)) +
-  geom_jitter(height = 0.2, width = 0, size = 2) + 
-  theme_classic() +
-  theme(legend.position="right")+
-  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  labs(x = "Year", y ="Number of Scandianvians", titles = "# of Scandinavians per Section")
-  
-
-dev.off()
-
-tiff('proportion_scandis.tiff', units="in", width=12, height=5, res=500)
-full_plot_df %>%  
-  filter(count_scandinavians > 0 ) %>% 
-  ggplot(aes(year, proportion_scandinavians, color = section)) +
-  geom_line() +
-  theme_classic() +
-  theme(legend.position="right")+
-  geom_point() +
-  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  geom_vline(xintercept=as.numeric(full_plot_df$year),linetype="dotted") +
-  labs(x = "Year", y ="Proportion of Scandianvians", titles = "Distribution of Scandinavians among Sections")
-  
-dev.off()
 
 
 tiff('proportion_scandis_w_labels.tiff', units="in", width=12, height=5, res=500)
 full_plot_df %>%  
   filter(count_scandinavians > 0 ) %>% 
   ggplot(aes(year, proportion_scandinavians, color = section, label = proportion_scandinavians)) +
-  geom_text(aes(label=round(proportion_scandinavians,2)),hjust=0, vjust=0, size = 3, angle = 45) +
+  geom_text(aes(label=round(proportion_scandinavians,2)),hjust=0, vjust=0, size = 2, angle = 45) +
   geom_line() +
   theme_classic() +
   theme(legend.position="right")+
@@ -318,9 +264,49 @@ full_plot_df %>%
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   geom_vline(xintercept=as.numeric(full_plot_df$year),linetype="dotted") +
-  labs(x = "Year", y ="Proportion of Scandianvians", titles = "Distribution of Scandinavians among Sections")
+  labs(x = "Year", y ="Proportion of Scandianvians", titles = "Distribution of Scandinavians among Sections")+
+  scale_color_manual(values=c("black","grey","green","red","purple","yellow","pink","orange","light blue","turquoise","dark blue"))
   
 dev.off()
+```
+
+
+```{r}
+
+
+tiff('scandis_w_vertical_wo_zeros.tiff', units="in", width=12, height=5, res=500)
+
+
+plot_df$dodge = plot_df$count
+x = -0.16
+
+for (n in levels(plot_df$section)){
+  for (j in 1:nrow(plot_df)){
+    if (plot_df[j,3] == n){
+      plot_df[j,4] = plot_df[j,2] + x
+      
+    }
+  }
+  x =x + 0.04
+  plot_df[,4] = round(plot_df[,4],3)
+}
+
+
+plot_df %>% 
+  filter(dodge > 0.6) %>% 
+  ggplot(aes(year, dodge, color = section)) +
+  geom_point()+
+  theme_classic() +
+  theme(legend.position="right")+
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(breaks = c(1,2,3))+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_vline(xintercept=as.numeric(plot_df$year),linetype="dotted") +
+  labs(x = "Year", y ="Number of Scandianvians", titles = "# of Scandinavians per Section")+
+  scale_color_manual(values=c("black","grey","green","red","purple","yellow","pink","orange","light blue","turquoise","dark blue"))
+
+dev.off()
+
 
 
 
