@@ -45,7 +45,7 @@
 6111,4860,"Dr. Jur. Thanassis (Athanase) Aghnides",0,"Head of Department","First Division","Department I (Department of General Affairs)",1889,1939,6,1,1944,7,9,"Greek",10
 6112,4860,"Dr. Jur. Thanassis (Athanase) Aghnides",0,"Head of Department","First Division","Department III",1889,1939,6,1,1944,7,9,"Greek",10
 6113,4860,"Dr. Jur. Thanassis (Athanase) Aghnides",0,"Under Secretary General","First Division","Under-Secretary-General's Office",1889,1939,6,1,1944,7,9,"Greek",9
-6115,4861,"Francis Yeats-Brown",0,"Temporary Collaborator","First Division","Information Section",NA,1927,12,1,1927,12,21,"English",8
+6115,4861,"Francis Yeats-Brown",0,"Temporary Collaborator","First Division","Information Section",NA,1927,12,1,1921,12,21,"English",8
 6116,4862,"Dr. Hawkling Yen",0,"Member of Section","First Division","Social Questions and Opium Traffic Section",NA,1921,1,1,1922,5,31,"Chinese",8
 6118,4863,"Thchen-p'ong Yu",0,"Temporary Collaborator","First Division","Economic and Financial Section",1909,1938,9,1,1938,9,19,"Chinese",8
 6119,4863,"Thchen-p'ong Yu",0,"Temporary Collaborator","First Division","Information Section",1909,1938,9,10,1938,11,10,"Chinese",8
@@ -175,12 +175,12 @@
 6290,5277,"Raymond Newton Kershaw",0,"Member of Section","First Division","Health Section",1898,1924,1,1,1924,9,1,"Australian",8
 6291,4958,"Francesco Paoloni",0,"Correspondent","Second Division","Information Section",NA,1927,11,1,1928,5,31,"Italian",6
 6292,4959,"Georges Papavranoussis",0,"Temporary Collaborator","First Division","Information Section",NA,1934,9,7,1934,9,28,"Greek",8
-6293,4960,"Anna Teresa Paradas",1,"Member of Section","First Division","Information Section",NA,1929,5,NA,1932,12,31,"Colombian",8
+6293,4960,"Anna Teresa Paradas",1,"Member of Section","First Division","Information Section",NA,1929,5,NA,1932,12,31,"",8
 6295,5283,"Dr. Erik Knaffl-Lenz",0,"Member of Section","First Division","Health Section",NA,1923,3,15,1923,9,15,"Austrian",8
 6297,4964,"G. Parthasarathi",0,"Temporary Collaborator","First Division","Information Section",NA,1935,9,5,1935,9,26,"Indian",8
 6298,4965,"Alex Paternotte",0,"Member of Section","First Division","Economic and Financial Section",NA,1920,11,9,1922,6,30,"",8
 6299,10405,"Germaine Stein-Laverniat",1,"Shorthand Typist","Second Division","Pool",1895,1920,12,1,1925,12,31,"Austrian",4
-6301,4968,"Adrianus Pelt",0,"Member of Section","First Division","Information Section",1982,1920,4,1,1940,12,31,"Dutch",8
+6301,4968,"Adrianus Pelt",0,"Member of Section","First Division","Information Section",NA,1920,4,1,1940,12,31,"Dutch",8
 6302,4969,"Pentcheff",0,"Temporary Collaborator","First Division","Information Section",NA,1926,11,10,1926,12,15,"Bulgarian",8
 6303,4970,"J. Perego",0,"Temporary Collaborator","First Division","Information Section",NA,1928,8,29,1928,9,12,"Italian",8
 6304,4971,"Prof. Fred Alexander",0,"Temporary Collaborator","First Division","Information Section",NA,1932,9,6,1932,9,24,"English",8
@@ -269,7 +269,7 @@
 6401,5041,"Pablo de Azcárate",0,"Member of Section","First Division","Administrative and Minorities Section",1890,1922,10,1,1930,2,1,"Spanish",8
 6402,5041,"Pablo de Azcárate",0,"Director","First Division","Administrative and Minorities Section",1890,1930,2,1,1933,7,1,"Spanish",9
 6403,5041,"Pablo de Azcárate",0,"Deputy Secretary General","First Division","Deputy Secretary-General's Office",1890,1933,7,1,1936,9,7,"Spanish",9
-6406,5042,"Oscar Uno Konrad Thorsing",0,"Member of Section","First Division","Information Section",1896,1924,10,1,1925,12,31,"Swedish",8
+6406,5042,"Oscar Uno Konrad Thorsing",0,"Member of Section","First Division","Information Section",1896,1925,10,1,1924,12,31,"Swedish",8
 6407,5043,"Jan Tinbergen",0,"Expert/Specialist","First Division","Financial Section & Economic Intelligence Service",1903,1936,9,1,1938,8,31,"Dutch",8
 6408,5044,"George Herbert Mair",0,"Assistant Head of Section","First Division","Information Section",1887,1919,8,16,1922,10,31,"English",6
 6409,5045,"Fritz Betz",0,"Member of Section","First Division","Economic and Financial Section",1901,1928,11,15,1939,7,31,"German",8
@@ -284,7 +284,7 @@
 6421,9729,"Adelaide Hannah King",1,"Shorthand Typist","Second Division","Pool",1898,1927,9,5,1927,9,27,"British",4
 6422,5059,"Manuel Aguirre de Cárcer",0,"Director","First Division","Administrative and Minorities Section",1882,1928,10,8,1930,1,31,"Spanish",9
 6423,5060,"Pierre Mamopoulos",0,"Temporary Collaborator","First Division","Information Section",1892,1935,9,5,1935,9,26,"Greek",8
-6424,5061,"Ross Tolmie",0,"Temporary Collaborator","First Division","Information Section",NA,1930,9,8,1930,9,29,"",8
+6424,5061,"Ross Tolmie",0,"Member of Section","First Division","Information Section",NA,1930,9,8,1930,9,29,"",8
 6427,5063,"Charles Blackman",0,"Member of Section","First Division","Disarmament Section",1890,1925,11,27,1928,11,26,"English",8
 6428,5064,"Laurence Chalmers Tombs",0,"Member of Section","First Division","Communications and Transit Section",1903,1930,2,15,1939,3,31,"Canadian",8
 6429,5068,"Mann",0,"Temporary Collaborator","First Division","Information Section",NA,1936,9,16,1936,10,14,"Australian",8
@@ -351,7 +351,7 @@
 6515,5119,"Karol Pindór",0,"Expert/Specialist","First Division","Social Questions and Opium Traffic Section",NA,1938,6,29,1940,6,28,"Polish",8
 6516,5120,"Peter Christian Schou",0,"Director","First Division","Minorities Section",1883,1936,7,2,1937,6,30,"Dane",9
 6518,5121,"Mitchell Benedict Carroll",0,"Expert/Specialist","First Division","Economic and Financial Section",1898,1930,8,29,1933,8,31,"US-American",8
-6519,5122,"Fernando Maria Castiella",0,"Temporary Collaborator","First Division","Information Section",NA,1930,9,8,1930,9,29,"Chilean",8
+6519,5122,"Fernando Maria Castiella",0,"Temporary Collaborator","First Division","Information Section",NA,1930,9,8,1930,9,29,"",8
 6520,5123,"Dr. Abel Romeo Castillo",0,"Temporary Collaborator","First Division","Information Section",NA,1931,8,31,1931,9,21,"Spanish",8
 6521,5124,"Virginia Castro e Almeida",1,"Temporary Collaborator","First Division","Information Section",1874,1926,4,19,1926,5,31,"",8
 6522,5124,"Virginia Castro e Almeida",1,"Temporary Collaborator","First Division","Information Section",1874,1926,9,27,1926,10,9,"",8
@@ -519,7 +519,7 @@
 6721,5258,"Abdu Aziz Puri",0,"Temporary Collaborator","First Division","Information Section",NA,1937,9,9,1937,9,23,"Indian",8
 6722,5259,"Renato Prunas",0,"Member of Section","First Division","Political Section",NA,1934,11,NA,1936,11,28,"Italian",8
 6723,5260,"Horet Kadereit",0,"Temporary Collaborator","First Division","Information Section",NA,1932,9,19,1932,10,10,"Danziger",8
-6724,5261,"Georges Silvain François Charles Kaeckenbeeck",0,"Member of Section","First Division","Legal Section",1892,1919,7,24,1922,5,24,"Belgian",8
+6724,5261,"Georges Silvain François Charles Kaeckenheeck",0,"Member of Section","First Division","Legal Section",1892,1919,7,24,1922,5,24,"",8
 6725,5262,"Dr. Henrik Kaestlin",0,"Temporary Collaborator","First Division","Information Section",NA,1937,9,9,1937,9,30,"Swiss",8
 6726,5263,"Dr. Nag Kalidas",0,"Temporary Collaborator","First Division","Information Section",NA,1930,9,8,1930,9,29,"Indian",8
 6727,5264,"H. V. Kaltenborn",0,"Temporary Collaborator","First Division","Information Section",NA,1933,8,18,1933,9,8,"German",8
@@ -608,10 +608,10 @@
 6821,5326,"E.A. Burton",0,"Temporary Collaborator","First Division","Information Section",NA,1928,11,30,1928,12,21,"New_Zealander",8
 6823,5328,"Ladislaus Buza",0,"Temporary Collaborator","First Division","Information Section",NA,1930,9,8,1930,9,29,"Hungarian",8
 6824,5329,"Miodrag Irrovak",0,"Temporary Collaborator","First Division","Information Section",NA,1933,7,10,1933,7,23,"Yugoslav",8
-6825,5330,"Morikatsu Inagaki",0,"Senior Assistant","First Division","Information Section",1894,1925,2,10,1925,4,10,"Japanese",6
-6826,5330,"Morikatsu Inagaki",0,"Member of Section","First Division","Under Secretaries-Generals' in charge of Political Section Office",1894,1930,10,1,1931,3,15,"Japanese",8
-6827,5330,"Morikatsu Inagaki",0,"Member of Section","First Division","Under Secretaries-Generals' in charge of Political Section Office",1894,1936,11,20,1937,5,24,"Japanese",8
-6828,5330,"Morikatsu Inagaki",0,"League of Nations staff","League of Nations staff","League of Nations",1894,1937,5,24,1937,6,19,"Japanese",8
+6825,5330,"Morikatsu Inagaki",0,"Senior Assistant","First Division","Information Section",1894,1925,2,10,1925,4,10,"",6
+6826,5330,"Morikatsu Inagaki",0,"Member of Section","First Division","Under Secretaries-Generals' in charge of Political Section Office",1894,1930,10,1,1931,3,15,"",8
+6827,5330,"Morikatsu Inagaki",0,"Member of Section","First Division","Under Secretaries-Generals' in charge of Political Section Office",1894,1936,11,20,1937,5,24,"",8
+6828,5330,"Morikatsu Inagaki",0,"League of Nations staff","League of Nations staff","League of Nations",1894,1937,5,24,1937,6,19,"",8
 6829,5331,"Robert Inch",0,"Temporary Collaborator","First Division","Information Section",NA,1935,11,9,1935,11,30,"",8
 6830,5332,"Dr. Otto Iserland",0,"Temporary Collaborator","First Division","Information Section",NA,1937,9,9,1937,9,30,"German",8
 6831,5333,"Pedro Guillermo Itriago",0,"Temporary Collaborator","First Division","Information Section",NA,1931,8,31,1931,9,21,"Venezuelan",8
@@ -637,7 +637,7 @@
 6857,5347,"William Martin",0,"Assistant Director","First Division","Information Section",NA,1919,10,26,1920,7,15,"Swiss",8
 6858,5348,"A. Martyn Finlay",0,"Temporary Collaborator","First Division","Information Section",NA,1938,9,9,1938,9,30,"British",8
 6859,5350,"C. E.  Mascarenyes ",0,"Temporary Collaborator","First Division","Information Section",NA,1937,9,9,1937,9,30,"Spanish",8
-6860,5351,"Hideo Masutani",0,"Member of Section","First Division","Economic and Financial Section",1901,1926,8,16,1927,5,25,"Japanese",8
+6860,5351,"Hideo Masutani",0,"Member of Section","First Division","Economic and Financial Section",1901,1926,8,16,1927,5,25,"",8
 6861,5352,"  Armi Inkeri Hallstein-Kallia",1,"Member of Section","First Division","Intellectual Cooperation and International Bureaux Section",1897,1926,6,15,1936,6,15,"Finish",8
 6862,5353,"Erik Andreas Colban",0,"Director","First Division","Administrative and Minorities Section",1876,1919,6,12,1927,12,17,"Norwegian",9
 6863,5353,"Erik Andreas Colban",0,"Director","First Division","Disarmament Section",1876,1927,12,17,1930,7,9,"Norwegian",9
@@ -731,7 +731,7 @@
 6979,5432,"Antoine Charles Pierre Denis",0,"Member of Section","First Division","Political Section",1883,1920,9,5,1921,9,NA,"French",8
 6980,5432,"Antoine Charles Pierre Denis",0,"Member of Section","First Division","Deputy Secretary-General's Office",1883,1921,9,NA,1926,12,31,"French",8
 6981,5432,"Antoine Charles Pierre Denis",0,"Expert/Specialist","First Division","Financial Section & Economic Intelligence Service",1883,1932,4,18,1932,10,8,"French",8
-6982,5433,"Paul Gilles Léon Deperon",0,"Member of Section","First Division","Financial Section & Economic Intelligence Service",1906,1931,9,1,1946,7,31,"Belgian",8
+6982,5433,"Paul Gilles Léon Deperon",0,"Member of Section","First Division","Financial Section & Economic Intelligence Service",1906,1931,9,1,1946,7,31,"",8
 6983,5434,"Eugène  Derobert",0,"Expert/Specialist","First Division","Economic Relations Section",1886,1930,2,6,1940,5,23,"Swiss",8
 6984,5435,"Aljos Derso",0,"Temporary Collaborator","First Division","Information Section",1888,1933,4,5,1933,6,5,"Hungarian",8
 6985,10945,"Doris Mary de Zouche",1,"Translator","First Division","Pool",1890,1926,7,19,1936,12,31,"British",7
@@ -847,7 +847,7 @@
 7108,5515,"Huntington Gilchrist",0,"Member of Section","First Division","Mandates Section",1891,1924,11,NA,1928,6,30,"US-American",8
 7109,5516,"Hossein Zandjani",0,"Temporary Collaborator","First Division","Information Section",NA,1938,9,13,1939,3,31,"Persian",8
 7110,5517,"Bela Zolnai",0,"Temporary Collaborator","First Division","Information Section",NA,1931,8,31,1931,9,21,"Hungarian",8
-7111,5518,"Tetsuro Furukaki",0,"Member of Section","First Division","Information Section",1900,1924,2,1,1929,4,27,"Japanese",8
+7111,5518,"Tetsuro Furukaki",0,"Member of Section","First Division","Information Section",1900,1924,2,1,1929,4,27,"",8
 7112,5519,"Gerhard Furst",0,"Member of Section","First Division","Financial Section & Economic Intelligence Service",1897,1930,4,12,1939,9,30,"German",8
 7113,5521,"Karel Frolik",0,"Member of Section","First Division","Economic and Financial Section",NA,1926,2,25,1926,8,31,"Czech",8
 7114,5523,"Maurice Frere",0,"Assistant","Second Division","League of Nations",NA,1931,2,1,1931,6,5,"",4
@@ -1672,9 +1672,9 @@
 11092,11848,"Captain Blennerhassett",0,"Interpreter","First Division","Pool",NA,1920,5,8,1920,7,20,"English",7
 11094,10262,"Catherine Simpson",1,"Shorthand Typist","Second Division","Pool",1903,1932,5,2,1932,12,31,"English",4
 11095,8931,"Catherine Turner Mcintyre",1,"Shorthand Typist","Second Division","Pool",1903,1934,10,15,1942,10,31,"English",4
-11096,9001,"Morikatsu Inagaki",0,"Assistant","Second Division","Information Section",1894,1925,2,10,1925,4,10,"Japanese",4
-11097,9001,"Morikatsu Inagaki",0,"Member of Section","First Division","Political Section",1894,1930,10,1,1931,3,15,"Japanese",8
-11098,9001,"Morikatsu Inagaki",0,"Member of Section","First Division","Political Section",1894,1936,11,20,1937,6,19,"Japanese",8
+11096,9001,"Mr. Morikatsu Imagaki",0,"Assistant","Second Division","Information Section",1894,1925,2,10,1925,4,10,"",4
+11097,9001,"Mr. Morikatsu Imagaki",0,"Member of Section","First Division","Political Section",1894,1930,10,1,1931,3,15,"",8
+11098,9001,"Mr. Morikatsu Imagaki",0,"Member of Section","First Division","Political Section",1894,1936,11,20,1937,6,19,"",8
 11111,9014,"Renée  Marti",1,"Driver","Third Division","Auxiliary Staff",1898,1946,3,18,1946,4,18,"Swiss",1
 11112,11638,"Ivy Ellen Castle",1,"Shorthand Typist","Second Division","Conference for the Codification of International Law",1905,1930,3,12,1930,4,12,"British",4
 11114,9015,"Esther Martin",1,"Messenger","Second Division","Duplicating & Multigraph Service",1911,1930,9,10,1930,10,5,"Swiss",3
@@ -6063,19 +6063,19 @@
 16735,11990,"Berthe Christin",1,"Messenger","Second Division","Duplicating & Multigraph Service",1906,1931,1,15,1931,2,1,"Swiss",3
 16736,11990,"Berthe Christin",1,"Messenger","Second Division","Duplicating & Multigraph Service",1906,1931,2,16,1931,3,31,"Swiss",3
 16737,11992,"Albert Chuit",0,"Messenger","Second Division","Auxiliary Staff",NA,1946,4,5,1946,4,13,"",3
-16738,5271,"Dr. Genzo Katoh",0,"Member of Section","First Division","Health Section",1886,1929,8,28,1934,8,27,"Japanese",8
+16738,5271,"Dr. Genzo Katoh",0,"Member of Section","First Division","Health Section",1886,1929,8,28,1934,8,27,"",8
 16739,11994,"Jacques Marie Marcel Cintrat",0,"Messenger","Second Division","Library",1912,1928,11,8,1928,12,1,"French",3
 16740,11994,"Jacques Marie Marcel Cintrat",0,"Messenger","Second Division","Library",1912,1929,7,8,1929,8,17,"French",3
 16741,11995,"Giorgio Ciraolo",0,"Senior Assistant","First Division","Communications and Transit Section",1904,1929,2,1,1932,2,29,"Italian",6
 16742,10758,"Hnsasante Zosso-Narguiledjian",1,"Shorthand Typist","Second Division","Publications Service",1896,1927,5,25,1927,11,24,"Swiss,Armenian",4
-16743,5569,"Dr. Hector Rulot",0,"Member of Section","First Division","Health Section",1877,1922,9,1,1924,12,31,"Belgian",8
+16743,5569,"Dr. Hector Rulot",0,"Member of Section","First Division","Health Section",NA,1922,9,1,1924,12,31,"",8
 16745,11997,"Dorothy Clark",1,"Copyist","Second Division","Duplicating & Multigraph Service",1910,1937,9,10,1937,10,2,"English",2
 16746,11998,"Kathleen Hattie Clark",1,"Copyist","Second Division","Duplicating & Multigraph Service",1907,1931,6,1,1934,10,20,"English",2
 16747,11998,"Kathleen Hattie Clark",1,"Duplicating Operator","Second Division","Duplicating & Multigraph Service",1907,1931,6,1,1934,10,20,"English",3
 16749,12000,"Henri Clavel",0,"Verbatim Reporter","Second Division","Information Section",1827,1922,9,18,1922,10,7,"French",4
-16750,5299,"Dr. Hiroshi Kusama",0,"Member of Section","First Division","Health Section",1891,1925,9,18,1929,8,27,"Japanese",8
-16752,5268,"Dr. Shoji Kanai",0,"Member of Section","First Division","Health Section",1886,1922,1,20,1923,1,20,"Japanese",8
-16753,5281,"Dr. Tôyôjirô Kitano",0,"Member of Section","First Division","Health Section",1883,1923,7,1,1924,6,30,"Japanese",8
+16750,5299,"Dr. Hiroshi Kusama",0,"Member of Section","First Division","Health Section",1891,1925,9,18,1929,8,27,"",8
+16752,5268,"Dr. Shoji Kanai",0,"Member of Section","First Division","Health Section",1886,1922,1,20,1923,1,20,"",8
+16753,5281,"Dr. Tôyôjirô Kitano",0,"Member of Section","First Division","Health Section",1883,1923,7,1,1924,6,30,"",8
 16754,12001,"Louis Emile Clement",0,"Verbatim Reporter","Second Division","Council",1877,1921,10,6,1921,10,21,"French",4
 16755,12001,"Louis Emile Clement",0,"Verbatim Reporter","Second Division","Council",1877,1922,8,29,1922,9,16,"French",4
 16756,12001,"Louis Emile Clement",0,"Verbatim Reporter","Second Division","Council",1877,1923,8,31,1923,9,29,"French",4
@@ -6423,12 +6423,12 @@
 20369,13399,"Marcelle Gal",1,"Duplicating Operator","Second Division","Duplicating & Multigraph Service",1905,1924,12,1,1924,12,24,"French",3
 20370,13400,"Marguerite Gagnaux",1,"Messenger","Second Division","Duplicating & Multigraph Service",1915,1930,9,8,1930,10,4,"Swiss",3
 20372,13402,"M. Gahlinger",1,"Sorter","Third Division","Duplicating & Multigraph Service",NA,1946,4,8,1946,4,18,"",4
-20373,5300,"Shiko Kusama",0,"Member of Section","First Division","Health Section",NA,1925,10,NA,1926,1,NA,"Japanese",8
+20373,5300,"Shiko Kusama",0,"Member of Section","First Division","Health Section",NA,1925,10,NA,1926,1,NA,"",8
 20374,13404,"Edmondo Guillermo Gagneux",0,"Temporary Collaborator","First Division","Information Section",NA,1928,1,12,1928,4,26,"Argentinian",8
 20376,11532,"Simone  Homsy",1,"Stenographer","Second Division","Pool",NA,1922,8,28,1922,9,30,"",4
 20379,13408,"Odette Gaillard",1,"Sorter","Third Division","Duplicating & Multigraph Service",1921,1937,9,13,1937,10,6,"Swiss",4
-20380,4717,"Stanislawa Adamowicz",1,"Member of Section","First Division","Health Section",1885,1921,1,12,1923,9,1,"Polish",8
-20381,4717,"Stanislawa Adamowicz",1,"Statistician","First Division","Health Section",1885,1923,9,1,1923,10,31,"Polish",7
+20380,4717,"Stanislawa Adamowicz",1,"Member of Section","First Division","Health Section",1885,1921,1,12,1923,9,1,"",8
+20381,4717,"Stanislawa Adamowicz",1,"Statistician","First Division","Health Section",1885,1923,9,1,1923,10,31,"",7
 20382,11162,"Suzanne Leber-Wyder",1,"Secretary Shorthand-Typist","Second Division","Pool",NA,1947,3,10,1947,3,31,"",4
 20384,10489,"Tisserand",1,"Copyist","Second Division","Pool",NA,1930,3,17,1930,3,17,"",2
 20385,13413,"Ruth Elizabeth Aylsworth",1,"Copyist","Second Division","Duplicating & Multigraph Service",1908,1936,1,21,1936,7,22,"US-American",2

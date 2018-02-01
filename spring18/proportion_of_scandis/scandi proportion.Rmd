@@ -39,7 +39,6 @@ result <- setDT(mdl_df)[
 Overview of nationalities. 344 contracts are missing nationalities
 ```{r}
 summary(da$nationality)
-
 ```
 there are 98 contracts from first division missing nationality. In my opinion none of the names looked very scandinavian beside a secretary called "Dagny Gran"
 ```{r}

@@ -35,7 +35,7 @@ da[indx,15] <- "Uruguayan"
 indx<- da$pname == "Yotaro Sugimura"
 da$nationality <- as.character(da$nationality)
 da[indx,15] <- "Japanese"
-da$nationality <- as.factor(da$nationality)
+
 
 indx <- da$pname == "Prof. Inazo NitobÃ©"
 da[indx,3] <- "Inazo Nitobe"
@@ -48,6 +48,96 @@ da[indx,8] <- 1862
 indx <- da$pname == "Hans Christian Berg"
 da[indx,15] <- "Norwegian"
 
+indx <- da$pname == "Francis Yeats-Brown"
+da[indx,12]  = 1927
+
+indx <- da$pname == "Oscar Uno Konrad Thorsing"
+da[indx,9]  = 1924
+da[indx,12]  = 1925
+
+indx <- da$pname == "Paul Gilles LÃ©on Deperon"
+da[indx,15]  = "Belgian"
+
+
+indx <- da$pname == "Hideo Masutani"
+da[indx,15]  = "Japanese"
+
+indx <- da$pname == "Yotaro Sugimura"
+da[indx,15]  = "Japanese"
+
+#Correcting spelling mistake (Kaechkenheeck -> h to b)
+indx <- da$pname == "Georges Silvain FranÃ§ois Charles Kaeckenheeck"
+da[indx,3]  = "Georges Silvain FranÃ§ois Charles Kaeckenbeeck"
+indx <- da$pname == "Georges Silvain FranÃ§ois Charles Kaeckenbeeck"
+da[indx,15]  = "Belgian"
+
+
+#aligning names of Morikatsu Inagaki
+indx <- da$pname == "Mr. Morikatsu Imagaki"
+da[indx,3]  = "Morikatsu Inagaki"
+
+indx <- da$pname == "Morikatsu Inagaki"
+da[indx,15]  = "Japanese"
+
+indx <- da$pname == "Dr. Tsune Ouchi"
+da[indx,15]  = "Japanese"
+
+indx <- da$pname == "Stanislawa Adamowicz"
+da[indx,15]  = "Polish"
+
+indx <- da$pname == "Dr. Shoji Kanai"
+da[indx,15]  = "Japanese"
+
+indx <- da$pname == "Dr. Genzo Katoh"
+da[indx,15]  = "Japanese"
+
+indx <- da$pname == "Dr. TÃ´yÃ´jirÃ´ Kitano"
+da[indx,15]  = "Japanese"
+
+indx <- da$pname == "Dr. Hiroshi Kusama"
+da[indx,15]  = "Japanese"
+
+indx <- da$pname == "Shiko Kusama"
+da[indx,15]  = "Japanese"
+
+indx <- da$pname == "Juan Antonio Buero"
+da[indx,15]  = "Uruguayan"
+
+
+indx <- da$pname == "Kinjiro Mori"
+da[indx,15]  = "Japanese"
+
+
+indx <- da$pname == "Tetsuro Furukaki"
+da[indx,15]  = "Japanese"
+
+
+indx <- da$pname == "Ross Tolmie"
+da$fname = as.character(da$fname)
+da[indx,5]  = "Temporary Collaborator"
+
+
+indx <- da$pname == "Dr. Hector Rulot"
+da[indx,15]  = "Belgian"
+da[indx,8]  = 1877
+
+
+indx <- da$pname == "Ida Spellman"
+da[indx,15]  = "Belgian"
+
+indx <- da$pname == "Anna Teresa Paradas"
+da[indx,15]  = "Colombian"
+
+indx <- da$pname == "Adrianus Pelt"
+da[indx,8]  = 1982
+  
+
+indx <- da$pname == "Fernando Maria Castiella"
+da[indx,15]  = "Chilean"
+
+
+
+da$nationality <- as.factor(da$nationality)
 
 ```
 
@@ -131,7 +221,15 @@ missing <- da %>%
 
 
 ```{r}
-#write.csv(subset, "lon_data_w_GA.csv", row.names = F)
-#write.csv(missing, "missing_begin_on_year.csv", row.names = F)
+write.csv(subset, "lon_data_w_GA.csv", row.names = F)
+write.csv(missing, "missing_begin_on_year.csv", row.names = F)
+
+```
+
+```{r}
+top_missing = 
+  missing %>% 
+  filter(str_detect(missing$fname, "Section") | str_detect(missing$fname, "Director") | str_detect(missing$fname, "Chief") | str_detect(missing$fname, "Expert"),
+         fname != "Secretary of Section")
 ```
 

@@ -14,7 +14,7 @@ Subsetting scandinavians with section, director, chief, expert in fname (excludi
 ```{r}
 da$end_date = as.Date(da$end_date)
 
-da$end_date = da$end_date - 1
+#da$end_date = da$end_date - 1
 
 top_scandi = da %>% 
   filter(nationality %in% c("Dane", "Swedish","Norwegian"),str_detect(da$fname, "Section") | str_detect(da$fname, "Director") | str_detect(da$fname, "Chief") | str_detect(da$fname, "Expert"), fname != "Secretary of Section")
@@ -142,7 +142,7 @@ correct_top <- top_people %>%
   filter(oname != "Treasury", oname != "Library") %>% 
   droplevels
 
-summary(correct_top$oname) 
+#summary(correct_top$oname) 
 
 ```
 

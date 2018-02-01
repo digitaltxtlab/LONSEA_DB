@@ -535,7 +535,7 @@
 5787,4552,"Louis Gustave Jean Marie de Brouckère",0,"League of Nations General Assembly Delegate","Representative","General Assembly: Sixth Ordinary Session of the Assembly",1870,NA,NA,NA,NA,NA,NA,"",NA
 5788,4552,"Louis Gustave Jean Marie de Brouckère",0,"League of Nations General Assembly Delegate","Representative","General Assembly: Seventh Ordinary Session of the Assembly",1870,NA,NA,NA,NA,NA,NA,"",NA
 5789,4552,"Louis Gustave Jean Marie de Brouckère",0,"League of Nations General Assembly Delegate","Representative","General Assembly: Eighth Ordinary Session of the Assembly",1870,NA,NA,NA,NA,NA,NA,"",NA
-5963,4717,"Stanislawa Adamowicz",1,"League of Nations General Assembly Delegate","Representative","General Assembly: Seventeenth Ordinary Session of the Assembly",1885,NA,NA,NA,NA,NA,NA,"",NA
+5963,4717,"Stanislawa Adamowicz",1,"League of Nations General Assembly Delegate","Representative","General Assembly: Seventeenth Ordinary Session of the Assembly",1885,NA,NA,NA,NA,NA,NA,"Polish",NA
 6101,4852,"Shigenori Togo",0,"League of Nations General Assembly Delegate","Representative","General Assembly: Eleventh Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"",NA
 6114,4860,"Dr. Jur. Thanassis (Athanase) Aghnides",0,"League of Nations General Assembly Delegate","Representative","General Assembly: Twentieth (Conclusion) and Twenty-first Ordinary Session of the Assembly",1889,NA,NA,NA,NA,NA,NA,"Greek",NA
 6124,4865,"Solon George Xenakis",0,"Member of Section","First Division","Economic and Financial Section",1884,1925,6,21,NA,NA,NA,"Greek",8
@@ -933,8 +933,8 @@
 11242,11579,"D. M.  Hunt",1,"Stenographer","Second Division","Pool",NA,NA,NA,NA,1921,NA,NA,"English",4
 11252,9105,"Paul Meisterlein",0,"Messenger","Second Division","Distribution of Documents",1910,932,11,21,1932,11,29,"Swiss",3
 11260,9112,"Mr. Warrar Irvin",0,"Temporary Correspondent","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"US-American",7
-11266,9116,"Georges Silvain François Charles Kaeckenbeeck",0,"Member of Section","First Division","Legal Section",1892,NA,NA,NA,NA,NA,NA,"",8
-11267,9116,"Georges Silvain François Charles Kaeckenbeeck",0,"League of Nations General Assembly Delegate","Representative","General Assembly: Twentieth (Conclusion) and Twenty-first Ordinary Session of the Assembly",1892,NA,NA,NA,NA,NA,NA,"",NA
+11266,9116,"Georges Silvain François Charles Kaeckenbeeck",0,"Member of Section","First Division","Legal Section",1892,NA,NA,NA,NA,NA,NA,"Belgian",8
+11267,9116,"Georges Silvain François Charles Kaeckenbeeck",0,"League of Nations General Assembly Delegate","Representative","General Assembly: Twentieth (Conclusion) and Twenty-first Ordinary Session of the Assembly",1892,NA,NA,NA,NA,NA,NA,"Belgian",NA
 11282,9127,"H. de Régny Irving",0,"Translator","First Division","Transit Conference at Barcelona",NA,1921,3,10,NA,NA,NA,"English",7
 11295,9141,"T. Meras",1,"Assistant Secretary","Second Division","Political Section",NA,1919,10,NA,NA,NA,NA,"French",4
 11299,9146,"Maud Dauphin",1,"Typist","Second Division","London Office",NA,1919,7,21,NA,NA,NA,"French",4
@@ -1237,7 +1237,7 @@
 13548,10303,"Doris Winifred  Southcombe",1,"Clerk","Second Division","Distribution of Documents",1896,1924,8,15,NA,NA,NA,"English",4
 13558,10308,"Raymond Soyer",0,"Clerk Messenger","Third Division","Distribution of Documents",1886,1925,8,31,NA,NA,NA,"French",2
 13563,10314,"Petrouella Johanna Spek",1,"Messenger","Second Division","Duplicating & Multigraph Service",1905,1930,3,13,NA,NA,NA,"Dutch",3
-13564,10315,"Ida Spellman",1,"Member of Section","First Division","Economic and Financial Section",NA,1919,9,8,NA,NA,NA,"",8
+13564,10315,"Ida Spellman",1,"Member of Section","First Division","Economic and Financial Section",NA,1919,9,8,NA,NA,NA,"Belgian",8
 13566,10317,"Catherine  Spetter née Kossmann",1,"Translator","First Division","Translation",1887,1921,7,16,NA,NA,NA,"Russian",7
 13568,8626,"Jeanne Fornero-Chappaz",1,"Shorthand Typist","Second Division","General Assemblies Staff",1894,1925,9,7,NA,NA,NA,"French",4
 13571,10321,"Cecile Spillmann",1,"Messenger","Second Division","Duplicating & Multigraph Service",1908,1926,3,8,NA,NA,NA,"Swiss",3
@@ -2020,7 +2020,7 @@
 16744,10962,"Hilda Blanchard née Goldspink",1,"Shorthand Typist","Second Division","Stenographic Services",1899,NA,NA,NA,NA,NA,NA,"Swiss,British",4
 16748,10962,"Hilda Blanchard née Goldspink",1,"Shorthand Typist","Second Division","Duplicating & Multigraph Service",1899,NA,NA,NA,NA,NA,NA,"Swiss,British",4
 16751,5506,"Dr. Hoops",0,"Deputy Director","First Division","Health Section",NA,NA,NA,NA,NA,NA,NA,"",9
-16757,4929,"Dr. Tsune Ouchi",0,"Deputy Director","First Division","Health Section",NA,NA,NA,NA,NA,NA,NA,"",9
+16757,4929,"Dr. Tsune Ouchi",0,"Deputy Director","First Division","Health Section",NA,NA,NA,NA,NA,NA,NA,"Japanese",9
 16758,9973,"Dufour",0,"Lon Duplicator","Second Division","General Assemblies Staff",NA,1920,11,10,NA,NA,NA,"",2
 16762,12004,"René André Clermont",0,"Clerk","Second Division","Distribution of Documents",1896,1896,6,12,1924,8,16,"French",4
 16764,12137,"Edmond Berlie",0,"Driver","Third Division","General Assemblies Staff",NA,1923,NA,NA,NA,NA,NA,"",1
