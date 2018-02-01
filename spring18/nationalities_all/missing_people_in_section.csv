@@ -1,0 +1,40 @@
+;id;pname;gender;fname;canonical_fname;oname;born_on_year;begin_on_year;begin_on_month;begin_on_day;end_on_year;end_on_month;end_on_day;nationality;entry_time;fname_code;begin_date;end_date
+23;4879;Sarah Wambaugh;1;Member of Section;First Division;Administrative and Minorities Section;NA;1920;7;20;1920;12;20;US-American;1920.583333;8;20-07-1920;20-12-1920
+41;4906;Harold Nicolson;0;Member of Section;First Division;Political Section;NA;1919;10;21;NA;NA;1;British;1919.833333;8;21-10-1919;NA
+60;4955;John Leslie Palmer;0;Member of Section;First Division;Précis-Writing Department;NA;1919;1;10;1936;NA;1;British;1919.083333;8;10-01-1919;NA
+61;4955;John Leslie Palmer;0;Member of Section;First Division;Social Questions and Opium Traffic Section;NA;1938;NA;1;1939;3;24;British;NA;8;NA;24-03-1939
+62;4955;John Leslie Palmer;0;Member of Section;First Division;Information Section;NA;1931;NA;1;NA;NA;1;British;NA;8;NA;NA
+64;5283;Dr. Erik Knaffl-Lenz;0;Member of Section;First Division;Health Section;NA;1923;3;15;1923;9;15;Austrian;1923.25;8;15-03-1923;15-09-1923
+69;4977;Prof. Felice Vinci;0;Member of Section;First Division;Economic and Financial Section;1888;1921;4;28;1921;9;12;Italian;1921.333333;8;28-04-1921;12-09-1921
+76;4993;Juan de las Barcenas;0;Member of Section;First Division;Financial Section & Economic Intelligence Service;1905;1931;7;1;1931;11;10;Spanish;1931.583333;8;01-07-1931;10-11-1931
+90;5013;Salvador Madariga;0;Member of Section;First Division;Information Section;1886;1921;8;22;NA;NA;1;Spanish;1921.666667;8;22-08-1921;NA
+91;5013;Salvador Madariga;0;Chief of Section;First Division;Disarmament Section;1886;1922;8;1;NA;NA;1;Spanish;1922.666667;9;01-08-1922;NA
+104;5042;Oscar Uno Konrad Thorsing;0;Member of Section;First Division;Information Section;1896;1925;10;1;1924;12;31;Swedish;1925.833333;8;01-10-1925;31-12-1924
+118;5105;William Stephen Sanders;0;Member of Section;First Division;Information Section;1871;1920;4;1;1920;7;14;British;1920.333333;8;01-04-1920;14-07-1920
+119;5106;André Sayous;0;Member of Section;First Division;Economic and Financial Section;NA;1920;4;24;1920;12;31;French;1920.333333;8;24-04-1920;31-12-1920
+128;5128;Eugéne  Catargi;0;Member of Section;First Division;Legal Section;1888;1922;2;1;1922;3;31;Romanian;1922.166667;8;01-02-1922;31-03-1922
+138;5165;Georges Paul Solyom;0;Member of Section;First Division;Legal Section;1898;1926;9;1;1926;9;30;Swiss;1926.75;8;01-09-1926;30-09-1926
+154;5221;Konstanty Symonolewicz;0;Member of Section;First Division;Information Section;NA;1937;9;9;1937;9;30;Polish;1937.75;8;09-09-1937;30-09-1937
+169;5257;Alexander Przychowsky;0;Member of Section;First Division;Economic and Financial Section;NA;1929;9;30;1929;10;19;German;1929.75;8;30-09-1929;19-10-1929
+171;5265;Viktorias Kamantanskas;0;Member of Section;First Division;Information Section;NA;1937;9;9;1937;9;30;Lithuanian;1937.75;8;09-09-1937;30-09-1937
+181;5291;Dr. Wolfgang Krauel;0;Member of Section;First Division;Under-Secretary-General's Office;1888;1932;2;1;1932;6;25;German;1932.166667;8;01-02-1932;25-06-1932
+217;5393;Âke  Hammarskjöld;0;Member of Section;First Division;Legal Section;1893;1920;3;19;1922;NA;1;Swedish;1920.25;8;19-03-1920;NA
+265;5521;Karel Frolik;0;Member of Section;First Division;Economic and Financial Section;NA;1926;2;25;1926;8;31;Czech;1926.166667;8;25-02-1926;31-08-1926
+278;5559;Johan Marie Frans Romein;0;Member of Section;First Division;Communications and Transit Section;NA;1920;10;12;1932;NA;1;Dutch;1920.833333;8;12-10-1920;NA
+295;9300;Evelyne Meylan;1;Member of Section;First Division;Distribution of Documents;NA;1921;NA;1;1921;2;22;Swiss;NA;8;NA;22-02-1921
+297;9860;F. Geraldine Delf;1;Member of Section;First Division;Pool;NA;1920;8;14;NA;NA;1;British;1920.666667;8;14-08-1920;NA
+304;9601;Thomas Paterson;0;Head of Section;First Division;Translation;1877;1937;10;7;NA;NA;1;British;1937.833333;9;07-10-1937;NA
+306;9850;Elisabeth Delannoy;1;Member of Section;First Division;Economic and Financial Section;1890;1931;7;6;NA;NA;1;French;1931.583333;8;06-07-1931;NA
+307;9930;Mehemed Djevad;0;Member of Section;First Division;Distribution of Documents;NA;1921;3;2;1921;4;20;Turkish;1921.25;8;02-03-1921;20-04-1921
+325;5072;Charles Anthony Woodward Manning;0;Member of Section;First Division;Health Section;1894;1929;3;22;1929;4;21;South_African;1929.25;8;22-03-1929;21-04-1929
+326;10919;Manual Juan Arocha;0;Member of Section;First Division;Disarmament Section;1892;1924;10;1;1925;NA;1;Venezuelan;1924.833333;8;01-10-1924;NA
+327;10919;Manual Juan Arocha;0;Member of Section;First Division;Political Section;1892;1925;NA;1;1936;4;18;Venezuelan;NA;8;NA;18-04-1936
+328;10922;Octave Auguste Arsandaux;0;Chief of Section;First Division;Stenographic Services;1866;1920;NA;1;1926;5;22;French;NA;9;NA;22-05-1926
+331;11008;Louis Emile Roux;0;Member of Section;First Division;Economic and Financial Section;1892;1927;1;31;1927;6;30;French;1927.083333;8;31-01-1927;30-06-1927
+333;11059;John Pawley Bate;0;Member of Section;First Division;Legal Section;NA;1919;NA;1;1919;NA;1;British;NA;8;NA;NA
+337;11136;Wilhelm von Bayer;0;Assistant Head of Section;First Division;Distribution of Documents;1891;1923;3;28;1923;6;28;Austrian;1923.25;6;28-03-1923;28-06-1923
+346;5461;Dr. Otto Eichel;0;Chief of Section;First Division;Health Section;NA;1924;3;6;1924;12;31;US-American;1924.25;9;06-03-1924;31-12-1924
+348;5295;Dr. I. Kuhn;0;Member of Section;First Division;Health Section;1887;1924;10;1;1924;12;31;Yugoslav;1924.833333;8;01-10-1924;31-12-1924
+350;12089;Henry Reginald Cummings;0;Member of Section;First Division;Information Section;1886;1920;1;10;1931;NA;1;British;1920.083333;8;10-01-1920;NA
+352;12238;Peter René Oscar Bally;0;Member of Section;First Division;Distribution of Documents;1895;1922;3;15;1922;8;15;Swiss;1922.25;8;15-03-1922;15-08-1922
+353;12238;Peter René Oscar Bally;0;Member of Section;First Division;Distribution of Documents;1895;1923;2;15;1923;7;31;Swiss;1923.166667;8;15-02-1923;31-07-1923

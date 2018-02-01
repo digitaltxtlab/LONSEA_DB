@@ -75,9 +75,26 @@ da[indx,15]  = "Belgian"
 #aligning names of Morikatsu Inagaki
 indx <- da$pname == "Mr. Morikatsu Imagaki"
 da[indx,3]  = "Morikatsu Inagaki"
-
 indx <- da$pname == "Morikatsu Inagaki"
 da[indx,15]  = "Japanese"
+#Removing assistant contract which isn't in original databse. See Torsten mail 1/02/2018
+#Two of his contracts are doubled, one coded as beloning it "political" section, the other to "Under Secretaries-Generals' in charge of Political Section Office". Only poltiical section is kept
+da = da %>%
+  filter(!(canonical_fname == "Second Division" & pname == "Morikatsu Inagaki"),
+         !(oname == "Under Secretaries-Generals' in charge of Political Section Office" & pname == "Morikatsu Inagaki"))
+#Four contracts remain, this is in agreement with the archieve. 
+
+
+
+#Louis Variez is removed. This is a duplicate with mispelled name of the contract of L. Varlez.
+
+da = da %>% 
+  filter(pname != "Louis Variez")
+
+
+indx <- da$pname == "FrÃ©dÃ©ric Blondeel"
+da[indx,15]  = "Belgian"
+
 
 indx <- da$pname == "Dr. Tsune Ouchi"
 da[indx,15]  = "Japanese"
@@ -130,14 +147,23 @@ da[indx,15]  = "Colombian"
 
 indx <- da$pname == "Adrianus Pelt"
 da[indx,8]  = 1982
-  
+
+#adding director in information section contract for Pelt
+c = c(000, 000, "Adrianus Pelt", 0, "Director", "First Division", "Information Section", 1982, 1934,1,1,1940,12,31,"Belgian")
+
+da = rbind(da, c)
+
+#Natioanlity set to belgian
+indx <- da$pname == "Adrianus Pelt"
+da[indx,15]  = "Belgian"
+
+
 
 indx <- da$pname == "Fernando Maria Castiella"
 da[indx,15]  = "Chilean"
 
 
 
-da$nationality <- as.factor(da$nationality)
 
 ```
 
@@ -170,6 +196,10 @@ da$nationality <- str_replace_all(da$nationality,",Swiss", "Swiss")
 da$nationality <- str_replace_all(da$nationality,"British,British", "British")
 da$nationality <- str_replace_all(da$nationality,"Italian,Italian", "Italian")
 da$nationality <- str_replace_all(da$nationality,"Austrian,Austrian", "Austrian")
+da$nationality <- str_replace_all(da$nationality,"Greek,Greek", "Greek")
+#Aligning British and English personnel
+da$nationality <- str_replace_all(da$nationality,"British", "English")
+
 
 
 da <- da %>% 
@@ -211,12 +241,13 @@ Filtering out based on missing data
 
 ```{r}
 subset <- da %>%
-  filter(begin_on_year > 1900 & end_on_year > 1915)
+  filter(begin_on_year > 1900 & end_on_year > 1915, begin_on_year < end_on_year)
 
 missing <- da %>%
-  filter(begin_on_year < 1900 | is.na(begin_on_year) | is.na(end_on_year) | end_on_year < 1915)
+  filter(begin_on_year < 1900 | is.na(begin_on_year) | is.na(end_on_year) | end_on_year < 1915 |begin_on_year > end_on_year)
 
 
+summary(subset$nationality)
 ```
 
 
@@ -231,5 +262,17 @@ top_missing =
   missing %>% 
   filter(str_detect(missing$fname, "Section") | str_detect(missing$fname, "Director") | str_detect(missing$fname, "Chief") | str_detect(missing$fname, "Expert"),
          fname != "Secretary of Section")
+
+missing_higher_officials <- missing %>% 
+  filter(str_detect(missing$fname, "Section")| #including "Section"
+         str_detect(missing$fname, "Director")| #Including Directors
+         str_detect(missing$fname, "Chief") | #Including Chief
+         str_detect(missing$fname, "Expert")|
+         str_detect(missing$fname, "Head"), #Including Expert
+         fname != "Secretary of Section",
+         canonical_fname != "Second Division",
+         canonical_fname != "Third Division") #Excluding Secretary
+
+write.csv(missing, "missing_higher_officials.csv", row.names = F)
 ```
 

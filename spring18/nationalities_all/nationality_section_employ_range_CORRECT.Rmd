@@ -1,0 +1,137 @@
+---
+title: "R section nationality analysis"
+author: "Adam Finnemann"
+date: "Jan 30, 2017"
+---
+  
+#Assumptions:
+All british and English people are united under the name of "British".
+All months and days are set to 01, thus a person needs to be in the Secretariat for at least 1 day in a year to be counted in. 
+Higher officials are defined as, members of section, directors, chiefs, experts, heads. Only "heads of" are included, this exlcudes head driver and head cleaner.
+Contracts with unknown nationality are excluded.
+```{r setup}
+
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/spring18/proportion_of_scandis")
+
+da <- read.csv("contract_length_w_begin_year.csv")
+
+higher_officials <- da %>% 
+  filter(str_detect(da$fname, "Section")| #including "Section"
+         str_detect(da$fname, "Director")| #Including Directors
+         str_detect(da$fname, "Chief") | #Including Chief
+         str_detect(da$fname, "Expert")|
+         str_detect(da$fname, "Head of"), #Including Expert
+         fname != "Secretary of Section") %>% 
+  #filter(canonical_fname != "First Division" & str_detect(da$fname, "Head") %>% 
+  droplevels()
+
+higher_officials <- higher_officials %>% 
+  filter(nationality != "") %>% 
+  mutate(nationality = recode(nationality, "English" = "British"))
+
+unknown = da %>% 
+  filter(nationality == "")
+```
+
+
+An overview of the fnames found among higher officials. Acting directors are included. There is a Chief Librarian in there?
+```{r}
+summary(higher_officials$fname)
+```
+
+
+
+forming nationality/employment data frame
+```{r}
+
+
+mdl_df <- higher_officials %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = "1 year")), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+result_nats <- left_join(result, select(higher_officials, pname, nationality)) %>% 
+  filter(!duplicated(.))
+
+result_nats_wo_pname <- result_nats[,-1]
+ 
+
+
+nation_workers <- result_nats_wo_pname %>% 
+  group_by(nationality) %>% 
+  summarise_all(function(x) sum(x != ""))
+
+long_df <- gather(nation_workers, key, value, `1919-01-01`:`1947-01-01`) %>% 
+  mutate(key = as.Date(key)) 
+  
+
+
+
+
+#function for plotting
+
+plot_section_workers <- function(df, minimum_worker = 5){
+df %>% 
+  filter(value > minimum_worker) %>% 
+  ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+  geom_col() +
+  scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+  labs(x = "Year", y ="Workers", titles = paste("Nations with", minimum_worker,"+ Workers in Section"))
+}
+
+
+```
+
+
+
+
+```{r}
+plot_section_workers(long_df, 15)
+
+```
+
+```{r}
+plot_section_workers(long_df, 10)
+
+```
+
+```{r}
+plot_section_workers(long_df, 7)
+
+```
+
+```{r}
+plot_section_workers(long_df, 6)
+
+```
+```{r}
+plot_section_workers(long_df, 5)
+
+```
+
+```{r}
+plot_section_workers(long_df, 4)
+
+```
+```{r}
+plot_section_workers(long_df, 3)
+```
+```{r}
+plot_section_workers(long_df, 2)
+
+```
+
+```{r}
+plot_section_workers(long_df, 1)
+                     
+
+```
+
