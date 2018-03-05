@@ -97,6 +97,26 @@ df %>%
 plot_section_workers(long_df, 15)
 
 ```
+```{r}
+plot_section_workers(long_df, 14)
+
+```
+
+```{r}
+plot_section_workers(long_df, 13)
+
+```
+
+```{r}
+plot_section_workers(long_df, 12)
+
+```
+
+```{r}
+plot_section_workers(long_df, 11)
+
+```
+
 
 ```{r}
 plot_section_workers(long_df, 10)
@@ -134,4 +154,11 @@ plot_section_workers(long_df, 1)
                      
 
 ```
+
+
+```{r}
+plot_section_workers(long_df, 0)
+
+```
+
 

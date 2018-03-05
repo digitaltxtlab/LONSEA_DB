@@ -163,6 +163,22 @@ indx <- da$pname == "Fernando Maria Castiella"
 da[indx,15]  = "Chilean"
 
 
+#41) William Rappard
+#has no birth year: it is 1883 (source his personnel file)
+
+indx <- da$pname == "Prof. William E. Rappard"
+da[indx,8]  = 1883
+
+
+#42) Walter Layton
+#has no birth year: it is 1884 (source his personnel file)
+#has no first name: Walter 
+
+indx <- da$pname == "W. Layton"
+da[indx,8]  = 1884
+
+
+
 
 
 ```

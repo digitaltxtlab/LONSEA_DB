@@ -1,0 +1,168 @@
+```{r setup}
+
+library(pacman)
+p_load("strmingr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table", "ggthemes")
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/spring18/proportion_of_scandis")
+
+da <- read.csv(list.files(pattern = "contract_"))
+```
+
+
+Subsetting scandinavians with section, director, chief, expert in fname (excluding sectretary of sections).
+
+```{r}
+da$end_date = as.Date(da$end_date)
+
+#da$end_date = da$end_date - 1
+
+
+direc = da %>% 
+  filter(str_detect(da$fname, "Director") | pname == "Dame Rachel Eleanor Crowdy") %>%  
+  filter(pname != "L. Varlez" & fname != "Member of Section") %>%  #removing Varlez and Dame Crowdy's "member of section contract"
+  droplevels()
+
+
+direc$pname
+```
+Above is the list of director contracts included. There are 32 different people, and some with multiple contracts
+
+overview of people with multiple contracts.
+```{r}
+direc[duplicated(direc$pname),]
+```
+
+
+
+```{r}
+
+mdl_df <- direc %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = "1 year")), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+```
+
+Checking if all directors are still in the analysis
+```{r}
+nlevels(direc$pname)
+
+```
+they are
+
+
+```{r}
+result_nats <- left_join(result, select(direc, pname, nationality)) %>% 
+  filter(!duplicated(.))
+```
+
+#Nationality of directors over time
+
+```{r}
+result_nats_wo_pname <- result_nats[,-1]
+ 
+
+nation_workers <- result_nats_wo_pname %>% 
+  group_by(nationality) %>% 
+  summarise_all(function(x) sum(x != ""))
+
+long_df <- gather(nation_workers, key, value, `1919-01-01`:`1947-01-01`) %>% 
+  mutate(key = as.Date(key)) 
+  
+
+
+#function for plotting
+
+plot_section_workers <- function(df, minimum_worker = 5){
+df %>% 
+  filter(value > minimum_worker) %>% 
+  ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+  geom_col() +
+  scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+  labs(x = "Year", y ="Workers", titles = paste("Nations with more than", minimum_worker,"directors in Section"))
+}
+
+
+
+plot_section_workers(long_df, 2)
+
+```
+
+```{r}
+plot_section_workers(long_df, 1)
+
+```
+
+```{r}
+plot_section_workers(long_df, 0)
+
+```
+
+
+# Directors per section over time.
+
+
+```{r}
+
+result_oname <- left_join(result, select(direc, pname, oname)) %>% 
+  filter(!duplicated(.))
+
+result_oname_wo_pname <- result_oname[,-1]
+ 
+
+oname_workers <- result_oname_wo_pname %>% 
+  group_by(oname) %>% 
+  summarise_all(function(x) sum(x != ""))
+
+oname_df <- gather(oname_workers, key, value, `1919-01-01`:`1947-01-01`) %>% 
+  mutate(key = as.Date(key)) 
+  
+
+
+#function for plotting
+
+plot_section_workers <- function(df, minimum_worker = 5){
+df %>% 
+  filter(value > minimum_worker) %>% 
+  ggplot(aes(x = key, y = value, fill = oname, color = oname)) +
+  geom_col() +
+  scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+  labs(x = "Year", y ="Workers", titles = paste("Sections with more than", minimum_worker,"directors"))+
+  scale_y_continuous(breaks =  1:8)
+}
+
+
+
+plot_section_workers(oname_df, 2)
+
+```
+
+```{r}
+plot_section_workers(oname_df, 1)
+```
+
+
+```{r}
+plot_section_workers(oname_df, 0)
+```
+Plot without legend
+
+```{r}
+plot_section_workers <- function(df, minimum_worker = 5){
+df %>% 
+  filter(value > minimum_worker) %>% 
+  ggplot(aes(x = key, y = value, fill = oname, color = oname)) +
+  geom_col() +
+  scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+  labs(x = "Year", y ="Workers", titles = paste("Sections with more than", minimum_worker,"directors"))+
+  scale_y_continuous(breaks =  1:8) +
+  theme(legend.position="none")
+}
+
+plot_section_workers(oname_df, 0)
+```
+
