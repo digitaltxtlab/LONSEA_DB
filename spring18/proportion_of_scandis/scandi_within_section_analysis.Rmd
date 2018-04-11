@@ -8,8 +8,12 @@ setwd("~/Historie projekt/historie project/LONSEA_DB/spring18/proportion_of_scan
 da <- read.csv(list.files(pattern = "contract_"))
 ```
 
+1) First, I would like to make new collection of people, with which we will do some calculations: This collection should have all people, who have been 
+- “director” in fname 
+-  plus Dame Rachel Crowdy (who has been only chief, but actually was a director) 
+- and without Louis Varlez, who moves to the ILO and is not really part of the LoN Secretariat
 
-Subsetting scandinavians with section, director, chief, expert in fname (excluding sectretary of sections).
+- Attolico and Colban are the only ones, who had more than one director position
 
 ```{r}
 da$end_date = as.Date(da$end_date)
@@ -82,7 +86,7 @@ df = matrix(NA,nrow = nlevels(oname_correct$oname) * ncol(scandi),ncol =3)
 count = 1
 for (n in 1:ncol(scandi)){
   for (level in levels(oname_correct$oname)) {
-    level_sum = sum(scandi[,n,with = F] == level)
+    level_sum = str_count(scandi[,n, with = F],level)
     df[count,] = c(colnames(scandi)[n], level_sum, level)
     count = count + 1
     
@@ -163,12 +167,15 @@ top_df = matrix(NA,nrow = nlevels(oname_correct$oname) * ncol(top),ncol =3)
 count = 1
 for (n in 1:ncol(top)){
   for (level in levels(oname_correct$oname)) {
-    level_sum = sum(top[,n,with = F] == level)
+    level_sum = str_count(top[,n, with = F],level)
+    
     top_df[count,] = c(colnames(top)[n], level_sum, level)
     count = count + 1
-    
+  
   }
 }
+
+
 
 top_df = as.data.frame(top_df)
 names(top_df) = c("year","count","section")
@@ -247,8 +254,6 @@ Adding higher resolution.
 Date breaks of 1 year
 
 ```{r}
-
-
 
 
 

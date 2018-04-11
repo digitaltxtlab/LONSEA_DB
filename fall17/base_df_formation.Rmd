@@ -178,7 +178,16 @@ indx <- da$pname == "W. Layton"
 da[indx,8]  = 1884
 
 
+#Changing Peter Martin Anker's section contract from Department I to Mandates Section
+indx <- da$pname == "Peter Martin Anker"
+da[indx,7]  = "Mandates Section"
 
+
+
+#changing folke hillgerdt to member of section
+
+indx <- da$pname == "Folke Hillgerdt"
+da[indx,5]  = "Member of Section"
 
 
 ```
@@ -215,6 +224,7 @@ da$nationality <- str_replace_all(da$nationality,"Austrian,Austrian", "Austrian"
 da$nationality <- str_replace_all(da$nationality,"Greek,Greek", "Greek")
 #Aligning British and English personnel
 da$nationality <- str_replace_all(da$nationality,"British", "English")
+da$nationality <- str_replace_all(da$nationality,"Dane,Dane", "Dane")
 
 
 
@@ -257,7 +267,7 @@ Filtering out based on missing data
 
 ```{r}
 subset <- da %>%
-  filter(begin_on_year > 1900 & end_on_year > 1915, begin_on_year < end_on_year)
+  filter(begin_on_year > 1900 & end_on_year > 1915, begin_on_year <= end_on_year)
 
 missing <- da %>%
   filter(begin_on_year < 1900 | is.na(begin_on_year) | is.na(end_on_year) | end_on_year < 1915 |begin_on_year > end_on_year)

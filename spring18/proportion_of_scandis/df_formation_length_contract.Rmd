@@ -27,7 +27,7 @@ da <- da %>%
 
 ```{r}
 setwd("~/Historie projekt/historie project/LONSEA_DB/spring18/proportion_of_scandis")
-#write.csv(da, "contract_length_w_begin_year.csv")
+write.csv(da, "contract_length_w_begin_year.csv")
 ```
 
 
