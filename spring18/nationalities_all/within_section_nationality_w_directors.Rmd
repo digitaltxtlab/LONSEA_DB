@@ -284,8 +284,9 @@ long_df <- gather(nation_workers, key, value, colnames(result_nats)[2]:tail(coln
 long_df %>% 
   filter(value > minimum_worker) %>% 
   ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
-  geom_point() +
-  geom_line()+
+  #geom_point() +
+  #geom_line()+
+  geom_col()+
   scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(0,max_y),breaks = seq(0,max_y,2))  +
   labs(x = x_axis, y =y_axis, titles = paste("Nationalities of the", title1)) -> plot
@@ -331,7 +332,10 @@ employment2(plot, title1 = levels(large_section_worker$oname)[10], max_y = 8)
 ```{r}
 employment3 <- function(df, interval = "1 year", y_axis = "# of higher officials", x_axis = "Year", title1 = "LoN Workers", minimum_worker = 0, max_y = 50) {
   
+  
+#mdl df without directors and chiefs of sections
 mdl_df <- df %>% 
+  filter(fname != "Director" & fname != "Chief of Section") %>% 
   select(pname, fname_code,begin_date, end_date) %>% 
   mutate(begin_date = as.Date(begin_date),
          end_date = as.Date(end_date))
@@ -360,11 +364,14 @@ long_df <- gather(nation_workers, key, value, colnames(result_nats)[2]:tail(coln
          group = "all")
 
 #repeating for directors only
-mdl_df2 <- df %>% 
-  filter(fname == "Director") %>% 
+
+#mdl df of directors + section
+  mdl_df2 <- df %>% 
+  filter(fname == "Director" | fname == "Chief of Section") %>% 
   select(pname, fname_code,begin_date, end_date) %>% 
   mutate(begin_date = as.Date(begin_date),
          end_date = as.Date(end_date))
+
 if(nrow(mdl_df2) == 0){
   print("no directors")}
 
@@ -392,14 +399,28 @@ long_df2 <- gather(nation_workers2, key, value, colnames(result_nats2)[2]:tail(c
 
 long_df3 = rbind(long_df2,long_df)
 
+#long_df3 %>% 
+#  filter(value > minimum_worker) %>% 
+#  ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+#  geom_col() +
+#  scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+#  scale_y_continuous(limits = c(0,max_y),breaks = seq(0,max_y,2))  +
+#  labs(x = x_axis, y =y_axis, titles = paste("Nationalities of the", title1))+
+#  facet_grid(group~.)-> plot
+
 long_df3 %>% 
   filter(value > minimum_worker) %>% 
-  ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
-  geom_col() +
+  mutate(group = as.factor(group))-> plotdf
+
+plotdf %>%   
+ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+  facet_grid(group~.)+
+  geom_col(data = filter(plotdf, group == "all")) +
+  geom_line(data = filter(plotdf, group == "directors")) +
   scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
   scale_y_continuous(limits = c(0,max_y),breaks = seq(0,max_y,2))  +
-  labs(x = x_axis, y =y_axis, titles = paste("Nationalities of the", title1))+
-  facet_grid(group~.)-> plot
+  labs(x = x_axis, y =y_axis, titles = paste("Nationalities of the", title1))-> plot
+
 
 return(plot)
 }
@@ -473,3 +494,125 @@ employment3(plot, title1 = levels(large_section_worker$oname)[11], max_y = 15)
 #employment3(plot, title1 = levels(large_section_worker$oname)[12], max_y = 15)
 ```
 no directors
+```{r}
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[13])
+
+employment3(plot, title1 = levels(large_section_worker$oname)[13], max_y = 15)
+```
+
+
+
+
+
+```{r}
+employment4 <- function(df, interval = "1 year", y_axis = "# of higher officials", x_axis = "Year", title1 = "LoN Workers", minimum_worker = 0, max_y = 50) {
+  
+  
+#mdl df without directors and chiefs of sections
+mdl_df <- df %>% 
+  filter(fname != "Director" & fname != "Chief of Section") %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+
+result_nats <- left_join(result, select(df, pname, nationality)) %>% 
+  filter(!duplicated(.))
+
+result_nats_wo_pname <- result_nats[,-1]
+ 
+
+
+nation_workers <- result_nats_wo_pname %>% 
+  group_by(nationality) %>% 
+  summarise_all(function(x) sum(x != ""))
+
+long_df <- gather(nation_workers, key, value, colnames(result_nats)[2]:tail(colnames(result_nats),2)[1]) %>% 
+  mutate(key = as.Date(key),
+         group = "all")
+
+#repeating for directors only
+
+#mdl df of directors + section
+  mdl_df2 <- df %>% 
+  filter(fname == "Director" | fname == "Chief of Section") %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+if(nrow(mdl_df2) == 0){
+  print("no directors")}
+
+
+result2 <- setDT(mdl_df2)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+
+result_nats2 <- left_join(result2, select(df, pname, nationality)) %>% 
+  filter(!duplicated(.))
+
+result_nats_wo_pname2 <- result_nats2[,-1]
+ 
+
+
+nation_workers2 <- result_nats_wo_pname2 %>% 
+  group_by(nationality) %>% 
+  summarise_all(function(x) sum(x != ""))
+
+long_df2 <- gather(nation_workers2, key, value, colnames(result_nats2)[2]:tail(colnames(result_nats2),2)[1]) %>%
+  mutate(key = as.Date(key),
+         group = "directors")  
+
+long_df3 = rbind(long_df2,long_df)
+
+long_df3 %>% 
+  filter(value > minimum_worker) %>% 
+  ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+  geom_col() +
+  scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+  scale_y_continuous(limits = c(0,max_y),breaks = seq(0,max_y,2))  +
+  labs(x = x_axis, y =y_axis, titles = paste("Nationalities of the", title1))+
+  facet_grid(group~., scales = "free_y")-> plot
+
+#long_df3 %>% 
+#  filter(value > minimum_worker) %>% 
+#  mutate(group = as.factor(group))-> plotdf
+
+#plotdf %>%   
+#ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+#  facet_grid(group~.)+
+#  geom_col(data = filter(plotdf, group == "all")) +
+#  geom_line(data = filter(plotdf, group == "directors")) +
+#  scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+#  scale_y_continuous(limits = c(0,max_y),breaks = seq(0,max_y,2))  +
+#  labs(x = x_axis, y =y_axis, titles = paste("Nationalities of the", title1))-> plot
+
+
+return(plot)
+}
+
+```
+
+
+
+```{r}
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[10])
+
+employment3(plot, title1 = levels(large_section_worker$oname)[10], max_y = 12)
+```
+
+
+```{r}
+
+employment4(plot, title1 = levels(large_section_worker$oname)[10], max_y = 12)
+```
+
