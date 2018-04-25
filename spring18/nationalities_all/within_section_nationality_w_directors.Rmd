@@ -24,6 +24,7 @@ higher_officials2 <- da %>%
          fname != "Secretary of Section",
          oname != "Treasury",
          oname != "Library",
+         oname != "Labour Section",
          canonical_fname != "Second Division") %>% 
   #filter(canonical_fname != "First Division" & str_detect(da$fname, "Head") %>% 
   droplevels()
@@ -52,7 +53,7 @@ oname_correct <- higher_officials %>%
 
 
 
-summary(oname_correct$oname)
+#summary(oname_correct$oname)
 ```
 
 
@@ -73,7 +74,7 @@ large_section_worker <- oname_correct %>%
   filter(oname %in% large_section$oname) %>% 
   droplevels(large_section$oname)
 
-summary(large_section_worker$oname)
+#summary(large_section_worker$oname)
 
 ```
 
@@ -223,7 +224,6 @@ return(plot)
 Plot function special for minorities section which is used in article
 
 ```{r}
-
 employment <- function(df, interval = "1 year", y_axis = "# of higher officials", x_axis = "Year", title1 = "LoN Workers", minimum_worker = 0, colors ) {
   
 mdl_df <- df %>% 
@@ -250,6 +250,24 @@ nation_workers <- result_nats_wo_pname %>%
   group_by(nationality) %>% 
   summarise_all(function(x) sum(x != ""))
 
+# nation_workers_wo = nation_workers[,2:30]
+# 
+# nation_workers_wo %>% 
+#   summarise_all(function(x) sum(x)) -> workers_per_year
+# 
+# n2 = nation_workers
+# 
+# for (col in 2:30){
+#   for (row in 1:49){
+#   
+#   n2[row,col] = nation_workers[row,col] / workers_per_year[col-1]
+#   }
+# }
+# 
+# 
+
+
+
 long_df <- gather(nation_workers, key, value, colnames(result_nats)[2]:tail(colnames(result_nats),2)[1]) %>% 
   mutate(key = as.Date(key))  
 
@@ -262,7 +280,74 @@ long_df %>%
   labs(x = x_axis, y =y_axis, titles = title1) +
   theme(legend.title=element_blank())+
   theme(plot.title = element_text(size=11)) + #remove for certain plots
-  scale_fill_manual(values= colors)+
+  scale_fill_manual(values= colors) +
+  scale_color_manual(values=colors) -> plot
+
+
+return(plot)
+}
+```
+
+
+```{r}
+
+employment_constant <- function(df, interval = "1 year", y_axis = "# of higher officials", x_axis = "Year", title1 = "LoN Workers", minimum_worker = 0, colors ) {
+  
+mdl_df <- df %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+
+result_nats <- left_join(result, select(df, pname, nationality)) %>% 
+  filter(!duplicated(.))
+
+result_nats_wo_pname <- result_nats[,-1]
+ 
+
+
+nation_workers <- result_nats_wo_pname %>% 
+  group_by(nationality) %>% 
+  summarise_all(function(x) sum(x != ""))
+
+nation_workers_wo = nation_workers[,2:length(nation_workers)]
+
+nation_workers_wo %>% 
+  summarise_all(function(x) sum(x)) -> workers_per_year
+
+n2 = nation_workers
+
+for (col in 2:ncol(n2)){
+  for (row in 1:nrow(n2)){
+  
+  n2[row,col] = nation_workers[row,col] / workers_per_year[col-1]
+  }
+}
+
+
+
+
+
+long_df <- gather(n2, key, value, colnames(result_nats)[2]:tail(colnames(result_nats),2)[1]) %>% 
+  mutate(key = as.Date(key))  
+
+long_df %>% 
+  filter(value > minimum_worker) %>% 
+  ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+  geom_col() +
+  scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+  scale_y_continuous(breaks = seq(0,50,2)) +
+  labs(x = x_axis, y =y_axis, titles = title1) +
+  theme(legend.title=element_blank())+
+  theme(plot.title = element_text(size=11)) + #remove for certain plots
+  scale_fill_manual(values= colors) +
   scale_color_manual(values=colors) -> plot
 
 
@@ -270,38 +355,48 @@ return(plot)
 }
 
 
+#colors = c("dark blue","tomato1","green","bisque","purple","yellow","dark red","light ##blue","orange","black","turquoise","darkmagenta","brown","indianred2","steelblue","yellowgreen")
+
+colors = c("#7f3b08",
+"#b35806",
+"#e08214",
+"#fdb863",
+"#fee0b6",
+"#949494",
+"#5e77c4",
+"#b2abd2",
+"#8073ac",
+"#542788",
+"#2d004b",
+"#81179c",
+"#d3326c",
+"#f61c44",
+"#d85431",
+"#fb6a4a",
+"#ef3b2c",
+"#cb181d",
+"#a50f15",
+"#67000d")
+
 plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[11])
 
-#colors = c("dark blue","tomato1","green","bisque","purple","yellow","dark red","light #blue","orange","black","turquoise","darkmagenta","brown","indianred2","steelblue","yellowgreen")
-
-colors = c("#ffd700",
-"#ffb14e",
-"#fa8775",
-"#ea5f94",
-"#cd34b5",
-"#9d02d7",
-"#0000ff",
-"#30ff00",
-"#003610",
-"#00ffd4",
-"#348c75",
-"#cd2f2f",
-"#531010",
-"#a6be0a",
-"#38013a",
-"#000000")
 
 
-employment(plot, title1 = "Members of Section and Directors of all nationalities in the Political Section", colors = colors)
+employment_constant(plot, title1 = "Members of Section and Directors of all nationalities in the Political Section", colors = colors)
+
 
 ```
 
+
+```{r}
+employment(plot, title1 = "Members of Section and Directors of all nationalities in the Political Section", colors = colors)
+```
 
 
 ```{r}
 plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[10])
 
-colors = c("dark blue","tomato1","bisque","green","purple","yellow","dark red","orange","light blue","black","turquoise","darkmagenta","indianred2","brown","steelblue","yellowgreen")
+#colors = c("dark blue","tomato1","bisque","green","purple","yellow","dark red","orange","light #blue","black","turquoise","darkmagenta","indianred2","brown","steelblue","yellowgreen", "black")
 
 
 employment(plot, colors = colors, title1 = "Members of Section and Directors of all nationalities in the Minorities Section")

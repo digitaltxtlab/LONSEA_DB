@@ -190,6 +190,56 @@ indx <- da$pname == "Folke Hillgerdt"
 da[indx,5]  = "Member of Section"
 
 
+
+#23 nationalities add
+indx = da$pname == "Chikao/Chikas Fujisawa"
+da[indx,15]  = "Japanese"	
+
+indx = da$pname == "Prof. Louis Tardy"
+da[indx,15]  = "French"	
+
+indx = da$pname == "Setsuichi Aoki"
+da[indx,15]  = "Japanese"	
+
+indx = da$pname == "Marcel Guillaume Jacques Wiser"
+da[indx,15]  = "Belgian"	
+
+indx = da$pname =="Joseph Hippolyte Marie Ghislain Nisot"	
+da[indx,15]  = "Belgian"	
+
+indx = da$pname =="Philip John Noel-Baker"	
+da[indx,15]  = "British"	
+
+
+indx = da$pname =="Alex Paternotte"
+da[indx,15]  = "Belgian"	
+
+indx = da$pname =="Kaneo Tsuchida"
+da[indx,15]  = "Japanese"	
+
+indx = da$pname =="Angel Maria Cespedes"	
+da[indx,15]  = "Colombia"	
+
+indx = da$pname =="Nokhem/Nahim Sloutzki"	
+da[indx,15]  = "Stateless"	
+
+indx = da$pname =="Charles EugÃ¨ne AloÃ¯s Marie Smets"	
+da[indx,15]  = "Belgian"	
+
+
+indx = da$pname =="AndrÃ©e Marie Colin"	
+da[indx,15]  = "Belgian"	
+
+indx = da$pname =="Ian Fleming"	
+da[indx,15]  = "British"	
+
+indx = da$pname =="L. Varlez"	
+da[indx,15]  = "Belgian"	
+
+indx = da$pname =="Edouard Bigwood"	
+da[indx,15]  = "Belgian"	
+
+
 ```
 
 
