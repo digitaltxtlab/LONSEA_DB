@@ -1,0 +1,69 @@
+
+
+```{r}
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/spring18/proportion_of_scandis")
+
+da <- read.csv("contract_length_w_begin_year.csv")
+
+higher_officials2 <- da %>% 
+  filter(str_detect(fname, "Section")| #including "Section"
+           str_detect(fname, "Director")| #Including Directors
+           str_detect(fname, "Chief") | #Including Chief
+           str_detect(fname, "Expert")|
+           str_detect(fname, "Head of") |
+           str_detect(fname, "Under Secretary General"),
+         fname != "Secretary of Section",
+         oname != "Treasury",
+         oname != "Library",
+         canonical_fname != "Second Division") %>% 
+  #filter(canonical_fname != "First Division" & str_detect(da$fname, "Head") %>% 
+  droplevels()
+```
+
+Higher officials defined as members, of sesctions ,directors, chiefs of section, experts, heads of section, under secretary generals. Excluded are secretaries, treasury and library. 
+This amounts to 503 contracts.
+
+##How many higher officials had contract start in 1919 or 1920
+
+```{r}
+higher_officials2 %>% 
+  filter(begin_on_year == 1919 |  begin_on_year == 1920) %>% 
+  group_by(begin_on_year) %>% 
+  summarise(starts = n())
+```
+
+There are a total of 70 contracts spread over 1919 and 1920
+
+###Per country how many contract starts in 1919 or 1920
+```{r}
+higher_officials2 %>% 
+  filter(begin_on_year == 1919 |  begin_on_year == 1920) %>% 
+  group_by( nationality) %>% 
+  summarise(starts = n())
+```
+
+##Average age of higher officials starting in 1919 or 1920
+This is calculated by subtracting born_on_year from begin_on_year.
+18 out of 70 contracts are missing born_on_year and are excluded from the analysis.
+
+```{r}
+higher_officials2 %>% 
+  filter(begin_on_year == 1919 |  begin_on_year == 1920) %>% 
+  filter(!is.na(born_on_year)) %>% 
+  summarise(mean_age = mean(  begin_on_year- born_on_year))
+```
+
+
+##Gender composition
+
+
+```{r}
+higher_officials2 %>% 
+  filter(begin_on_year == 1919 |  begin_on_year == 1920) %>% 
+  group_by(gender) %>% 
+  tally()
+```
+There are 67 males and 3 woman

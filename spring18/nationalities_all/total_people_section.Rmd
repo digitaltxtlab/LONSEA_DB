@@ -1,0 +1,165 @@
+---
+title: "Section analysis, number of works"
+author: "Adam Finnemann"
+date: "September 21, 2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+Question: 
+How many people were there overall in the section over time. This is answered by extracting all observations were "Section" is part of the fname, EXCEPT(!) fname = "Secretary of Section". They are excluded, since they belong to another group
+
+
+```{r setup, include=FALSE}
+
+list.of.packages <- c("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
+for(i in 1:length(list.of.packages)){
+  require(list.of.packages[i], character.only = TRUE)
+}
+#getting newer df from 2018 with more corrections
+
+setwd("~/Historie projekt/historie project/LONSEA_DB/spring18/proportion_of_scandis")
+
+
+da <- read.csv("contract_length_w_begin_year.csv")
+
+
+```
+
+```{r}
+
+section_worker <- da %>% 
+  filter(str_detect(da$fname, "Section")| #including "Section"
+           str_detect(da$fname, "Director")| #Including Directors
+           str_detect(da$fname, "Chief") | #Including Chief
+           str_detect(da$fname, "Expert")|
+           str_detect(da$fname, "Head of") |
+           str_detect(da$fname, "Section"),
+         fname != "Secretary of Section",
+         oname != "Treasury",
+         oname != "Library",
+         canonical_fname != "Second Division") %>% 
+  #filter(canonical_fname != "First Division" & str_detect(da$fname, "Head") %>% 
+  droplevels()
+
+
+
+
+
+```
+
+
+Calculating how many different people there were in the Section.
+```{r}
+section_worker %>% 
+  filter(!duplicated(id)) %>% 
+  nrow
+
+```
+
+  
+
+There are a total 356 observations of "Section" in the fname column. These comes from 261 different people.
+
+The distrbution of Section fnames is found (some of these are from the same persons)
+```{r}
+section_worker <- droplevels(section_worker)
+
+summary(section_worker$fname)
+
+
+```
+
+Preparations for calculating number of people in section over time
+```{r, results= "hide"}
+
+mdl_df <- section_worker %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = "1 year")), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+
+```
+
+The above lines creates the time_point/person_contract data_frame. It's visualized below with its three first time points (19-10-01 to 1919-12-01).
+
+It has 245 observations, meaning that 261-245 = 16 people from the section isn't represented.
+
+
+Here is a list of the 16 not included people. This is due to missing data points.
+I'll create a table with all the missing data frames for all the section people in the last part of this document.
+```{r}
+
+
+```
+
+
+
+
+
+```{r}
+result[1:40,1:3]
+```
+Number of Section workers for each time period is calculated:
+```{r}
+
+
+removed <- result[,-1]
+
+time_section <- matrix(nrow = (ncol(removed)), ncol = 1)
+
+for (i in 1:(nrow(time_section))){
+  time_section[i] = sum(removed[,i, with = F] != "")
+}
+
+
+dates <- as.character(colnames(removed))
+
+plot.df <- cbind(time_section,dates) %>% 
+  as.data.frame() %>% 
+  mutate(dates = as.Date(dates),
+         V1 = as.numeric(as.character(V1))) %>% 
+  rename(Section_Workers = V1)
+
+
+```
+
+The dataframe shown below contains the number of section workers per month for the 250 section members.
+```{r}
+plot.df
+```
+
+The number of people in the section as a bar plot:
+```{r}
+plot.df %>% 
+  ggplot(aes(dates, Section_Workers, fill = Section_Workers)) +
+  geom_col()+
+  labs(x = "Year", y ="Number of Section Workers", titles ="Members of Section and Directors of all nationalities in the League’s Secretariat")+
+  guides(fill=FALSE)+
+  scale_y_continuous(breaks = seq(0,190,20))+
+  scale_x_date(date_breaks = "2 year", date_labels = "%Y")
+  
+
+
+```
+
+Lastly I'll make a list of the section workers that didn't make it into the analysis due to missing dates. 
+```{r}
+NAs <- filter(section_worker, is.na(section_worker$end_date) | is.na(section_worker$begin_date) | is.na(section_worker$born_on_year)) %>% select(pname, fname, begin_on_day, begin_on_month,begin_on_year, end_on_day,end_on_month, end_on_year, born_on_year )
+
+test <- filter(section_worker, is.na(section_worker$begin_on_year))
+
+#write.csv(NAs, "Section_workers_missing_data.csv")
+NAs
+
+```
+

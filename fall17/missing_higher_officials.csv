@@ -548,9 +548,9 @@
 "6186","4903","Aarne Wuorimaa","0","League of Nations General Assembly Delegate","Representative","General Assembly: Tenth Ordinary Session of the Assembly","1892",NA,NA,NA,NA,NA,NA,"Finish",NA
 "6187","4903","Aarne Wuorimaa","0","League of Nations General Assembly Delegate","Representative","General Assembly: Eleventh Ordinary Session of the Assembly","1892",NA,NA,NA,NA,NA,NA,"Finish",NA
 "6190","4906","Harold Nicolson","0","Member of Section","First Division","Political Section",NA,"1919","10","21",NA,NA,NA,"English",8
-"6203","4914","Philip John Noel-Baker","0","League of Nations General Assembly Delegate","Representative","General Assembly: Tenth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"",NA
-"6204","4914","Philip John Noel-Baker","0","League of Nations General Assembly Delegate","Representative","General Assembly: Eleventh Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"",NA
-"6205","4914","Philip John Noel-Baker","0","League of Nations General Assembly Delegate","Representative","General Assembly: Twentieth (Conclusion) and Twenty-first Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"",NA
+"6203","4914","Philip John Noel-Baker","0","League of Nations General Assembly Delegate","Representative","General Assembly: Tenth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"English",NA
+"6204","4914","Philip John Noel-Baker","0","League of Nations General Assembly Delegate","Representative","General Assembly: Eleventh Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"English",NA
+"6205","4914","Philip John Noel-Baker","0","League of Nations General Assembly Delegate","Representative","General Assembly: Twentieth (Conclusion) and Twenty-first Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"English",NA
 "6206","4915","Julian Nogueira","0","Member of Section","First Division","Mandates Section",NA,"1921","1","28",NA,NA,NA,"Uruguayan",8
 "6210","4915","Julian Nogueira","0","League of Nations General Assembly Delegate","Representative","General Assembly: Twentieth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Uruguayan",NA
 "6211","4915","Julian Nogueira","0","League of Nations General Assembly Delegate","Representative","General Assembly: Twentieth (Conclusion) and Twenty-first Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Uruguayan",NA
@@ -619,7 +619,7 @@
 "6514","5118","Charles Schonberger","0","Member of Section","First Division","Economic and Financial Section","1886",NA,NA,NA,NA,NA,NA,"Austrian",8
 "6517","5120","Peter Christian Schou","0","League of Nations General Assembly Delegate","Representative","General Assembly: Special Session of the Assembly Convened in Virtue of Article 15 of the Covenant at the Request of the Chinese Government","1883",NA,NA,NA,NA,NA,NA,"Dane",NA
 "6523","5124","Virginia Castro e Almeida","1","League of Nations General Assembly Delegate","Representative","General Assembly: Seventeenth Ordinary Session of the Assembly","1874",NA,NA,NA,NA,NA,NA,"",NA
-"6541","5137","Angel Maria Cespedes","0","League of Nations General Assembly Delegate","Representative","General Assembly: Third Ordinary Session of the Assembly","1892",NA,NA,NA,NA,NA,NA,"",NA
+"6541","5137","Angel Maria Cespedes","0","League of Nations General Assembly Delegate","Representative","General Assembly: Third Ordinary Session of the Assembly","1892",NA,NA,NA,NA,NA,NA,"Colombia",NA
 "6557","5150","Brij Mohan Sharma","0","Assistant","Second Division","League of Nations","1900",NA,NA,NA,"1933",NA,NA,"Indian",4
 "6571","5161","Vladimir Slavik","0","League of Nations General Assembly Delegate","Representative","General Assembly: Ninth Ordinary Session of Assembly","1884",NA,NA,NA,NA,NA,NA,"Czech",NA
 "6572","5161","Vladimir Slavik","0","League of Nations General Assembly Delegate","Representative","General Assembly: Tenth Ordinary Session of the Assembly","1884",NA,NA,NA,NA,NA,NA,"Czech",NA
@@ -638,7 +638,7 @@
 "6656","5213","Pao-Hsien Chu","0","League of Nations General Assembly Delegate","Representative","General Assembly: Special Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Chinese",NA
 "6657","5213","Pao-Hsien Chu","0","League of Nations General Assembly Delegate","Representative","General Assembly: Eighth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Chinese",NA
 "6663","5218","Diana Cohen","1","Temporary Collaborator","First Division","Information Section",NA,NA,NA,NA,NA,NA,NA,"",8
-"6673","5228","W. Layton","0","Director","First Division","Economic and Financial Section",NA,"1920","4","1",NA,NA,NA,"English",9
+"6673","5228","W. Layton","0","Director","First Division","Economic and Financial Section","1884","1920","4","1",NA,NA,NA,"English",9
 "6683","5232","Sean Lester","0","League of Nations General Assembly Delegate","Representative","General Assembly: Tenth Ordinary Session of the Assembly","1888",NA,NA,NA,NA,NA,NA,"Irish",NA
 "6684","5232","Sean Lester","0","League of Nations General Assembly Delegate","Representative","General Assembly: Eleventh Ordinary Session of the Assembly","1888",NA,NA,NA,NA,NA,NA,"Irish",NA
 "6685","5232","Sean Lester","0","League of Nations General Assembly Delegate","Representative","General Assembly: Twelfth Ordinary Session of the Assembly","1888",NA,NA,NA,NA,NA,NA,"Irish",NA
@@ -663,19 +663,19 @@
 "6922","5403","Edward Albert Radice","0","Expert/Specialist","First Division","Economic and Financial Section",NA,"1939","4","22","1930","9","24","English",8
 "6924","5404","Muhyi el Din el Mumayiz","0","Temporary Collaborator","First Division","Legal Section","1910",NA,NA,NA,NA,NA,NA,"Iraqi",8
 "6949","5421","T.S. Ramanujam","0","Correspondent","Second Division","Bombay Office",NA,"1932","9","1",NA,NA,NA,"Indian",6
-"6955","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Ninth Ordinary Session of Assembly",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
-"6956","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Tenth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
-"6957","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Eleventh Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
-"6958","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Twelfth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
-"6959","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Special Session of the Assembly Convened in Virtue of Article 15 of the Covenant at the Request of the Chinese Government",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
-"6960","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Thirteenth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
-"6961","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Fourteenth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
-"6962","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Fifteenth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
-"6963","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Sixteenth Ordinary Session of the Assembly, part one",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
-"6964","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Seventeenth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
-"6965","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Eighteenth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
-"6966","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Nineteenth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
-"6967","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Twentieth Ordinary Session of the Assembly",NA,NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6955","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Ninth Ordinary Session of Assembly","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6956","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Tenth Ordinary Session of the Assembly","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6957","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Eleventh Ordinary Session of the Assembly","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6958","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Twelfth Ordinary Session of the Assembly","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6959","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Special Session of the Assembly Convened in Virtue of Article 15 of the Covenant at the Request of the Chinese Government","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6960","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Thirteenth Ordinary Session of the Assembly","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6961","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Fourteenth Ordinary Session of the Assembly","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6962","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Fifteenth Ordinary Session of the Assembly","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6963","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Sixteenth Ordinary Session of the Assembly, part one","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6964","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Seventeenth Ordinary Session of the Assembly","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6965","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Eighteenth Ordinary Session of the Assembly","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6966","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Nineteenth Ordinary Session of the Assembly","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
+"6967","5423","Prof. William E. Rappard","0","League of Nations General Assembly Delegate","Representative","General Assembly: Twentieth Ordinary Session of the Assembly","1883",NA,NA,NA,NA,NA,NA,"Swiss",NA
 "7003","5445","Abol-Hassan Khan Hekimi","0","League of Nations General Assembly Delegate","Representative","General Assembly: Sixth Ordinary Session of the Assembly","1888",NA,NA,NA,NA,NA,NA,"Iranian",NA
 "7004","5445","Abol-Hassan Khan Hekimi","0","League of Nations General Assembly Delegate","Representative","General Assembly: Special Session of the Assembly","1888",NA,NA,NA,NA,NA,NA,"Iranian",NA
 "7005","5445","Abol-Hassan Khan Hekimi","0","League of Nations General Assembly Delegate","Representative","General Assembly: Twentieth (Conclusion) and Twenty-first Ordinary Session of the Assembly","1888",NA,NA,NA,NA,NA,NA,"Iranian",NA

@@ -21,7 +21,21 @@ da$end_date = as.Date(da$end_date)
 #da$end_date = da$end_date - 1
 
 top_scandi = da %>% 
-  filter(nationality %in% c("Dane", "Swedish","Norwegian"),str_detect(da$fname, "Section") | str_detect(da$fname, "Director") | str_detect(da$fname, "Chief") | str_detect(da$fname, "Expert"), fname != "Secretary of Section")
+  filter(nationality %in% c("Dane", "Swedish","Norwegian")) %>% 
+  filter(str_detect(fname, "Section")| #including "Section"
+           str_detect(fname, "Director")| #Including Directors
+           str_detect(fname, "Chief") | #Including Chief
+           str_detect(fname, "Expert")|
+           str_detect(fname, "Head of") |
+           str_detect(fname, "Section"),
+         fname != "Secretary of Section",
+         oname != "Treasury",
+         oname != "Library",
+         canonical_fname != "Second Division") %>% 
+  #filter(canonical_fname != "First Division" & str_detect(da$fname, "Head") %>% 
+  droplevels()
+         
+
 
 length(unique(droplevels(top_scandi$pname)))
 ```
@@ -43,10 +57,7 @@ oname_correct <- top_scandi %>%
   dplyr::mutate(oname = str_replace_all(oname, "Financial Section & Economic Intelligence Service","Economic and Financial Section"),
         oname = str_replace_all(oname, "Economic Relations Section","Economic and Financial Section"),
         oname = str_replace_all(oname, "Administrative and Minorities Section","Minorities Section"),
-        oname = as.factor(oname)) %>% 
-  filter(oname != "Treasury") %>% 
-  droplevels
-
+        oname = as.factor(oname))
 
 
 summary(oname_correct$oname)
@@ -128,12 +139,23 @@ Calculating the proportion of sections that scandinavians make up
 subsetting all contract froms section, directors, experts and omitting directors of section. Omitting Secretary of section 
 ```{r}
 top_people <- da %>% 
-  filter(str_detect(da$fname, "Section") | str_detect(da$fname, "Director") | str_detect(da$fname, "Chief") | str_detect(da$fname, "Expert"),
-         fname != "Secretary of Section")
+    filter(str_detect(fname, "Section")| #including "Section"
+           str_detect(fname, "Director")| #Including Directors
+           str_detect(fname, "Chief") | #Including Chief
+           str_detect(fname, "Expert")|
+           str_detect(fname, "Head of") |
+           str_detect(fname, "Section"),
+         fname != "Secretary of Section",
+         oname != "Treasury",
+         oname != "Library",
+         canonical_fname != "Second Division") %>% 
+  #filter(canonical_fname != "First Division" & str_detect(da$fname, "Head") %>% 
+  droplevels()
+
+
 
 length(unique(droplevels(top_people$pname)))
 ```
-492 contracts from 368 different individuals are found
 
 Uniting minorities and economics sections as well as removing treasury + library.
 
@@ -259,9 +281,10 @@ Date breaks of 1 year
 
 tiff('proportion_scandis_w_labels.tiff', units="in", width=12, height=5, res=500)
 full_plot_df %>%  
+  mutate(proportion_scandinavians = proportion_scandinavians * 100) %>% 
   filter(count_scandinavians > 0 ) %>% 
   ggplot(aes(year, proportion_scandinavians, color = section, label = proportion_scandinavians)) +
-  geom_text(aes(label=round(proportion_scandinavians,2)),hjust=0, vjust=0, size = 2, angle = 45) +
+  geom_text(aes(label=round(proportion_scandinavians,0)),hjust=0, vjust=0, size = 3.3, angle = 45) +
   geom_line() +
   theme_classic() +
   theme(legend.position="right")+
@@ -269,11 +292,40 @@ full_plot_df %>%
   scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   geom_vline(xintercept=as.numeric(full_plot_df$year),linetype="dotted") +
-  labs(x = "Year", y ="Proportion of Scandianvians", titles = "Distribution of Scandinavians among Sections")+
-  scale_color_manual(values=c("black","grey","green","red","purple","yellow","pink","orange","light blue","turquoise","dark blue"))
+  labs(x = "Year", y ="Proportion of Scandianvians", titles = "Relative distribution of Scandinavian Members and Directors among the League’s Sections")+
+  scale_color_manual(values=c("dark blue","grey","green","red","purple","yellow","dark red","orange","light blue","black","turquoise"))+
+  theme(plot.title = element_text(size=20)) #remove for certain plots
   
 dev.off()
 ```
+
+test with horizontal lines
+
+```{r}
+
+tiff('proportion_scandis_hlines.tiff', units="in", width=12, height=5, res=500)
+full_plot_df %>%  
+  mutate(proportion_scandinavians = proportion_scandinavians * 100) %>% 
+  filter(count_scandinavians > 0 ) %>% 
+  ggplot(aes(year, proportion_scandinavians, color = section, label = proportion_scandinavians)) +
+  #geom_text(aes(label=round(proportion_scandinavians,2)),hjust=0, vjust=0, size = 2.7, angle = 45) +
+  geom_hline(yintercept=c(10,15,25,33,50),linetype="dotted") +
+  scale_y_continuous(breaks = c(0,10,15,25,33,50,75,100),labels = c(0,10,15,25,33,50,75,100))+
+  geom_line() +
+  theme_classic() +
+  theme(legend.position="right")+
+  geom_point() +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_vline(xintercept=as.numeric(full_plot_df$year),linetype="dotted") +
+  labs(x = "Year", y ="Proportion of Scandianvians", titles = "Relative distribution of Scandinavian Members and Directors among the League’s Sections")+
+  scale_color_manual(values=c("dark blue","grey","green","red","purple","yellow","dark red","orange","light blue","black","turquoise")) +
+  theme(plot.title = element_text(size=20)) #remove for certain plots
+
+dev.off()
+
+```
+
 
 
 ```{r}

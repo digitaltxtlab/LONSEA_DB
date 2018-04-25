@@ -14,21 +14,26 @@ setwd("~/Historie projekt/historie project/LONSEA_DB/spring18/proportion_of_scan
 
 da <- read.csv("contract_length_w_begin_year.csv")
 
-higher_officials <- da %>% 
-  filter(str_detect(da$fname, "Section")| #including "Section"
-           str_detect(da$fname, "Director")| #Including Directors
-           str_detect(da$fname, "Chief") | #Including Chief
-           str_detect(da$fname, "Expert")|
-           str_detect(da$fname, "Head of"), #Including Expert
-         fname != "Secretary of Section") %>% 
+higher_officials2 <- da %>% 
+  filter(str_detect(fname, "Section")| #including "Section"
+           str_detect(fname, "Director")| #Including Directors
+           str_detect(fname, "Chief") | #Including Chief
+           str_detect(fname, "Expert")|
+           str_detect(fname, "Head of") |
+           str_detect(fname, "Section"),
+         fname != "Secretary of Section",
+         oname != "Treasury",
+         oname != "Library",
+         canonical_fname != "Second Division") %>% 
   #filter(canonical_fname != "First Division" & str_detect(da$fname, "Head") %>% 
   droplevels()
+  
 
-higher_officials <- higher_officials %>% 
+higher_officials <- higher_officials2 %>% 
   filter(nationality != "") %>% 
   mutate(nationality = recode(nationality, "English" = "British"))
 
-unknown = da %>% 
+unknown = higher_officials2 %>% 
   filter(nationality == "")
 ```
 
@@ -42,7 +47,7 @@ oname_correct <- higher_officials %>%
                 oname = str_replace_all(oname, "Economic Relations Section","Economic and Financial Section"),
                 oname = str_replace_all(oname, "Administrative and Minorities Section","Minorities Section"),
                 oname = as.factor(oname)) %>% 
-  filter(oname != "Treasury") %>% 
+  filter(oname != "Treasury", oname != "Library") %>% 
   droplevels
 
 
@@ -124,119 +129,205 @@ return(plot)
 ```
 
 ```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[1])
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[1])
 
-employment(plot, title1 = levels(large_section_worker$oname)[1])
-
-```
-
-
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[2])
-
-employment(plot, title1 = levels(large_section_worker$oname)[2])
-
-```
-
-
-
-
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[3])
-
-employment(plot, title1 = levels(large_section_worker$oname)[3])
+#employment(plot, title1 = levels(large_section_worker$oname)[1])
 
 ```
 
 
 ```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[4])
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[2])
 
-employment(plot, title1 = levels(large_section_worker$oname)[4])
-
-```
-
-
-```{r}
-employment(plot,minimum_worker = 1, title1 = levels(large_section_worker$oname)[4])
+#employment(plot, title1 = levels(large_section_worker$oname)[2])
 
 ```
-
-
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[5])
-
-employment(plot, title1 = levels(large_section_worker$oname)[5])
-
-```
-
-
-```{r}
-employment(plot, minimum_worker = 1, title1 = levels(large_section_worker$oname)[5])
-```
-
-
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[6])
-
-employment(plot, title1 = levels(large_section_worker$oname)[6])
-
-```
-
-```{r}
-employment(plot, minimum_worker = 1, title1 = levels(large_section_worker$oname)[6])
-
-```
-
-
-
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[7])
-
-employment(plot, title1 = levels(large_section_worker$oname)[7])
-
-```
-
-
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[8])
-
-employment(plot, title1 = levels(large_section_worker$oname)[8])
-
-```
-
 
 
 
 
 ```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[9])
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[3])
 
-employment(plot, title1 = levels(large_section_worker$oname)[9])
+#employment(plot, title1 = levels(large_section_worker$oname)[3])
 
 ```
+
+
+```{r}
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[4])
+
+#employment(plot, title1 = levels(large_section_worker$oname)[4])
+
+```
+
+
+```{r}
+#employment(plot,minimum_worker = 1, title1 = levels(large_section_worker$oname)[4])
+
+```
+
+
+```{r}
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[5])
+
+#employment(plot, title1 = levels(large_section_worker$oname)[5])
+
+```
+
+
+```{r}
+#employment(plot, minimum_worker = 1, title1 = levels(large_section_worker$oname)[5])
+```
+
+
+```{r}
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[6])
+
+#employment(plot, title1 = levels(large_section_worker$oname)[6])
+
+```
+
+```{r}
+#employment(plot, minimum_worker = 1, title1 = levels(large_section_worker$oname)[6])
+
+```
+
+
+
+```{r}
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[7])
+
+#employment(plot, title1 = levels(large_section_worker$oname)[7])
+
+```
+
+
+```{r}
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[8])
+
+#employment(plot, title1 = levels(large_section_worker$oname)[8])
+
+```
+
+
+
+
+
+```{r}
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[9])
+
+#employment(plot, title1 = levels(large_section_worker$oname)[9])
+
+```
+Plot function special for minorities section which is used in article
+
+```{r}
+
+employment <- function(df, interval = "1 year", y_axis = "# of higher officials", x_axis = "Year", title1 = "LoN Workers", minimum_worker = 0, colors ) {
+  
+mdl_df <- df %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+
+result_nats <- left_join(result, select(df, pname, nationality)) %>% 
+  filter(!duplicated(.))
+
+result_nats_wo_pname <- result_nats[,-1]
+ 
+
+
+nation_workers <- result_nats_wo_pname %>% 
+  group_by(nationality) %>% 
+  summarise_all(function(x) sum(x != ""))
+
+long_df <- gather(nation_workers, key, value, colnames(result_nats)[2]:tail(colnames(result_nats),2)[1]) %>% 
+  mutate(key = as.Date(key))  
+
+long_df %>% 
+  filter(value > minimum_worker) %>% 
+  ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+  geom_col() +
+  scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+  scale_y_continuous(breaks = seq(0,50,2)) +
+  labs(x = x_axis, y =y_axis, titles = title1) +
+  theme(legend.title=element_blank())+
+  theme(plot.title = element_text(size=11)) + #remove for certain plots
+  scale_fill_manual(values= colors)+
+  scale_color_manual(values=colors) -> plot
+
+
+return(plot)
+}
+
+
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[11])
+
+#colors = c("dark blue","tomato1","green","bisque","purple","yellow","dark red","light #blue","orange","black","turquoise","darkmagenta","brown","indianred2","steelblue","yellowgreen")
+
+colors = c("#ffd700",
+"#ffb14e",
+"#fa8775",
+"#ea5f94",
+"#cd34b5",
+"#9d02d7",
+"#0000ff",
+"#30ff00",
+"#003610",
+"#00ffd4",
+"#348c75",
+"#cd2f2f",
+"#531010",
+"#a6be0a",
+"#38013a",
+"#000000")
+
+
+employment(plot, title1 = "Members of Section and Directors of all nationalities in the Political Section", colors = colors)
+
+```
+
 
 
 ```{r}
 plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[10])
 
-employment(plot, title1 = levels(large_section_worker$oname)[10])
+colors = c("dark blue","tomato1","bisque","green","purple","yellow","dark red","orange","light blue","black","turquoise","darkmagenta","indianred2","brown","steelblue","yellowgreen")
+
+
+employment(plot, colors = colors, title1 = "Members of Section and Directors of all nationalities in the Minorities Section")
 
 ```
 
 
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[11])
 
-employment(plot, title1 = levels(large_section_worker$oname)[11])
+
+```{r}
+plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[4])
+
+colors = c("dark blue","tomato1","brown","green","bisque","purple","orange","steelblue","light blue","black","turquoise","darkmagenta","indianred2","brown","steelblue","yellowgreen")
+
+employment(plot, title1 = "Members of Section and Directors of all nationalities in the Economic and Financial Sections", colors = colors, minimum_worker = 1)
+  
 
 ```
 
 
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[12])
 
-employment(plot, title1 = levels(large_section_worker$oname)[12])
+
+```{r}
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[12])
+
+#employment(plot, title1 = levels(large_section_worker$oname)[12])
 
 ```
 
@@ -274,22 +365,34 @@ result_nats_wo_pname <- result_nats[,-1]
  
 
 
-nation_workers <- result_nats_wo_pname %>% 
-  group_by(nationality) %>% 
+#nation_workers <- result_nats_wo_pname %>% 
+#  group_by(nationality) %>% 
+#  summarise_all(function(x) sum(x != ""))
+
+scandi1 <- result_nats_wo_pname %>% 
+  filter(nationality  == "Scandinavian") %>% 
   summarise_all(function(x) sum(x != ""))
 
-long_df <- gather(nation_workers, key, value, colnames(result_nats)[2]:tail(colnames(result_nats),2)[1]) %>% 
+all_and_scandi <- result_nats_wo_pname %>% 
+  summarise_all(function(x) sum(x != "")) %>% 
+  rbind(scandi1) %>% 
+  mutate(nationality = ifelse(nationality == 6, "Scandinavian","Total"))
+
+
+long_df <- gather(all_and_scandi, key, value, colnames(result_nats)[2]:tail(colnames(result_nats),2)[1]) %>% 
   mutate(key = as.Date(key))  
 
 long_df %>% 
-  filter(value > minimum_worker) %>% 
-  ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
-  #geom_point() +
-  #geom_line()+
-  geom_col()+
+  filter(value > minimum_worker) -> long_df
+  
+#ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+ggplot()+
+  geom_col(data = filter(long_df, nationality == "Total"), aes(x = key, y = value), fill = "blue") +
+  geom_point(data = filter(long_df, nationality == "Scandinavian"), aes(x = key, y = value), color = "red") +
+  geom_line(data = filter(long_df, nationality == "Scandinavian"), aes(x = key, y = value), color = "red") +
   scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(0,max_y),breaks = seq(0,max_y,2))  +
-  labs(x = x_axis, y =y_axis, titles = paste("Nationalities of the", title1)) -> plot
+  scale_y_continuous(limits = c(0,max_y),breaks = seq(0,max_y,1))  +
+  labs(x = x_axis, y =y_axis, titles = paste("Scandinavians vs. other national Members and Directors of the Minorities Section")) -> plot
 
 
 return(plot)
@@ -298,29 +401,26 @@ return(plot)
 
 ```
 
-```{r}
-plot <- filter(scandi_rest,oname == levels(scandi_rest$oname)[4])
-
-employment2(plot, title1 = levels(large_section_worker$oname)[4],max_y = 30)
-
-```
-
-```{r}
-plot <- filter(scandi_rest,oname == levels(scandi_rest$oname)[9])
-
-employment2(plot, title1 = levels(large_section_worker$oname)[9], max_y = 5)
-
-```
 
 
 ```{r}
 plot <- filter(scandi_rest,oname == levels(scandi_rest$oname)[10])
 
-employment2(plot, title1 = levels(large_section_worker$oname)[10], max_y = 8)
+employment2(df = plot, title1 = "Scandinavians vs. all other national Members and Directors of the Minorities Section", max_y = 10)
 
 ```
 
 ```{r}
+#plot <- filter(scandi_rest,oname == levels(scandi_rest$oname)[4])
+
+#employment2(plot, title1 = levels(large_section_worker$oname)[4],max_y = 30)
+
+```
+
+```{r}
+#plot <- filter(scandi_rest,oname == levels(scandi_rest$oname)[9])
+
+#employment2(plot, title1 = levels(large_section_worker$oname)[9], max_y = 5)
 
 ```
 
@@ -428,14 +528,14 @@ return(plot)
 ```
 
 ```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[1])
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[1])
 
-employment3(plot, title1 = levels(large_section_worker$oname)[1], max_y = 10)
+#employment3(plot, title1 = levels(large_section_worker$oname)[1], max_y = 10)
 ```
 ```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[2])
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[2])
 
-employment3(plot, title1 = levels(large_section_worker$oname)[2], max_y = 8)
+#employment3(plot, title1 = levels(large_section_worker$oname)[2], max_y = 8)
 ```
 ```{r}
 #plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[3])
@@ -445,19 +545,19 @@ employment3(plot, title1 = levels(large_section_worker$oname)[2], max_y = 8)
 No directors
 
 ```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[4])
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[4])
 
-employment3(plot, title1 = levels(large_section_worker$oname)[4], max_y = 30)
+#employment3(plot, title1 = levels(large_section_worker$oname)[4], max_y = 30)
 ```
 ```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[5])
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[5])
 
-employment3(plot, title1 = levels(large_section_worker$oname)[5], max_y = 25)
+#employment3(plot, title1 = levels(large_section_worker$oname)[5], max_y = 25)
 ```
 ```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[6])
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[6])
 
-employment3(plot, title1 = levels(large_section_worker$oname)[6], max_y = 30)
+#employment3(plot, title1 = levels(large_section_worker$oname)[6], max_y = 30)
 ```
 ```{r}
 #plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[7])
@@ -467,152 +567,152 @@ employment3(plot, title1 = levels(large_section_worker$oname)[6], max_y = 30)
 No directors
 
 ```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[8])
+#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[8])
 
-employment3(plot, title1 = levels(large_section_worker$oname)[8], max_y = 12)
+#employment3(plot, title1 = levels(large_section_worker$oname)[8], max_y = 12)
 ```
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[9])
-
-employment3(plot, title1 = levels(large_section_worker$oname)[9], max_y = 6)
-```
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[10])
-
-employment3(plot, title1 = levels(large_section_worker$oname)[10], max_y = 12)
-```
-
-
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[11])
-
-employment3(plot, title1 = levels(large_section_worker$oname)[11], max_y = 15)
-```
-```{r}
-#plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[12])
-
-#employment3(plot, title1 = levels(large_section_worker$oname)[12], max_y = 15)
-```
-no directors
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[13])
-
-employment3(plot, title1 = levels(large_section_worker$oname)[13], max_y = 15)
-```
-
-
-
-
-
-```{r}
-employment4 <- function(df, interval = "1 year", y_axis = "# of higher officials", x_axis = "Year", title1 = "LoN Workers", minimum_worker = 0, max_y = 50) {
-  
-  
-#mdl df without directors and chiefs of sections
-mdl_df <- df %>% 
-  filter(fname != "Director" & fname != "Chief of Section") %>% 
-  select(pname, fname_code,begin_date, end_date) %>% 
-  mutate(begin_date = as.Date(begin_date),
-         end_date = as.Date(end_date))
-
-
-
-result <- setDT(mdl_df)[
-  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
-  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
-    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
-
-
-result_nats <- left_join(result, select(df, pname, nationality)) %>% 
-  filter(!duplicated(.))
-
-result_nats_wo_pname <- result_nats[,-1]
- 
-
-
-nation_workers <- result_nats_wo_pname %>% 
-  group_by(nationality) %>% 
-  summarise_all(function(x) sum(x != ""))
-
-long_df <- gather(nation_workers, key, value, colnames(result_nats)[2]:tail(colnames(result_nats),2)[1]) %>% 
-  mutate(key = as.Date(key),
-         group = "all")
-
-#repeating for directors only
-
-#mdl df of directors + section
-  mdl_df2 <- df %>% 
-  filter(fname == "Director" | fname == "Chief of Section") %>% 
-  select(pname, fname_code,begin_date, end_date) %>% 
-  mutate(begin_date = as.Date(begin_date),
-         end_date = as.Date(end_date))
-
-if(nrow(mdl_df2) == 0){
-  print("no directors")}
-
-
-result2 <- setDT(mdl_df2)[
-  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
-  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
-    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
-
-
-result_nats2 <- left_join(result2, select(df, pname, nationality)) %>% 
-  filter(!duplicated(.))
-
-result_nats_wo_pname2 <- result_nats2[,-1]
- 
-
-
-nation_workers2 <- result_nats_wo_pname2 %>% 
-  group_by(nationality) %>% 
-  summarise_all(function(x) sum(x != ""))
-
-long_df2 <- gather(nation_workers2, key, value, colnames(result_nats2)[2]:tail(colnames(result_nats2),2)[1]) %>%
-  mutate(key = as.Date(key),
-         group = "directors")  
-
-long_df3 = rbind(long_df2,long_df)
-
-long_df3 %>% 
-  filter(value > minimum_worker) %>% 
-  ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
-  geom_col() +
-  scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
-  scale_y_continuous(limits = c(0,max_y),breaks = seq(0,max_y,2))  +
-  labs(x = x_axis, y =y_axis, titles = paste("Nationalities of the", title1))+
-  facet_grid(group~., scales = "free_y")-> plot
-
-#long_df3 %>% 
-#  filter(value > minimum_worker) %>% 
-#  mutate(group = as.factor(group))-> plotdf
-
-#plotdf %>%   
-#ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
-#  facet_grid(group~.)+
-#  geom_col(data = filter(plotdf, group == "all")) +
-#  geom_line(data = filter(plotdf, group == "directors")) +
-#  scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
-#  scale_y_continuous(limits = c(0,max_y),breaks = seq(0,max_y,2))  +
-#  labs(x = x_axis, y =y_axis, titles = paste("Nationalities of the", title1))-> plot
-
-
-return(plot)
-}
-
-```
-
-
-
-```{r}
-plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[10])
-
-employment3(plot, title1 = levels(large_section_worker$oname)[10], max_y = 12)
-```
-
-
-```{r}
-
-employment4(plot, title1 = levels(large_section_worker$oname)[10], max_y = 12)
+# ```{r}
+# plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[9])
+# 
+# employment3(plot, title1 = levels(large_section_worker$oname)[9], max_y = 6)
+# ```
+# ```{r}
+# plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[10])
+# 
+# employment3(plot, title1 = levels(large_section_worker$oname)[10], max_y = 12)
+# ```
+# 
+# 
+# ```{r}
+# plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[11])
+# 
+# employment3(plot, title1 = levels(large_section_worker$oname)[11], max_y = 15)
+# ```
+# ```{r}
+# #plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[12])
+# 
+# #employment3(plot, title1 = levels(large_section_worker$oname)[12], max_y = 15)
+# ```
+# no directors
+# ```{r}
+# plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[13])
+# 
+# employment3(plot, title1 = levels(large_section_worker$oname)[13], max_y = 15)
+# ```
+# 
+# 
+# 
+# 
+# 
+# ```{r}
+# employment4 <- function(df, interval = "1 year", y_axis = "# of higher officials", x_axis = "Year", title1 = "LoN Workers", minimum_worker = 0, max_y = 50) {
+#   
+#   
+# #mdl df without directors and chiefs of sections
+# mdl_df <- df %>% 
+#   filter(fname != "Director" & fname != "Chief of Section") %>% 
+#   select(pname, fname_code,begin_date, end_date) %>% 
+#   mutate(begin_date = as.Date(begin_date),
+#          end_date = as.Date(end_date))
+# 
+# 
+# 
+# result <- setDT(mdl_df)[
+#   .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+#   on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+#     , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+# 
+# 
+# result_nats <- left_join(result, select(df, pname, nationality)) %>% 
+#   filter(!duplicated(.))
+# 
+# result_nats_wo_pname <- result_nats[,-1]
+#  
+# 
+# 
+# nation_workers <- result_nats_wo_pname %>% 
+#   group_by(nationality) %>% 
+#   summarise_all(function(x) sum(x != ""))
+# 
+# long_df <- gather(nation_workers, key, value, colnames(result_nats)[2]:tail(colnames(result_nats),2)[1]) %>% 
+#   mutate(key = as.Date(key),
+#          group = "all")
+# 
+# #repeating for directors only
+# 
+# #mdl df of directors + section
+#   mdl_df2 <- df %>% 
+#   filter(fname == "Director" | fname == "Chief of Section") %>% 
+#   select(pname, fname_code,begin_date, end_date) %>% 
+#   mutate(begin_date = as.Date(begin_date),
+#          end_date = as.Date(end_date))
+# 
+# if(nrow(mdl_df2) == 0){
+#   print("no directors")}
+# 
+# 
+# result2 <- setDT(mdl_df2)[
+#   .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = interval)), 
+#   on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+#     , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+# 
+# 
+# result_nats2 <- left_join(result2, select(df, pname, nationality)) %>% 
+#   filter(!duplicated(.))
+# 
+# result_nats_wo_pname2 <- result_nats2[,-1]
+#  
+# 
+# 
+# nation_workers2 <- result_nats_wo_pname2 %>% 
+#   group_by(nationality) %>% 
+#   summarise_all(function(x) sum(x != ""))
+# 
+# long_df2 <- gather(nation_workers2, key, value, colnames(result_nats2)[2]:tail(colnames(result_nats2),2)[1]) %>%
+#   mutate(key = as.Date(key),
+#          group = "directors")  
+# 
+# long_df3 = rbind(long_df2,long_df)
+# 
+# long_df3 %>% 
+#   filter(value > minimum_worker) %>% 
+#   ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+#   geom_col() +
+#   scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+#   scale_y_continuous(limits = c(0,max_y),breaks = seq(0,max_y,2))  +
+#   labs(x = x_axis, y =y_axis, titles = paste("Nationalities of the", title1))+
+#   facet_grid(group~., scales = "free_y")-> plot
+# 
+# #long_df3 %>% 
+# #  filter(value > minimum_worker) %>% 
+# #  mutate(group = as.factor(group))-> plotdf
+# 
+# #plotdf %>%   
+# #ggplot(aes(x = key, y = value, fill = nationality, color = nationality)) +
+# #  facet_grid(group~.)+
+# #  geom_col(data = filter(plotdf, group == "all")) +
+# #  geom_line(data = filter(plotdf, group == "directors")) +
+# #  scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+# #  scale_y_continuous(limits = c(0,max_y),breaks = seq(0,max_y,2))  +
+# #  labs(x = x_axis, y =y_axis, titles = paste("Nationalities of the", title1))-> plot
+# 
+# 
+# return(plot)
+# }
+# 
+# ```
+# 
+# 
+# 
+# ```{r}
+# plot <- filter(large_section_worker,oname == levels(large_section_worker$oname)[10])
+# 
+# employment3(plot, title1 = levels(large_section_worker$oname)[10], max_y = 12)
+# ```
+# 
+# 
+# ```{r}
+# 
+# employment4(plot, title1 = levels(large_section_worker$oname)[10], max_y = 12)
 ```
 
