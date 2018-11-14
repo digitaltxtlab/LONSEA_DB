@@ -1,0 +1,407 @@
+---
+title: "Adam's changes to data"
+author: "Adam Finnemann"
+date: "September 24, 2017"
+---
+
+```{r setup, include=FALSE}
+
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+
+setwd("~/LONSEA_DB/shiny/raw_data_from_torsten") #original data from torsten send 14/11/2018
+
+da <- read.csv("lonsea_from_t.csv", sep = ";")
+
+```
+
+
+
+```{r}
+#Nationalities assignments for Directors
+indx <- da$pname == "Dr. Jur. Thanassis (Athanase) Aghnides"
+da[indx,14] <- "Greek"
+
+indx <- da$pname == "Erik Andreas Colban"
+da[indx,14] <- "Norwegian"
+
+
+indx <- da$pname == "Juan Antonio Buero"
+da[indx,14] <- "Uruguayan"
+
+indx<- da$pname == "Yotaro Sugimura"
+da$nationality <- as.character(da$nationality)
+da[indx,14] <- "Japanese"
+
+
+indx <- da$pname == "Prof. Inazo NitobÃ©"
+da[indx,3] <- "Inazo Nitobe"
+da[indx,4] <- 0
+da[indx,14] <- "Japanese"
+indx <- da$pname == "Inazo Nitobe"
+da[indx,14] <- "Japanese"
+da[indx,8] <- 1862
+
+indx <- da$pname == "Hans Christian Berg"
+da[indx,14] <- "Norwegian"
+
+indx <- da$pname == "Francis Yeats-Brown"
+da[indx,12]  = 1927
+
+indx <- da$pname == "Oscar Uno Konrad Thorsing"
+da[indx,9]  = 1924
+da[indx,12]  = 1925
+
+indx <- da$pname == "Paul Gilles LÃ©on Deperon"
+da[indx,14]  = "Belgian"
+
+
+indx <- da$pname == "Hideo Masutani"
+da[indx,14]  = "Japanese"
+
+indx <- da$pname == "Yotaro Sugimura"
+da[indx,14]  = "Japanese"
+
+#Correcting spelling mistake (Kaechkenheeck -> h to b)
+indx <- da$pname == "Georges Silvain FranÃ§ois Charles Kaeckenheeck"
+da[indx,3]  = "Georges Silvain FranÃ§ois Charles Kaeckenbeeck"
+indx <- da$pname == "Georges Silvain FranÃ§ois Charles Kaeckenbeeck"
+da[indx,14]  = "Belgian"
+
+
+#aligning names of Morikatsu Inagaki
+indx <- da$pname == "Mr. Morikatsu Imagaki"
+da[indx,3]  = "Morikatsu Inagaki"
+indx <- da$pname == "Morikatsu Inagaki"
+da[indx,14]  = "Japanese"
+#Removing assistant contract which isn't in original databse. See Torsten mail 1/02/2018
+#Two of his contracts are doubled, one coded as beloning it "political" section, the other to "Under Secretaries-Generals' in charge of Political Section Office". Only poltiical section is kept
+da = da %>%
+  filter(!(canonical_fname == "Second Division" & pname == "Morikatsu Inagaki"),
+         !(oname == "Under Secretaries-Generals' in charge of Political Section Office" & pname == "Morikatsu Inagaki"))
+#Four contracts remain, this is in agreement with the archieve. 
+
+
+
+#Louis Variez is removed. This is a duplicate with mispelled name of the contract of L. Varlez.
+
+da = da %>% 
+  filter(pname != "Louis Variez")
+
+
+indx <- da$pname == "FrÃ©dÃ©ric Blondeel"
+da[indx,14]  = "Belgian"
+
+
+indx <- da$pname == "Dr. Tsune Ouchi"
+da[indx,14]  = "Japanese"
+
+indx <- da$pname == "Stanislawa Adamowicz"
+da[indx,14]  = "Polish"
+
+indx <- da$pname == "Dr. Shoji Kanai"
+da[indx,14]  = "Japanese"
+
+indx <- da$pname == "Dr. Genzo Katoh"
+da[indx,14]  = "Japanese"
+
+indx <- da$pname == "Dr. TÃ´yÃ´jirÃ´ Kitano"
+da[indx,14]  = "Japanese"
+
+indx <- da$pname == "Dr. Hiroshi Kusama"
+da[indx,14]  = "Japanese"
+
+indx <- da$pname == "Shiko Kusama"
+da[indx,14]  = "Japanese"
+
+indx <- da$pname == "Juan Antonio Buero"
+da[indx,14]  = "Uruguayan"
+
+
+indx <- da$pname == "Kinjiro Mori"
+da[indx,14]  = "Japanese"
+
+
+indx <- da$pname == "Tetsuro Furukaki"
+da[indx,14]  = "Japanese"
+
+
+indx <- da$pname == "Ross Tolmie"
+da$fname = as.character(da$fname)
+da[indx,5]  = "Temporary Collaborator"
+
+
+indx <- da$pname == "Dr. Hector Rulot"
+da[indx,14]  = "Belgian"
+da[indx,8]  = 1877
+
+
+indx <- da$pname == "Ida Spellman"
+da[indx,14]  = "Belgian"
+
+indx <- da$pname == "Anna Teresa Paradas"
+da[indx,14]  = "Colombian"
+
+indx <- da$pname == "Adrianus Pelt"
+da[indx,8]  = 1982
+
+#adding director in information section contract for Pelt
+c = c(000, 000, "Adrianus Pelt", 0, "Director", "First Division", "Information Section", 1982, 1934,1,1,1940,12,31,"Dutch")
+
+da = rbind(da, c)
+
+#Natioanlity set to belgian
+indx <- da$pname == "Adrianus Pelt"
+da[indx,14]  = "Dutch"
+
+
+
+indx <- da$pname == "Fernando Maria Castiella"
+da[indx,14]  = "Chilean"
+
+
+#41) William Rappard
+#has no birth year: it is 1883 (source his personnel file)
+
+indx <- da$pname == "Prof. William E. Rappard"
+da[indx,8]  = 1883
+
+
+#42) Walter Layton
+#has no birth year: it is 1884 (source his personnel file)
+#has no first name: Walter 
+
+indx <- da$pname == "W. Layton"
+da[indx,8]  = 1884
+
+
+#Changing Peter Martin Anker's section contract from Department I to Mandates Section
+indx <- da$pname == "Peter Martin Anker"
+da[indx,7]  = "Mandates Section"
+
+
+
+#changing folke hillgerdt to member of section
+
+indx <- da$pname == "Folke Hillgerdt"
+da[indx,5]  = "Member of Section"
+
+
+
+#23 nationalities add
+indx = da$pname == "Chikao/Chikas Fujisawa"
+da[indx,14]  = "Japanese"	
+
+indx = da$pname == "Prof. Louis Tardy"
+da[indx,14]  = "French"	
+
+indx = da$pname == "Setsuichi Aoki"
+da[indx,14]  = "Japanese"	
+
+indx = da$pname == "Marcel Guillaume Jacques Wiser"
+da[indx,14]  = "Belgian"	
+
+indx = da$pname =="Joseph Hippolyte Marie Ghislain Nisot"	
+da[indx,14]  = "Belgian"	
+
+indx = da$pname =="Philip John Noel-Baker"	
+da[indx,14]  = "British"	
+
+
+indx = da$pname =="Alex Paternotte"
+da[indx,14]  = "Belgian"	
+
+indx = da$pname =="Kaneo Tsuchida"
+da[indx,14]  = "Japanese"	
+
+indx = da$pname =="Angel Maria Cespedes"	
+da[indx,14]  = "Colombia"	
+
+indx = da$pname =="Nokhem/Nahim Sloutzki"	
+da[indx,14]  = "Stateless"	
+
+indx = da$pname =="Charles EugÃ¨ne AloÃ¯s Marie Smets"	
+da[indx,14]  = "Belgian"	
+
+
+indx = da$pname =="AndrÃ©e Marie Colin"	
+da[indx,14]  = "Belgian"	
+
+indx = da$pname =="Ian Fleming"	
+#da[indx,14]  = "British"	
+
+indx = da$pname =="L. Varlez"	
+#da[indx,14]  = "Belgian"	
+
+indx = da$pname =="Edouard Bigwood"	
+#da[indx,14]  = "Belgian"	
+
+
+```
+
+
+Aligning nationalities asignments:
+  
+```{r}
+da$nationality <- str_replace_all(da$nationality,", Swiss", "Swiss")
+da$nationality <- str_replace_all(da$nationality,"BritishSwiss", "British, Swiss")
+da$nationality <- str_replace_all(da$nationality,"English, Dane English,", "English, Dane")
+da$nationality <- str_replace_all(da$nationality,"Fench  French,", "French")
+da$nationality <- str_replace_all(da$nationality,"French,French", "French")
+da$nationality <- str_replace_all(da$nationality,"LatvianSwiss", "Latvian, Swiss")
+da$nationality <- str_replace_all(da$nationality,"AlbanianSwiss", "Albanian, Swiss")
+da$nationality <- str_replace_all(da$nationality,"Dane, Dane", "Dane")
+da$nationality <- str_replace_all(da$nationality,"Dane,Dane", "Dane")
+da$nationality <- str_replace_all(da$nationality,"French, BritishSwiss", "French, British, Swiss")
+da$nationality <- str_replace_all(da$nationality,"SwissSwiss", "Swiss")
+da$nationality <- str_replace_all(da$nationality,"British, British", "British")
+da$nationality <- str_replace_all(da$nationality,"French, French", "French")
+da$nationality <- str_replace_all(da$nationality,"ItalianSwiss", "Italian, Swiss")
+da$nationality <- str_replace_all(da$nationality,"SwissSwissSwiss", "Swiss")
+da$nationality <- str_replace_all(da$nationality,"RussianSwiss", "Russian, Swiss")
+da$nationality <- str_replace_all(da$nationality,"Italian, Italian", "Italian")
+da$nationality <- str_replace_all(da$nationality,"DutchSwiss", "Dutch, Swiss")
+da$nationality <- str_replace_all(da$nationality,"SwissSwiss", "Swiss")
+da$nationality <- str_replace_all(da$nationality,"Swiss,Swiss", "Swiss")
+da$nationality <- str_replace_all(da$nationality,"FrenchSwiss", "French, Swiss")
+da$nationality <- str_replace_all(da$nationality,",Swiss", "Swiss")
+da$nationality <- str_replace_all(da$nationality,"British,British", "British")
+da$nationality <- str_replace_all(da$nationality,"Italian,Italian", "Italian")
+da$nationality <- str_replace_all(da$nationality,"Austrian,Austrian", "Austrian")
+da$nationality <- str_replace_all(da$nationality,"Greek,Greek", "Greek")
+#Aligning British and English personnel
+da$nationality <- str_replace_all(da$nationality,"British", "English")
+da$nationality <- str_replace_all(da$nationality,"Dane,Dane", "Dane")
+
+
+
+da <- da %>% 
+  mutate(nationality = as.factor(nationality))
+
+summary(da$nationality)
+```
+
+concatenating dates to a begin_year and an end_year.. Months and weeks are set to 1.. Thus information is only kept about year, however this deals with the problem of many missing days/months
+```{r}
+da2 <- da %>%
+  filter(!is.na(end_on_year)) %>% 
+  mutate(begin_date = as.Date(paste(begin_on_year,"-01-01", sep = "")),
+         end_date = as.Date(paste(end_on_year,"-01-01", sep = "")))
+
+```
+
+removing "lon" from fnames
+removing "\\" from nationalities
+
+```{r}
+da3 = da2 %>% 
+  mutate(fname = str_replace_all(fname,"LoN ",""))
+```
+
+
+
+Adding ordinal fnames scale
+```{r}
+# import data frame of rank names to ordinal scale
+setwd("~/LONSEA_DB/shiny/data")
+ordinal_ranks <- read.csv("fname_u_with_class.csv", sep = ",", header = FALSE, stringsAsFactors = FALSE)# changed original category csv due to encoding
+# column names
+colnames(ordinal_ranks) = c("u_id", "u_fname" , "u_fname_code")
+# code every object in main
+extract_rank <- rep(NA,nrow(da3))
+
+
+for(i in 1:nrow(ordinal_ranks)){
+  #for each rank a logical vector indexing subject numbers are created
+  idx <- ordinal_ranks$u_fname[i] == da3$fname
+  #true index are translated to oridnal rank numbers for each subject
+  extract_rank[idx] <- ordinal_ranks$u_fname_code[i]
+}
+#ordinal rank numbers are added and code is reversed, so that 9 = highest (directors etc) rank, and 1 = lowest (cleaners etc)
+
+da3 <- da3 %>% 
+  mutate(fname_code = extract_rank,
+         fname_code = 10 - fname_code)
+
+
+#fnames without a predetermined scale, is set to 0.5
+da3[is.na(da3$fname_code), 18] = 0.5
+
+
+
+```
+
+
+
+Filtering out based on missing data
+
+```{r}
+#filtering out strange begin and end year, also where the begin year is after the end
+subset <- da3 %>%
+  filter(begin_on_year > 1900 & end_on_year > 1915, begin_on_year <= end_on_year)
+
+#removing na
+missing <- da3 %>%
+  filter(begin_on_year < 1900 | is.na(begin_on_year) | is.na(end_on_year) | end_on_year < 1915 |begin_on_year > end_on_year)
+
+
+summary(subset$nationality)
+```
+
+
+
+
+```{r}
+
+setwd("~/LONSEA_DB/shiny/data")
+write.csv(subset, "lon_data.csv", row.names = F)
+write.csv(missing, "missing_begin_on_year.csv", row.names = F)
+
+```
+
+```{r}
+top_missing = 
+  missing %>% 
+  filter(str_detect(missing$fname, "Section") | str_detect(missing$fname, "Director") | str_detect(missing$fname, "Chief") | str_detect(missing$fname, "Expert"),
+         fname != "Secretary of Section")
+
+missing_higher_officials <- missing %>% 
+  filter(str_detect(missing$fname, "Section")| #including "Section"
+         str_detect(missing$fname, "Director")| #Including Directors
+         str_detect(missing$fname, "Chief") | #Including Chief
+         str_detect(missing$fname, "Expert")|
+         str_detect(missing$fname, "Head"), #Including Expert
+         fname != "Secretary of Section",
+         canonical_fname != "Second Division",
+         canonical_fname != "Third Division") #Excluding Secretary
+
+write.csv(missing, "missing_higher_officials.csv", row.names = F)
+```
+
+
+time table data format
+
+```{r}
+setwd("~/LONSEA_DB/shiny/data")
+
+df = read.csv("lon_data.csv", sep = ",") 
+mdl_df <- df %>% 
+  select(pname, fname_code,begin_date, end_date) %>% 
+  mutate(begin_date = as.Date(begin_date),
+         end_date = as.Date(end_date))
+
+
+#the "By" argument specifies the precision of the time. alternative argument "1 month"
+result <- setDT(mdl_df)[
+  .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = "year")), 
+  on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
+    , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+
+write.csv(result, "timetable_year.csv",row.names = F)
+
+
+```
+
+
+
