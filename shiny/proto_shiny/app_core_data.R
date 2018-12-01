@@ -9,10 +9,11 @@ p_load("stringr","ggplot2","ggExtra","lmerTest", "zoo","lubridate", "data.table"
 #setwd("~/LONSEA_DB/shiny/proto_shiny") #For
 
 
-#reading 3 data sets - number of individuals for 3 different units.
+
 setwd("~/LONSEA_DB/shiny/proto_shiny")
 df  = read.csv("lon_data.csv")
-
+df %>% mutate(begin_date = as.Date(begin_date),
+              end_date = as.Date(end_date)) -> df
 
 #this controls the layout of the appp
 ui = fluidPage(
@@ -29,10 +30,9 @@ ui = fluidPage(
                   label = "Choose unit to display",
                   choices = c("Total Secretariat", "First Division", "Higher Officials"),
                   selected = "Total Secretariat"),
-      selectInput("nat", 
-                  label = "Choose nationalities",
-                  choices = c("All",levels(df$nationality)),
-                  selected = "All")
+      checkboxGroupInput(inputId = "checkbox", label = "choose nationalities",
+                         choices = c("All",levels(df$nationality)),
+                         selected = "All")
     ), #endsidebarpanel
     
     mainPanel(
@@ -67,43 +67,44 @@ server = function(input, output) {
              oname != "Library",
              canonical_fname != "Second Division") -> df
     }
+  
     
-    
-    if(input$nat != "All"){
+    if(input$checkbox != "All"){
       df %>% 
-        filter(nationality == input$nat) -> df
+        filter(nationality %in% input$checkbox) -> df
     }
     
-    
-    mdl_df <- df %>% 
-      select(pname, fname_code,begin_date, end_date) %>% 
-      mutate(begin_date = as.Date(begin_date),
-             end_date = as.Date(end_date))
-    
-    
-    #the "By" argument specifies the precision of the time. alternative argument "1 month"
-    result <- setDT(mdl_df)[
+    print(head(df))
+     
+    df %>% 
+       #select relevant variables for time table
+      select(pname, fname_code,begin_date, end_date) -> res 
+    # the following function creates time table
+    #the "By" argument specifies the precision of the time. alternative argument can be "1 month"
+    #by chagning "pname" to "nationality" a nationality based time table can be created.
+    setDT(res)[
       .(mseq = seq(as.Date("1919-01-01"), as.Date("1948-12-30"), by = "year")), 
       on = .(begin_date <= mseq, end_date >= mseq), nomatch = 0L, allow.cartesian = TRUE][
-        , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")]
+        , dcast(unique(.SD), pname ~ end_date, toString, value.var = "fname_code")] %>% 
+    left_join( select(df, pname,nationality)) %>% 
+      filter(!duplicated(.)) %>% 
+      select(-nationality, - pname) -> result_nats
     
-    result_nats <- left_join(result, select(df, pname,nationality)) %>% 
-      filter(!duplicated(.))
     
-    count = result_nats[,c(2:(length(result_nats)-1))]
     
-    count = as.data.frame(colSums(count != ""))
-    names(count) = "Count"
+    count = as.data.frame(colSums(result_nats != "")) %>% 
+      rownames_to_column() %>% 
+      mutate(rowname = str_extract_all(rowname,pattern = "[0-9]{4}"),
+             rowname = as.numeric(rowname))
+      
+    names(count) = c("rowname","Count")
     
-    rownames(count) = str_extract_all(rownames(count),pattern = "[0-9]{4}")  
-    
-    count = rownames_to_column(count)
     
     count %>% 
       filter((rowname > input$range[1])  & (rowname < input$range[2])) %>% 
       ggplot(aes(x = rowname, y = Count, fill = Count)) +
       geom_col() +
-      labs( title = paste("Distribution of Employees,", "Nationality = ",input$nat), x ="Year",y = "Number of Employees")
+      labs( title = paste("Distribution of Employees,", "Nationality = ",input$checkbox), x ="Year",y = "Number of Employees")
     
     
     
