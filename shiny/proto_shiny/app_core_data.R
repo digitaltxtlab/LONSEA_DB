@@ -10,10 +10,26 @@ p_load("stringr","ggplot2","ggExtra","lmerTest", "zoo","lubridate", "data.table"
 
 
 
-setwd("~/LONSEA_DB/shiny/proto_shiny")
+
 df  = read.csv("lon_data.csv")
-df %>% mutate(begin_date = as.Date(begin_date),
-              end_date = as.Date(end_date)) -> df
+df %>% 
+  mutate(begin_date = as.Date(begin_date),
+              end_date = as.Date(end_date),
+              gender =as.factor(gender),
+              gender =recode(gender,"0"="Male","1"="Female")) -> df
+
+df %>% 
+  filter(str_detect(fname, "Section")| #including "Section"
+           str_detect(fname, "Director")| #Including Directors
+           str_detect(fname, "Chief") | #Including Chief
+           str_detect(fname, "Expert")|
+           str_detect(fname, "Head of") |
+           str_detect(fname, "Section"),
+         fname != "Secretary of Section",
+         oname != "Treasury",
+         oname != "Library",
+         canonical_fname != "Second Division") %>% 
+  droplevels()-> higher_officials
 
 #this controls the layout of the appp
 ui = fluidPage(
@@ -23,14 +39,25 @@ ui = fluidPage(
   sidebarLayout(
     
     sidebarPanel(
-      sliderInput("range", "Range:",
+      sliderInput("range", "Range:", #adds a slider for years
                   min = 1919, max = 1948,
                   value = c(1919,1948)),
-      selectInput("var", 
+      
+      selectInput("var", #adds dropdown for unit to be displayed
                   label = "Choose unit to display",
                   choices = c("Total Secretariat", "First Division", "Higher Officials"),
                   selected = "Total Secretariat"),
-      checkboxGroupInput(inputId = "checkbox", label = "choose nationalities",
+      
+      checkboxGroupInput(inputId = "cbox_gender", label = "choose gender", #adds checkbox for gender
+                         choices = c("All",levels(df$gender)),
+                         selected = "All"),
+      
+      checkboxGroupInput(inputId = "cbox_higher_off", label = "choose higher officials oname (sections),
+                        this only works if higher offcials is chosen in the 'unit to display'", #adds checkbox for higher officlas
+                         choices = c("All",levels(higher_officials$oname)),
+                         selected = "All"),
+      
+      checkboxGroupInput(inputId = "checkbox", label = "choose nationalities", #adds checkbox for nationalities
                          choices = c("All",levels(df$nationality)),
                          selected = "All")
     ), #endsidebarpanel
@@ -55,23 +82,21 @@ server = function(input, output) {
         filter(canonical_fname == "LoN First Division") -> df
     }
     if(input$var == "Higher Officials"){
-      df %>% 
-      filter(str_detect(fname, "Section")| #including "Section"
-               str_detect(fname, "Director")| #Including Directors
-               str_detect(fname, "Chief") | #Including Chief
-               str_detect(fname, "Expert")|
-               str_detect(fname, "Head of") |
-               str_detect(fname, "Section"),
-             fname != "Secretary of Section",
-             oname != "Treasury",
-             oname != "Library",
-             canonical_fname != "Second Division") -> df
+      df = higher_officials
+      if(input$cbox_higher_off != "All"){
+        df %>% 
+          filter(oname %in% input$cbox_higher_off)
+      }
     }
   
     
     if(input$checkbox != "All"){
       df %>% 
         filter(nationality %in% input$checkbox) -> df
+    }
+    if(input$cbox_gender != "All"){
+      df %>% 
+        filter(gender %in% input$cbox_gender) -> df
     }
     
     print(head(df))
