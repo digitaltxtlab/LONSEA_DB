@@ -147,7 +147,7 @@ indx <- da$pname == "Adrianus Pelt"
 da[indx,8]  = 1982
 
 #adding director in information section contract for Pelt
-c = c(000, 000, "Adrianus Pelt", 0, "Director", "First Division", "Information Section", 1982, 1934,1,1,1940,12,31,"Dutch")
+c = c(000, "Adrianus Pelt", 0, "Director", "First Division", "Information Section", 1982, 1934,1,1,1940,12,31,"Dutch")
 
 da = rbind(da, c)
 
@@ -269,10 +269,13 @@ da$nationality <- str_replace_all(da$nationality,",Swiss", "Swiss")
 da$nationality <- str_replace_all(da$nationality,"British,British", "British")
 da$nationality <- str_replace_all(da$nationality,"Italian,Italian", "Italian")
 da$nationality <- str_replace_all(da$nationality,"Austrian,Austrian", "Austrian")
+da$nationality <- str_replace_all(da$nationality,"Austrian, Austrian", "Austrian")
+
 da$nationality <- str_replace_all(da$nationality,"Greek,Greek", "Greek")
 #Aligning British and English personnel
 da$nationality <- str_replace_all(da$nationality,"British", "English")
 da$nationality <- str_replace_all(da$nationality,"Dane,Dane", "Dane")
+
 
 
 

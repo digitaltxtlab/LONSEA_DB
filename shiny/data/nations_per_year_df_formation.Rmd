@@ -1,0 +1,41 @@
+---
+title: "nationalities_per_year_df_formation"
+author: "Adam"
+date: "2019 M01 31"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+library(pacman)
+p_load("stringr","ggplot2","ggExtra","lmerTest","tidyverse", "zoo","lubridate", "data.table")
+
+setwd("~/LONSEA_DB/shiny/data")
+
+```
+
+
+
+Question: How many nationas are there in the League over time:
+
+Reading in list of nationations in the League. Data from wikipedia
+```{r}
+
+members_raw <- read.csv("membership_overview.csv", sep = ";", na.strings = c("NA", "")) 
+
+members = members_raw[c(-4,-43),] #removing meta text cols
+
+```
+
+Data frame showing number of member states in the League
+```{r}
+per_year <- sapply(members, function(x) sum(!is.na(x))) 
+
+year <- str_replace_all(names(per_year), "X","")
+
+per_year <- data.frame(per_year, year) %>% 
+  mutate(year = as.Date(paste0(year, '-01-01')))
+
+
+write.csv(per_year, "nations_per_year_df.csv")
+```
